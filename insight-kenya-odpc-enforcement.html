@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Compliance Brief — ODPC Enforcement Trends</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/insight-kenya-odpc-enforcement.html" />
+<meta name="description" content="Kenya's ODPC has moved from advisory oversight to active enforcement — fines, compensation orders, and prosecution referrals." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/insight-kenya-odpc-enforcement.html" />
+<meta property="og:title" content="The Compliance Brief — ODPC Enforcement Trends | Muchangi Patrick & Associates Advocates" />
+<meta property="og:description" content="Kenya's ODPC has moved from advisory oversight to active enforcement, with fines, compensation orders, and recommendations to prosecute directors." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/compliance-check.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Compliance Brief — ODPC Enforcement Trends | Muchangi Patrick & Associates Advocates" />
+<meta name="twitter:description" content="Kenya's ODPC has moved from advisory oversight to active enforcement, with fines, compensation orders, and recommendations to prosecute directors." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/compliance-check.jpg" />
+
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root{
+    --ink:#1B1A17;
+    --paper:#F2ECDC;
+    --paper-dim:#E7DFC5;
+    --clay:#A8402C;
+    --clay-deep:#7E2F20;
+    --acacia:#46573A;
+    --acacia-light:#7C8B5E;
+    --gold:#C69A3E;
+    --slate:#5B5A52;
+    --sage:#B9C4A4;
+    --line:#c9bf9c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--gold); color:var(--ink);}
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+
+  .masthead{border-bottom:3px solid var(--ink); padding:28px 0 14px; background:repeating-linear-gradient(135deg, rgba(27,26,23,0.025) 0px, rgba(27,26,23,0.025) 1px, transparent 1px, transparent 14px);}
+  .masthead-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;}
+  .masthead-title{font-family:'Fraunces', serif; font-weight:700; font-size:clamp(34px,5.5vw,52px); letter-spacing:-0.01em; margin:0;}
+  .masthead-title em{font-style:italic; font-weight:400; color:var(--clay);}
+  .masthead-meta{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--slate); text-align:right;}
+  .masthead-tagline{font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--slate); margin-top:6px; font-family:'IBM Plex Mono', monospace;}
+
+  .hero{padding:52px 0 20px; border-bottom:1px solid var(--line);}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--clay); font-weight:600; margin-bottom:16px;}
+  .eyebrow::before{content:"⚖"; font-size:14px;}
+  .hero h1{font-family:'Fraunces', serif; font-size:clamp(32px,5vw,50px); font-weight:600; line-height:1.08; margin:0 0 18px; letter-spacing:-0.01em;}
+  .hero .dek{font-size:19px; color:var(--slate); max-width:640px; font-weight:400; margin-bottom:28px;}
+  .byline{display:flex; gap:20px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.05em; padding-top:16px; border-top:1px solid var(--line);}
+
+  section{padding:48px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2.section-title{font-family:'Fraunces', serif; font-size:clamp(24px,3.4vw,32px); font-weight:600; margin:0 0 8px; display:flex; align-items:baseline; gap:12px;}
+  h2.section-title .num{font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--clay); font-weight:600;}
+  .section-intro{color:var(--slate); max-width:640px; margin-bottom:28px; font-size:15.5px;}
+  p{margin:0 0 16px;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--ink); border-radius:10px; overflow:hidden; margin-top:8px;}
+  .stat{padding:26px 22px; text-align:center; border-right:1px solid var(--ink);}
+  .stat:last-child{border-right:none;}
+  .stat:nth-child(1){background:var(--ink); color:var(--paper);}
+  .stat:nth-child(2){background:var(--clay); color:var(--paper);}
+  .stat:nth-child(3){background:var(--paper-dim); color:var(--ink);}
+  .stat .num-big{font-family:'Fraunces', serif; font-size:clamp(30px,4vw,40px); font-weight:600; display:block; line-height:1;}
+  .stat .num-label{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; margin-top:8px; opacity:0.85;}
+
+  /* ===== PENALTY TRACKER (signature element) ===== */
+  .tracker{margin-top:28px;}
+  .tbar-row{display:grid; grid-template-columns:190px 1fr 90px; align-items:center; gap:14px; margin-bottom:12px;}
+  .tbar-name{font-size:12.5px; font-weight:600; text-align:right; line-height:1.3;}
+  .tbar-track{background:var(--paper-dim); border:1px solid var(--line); border-radius:6px; height:22px; position:relative; overflow:hidden;}
+  .tbar-fill{height:100%; background:linear-gradient(90deg, var(--clay) 0%, var(--gold) 100%); border-radius:6px 0 0 6px;}
+  .tbar-amt{font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--clay-deep);}
+  .tracker-note{font-size:12px; color:var(--slate); margin-top:10px; font-family:'IBM Plex Mono', monospace;}
+
+  /* ===== DOCKET CARDS ===== */
+  .docket{border:1px solid var(--line); border-radius:10px; margin-bottom:16px; overflow:hidden;}
+  .docket summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:18px 22px; background:var(--paper-dim); font-family:'IBM Plex Sans',sans-serif;}
+  .docket summary::-webkit-details-marker{display:none;}
+  .docket summary .d-num{font-family:'IBM Plex Mono', monospace; color:var(--clay); font-size:13px; flex:none; font-weight:600;}
+  .docket summary .d-title{font-weight:600; font-size:15px;}
+  .docket summary .d-sub{font-size:12px; color:var(--slate); font-family:'IBM Plex Mono', monospace; margin-top:2px;}
+  .docket summary::after{content:"+"; margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--slate);}
+  .docket[open] summary::after{content:"–";}
+  .docket-body{padding:6px 22px 22px; font-size:14.5px;}
+  .docket-body .case-ref{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--slate); margin-bottom:10px; display:block;}
+  .docket-body .principle{margin-top:14px; padding:12px 14px; background:var(--paper); border-left:3px solid var(--acacia-light); border-radius:0 6px 6px 0; font-size:13.5px; color:var(--slate);}
+  .docket-body .principle strong{color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px;}
+  .fine-chip{font-family:'IBM Plex Mono', monospace; font-size:11px; background:var(--clay); color:var(--paper); padding:3px 10px; border-radius:20px; flex:none; font-weight:600;}
+
+  .callout{background:var(--ink); color:var(--paper); border-radius:10px; padding:30px 32px; margin:28px 0 0;}
+  .callout .label{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block;}
+  .callout p{color:var(--paper); font-size:16px; margin:0;}
+  .callout strong{color:var(--gold);}
+
+  .pullquote{font-family:'Fraunces', serif; font-style:italic; font-size:clamp(22px,3vw,28px); line-height:1.4; color:var(--clay-deep); border-left:3px solid var(--clay); padding-left:24px; margin:32px 0;}
+
+  /* ===== ACTION LIST ===== */
+  .action-list{list-style:none; margin:24px 0 0; padding:0; counter-reset:act;}
+  .action-list li{counter-increment:act; display:grid; grid-template-columns:38px 1fr; gap:14px; padding:16px 0; border-bottom:1px dashed var(--line);}
+  .action-list li:last-child{border-bottom:none;}
+  .action-list li::before{content:"0" counter(act); font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:14px; color:var(--clay);}
+  .action-list h4{margin:0 0 4px; font-size:15px;}
+  .action-list p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== AUDIT CHECKLIST ===== */
+  .audit-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-top:24px;}
+  .audit-item{border:1px solid var(--line); border-radius:10px; padding:16px 18px; background:var(--paper-dim); font-size:13.5px; display:flex; gap:10px; align-items:flex-start;}
+  .audit-item svg{flex:none; margin-top:2px;}
+
+  footer{background:var(--ink); color:var(--paper); padding:44px 0 30px;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .seal{width:64px; height:64px; flex:none;}
+  footer .source-note{font-size:12.5px; color:#B8B3A2; max-width:480px; line-height:1.7;}
+  footer .fine{font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8A8577; margin-top:18px;}
+
+  @media (max-width:640px){
+    .stat-strip{grid-template-columns:1fr; }
+    .stat{border-right:none; border-bottom:1px solid var(--ink);}
+    .stat:last-child{border-bottom:none;}
+    .tbar-row{grid-template-columns:100px 1fr 70px; gap:8px;}
+    .tbar-name{font-size:11px;}
+    footer .wrap{flex-direction:column;}
+  }
+  .mp-returnbar{background:var(--ink);border-bottom:2px solid var(--gold);}
+  .mp-returnbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap;}
+  .mp-returnbar-brand{display:flex;align-items:center;gap:10px;color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;}
+  .mp-returnbar-brand img{height:32px;width:auto;display:block;}
+  .mp-returnbar-brand b{color:var(--gold);font-weight:600;}
+  .mp-returnbar-back{color:var(--paper);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s;}
+  .mp-returnbar-back:hover{opacity:1;color:var(--gold);}
+  .editorial-credit{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);}
+  .firm-cta{
+    background:var(--paper-dim);
+    border:1px solid var(--clay);
+    border-radius:10px;
+    padding:28px 32px;
+    margin-top:8px;
+  }
+  .firm-cta .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--clay);
+    margin-bottom:12px; display:block; font-weight:600;
+  }
+  .firm-cta p{font-size:15px;color:var(--ink);margin:0 0 14px;}
+  .firm-cta p:last-of-type{margin-bottom:0;}
+  .firm-cta strong{color:var(--clay-deep);}
+  .firm-cta .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .firm-cta .cta-btn{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    text-decoration:none;padding:11px 20px;border-radius:6px;display:inline-block;
+  }
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--paper);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The grace period is over",
+  "description": "Kenya's ODPC has moved from advisory oversight to active enforcement, with fines, compensation orders, and recommendations to prosecute directors.",
+  "image": "https://dataprivacyadvocates.co.ke/images/compliance-check.jpg",
+  "datePublished": "2026-04-01",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dataprivacyadvocates.co.ke/insight-kenya-odpc-enforcement.html"
+  }
+}
+</script>
+
+<style>
+/* Standalone cookie banner (self-contained — this page doesn't load the main site's styles.css) */
+.mp-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#1B1A17;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(120%);transition:transform .45s ease;font-family:'IBM Plex Sans',sans-serif;}
+.mp-cookie-banner.show{transform:translateY(0);}
+.mp-cookie-banner-inner{max-width:1000px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.mp-cookie-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.68);max-width:620px;}
+.mp-cookie-text a{color:#C69A3E;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.mp-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.mp-cookie-btn{padding:10px 20px;font-size:12.5px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border:1px solid transparent;}
+.mp-cookie-btn.essential{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;}
+.mp-cookie-btn.essential:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.mp-cookie-btn.accept{background:#C69A3E;color:#1B1A17;}
+@media(max-width:640px){.mp-cookie-banner-inner{padding:18px;flex-direction:column;align-items:flex-start;}.mp-cookie-actions{width:100%;}}
+</style>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Legal Insights",
+      "item": "https://dataprivacyadvocates.co.ke/insights.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The grace period is over",
+      "item": "https://dataprivacyadvocates.co.ke/insight-kenya-odpc-enforcement.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+
+<div class="mp-returnbar">
+  <div class="wrap mp-returnbar-inner">
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="insights.html" class="mp-returnbar-back">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <p class="masthead-title">The Compliance <em>Brief</em></p>
+      <div class="masthead-meta">Vol. 03 — Issue 29<br>Nairobi Edition</div>
+    </div>
+    <div class="masthead-tagline">Regulation, technology &amp; the business of Kenya</div>
+  </div>
+</div>
+
+<div class="hero wrap">
+  <span class="eyebrow">ODPC Determinations, 2023–2026</span>
+  <h1>The grace period is over</h1>
+  <p class="dek">Kenya's data protection regulator has moved from advisory oversight to active sanction — fines in the millions, compensation orders, and now recommendations to prosecute company directors. Here's what the case law is actually telling businesses to fix.</p>
+  <div class="byline">
+    <span>Analysis</span>
+    <span>8 min read</span>
+    <span>Enforcement &amp; Case Law</span>
+  </div>
+  <div class="editorial-credit">By Patrick Muchangi, Founder &amp; Advocate — Muchangi Patrick &amp; Associates Advocates · Published April 2026</div>
+  <div style="margin-top:16px;"><a href="downloads/insight-kenya-odpc-enforcement.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;" data-kg-file="downloads/insight-kenya-odpc-enforcement.pdf" data-kg-title="The Compliance Brief — ODPC Enforcement Trends" data-kg-id="insight-odpc-enforcement"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
+</div>
+
+<section class="wrap">
+  <p style="font-size:17px;">The Office of the Data Protection Commissioner has entered a decisive enforcement phase. The regulator is no longer testing how compliance is drafted on paper — it is testing how it operates in practice, and the volume of determinations is accelerating fast.</p>
+
+  <div class="stat-strip">
+    <div class="stat"><span class="num-big">9,000+</span><span class="num-label">Complaints handled</span></div>
+    <div class="stat"><span class="num-big">184</span><span class="num-label">Compensation orders issued</span></div>
+    <div class="stat"><span class="num-big">96</span><span class="num-label">Determinations in 2025 — nearly double 2024</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§1</span> What recent fines actually looked like</h2>
+  <p class="section-intro">Eight determinations, ranked by penalty. The pattern: marketing and image-use violations dominate, and digital lenders are taking the heaviest hits.</p>
+
+  <div class="tracker">
+    <div class="tbar-row"><div class="tbar-name">Mulla Pride (Ke Credit)</div><div class="tbar-track"><div class="tbar-fill" style="width:100%"></div></div><div class="tbar-amt">2.9M</div></div>
+    <div class="tbar-row"><div class="tbar-name">Ceres Tech</div><div class="tbar-track"><div class="tbar-fill" style="width:90%"></div></div><div class="tbar-amt">2.6M</div></div>
+    <div class="tbar-row"><div class="tbar-name">Mast Jägermeister SE</div><div class="tbar-track"><div class="tbar-fill" style="width:52%"></div></div><div class="tbar-amt">1.5M</div></div>
+    <div class="tbar-row"><div class="tbar-name">Grain Industries Ltd</div><div class="tbar-track"><div class="tbar-fill" style="width:34%"></div></div><div class="tbar-amt">1.0M</div></div>
+    <div class="tbar-row"><div class="tbar-name">Nova Pioneer Kenya</div><div class="tbar-track"><div class="tbar-fill" style="width:33%"></div></div><div class="tbar-amt">950K</div></div>
+    <div class="tbar-row"><div class="tbar-name">Michael's Bouquet</div><div class="tbar-track"><div class="tbar-fill" style="width:17%"></div></div><div class="tbar-amt">500K</div></div>
+    <div class="tbar-row"><div class="tbar-name">Platinum Credit Ltd</div><div class="tbar-track"><div class="tbar-fill" style="width:9%"></div></div><div class="tbar-amt">250K</div></div>
+    <div class="tbar-row"><div class="tbar-name">Undisclosed lender</div><div class="tbar-track"><div class="tbar-fill" style="width:7%"></div></div><div class="tbar-amt">200K</div></div>
+  </div>
+  <div class="tracker-note">Figures in KES · compensation and penalty amounts as reported in ODPC determinations, 2024–2025</div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§2</span> Eight enforcement trends, in the cases themselves</h2>
+  <p class="section-intro">Expand each docket for the case, the finding, and the practice point to act on.</p>
+
+  <details class="docket" open>
+    <summary>
+      <span class="d-num">01</span>
+      <div><div class="d-title">Implied consent doesn't count anymore</div><div class="d-sub">Chizzy Taabu Orwa &amp; 2 Others v Mast Jägermeister SE</div></div>
+      <span class="fine-chip">KES 1.5M</span>
+    </summary>
+    <div class="docket-body">
+      <p>Event disclaimer notices arguing attendees consented by entering and posing for photos were rejected outright — disclaimers inform, they don't substitute for clear affirmative consent. Also established: the controller carries the burden of proving consent was obtained, consent must be documented (oral consent alone isn't enough), and consent for one purpose doesn't stretch to a different one.</p>
+      <div class="principle"><strong>Practice point</strong>If you can't produce a record showing how and when consent was given, the ODPC treats it as never having been obtained.</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">02</span>
+      <div><div class="d-title">Image and likeness is now its own enforcement category</div><div class="d-sub">Grain Industries v Mbuvu · Fatuma Hadi Ali v Nova Pioneer · Michael's Bouquet</div></div>
+      <span class="fine-chip">KES 500K–1M</span>
+    </summary>
+    <div class="docket-body">
+      <p>A mother's image used commercially on the strength of her daughter's terms-and-conditions click was found unlawful. A school using a minor's image without parental consent drew a heightened award reflecting the extra protection owed to children. A florist that kept using a customer's image past the agreed three-month window learned that expired consent makes continued use unlawful, full stop.</p>
+      <div class="principle"><strong>Practice point</strong>Get specific, express consent for image use, document it, and track expiry dates like a contract renewal.</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">03</span>
+      <div><div class="d-title">Rights on paper aren't rights in practice</div><div class="d-sub">Wananchi Group (Zuku Fibre) · YA v Wananchi Group Kenya Ltd</div></div>
+      <span class="fine-chip">Enforcement notice</span>
+    </summary>
+    <div class="docket-body">
+      <p>A former customer with no working channel to object to processing or request deletion — invalid contact emails, no cooperation with regulators — was enough to establish a breach, regardless of what the privacy policy said. A separate erasure case confirmed the right isn't absolute where a contractual obligation validly persists, but obstructing the request itself compounds the violation.</p>
+      <div class="principle"><strong>Practice point</strong>A dedicated privacy inbox that nobody monitors is not a compliant access/erasure channel.</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">04</span>
+      <div><div class="d-title">Digital lenders are the biggest single target</div><div class="d-sub">Ceres Tech · Mulla Pride (Ke Credit) · EM v Rosky Credit · Complaint 1966 of 2024</div></div>
+      <span class="fine-chip">KES 200K–2.9M</span>
+    </summary>
+    <div class="docket-body">
+      <p>Digital financial services accounted for a third of all 2024 determinations. Unsolicited promotional messages drew the two heaviest fines on this list. Separately, a lender that forwarded a borrower's payslips, bank statements, ID copy and guarantor details to third parties without consent — and then ignored the ODPC's notification — was ordered to pay compensation. The regulator was explicit: loan origination, credit scoring, debt collection and account closure each need their own identified legal basis.</p>
+      <div class="principle"><strong>Practice point</strong>Audit every stage of the credit lifecycle separately — "we have consent to lend" doesn't cover "we can share your payslip with a third party."</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">05</span>
+      <div><div class="d-title">Legitimate purpose still has to be proportionate</div><div class="d-sub">Nderitu &amp; Mureithi v Karungo &amp; Waweru · Various finance-sector determinations</div></div>
+      <span class="fine-chip">Disproportionate processing</span>
+    </summary>
+    <div class="docket-body">
+      <p>Security CCTV that captured footage of a neighbouring private residence was disproportionate processing, even though security is a legitimate purpose. In finance, disclosing loan default information to a borrower's employer was repeatedly found disproportionate — debt recovery is a legitimate interest, but it doesn't justify telling people who have no need to know.</p>
+      <div class="principle"><strong>Practice point</strong>Before processing, ask: is this necessary, is it the least intrusive option, and have we collected only what's adequate?</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">06</span>
+      <div><div class="d-title">You own your agents' mistakes</div><div class="d-sub">Waweru &amp; Bolo v Platinum Credit · ODPC v Tools for Humanity (Worldcoin)</div></div>
+      <span class="fine-chip">KES 250K + criminal exposure</span>
+    </summary>
+    <div class="docket-body">
+      <p>Platinum Credit's defence that unlawful marketing was sent by independent sales agents, not the company itself, was rejected entirely — a controller who engages a third party stays responsible for their compliance. The Worldcoin determination went further: failure to properly register and disclose processing entities exposes the whole organisation to criminal penalties, assessed across the entire processing chain, not just the point of collection.</p>
+      <div class="principle"><strong>Practice point</strong>Compliant Data Processing Agreements plus ongoing oversight — not just a signature at onboarding.</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">07</span>
+      <div><div class="d-title">Directors are now personally exposed</div><div class="d-sub">Eric Munene Njuguna v Chapeo Capital (ZK Pesa) · Wananchi Group</div></div>
+      <span class="fine-chip">Prosecution recommended</span>
+    </summary>
+    <div class="docket-body">
+      <p>A director who personally disclosed personal data without consent drew a prosecution recommendation under Section 72 of the Act. Separately, Wananchi's directors were recommended for prosecution for obstructing the Data Commissioner — denying investigators access despite a valid search warrant.</p>
+      <div class="principle"><strong>Practice point</strong>Data protection is now a board-level accountability issue. Obstruction and incomplete disclosure escalate penalties, they don't avoid them.</div>
+    </div>
+  </details>
+
+  <details class="docket">
+    <summary>
+      <span class="d-num">08</span>
+      <div><div class="d-title">Children's data gets the strictest reading</div><div class="d-sub">Fatuma Hadi Ali v Nova Pioneer Kenya Limited</div></div>
+      <span class="fine-chip">KES 950K</span>
+    </summary>
+    <div class="docket-body">
+      <p>Section 33(1) requires parental consent before processing a minor's data, and the burden of proof sits with the controller. Using a minor's image for advertising was treated as commercial processing requiring express consent — general permission forms don't meet that bar.</p>
+      <div class="principle"><strong>Practice point</strong>Auditable parental consent, clear privacy notices, and a best-interests-of-the-child test before any minor's data is used commercially.</div>
+    </div>
+  </details>
+
+  <div class="pullquote">"Where a controller cannot prove consent, they are deemed not to have obtained it at all." — the ODPC's standing position across recent determinations.</div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§3</span> Seven fixes to make now</h2>
+  <p class="section-intro">Not a five-year plan — these are the gaps the ODPC is actually finding, in the order they tend to surface.</p>
+
+  <ul class="action-list">
+    <li><div><h4>Audit consent mechanisms</h4><p>If you can't prove it, the ODPC treats it as never obtained. Oral consent must be recorded or confirmed in writing.</p></div></li>
+    <li><div><h4>Operationalise data subject rights</h4><p>An unmonitored inbox is not a compliant access, rectification or erasure channel.</p></div></li>
+    <li><div><h4>Review marketing practices</h4><p>Express consent for image use specifically — and respect the expiry date you agreed to.</p></div></li>
+    <li><div><h4>Audit third-party relationships</h4><p>You're liable for agents and processors. Execute compliant DPAs and keep exercising oversight, not just at signing.</p></div></li>
+    <li><div><h4>Apply the proportionality test</h4><p>Necessity, least intrusive means, and data minimisation — before processing starts, not after a complaint.</p></div></li>
+    <li><div><h4>Cooperate fully with the regulator</h4><p>Obstruction and delay now escalate straight to prosecution recommendations.</p></div></li>
+    <li><div><h4>Document cross-border transfers</h4><p>As Kenya moves toward Malabo Convention accession, map your flows and prepare safeguards now.</p></div></li>
+  </ul>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§4</span> The audit regime taking shape</h2>
+  <p class="section-intro">The proposed Data Protection Compliance Audit Regulations, 2024 formalise how audits get triggered — complaints, investigations, risk assessments, breach notifications, or the ODPC acting on its own initiative.</p>
+
+  <div class="audit-grid">
+    <div class="audit-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><div>Maintain Records of Processing Activities (ROPA)</div></div>
+    <div class="audit-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><div>Review privacy and security controls</div></div>
+    <div class="audit-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><div>Test incident response capabilities</div></div>
+    <div class="audit-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg><div>Deploy efficient DSAR processes</div></div>
+    <div class="audit-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><div>Review third-party agreements</div></div>
+    <div class="audit-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="1.8"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg><div>Document lawful bases for processing</div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§5</span> The bottom line</h2>
+  <p>Every trend above traces back to the same test: does the mechanism actually work when a data subject or a regulator tries to use it? Policies that exist only on paper — unmonitored inboxes, disclaimer notices standing in for consent, agent relationships with no oversight — are exactly what recent determinations have punished. The cost of building this properly is real. The determinations above show what the alternative costs.</p>
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    <p>The ODPC is <strong>testing how compliance operates in practice</strong> — not how it reads in your policy document. That's the single sentence to carry into your next internal audit.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="firm-cta">
+    <span class="label">How this touches your data protection exposure</span>
+    <p>Active enforcement means the cost of getting compliance wrong is no longer theoretical — fines, compensation orders, and even recommendations to prosecute directors are now live outcomes, not remote risks.</p>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> helps organisations run data protection audits, fix compliance gaps before the ODPC finds them, and respond if an enforcement notice or complaint has already landed. If you're unsure where your business stands, now is the time to check.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn primary">Book a Consultation</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" class="cta-btn secondary">Chat on WhatsApp</a>
+      <a href="expertise.html" class="cta-btn secondary">See Our Data Privacy Practice</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="callout" style="background:var(--ink);border:1px solid var(--gold);">
+    <span class="label" style="color:var(--gold);">Talk to us</span>
+    <p style="color:var(--paper);font-size:17px;line-height:1.6;margin-bottom:18px;">
+      Muchangi Patrick &amp; Associates Advocates advises fintechs, startups, corporates and institutions on data protection and data privacy compliance across Kenya &mdash; from ODPC registration and DPIAs to outsourced DPO services and cross-border data transfer advisory. If the issues raised above touch your business, we can help you get ahead of them.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://dataprivacyadvocates.co.ke/contact.html" style="background:var(--gold);color:var(--ink);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Book a Consultation &rarr;</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" style="background:transparent;color:var(--paper);border:1px solid var(--paper-dim);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="seal" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="#C69A3E" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="24" stroke="#C69A3E" stroke-width="1"/>
+        <text x="32" y="30" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="8" font-weight="600">ODPC</text>
+        <text x="32" y="40" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="7">2023–26</text>
+      </svg>
+    </div>
+    <div class="source-note">
+      This analysis is for general informational purposes and does not constitute legal advice. It draws on ODPC determinations and related High Court decisions from 2023–2026. Organisations should consult qualified legal counsel on their specific obligations.
+      <div class="fine">The Compliance Brief is prepared by the Editorial Board of Muchangi Patrick &amp; Associates Advocates · Nairobi · Not legal advice — consult qualified counsel before acting on this analysis.</div>
+    </div>
+  </div>
+</footer>
+
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+    }
+    banner.classList.remove('show');
+  }
+
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="script.js?v=8"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenya DP Case Law: ODPC Disputes in the High Court</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html" />
+<meta name="description" content="A guide to Kenya's data protection case law: how the High Court ruled on ODPC determinations and privacy claims, 2023-2026." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html" />
+<meta property="og:title" content="Kenya Data Protection Case Law: ODPC Disputes &amp; Privacy Rights in the High Court (2023–2026)" />
+<meta property="og:description" content="How Kenya's High Court has ruled on ODPC determinations, data protection disputes and privacy rights claims between 2023 and 2026 — and what the jurisprudence means for the next case." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/scales-balance.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kenya Data Protection Case Law: ODPC Disputes &amp; Privacy Rights in the High Court (2023–2026)" />
+<meta name="twitter:description" content="How Kenya's High Court has ruled on ODPC determinations, data protection disputes and privacy rights claims between 2023 and 2026." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/scales-balance.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<style>
+  :root{
+    --ink:#1B1A17;
+    --paper:#F2ECDC;
+    --paper-dim:#E7DFC5;
+    --clay:#A8402C;
+    --clay-deep:#7E2F20;
+    --acacia:#46573A;
+    --acacia-light:#7C8B5E;
+    --gold:#C69A3E;
+    --slate:#5B5A52;
+    --sage:#B9C4A4;
+    --line:#c9bf9c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--gold); color:var(--ink);}
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+
+  .masthead{border-bottom:3px solid var(--ink); padding:28px 0 14px; background:repeating-linear-gradient(135deg, rgba(27,26,23,0.025) 0px, rgba(27,26,23,0.025) 1px, transparent 1px, transparent 14px);}
+  .masthead-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;}
+  .masthead-title{font-family:'Fraunces', serif; font-weight:700; font-size:clamp(34px,5.5vw,52px); letter-spacing:-0.01em; margin:0;}
+  .masthead-title em{font-style:italic; font-weight:400; color:var(--clay);}
+  .masthead-meta{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--slate); text-align:right;}
+  .masthead-tagline{font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--slate); margin-top:6px; font-family:'IBM Plex Mono', monospace;}
+
+  .hero{padding:52px 0 20px; border-bottom:1px solid var(--line);}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--clay); font-weight:600; margin-bottom:16px;}
+  .eyebrow::before{content:"⚖"; font-size:14px;}
+  .hero h1{font-family:'Fraunces', serif; font-size:clamp(30px,4.6vw,46px); font-weight:600; line-height:1.12; margin:0 0 18px; letter-spacing:-0.01em;}
+  .hero .dek{font-size:19px; color:var(--slate); max-width:680px; font-weight:400; margin-bottom:28px;}
+  .byline{display:flex; gap:20px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.05em; padding-top:16px; border-top:1px solid var(--line);}
+
+  section{padding:48px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2.section-title{font-family:'Fraunces', serif; font-size:clamp(24px,3.4vw,32px); font-weight:600; margin:0 0 8px; display:flex; align-items:baseline; gap:12px;}
+  h2.section-title .num{font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--clay); font-weight:600;}
+  .section-intro{color:var(--slate); max-width:680px; margin-bottom:28px; font-size:15.5px;}
+  p{margin:0 0 16px;}
+
+  .stat-strip{display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--ink); border-radius:10px; overflow:hidden; margin-top:8px;}
+  .stat{padding:26px 22px; text-align:center; border-right:1px solid var(--ink);}
+  .stat:last-child{border-right:none;}
+  .stat:nth-child(1){background:var(--ink); color:var(--paper);}
+  .stat:nth-child(2){background:var(--clay); color:var(--paper);}
+  .stat:nth-child(3){background:var(--paper-dim); color:var(--ink);}
+  .stat .num-big{font-family:'Fraunces', serif; font-size:clamp(28px,4vw,38px); font-weight:600; display:block; line-height:1;}
+  .stat .num-label{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; margin-top:8px; opacity:0.85;}
+
+  .callout{background:var(--ink); color:var(--paper); border-radius:10px; padding:30px 32px; margin:28px 0 0;}
+  .callout .label{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block;}
+  .callout p{color:var(--paper); font-size:16px; margin:0;}
+  .callout strong{color:var(--gold);}
+
+  .pullquote{font-family:'Fraunces', serif; font-style:italic; font-size:clamp(21px,2.8vw,27px); line-height:1.4; color:var(--clay-deep); border-left:3px solid var(--clay); padding-left:24px; margin:32px 0;}
+
+  .case-tag-list{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;}
+  .case-tag-list li{border:1px solid var(--line);border-radius:8px;padding:14px 18px;background:var(--paper-dim);font-size:14px;}
+  .case-tag-list li a{color:var(--clay-deep);font-weight:600;text-decoration:none;}
+  .case-tag-list li a:hover{text-decoration:underline;}
+  .case-tag-list li span{display:block;color:var(--slate);font-family:'IBM Plex Mono',monospace;font-size:11.5px;margin-top:4px;}
+
+  .action-list{list-style:none; margin:24px 0 0; padding:0; counter-reset:act;}
+  .action-list li{counter-increment:act; display:grid; grid-template-columns:38px 1fr; gap:14px; padding:16px 0; border-bottom:1px dashed var(--line);}
+  .action-list li:last-child{border-bottom:none;}
+  .action-list li::before{content:"0" counter(act); font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:14px; color:var(--clay);}
+  .action-list h4{margin:0 0 4px; font-size:15px;}
+  .action-list p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  .toc{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-top:24px;}
+  .toc a{border:1px solid var(--line); border-radius:8px; padding:12px 16px; font-size:13px; color:var(--ink); text-decoration:none; background:var(--paper-dim); display:block; font-weight:600;}
+  .toc a small{display:block; font-weight:400; color:var(--slate); font-family:'IBM Plex Mono', monospace; font-size:11px; margin-top:4px;}
+  .toc a:hover{border-color:var(--clay); color:var(--clay-deep);}
+
+  .faq-item{border-bottom:1px solid var(--line); padding:18px 0;}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-item h4{margin:0 0 8px; font-size:15.5px; font-family:'Fraunces',serif; font-weight:600;}
+  .faq-item p{margin:0; font-size:14.5px; color:var(--slate);}
+
+  footer{background:var(--ink); color:var(--paper); padding:44px 0 30px;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .seal{width:64px; height:64px; flex:none;}
+  footer .source-note{font-size:12.5px; color:#B8B3A2; max-width:480px; line-height:1.7;}
+  footer .fine{font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8A8577; margin-top:18px;}
+
+  @media (max-width:640px){
+    .stat-strip{grid-template-columns:1fr; }
+    .stat{border-right:none; border-bottom:1px solid var(--ink);}
+    .stat:last-child{border-bottom:none;}
+    footer .wrap{flex-direction:column;}
+  }
+  .mp-returnbar{background:var(--ink);border-bottom:2px solid var(--gold);}
+  .mp-returnbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap;}
+  .mp-returnbar-brand{display:flex;align-items:center;gap:10px;color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;}
+  .mp-returnbar-brand img{height:32px;width:auto;display:block;}
+  .mp-returnbar-brand b{color:var(--gold);font-weight:600;}
+  .mp-returnbar-back{color:var(--paper);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s;}
+  .mp-returnbar-back:hover{opacity:1;color:var(--gold);}
+  .editorial-credit{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);}
+  .firm-cta{background:var(--paper-dim); border:1px solid var(--clay); border-radius:10px; padding:28px 32px; margin-top:8px;}
+  .firm-cta .label{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--clay); margin-bottom:12px; display:block; font-weight:600;}
+  .firm-cta p{font-size:15px;color:var(--ink);margin:0 0 14px;}
+  .firm-cta p:last-of-type{margin-bottom:0;}
+  .firm-cta strong{color:var(--clay-deep);}
+  .firm-cta .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .firm-cta .cta-btn{font-family:'IBM Plex Sans',sans-serif; font-size:13px;font-weight:600;letter-spacing:.02em; text-decoration:none;padding:11px 20px;border-radius:6px;display:inline-block;}
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--paper);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kenya's Data Protection Case Law So Far: What 12 High Court Decisions Say About ODPC Disputes and Privacy Rights",
+  "description": "A complete guide to Kenya's emerging data protection case law: how the High Court has ruled on ODPC determinations, data protection disputes and privacy rights claims between 2023 and 2026.",
+  "image": "https://dataprivacyadvocates.co.ke/images/scales-balance.jpg",
+  "datePublished": "2026-07-05",
+  "dateModified": "2026-07-05",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "about": [
+    "Office of the Data Protection Commissioner",
+    "Data Protection Act Kenya",
+    "Privacy rights Kenya",
+    "Data protection disputes",
+    "Kenya data protection case law",
+    "Article 31 Constitution of Kenya"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dataprivacyadvocates.co.ke/"},
+    {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://dataprivacyadvocates.co.ke/insights.html"},
+    {"@type": "ListItem", "position": 3, "name": "Kenya's Data Protection Case Law So Far", "item": "https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the ODPC and what does it do in Kenya?",
+      "acceptedAnswer": {"@type": "Answer", "text": "The Office of the Data Protection Commissioner (ODPC) is Kenya's data protection regulator, established under the Data Protection Act, 2019. It investigates complaints from data subjects, issues determinations and compensation orders, and enforces the Act against data controllers and processors."}
+    },
+    {
+      "@type": "Question",
+      "name": "What have Kenyan courts said about data protection disputes so far?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Between 2023 and 2026, the High Court has decided a growing number of appeals, judicial review applications and constitutional petitions arising from ODPC complaints. The emerging case law addresses procedural fairness in ODPC investigations, the correct forum for a dispute (appeal, judicial review, the Employment and Labour Relations Court, or a constitutional petition), vicarious liability of data controllers for their agents, how compensation under the Act should be quantified, and how ODPC awards are enforced."}
+    },
+    {
+      "@type": "Question",
+      "name": "How does the High Court protect privacy rights under Article 31 of the Constitution?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Kenyan courts treat Article 31 of the Constitution as the foundation of the statutory right to data protection, but require a claimant to demonstrate a specific, actual infringement of privacy rather than relying on a bare invocation of the Article or the Data Protection Act. Where the relief sought is one the ODPC has no power to grant, such as a constitutional declaration or general damages, a claimant may proceed directly by constitutional petition rather than through the ODPC first."}
+    },
+    {
+      "@type": "Question",
+      "name": "Are ODPC compensation awards being upheld on appeal?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Not automatically. Several of the largest ODPC compensation awards reviewed by the High Court so far have been reduced or set aside on appeal, most often because the award was not tied to proven damage or distress, because of undisclosed evidence in the ODPC's process, or because the underlying complaint fell outside the ODPC's jurisdiction to determine."}
+    }
+  ]
+}
+</script>
+
+<style>
+/* Standalone cookie banner (self-contained — this page doesn't load the main site's styles.css) */
+.mp-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#1B1A17;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(120%);transition:transform .45s ease;font-family:'IBM Plex Sans',sans-serif;}
+.mp-cookie-banner.show{transform:translateY(0);}
+.mp-cookie-banner-inner{max-width:1000px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.mp-cookie-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.68);max-width:620px;}
+.mp-cookie-text a{color:#C69A3E;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.mp-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.mp-cookie-btn{padding:10px 20px;font-size:12.5px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border:1px solid transparent;}
+.mp-cookie-btn.essential{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;}
+.mp-cookie-btn.essential:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.mp-cookie-btn.accept{background:#C69A3E;color:#1B1A17;}
+@media(max-width:640px){.mp-cookie-banner-inner{padding:18px;flex-direction:column;align-items:flex-start;}.mp-cookie-actions{width:100%;}}
+</style>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+
+<div class="mp-returnbar">
+  <div class="wrap mp-returnbar-inner">
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="insights.html" class="mp-returnbar-back">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <p class="masthead-title">The Jurisprudence <em>Review</em></p>
+      <div class="masthead-meta">Data Protection &amp; Privacy Law<br>ODPC &amp; High Court, Kenya</div>
+    </div>
+    <div class="masthead-tagline">Where Kenyan data protection law actually stands, case by case</div>
+  </div>
+</div>
+
+<div class="hero wrap">
+  <span class="eyebrow">Kenya Data Protection Jurisprudence · 2023–2026</span>
+  <h1>Kenya's data protection case law so far: what 12 High Court decisions say about ODPC disputes and privacy rights</h1>
+  <p class="dek">Every published High Court decision reviewing an ODPC determination, read together, tells a coherent story about where Kenyan data protection law is heading. This is that story — the forum questions, the liability questions, the compensation questions, and what they mean for privacy rights in Kenya more broadly.</p>
+  <div class="byline">
+    <span>Analysis</span>
+    <span>11 min read</span>
+    <span>Data Protection · Administrative Law · Privacy Rights</span>
+  </div>
+  <div class="editorial-credit">By Patrick Muchangi, Founder &amp; Advocate — Muchangi Patrick &amp; Associates Advocates · Published July 2026</div>
+  <div style="margin-top:16px;"><a href="downloads/insight-kenya-odpc-high-court-jurisprudence.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;" data-kg-file="downloads/insight-kenya-odpc-high-court-jurisprudence.pdf" data-kg-title="Kenya DP Case Law: ODPC Disputes in the High Court" data-kg-id="insight-odpc-high-court-jurisprudence"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
+</div>
+
+<section class="wrap">
+  <p style="font-size:17px;">Ask what Kenyan law actually says about a data protection dispute, and until recently the honest answer was: mostly the statute, and very little else. That has changed. Since the Office of the Data Protection Commissioner began issuing six-figure compensation orders in earnest, a real body of High Court jurisprudence has grown up around it — appeals under Section 64 of the Data Protection Act, 2019, judicial review applications testing the ODPC's own process, and constitutional petitions invoking Article 31 directly. Twelve decisions now form the backbone of that jurisprudence. Individually, each is a case note. Read together, they answer the questions every data controller, complainant and advocate in Kenya is currently asking: where do I file, who is actually liable, how much is a breach worth, and what happens when the regulator itself is the one at fault.</p>
+
+  <div class="stat-strip">
+    <div class="stat"><span class="num-big">12</span><span class="num-label">High Court decisions reviewed</span></div>
+    <div class="stat"><span class="num-big">6/12</span><span class="num-label">ODPC determinations set aside or reduced on review</span></div>
+    <div class="stat"><span class="num-big">2023–26</span><span class="num-label">Period the jurisprudence spans</span></div>
+  </div>
+
+  <div class="toc">
+    <a href="#sec-reach">§1 The regulator's reach<small>What the ODPC can and can't decide</small></a>
+    <a href="#sec-forum">§2 Choosing the right forum<small>Appeal, JR, ELRC or petition</small></a>
+    <a href="#sec-liability">§3 Liability &amp; quantum<small>Who pays, and how much</small></a>
+    <a href="#sec-regulator">§4 When the regulator is the problem<small>Delay, mandamus, enforcement</small></a>
+    <a href="#sec-privacy">§5 What it means for privacy rights<small>Reading Article 31 alongside the Act</small></a>
+    <a href="#sec-faq">§6 Frequently asked questions<small>Quick answers, cited to the cases</small></a>
+  </div>
+</section>
+
+<section class="wrap" id="sec-reach">
+  <h2 class="section-title"><span class="num">§1</span> The regulator's reach — and its limits</h2>
+  <p class="section-intro">The single clearest trend across all twelve rulings is that Kenyan courts will enforce the Data Protection Act's substance, but they police the ODPC's own process and jurisdiction with equal rigour.</p>
+  <p>Two decisions capture this most sharply. In one, the ODPC pressed ahead to a compensation award while a passenger's real grievance — a wheelchair never provided — was still working through the airline's own internal resolution process; the High Court set the award aside as an overreach into a dispute that was never really about data at all, and repeated a principle that now runs through the entire body of case law: a technical violation of the Act is not, by itself, evidence of compensable harm under Section 65. In another, a determination reached on the mistaken premise that a respondent had simply gone silent — when a response had, in fact, been emailed weeks earlier — was exposed as a live risk of relying on a single, unverified channel of service.</p>
+  <p>The throughline for any business facing an ODPC complaint: the Commissioner's investigative powers are real and increasingly well used, but they are not unlimited, and a determination built on an incomplete factual record or an overextended mandate does not survive appellate scrutiny.</p>
+  <div class="pullquote">"The right to a fair hearing... is not a mere technicality but the bedrock of Kenyan jurisprudence." — AN Ongeri, J, Platinum Credit Limited v Data Protection Commissioner &amp; Another</div>
+</section>
+
+<section class="wrap" id="sec-forum">
+  <h2 class="section-title"><span class="num">§2</span> Choosing the right forum: appeal, judicial review, ELRC, or a constitutional petition</h2>
+  <p class="section-intro">Section 64 of the Act gives a statutory right of appeal from an ODPC determination — but four separate rulings confirm it is not the only door, and picking the wrong one can be fatal to an otherwise strong case.</p>
+  <p>The dividing line the High Court keeps drawing is between being heard and disagreeing with the outcome, and never being heard at all. The former is a Section 64 appeal. The latter — a party who was genuinely denied any opportunity to respond before a determination was made — is treated as an exceptional circumstance under Section 9(4) of the Fair Administrative Action Act, opening the door to judicial review instead. A separate ruling narrows the High Court's own jurisdiction further: where a data protection complaint is rooted in a contract of employment, it may belong before the Employment and Labour Relations Court under Articles 162(2) and 165(5), not before the High Court at all — and running an appeal and a judicial review against the same determination at the same time is treated as an abuse of process in its own right.</p>
+  <p>A third strand deals with constitutional petitions. Where the relief actually sought — a permanent injunction, a constitutional declaration, general damages for a constitutional violation — is something the ODPC simply has no power to grant, the doctrine that a complainant must first exhaust the ODPC's own remedies does not apply. And a party cannot use a jurisdictional objection as an afterthought: one ruling held that admitting a court's jurisdiction earlier in a pleading forecloses raising a jurisdictional objection later without first amending that pleading.</p>
+  <div class="callout">
+    <span class="label">Practical rule of thumb</span>
+    <p>"I was heard but I disagree" → appeal. "I was never heard at all" → judicial review may be available. "The ODPC can't grant what I'm actually asking for" → a constitutional petition may be the only real route. "This is fundamentally an employment dispute" → check the ELRC's jurisdiction before filing anywhere else.</p>
+  </div>
+</section>
+
+<section class="wrap" id="sec-liability">
+  <h2 class="section-title"><span class="num">§3</span> Liability, data subjects, and what compensation actually costs</h2>
+  <p class="section-intro">Three rulings settle recurring fintech and telco fact patterns, and together they are reshaping how compensation claims under Section 65 are argued and defended.</p>
+  <p>On liability, the position is now settled: a data controller cannot escape responsibility for unlawful processing carried out by its own sales agents acting within the scope of their delegated authority, and a controller that cannot produce its own agency agreements when asked should expect the court to draw an adverse inference against it. But settled liability has not meant unchecked quantum. The same rulings that affirm vicarious liability also revise ODPC compensation awards downward — sometimes substantially — on the basis that an award pitched at a level that risks the closure of a smaller respondent is punitive rather than compensatory, and that compensation must track actual proven damage or distress, not the size of the respondent's balance sheet.</p>
+  <p>A related question — who actually counts as a "data subject" — was tested where a man who had never been a customer of a SACCO kept receiving its account alerts after inheriting a recycled mobile number. The High Court held he was not a data subject in respect of that number at all, because no data about him, specifically, had ever been processed, and was blunt that the Act "should not be used as a cash cow" for the inconvenience of a recycled number. Read across all three rulings, the same two-part test keeps recurring: can the controller show its oversight of the agent relationship, and is the compensation figure actually tied to proven harm.</p>
+</section>
+
+<section class="wrap" id="sec-regulator">
+  <h2 class="section-title"><span class="num">§4</span> When the ODPC is the problem: delay, mandamus, and enforcing an award</h2>
+  <p class="section-intro">Two rulings look at the other side of the relationship — what happens when the regulator itself sits on a complaint, and what happens once it has actually issued a determination.</p>
+  <p>Where the ODPC acknowledges a complaint, assigns it a reference number, and then goes quiet well past the 90-day statutory determination window under Section 56(5), the High Court has confirmed that mandamus is available to compel action — and treated that statutory timeline as mandatory rather than aspirational. On the other side of an award, one ruling confirms that an ODPC determination is binding and enforceable as a court order under Regulation 14(5) of the Complaints Handling Procedure and Enforcement Regulations, that filing an appeal does not automatically suspend enforcement under Order 42 Rule 6, and that a respondent who wants breathing room must apply separately and promptly for a stay of execution.</p>
+</section>
+
+<section class="wrap" id="sec-privacy">
+  <h2 class="section-title"><span class="num">§5</span> What it means for privacy rights in Kenya more broadly</h2>
+  <p class="section-intro">Read alongside Article 31 of the Constitution, this case law is doing more than interpreting a single statute — it is defining how privacy rights actually get enforced in Kenya.</p>
+  <p>One useful data point comes from outside the ODPC process entirely: a shareholding dispute where a recording of a meeting was challenged on Article 31 and Data Protection Act grounds. The High Court held that an objector must actually demonstrate how their privacy was infringed — a bare invocation of the Constitution or the Act is not enough on its own, and questions about how evidence was obtained are typically for full trial rather than a preliminary skirmish. The practical effect is that Kenyan courts are treating the constitutional right to privacy and the statutory data protection framework as complementary but distinct: the Constitution supplies the underlying right and the standard for limiting it, while the Act and the ODPC supply the ordinary enforcement mechanism — with a constitutional petition reserved for the cases the statutory scheme genuinely cannot reach.</p>
+  <p>For anyone tracking Kenyan data protection cases, ODPC enforcement trends, or privacy rights litigation more generally, this is the clearest signal yet that Kenya's courts are building a genuinely Kenyan jurisprudence on data protection — not simply importing GDPR reasoning wholesale, but working out, case by case, how Article 31, the Data Protection Act, 2019, and the Fair Administrative Action Act fit together.</p>
+  <div class="callout">
+    <span class="label">Key takeaway</span>
+    <p>Kenyan courts are enforcing the Data Protection Act's substance <strong>and</strong> policing the ODPC's own process just as strictly — and treating the constitutional right to privacy as a distinct, higher-order right that the statutory scheme does not exhaust.</p>
+  </div>
+</section>
+
+<section class="wrap" id="sec-faq">
+  <h2 class="section-title"><span class="num">§6</span> Frequently asked questions</h2>
+  <p class="section-intro">Quick answers to the questions we're asked most often about ODPC disputes and Kenyan data protection litigation — each grounded in the case law above.</p>
+  <div class="faq-item">
+    <h4>What is the ODPC and what does it do in Kenya?</h4>
+    <p>The Office of the Data Protection Commissioner is Kenya's data protection regulator under the Data Protection Act, 2019. It investigates complaints from data subjects, issues determinations and compensation orders, and enforces the Act against data controllers and processors.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What have Kenyan courts said about data protection disputes so far?</h4>
+    <p>Between 2023 and 2026, the High Court has decided a growing number of appeals, judicial review applications and constitutional petitions arising from ODPC complaints — addressing procedural fairness, the correct forum for a dispute, vicarious liability of data controllers, how compensation should be quantified, and how ODPC awards are enforced. See our individual <a href="insights.html#case-notes">case notes on the Blog</a> for all twelve rulings.</p>
+  </div>
+  <div class="faq-item">
+    <h4>How does the High Court protect privacy rights under Article 31 of the Constitution?</h4>
+    <p>Courts require a claimant to demonstrate a specific, actual infringement of privacy rather than a bare invocation of Article 31 or the Act. Where the relief sought is one the ODPC has no power to grant, a claimant may proceed directly by constitutional petition instead of going through the ODPC first.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Are ODPC compensation awards being upheld on appeal?</h4>
+    <p>Not automatically. Several of the largest ODPC compensation awards reviewed so far have been reduced or set aside — most often for lack of proven damage or distress, undisclosed evidence in the ODPC's process, or a complaint that fell outside the ODPC's jurisdiction to determine.</p>
+  </div>
+
+  <div style="margin-top:24px;padding:16px 20px;border:1px dashed var(--line);border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--slate);">
+    <strong style="color:var(--ink);">Cite this page:</strong> Muchangi Patrick &amp; Associates Advocates, "Kenya's Data Protection Case Law So Far: What 12 High Court Decisions Say About ODPC Disputes and Privacy Rights" (dataprivacyadvocates.co.ke, July 2026) &lt;https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html&gt;.
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="firm-cta">
+    <span class="label">If an ODPC complaint or determination has landed on your desk</span>
+    <p>The forum you choose and the procedural record you build in the first 30 days usually decide the outcome of an ODPC dispute — whether you are defending a complaint, appealing a determination, or enforcing an award that isn't being paid.</p>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> represents complainants and respondents before the Office of the Data Protection Commissioner and on appeal, judicial review and constitutional petition before the High Court of Kenya.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn primary">Book a Consultation</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" class="cta-btn secondary">Chat on WhatsApp</a>
+      <a href="insights.html#case-notes" class="cta-btn secondary">Read the Case Notes</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="callout" style="background:var(--ink);border:1px solid var(--gold);">
+    <span class="label" style="color:var(--gold);">Read the individual cases</span>
+    <p style="color:var(--paper);font-size:16px;line-height:1.6;margin-bottom:8px;">This overview draws on all twelve rulings in our case-by-case digest. Jump directly to any decision:</p>
+    <ul class="case-tag-list" style="margin-top:16px;">
+      <li><a href="case-platinum-credit-limited-v-data-protection-commis.html">Undisclosed witness evidence sinks a KES 400,000 award</a><span>Platinum Credit Limited v Data Protection Commissioner &amp; Another · [2026] KEHC 7257</span></li>
+      <li><a href="case-republic-v-office-of-the-data-protection-commiss.html">Never being heard at all is the exception that unlocks judicial review</a><span>Republic v ODPC; BVB Lounge (Ex Parte) · [2026] KEHC 114</span></li>
+      <li><a href="case-premier-credit-ltd-v-office-of-the-data-protecti.html">Vicarious liability holds — but so does proportionality</a><span>Premier Credit Ltd v ODPC &amp; Another · [2026] KEHC 9467</span></li>
+      <li><a href="case-republic-v-office-of-data-protection-commissione.html">Mandamus compels the ODPC to act after 90 days of silence</a><span>Republic v ODPC; HS &amp; 2 Others · [2026] KEHC 3987</span></li>
+    </ul>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
+      <a href="insights.html#case-notes" style="background:var(--gold);color:var(--ink);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:14px;">See All 12 Cases &rarr;</a>
+      <a href="insight-kenya-odpc-case-law-vol2.html" style="background:transparent;color:var(--paper);border:1px solid var(--paper-dim);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:14px;">Read Volume II &rarr;</a>
+      <a href="/resources/practice-notes/" style="background:transparent;color:var(--paper);border:1px solid var(--paper-dim);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:14px;">Browse the Knowledge Centre</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="seal" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="#C69A3E" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="24" stroke="#C69A3E" stroke-width="1"/>
+        <text x="32" y="30" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="8" font-weight="600">KEHC</text>
+        <text x="32" y="40" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="7">2023–26</text>
+      </svg>
+    </div>
+    <div class="source-note">
+      This analysis synthesises published High Court judgments ([2026] KEHC series) reviewing determinations of the Office of the Data Protection Commissioner. It is prepared for general informational purposes, reflects our own analysis and characterisation of the case law, and does not constitute legal advice. See our <a href="insights.html#case-notes" style="color:#E7DFC5;">individual case notes</a> for full citations and access to each judgment on Kenya Law; organisations should consult qualified legal counsel before acting on any point summarised here.
+      <div class="fine">Prepared by the Editorial Board of Muchangi Patrick &amp; Associates Advocates · Nairobi · Not legal advice — consult qualified counsel before acting on this analysis.</div>
+    </div>
+  </div>
+</footer>
+
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+    }
+    banner.classList.remove('show');
+  }
+
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="script.js?v=8"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

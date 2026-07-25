@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Guidelines on Data Protection Officers | MP & Associates</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/resource-guidelines-dpo-framework.html" />
+<meta name="description" content="Proposed ODPC guidelines on the designation, qualification, certification and CPD of Data Protection Officers in Kenya. Draft v1.0." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/resource-guidelines-dpo-framework.html" />
+<meta property="og:title" content="Draft Guidelines on the Designation, Tasks, Position &amp; Professional Development of Data Protection Officers" />
+<meta property="og:description" content="Proposed guidelines for the Office of the Data Protection Commissioner, prepared by Muchangi Patrick & Associates Advocates." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/scales-balance.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Draft Guidelines on the Designation, Tasks, Position &amp; Professional Development of Data Protection Officers" />
+<meta name="twitter:description" content="Proposed guidelines for the Office of the Data Protection Commissioner, prepared by Muchangi Patrick & Associates Advocates." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/scales-balance.jpg" />
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root{
+    --ink:#1B2430;
+    --parchment:#F7F3E8;
+    --parchment-deep:#EFE8D6;
+    --brass:#9C7A2E;
+    --brass-light:#C9A24B;
+    --seal-red:#7A2430;
+    --slate:#5B6472;
+    --line:#D8CFB8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:0 30px 90px;}
+
+  /* return bar */
+  .mp-returnbar{background:var(--ink);border-bottom:2px solid var(--brass-light);}
+  .mp-returnbar-inner{max-width:840px;margin:0 auto;padding:12px 30px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .mp-returnbar-brand{display:flex;align-items:center;gap:10px;color:var(--parchment);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;}
+  .mp-returnbar-brand img{height:32px;width:auto;display:block;}
+  .mp-returnbar-brand b{color:var(--brass-light);font-weight:600;}
+  .mp-returnbar-back{color:var(--parchment);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s;text-decoration:none;}
+  .mp-returnbar-back:hover{opacity:1;color:var(--brass-light);}
+
+  /* document header */
+  .doc-header{border-bottom:3px double var(--ink); padding:50px 0 30px; text-align:center;}
+  .doc-status{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--seal-red); border:1px solid var(--seal-red); padding:5px 14px; border-radius:20px; margin-bottom:22px;}
+  .doc-kicker{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); margin-bottom:10px;}
+  .doc-title{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(26px,4.2vw,38px); line-height:1.2; margin:0 0 16px;}
+  .doc-subtitle{font-size:16px; color:var(--slate); max-width:600px; margin:0 auto 22px; font-style:italic;}
+  .doc-meta-row{display:flex; justify-content:center; gap:28px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--slate); margin-top:18px;}
+  .doc-meta-row b{color:var(--ink); display:block; font-family:'Source Serif 4',serif; font-size:13.5px; text-transform:none; letter-spacing:0; margin-top:3px;}
+
+  /* seal */
+  .seal-wrap{margin:26px auto 0;}
+
+  /* toc */
+  .toc{background:var(--parchment-deep); border:1px solid var(--line); border-radius:8px; padding:26px 30px; margin:40px 0;}
+  .toc h3{margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--cta);}
+  .toc ol{margin:0; padding-left:22px; columns:2; column-gap:30px;}
+  .toc li{margin-bottom:9px; font-size:14px; break-inside:avoid;}
+  .toc a{color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--slate);}
+  .toc a:hover{color:var(--cta); border-color:var(--cta);}
+
+  /* preamble */
+  .preamble{font-style:italic; color:var(--ink); border-left:3px solid var(--cta); padding-left:22px; margin:30px 0;}
+  .preamble p{margin:0 0 14px;}
+  .preamble .now{font-style:normal; font-weight:600;}
+
+  /* parts */
+  .part{padding:44px 0; border-top:1px solid var(--line);}
+  .part-eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--cta); margin-bottom:8px;}
+  .part h2{font-family:'Fraunces',serif; font-size:clamp(21px,3vw,27px); font-weight:600; margin:0 0 20px;}
+  .clause{margin-bottom:22px;}
+  .clause .cn{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--cta); font-size:14px; margin-right:8px;}
+  .clause h4{font-size:16px; margin:0 0 8px; display:inline;}
+  .clause p{margin:8px 0 0;}
+  .clause ol.sub, .clause ul.sub{margin:10px 0 0; padding-left:24px;}
+  .clause ol.sub li, .clause ul.sub li{margin-bottom:8px;}
+  .def-list{margin:0; padding:0;}
+  .def-list dt{font-weight:600; margin-top:14px;}
+  .def-list dd{margin:4px 0 0 0; color:var(--ink);}
+
+  .signature-block{margin-top:40px; padding-top:30px; border-top:1px solid var(--line); text-align:center; font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--slate); line-height:2.2;}
+  .signature-block b{color:var(--ink); font-family:'Source Serif 4',serif; text-transform:none; letter-spacing:0; font-size:14.5px;}
+
+  .prep-note{background:var(--ink); color:var(--parchment); border-radius:8px; padding:26px 30px; margin:36px 0 0;}
+  .prep-note .label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-light); margin-bottom:10px; display:block;}
+  .prep-note p{margin:0; font-size:14.5px; line-height:1.7;}
+
+  .firm-cta{background:var(--parchment-deep); border:1px solid var(--brass); border-radius:8px; padding:30px 32px; margin-top:8px;}
+  .firm-cta .label{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--cta); margin-bottom:12px; display:block; font-weight:600;}
+  .firm-cta p{font-size:15px;color:var(--ink);margin:0 0 14px;}
+  .firm-cta strong{color:var(--seal-red);}
+  .firm-cta .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .firm-cta .cta-btn{font-family:'IBM Plex Sans',sans-serif; font-size:13px;font-weight:600;letter-spacing:.02em; text-decoration:none;padding:11px 20px;border-radius:6px;display:inline-block;}
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--parchment);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+
+  footer.docfoot{background:var(--ink); color:var(--parchment); padding:40px 0 28px;}
+  footer.docfoot .wrap{padding-bottom:0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;}
+  footer.docfoot .source-note{font-size:12px; color:#C7C0AE; max-width:500px; line-height:1.7; font-family:'IBM Plex Mono',monospace;}
+
+  @media (max-width:640px){
+    .toc ol{columns:1;}
+    .doc-meta-row{gap:18px;}
+    footer.docfoot .wrap{flex-direction:column;}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Draft Guidelines on the Designation, Tasks, Position and Professional Development of Data Protection Officers",
+  "description": "Proposed guidelines for the Office of the Data Protection Commissioner, Kenya, prepared by Muchangi Patrick & Associates Advocates, drawing on the Mauritian and Nigerian DPO frameworks.",
+  "creator": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "datePublished": "2026-07-05",
+  "mainEntityOfPage": "https://dataprivacyadvocates.co.ke/resource-guidelines-dpo-framework.html"
+}
+</script>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Draft Guidelines on Data Protection Officers",
+      "item": "https://dataprivacyadvocates.co.ke/resource-guidelines-dpo-framework.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+
+<div class="mp-returnbar">
+  <div class="mp-returnbar-inner">
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="/resources/practice-notes/" class="mp-returnbar-back">&larr; Back to Knowledge Centre</a>
+  </div>
+</div>
+
+<div class="doc-header">
+  <div class="wrap" style="padding-bottom:0;">
+    <div class="doc-status">Proposed &middot; Submitted for ODPC Consideration</div>
+    <div class="doc-kicker">Office of the Data Protection Commissioner &middot; Republic of Kenya</div>
+    <h1 class="doc-title">Draft Guidelines on the Designation, Tasks, Position, and Professional Development of Data Protection Officers</h1>
+    <p class="doc-subtitle">Issued pursuant to Section 8 of the Data Protection Act, 2019, to operationalise the Data Protection Officer function under Section 24</p>
+    <div class="doc-meta-row">
+      <div>Prepared by<b>Muchangi Patrick &amp; Associates Advocates</b></div>
+      <div>Reference Frameworks<b>Mauritius (2026) &amp; Nigeria (2025)</b></div>
+      <div>Version<b>1.0 &middot; July 2026</b></div>
+    </div>
+    <div class="seal-wrap">
+      <svg width="68" height="68" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="#9C7A2E" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="24" stroke="#9C7A2E" stroke-width="1"/>
+        <text x="32" y="30" text-anchor="middle" fill="#9C7A2E" font-family="IBM Plex Mono" font-size="8" font-weight="600">DPA §24</text>
+        <text x="32" y="40" text-anchor="middle" fill="#9C7A2E" font-family="IBM Plex Mono" font-size="7">2019</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+
+  <div class="prep-note">
+    <span class="label">A note on this document</span>
+    <p>Kenya's Data Protection Act, 2019 provides for the designation of Data Protection Officers under Section 24, but is silent on their qualification, certification, verification and continuous professional development. Mauritius and Nigeria have each recently addressed that gap through detailed regulation. The guidelines below draw on the strengths of both frameworks, adapted to the Kenyan context, and are put forward for consideration and consultation by the Office of the Data Protection Commissioner. They are not currently in force. For the full comparative analysis behind this proposal, see our <a href="insight-kenya-dpo-framework-reform.html" style="color:#C9A24B;">Insights article</a>.</p>
+  </div>
+
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#part1">Part I — Definitions &amp; Interpretation</a></li>
+      <li><a href="#part2">Part II — Designation of DPOs</a></li>
+      <li><a href="#part3">Part III — Tasks &amp; Duties of the DPO</a></li>
+      <li><a href="#part4">Part IV — Position &amp; Independence</a></li>
+      <li><a href="#part5">Part V — Verification Framework</a></li>
+      <li><a href="#part6">Part VI — Continuous Professional Development</a></li>
+      <li><a href="#part7">Part VII — Compliance &amp; Enforcement</a></li>
+      <li><a href="#part8">Part VIII — Transitional Provisions</a></li>
+      <li><a href="#part9">Part IX — Miscellaneous Provisions</a></li>
+    </ol>
+  </div>
+
+  <div class="preamble">
+    <p><strong>WHEREAS</strong> Section 24 of the Data Protection Act, 2019 (the "Act") provides for the designation of Data Protection Officers (DPOs) to advise on and ensure compliance with data protection requirements;</p>
+    <p><strong>WHEREAS</strong> the Act provides that DPOs shall advise data controllers and data processors, ensure compliance, facilitate capacity building, provide advice on data protection impact assessments, and cooperate with the Data Commissioner;</p>
+    <p><strong>WHEREAS</strong> there is a need to clarify the qualifications, tasks, and protections to be afforded to DPOs to ensure effective implementation of the Act;</p>
+    <p><strong>WHEREAS</strong> there is a need to establish a framework for the verification of DPO qualifications and ongoing professional development to ensure that DPOs maintain the competence required to fulfil their functions;</p>
+    <p class="now"><strong>NOW, THEREFORE</strong>, the Office of the Data Protection Commissioner, pursuant to Section 8 of the Act, is invited to issue these Guidelines to operationalise the DPO function.</p>
+  </div>
+
+  <!-- PART I -->
+  <div class="part" id="part1">
+    <div class="part-eyebrow">Part I</div>
+    <h2>Definitions &amp; Interpretation</h2>
+    <div class="clause">
+      <span class="cn">1.1</span><h4>Definitions</h4>
+      <p>In these Guidelines, unless the context otherwise requires:</p>
+      <dl class="def-list">
+        <dt>"Accredited Training Institution"</dt><dd>means a training institution registered and approved by the Data Commissioner for its expertise in data protection laws and practices.</dd>
+        <dt>"Active Verification Status"</dt><dd>means the status of a DPO who has met the verification and professional development requirements under these Guidelines.</dd>
+        <dt>"CPD"</dt><dd>means Continuous Professional Development as defined by the Data Commissioner.</dd>
+        <dt>"Data Controller" / "Data Processor"</dt><dd>have the meanings assigned under Section 2 of the Act.</dd>
+        <dt>"DPO"</dt><dd>means a Data Protection Officer designated under Section 24 of the Act.</dd>
+        <dt>"Lead DPO"</dt><dd>means a DPO designated as the primary point of contact with the Office in cases where multiple DPOs are designated.</dd>
+        <dt>"Office"</dt><dd>means the Office of the Data Protection Commissioner.</dd>
+        <dt>"PEER Form"</dt><dd>means the Professional Education and Engagement Review Form prescribed by the Data Commissioner.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- PART II -->
+  <div class="part" id="part2">
+    <div class="part-eyebrow">Part II</div>
+    <h2>Designation of Data Protection Officers</h2>
+    <div class="clause"><span class="cn">2.1</span><h4>Mandatory Designation</h4><p>Every data controller and data processor shall designate a DPO from among their staff members. Where a group of entities share a DPO, the designation must be made by each controller or processor, and the shared arrangement clearly documented.</p></div>
+    <div class="clause"><span class="cn">2.2</span><h4>Criteria for Designation</h4><p>A DPO shall be designated on the basis of professional qualifications and shall demonstrate:</p>
+      <ol class="sub" type="a">
+        <li>Expert knowledge of data protection laws and practices applicable in Kenya, including the Act and any regulations or guidelines issued thereunder;</li>
+        <li>Proven ability to fulfil the tasks specified in these Guidelines and under the Act;</li>
+        <li>In-depth understanding of the operational requirements of the organisation and the specific regulatory environment of its business sector;</li>
+        <li>Relevant experience in data protection, compliance, law, information technology, or a related field.</li>
+      </ol>
+    </div>
+    <div class="clause"><span class="cn">2.3</span><h4>Certification Requirements</h4><p>Every DPO shall hold evidence of certification issued either by:</p>
+      <ol class="sub" type="a">
+        <li>The Office, following successful completion of training conducted by the Office, or by a training institution accredited by the Office; or</li>
+        <li>A recognised international privacy certification body, provided such certification is approved by the Office.</li>
+      </ol>
+    </div>
+    <div class="clause"><span class="cn">2.4</span><h4>Multiple DPOs</h4>
+      <ol class="sub" type="a">
+        <li>A data controller or data processor may designate more than one DPO, having regard to organisational structure, size and scale; the complexity of processing operations; and the sensitivity of personal data processed.</li>
+        <li>Where multiple DPOs are designated, the controller or processor shall designate a Lead DPO, serving as the primary point of contact with the Office and with data subjects.</li>
+      </ol>
+    </div>
+    <div class="clause"><span class="cn">2.5</span><h4>Publication of DPO Details</h4><p>A data controller or data processor shall publish the DPO's contact details on the organisation's website, communicate them to the Office, and notify the Office and data subjects of any change in designation.</p></div>
+  </div>
+
+  <!-- PART III -->
+  <div class="part" id="part3">
+    <div class="part-eyebrow">Part III</div>
+    <h2>Tasks &amp; Duties of the Data Protection Officer</h2>
+    <div class="clause"><span class="cn">3.1</span><h4>Core Functions</h4><p>A DPO shall perform the following core functions under Section 24 of the Act:</p>
+      <ol class="sub" type="a">
+        <li>Advise the data controller or data processor and their employees on data processing requirements under the Act or any other written law;</li>
+        <li>Ensure, on behalf of the controller or processor, that the Act is complied with;</li>
+        <li>Facilitate capacity building of staff involved in data processing operations;</li>
+        <li>Provide advice on data protection impact assessments; and</li>
+        <li>Co-operate with the Office and any other authority on matters relating to data protection.</li>
+      </ol>
+    </div>
+    <div class="clause"><span class="cn">3.2</span><h4>Additional Functions</h4><p>In addition, a DPO shall:</p>
+      <ol class="sub" type="a">
+        <li>Monitor and evaluate the efficiency of data systems in the organisation;</li>
+        <li>Keep written records of processing activities;</li>
+        <li>Serve as the primary point of contact for data subjects exercising their rights under the Act;</li>
+        <li>Manage data subject access requests and privacy complaints;</li>
+        <li>Conduct data protection impact assessments for new processing activities;</li>
+        <li>Maintain records of processing activities and data flow maps;</li>
+        <li>Ensure data protection policies and procedures are reviewed and updated regularly;</li>
+        <li>Report data breaches to the Office in accordance with the Act.</li>
+      </ol>
+    </div>
+    <div class="clause"><span class="cn">3.3</span><h4>Involvement in Processing Activities</h4><p>The DPO shall be involved, in a timely manner, in all issues related to the protection of personal data, including the development of policies, implementation of technical and organisational measures, DPIAs, and the handling of data subject requests and complaints.</p></div>
+  </div>
+
+  <!-- PART IV -->
+  <div class="part" id="part4">
+    <div class="part-eyebrow">Part IV</div>
+    <h2>Position &amp; Independence of the Data Protection Officer</h2>
+    <div class="clause"><span class="cn">4.1</span><h4>Reporting Line</h4><p>A DPO shall report to the highest management level of the organisation. Where multiple DPOs are designated, the Lead DPO shall have direct access to the highest management level.</p></div>
+    <div class="clause"><span class="cn">4.2</span><h4>Resources &amp; Support</h4><p>A data controller or data processor shall provide the DPO with necessary resources — time, budget, access to information and appropriate training — and allow participation in relevant meetings and decisions relating to data protection.</p></div>
+    <div class="clause"><span class="cn">4.3</span><h4>Conflict of Interest</h4><p>Duties assigned to the DPO must be compatible with their regulatory tasks and must not create a conflict of interest that would compromise independence.</p></div>
+    <div class="clause"><span class="cn">4.4</span><h4>Protection from Penalisation</h4><p>A data controller or data processor shall not dismiss, suspend, or otherwise penalise a DPO for lawfully performing their duties under the Act and these Guidelines.</p></div>
+    <div class="clause"><span class="cn">4.5</span><h4>Independent Performance</h4><p>A DPO shall be permitted to carry out their functions independently, without unlawful interference from the controller, processor, or any other person.</p></div>
+  </div>
+
+  <!-- PART V -->
+  <div class="part" id="part5">
+    <div class="part-eyebrow">Part V</div>
+    <h2>Verification Framework</h2>
+    <div class="clause"><span class="cn">5.1</span><h4>DPO Verification</h4><p>Every DPO shall be verified by the Office to confirm compliance with the qualification, certification, and professional development requirements under these Guidelines.</p></div>
+    <div class="clause"><span class="cn">5.2</span><h4>Application for Verification</h4><p>An application shall be submitted in the prescribed form and shall include evidence of certification; a curriculum vitae; a statement of duties and responsibilities; a declaration of no conflict of interest; and any other information the Office may require.</p></div>
+    <div class="clause"><span class="cn">5.3</span><h4>Verification Validity</h4><p>A DPO verification shall be valid for one year from issuance, subject to annual renewal.</p></div>
+    <div class="clause"><span class="cn">5.4</span><h4>Annual Verification</h4><p>Renewal requires evidence of compliance with the CPD requirements under Part VI.</p></div>
+    <div class="clause"><span class="cn">5.5</span><h4>Temporary Inactive Status</h4><p>A DPO who fails to meet prescribed requirements may be placed on temporary inactive status pending remediation, and may be required to cease performing certain functions during that period.</p></div>
+    <div class="clause"><span class="cn">5.6</span><h4>Digital Platform</h4><p>The Office shall establish a digital platform for the submission and monitoring of DPO verification and CPD records.</p></div>
+  </div>
+
+  <!-- PART VI -->
+  <div class="part" id="part6">
+    <div class="part-eyebrow">Part VI</div>
+    <h2>Continuous Professional Development</h2>
+    <div class="clause"><span class="cn">6.1</span><h4>Annual CPD Requirement</h4>
+      <ol class="sub" type="a">
+        <li>A verified DPO shall obtain a minimum of twenty (20) CPD points annually to maintain active verification status.</li>
+        <li>At least ten (10) of the required points must be earned through structured training and certification activities.</li>
+      </ol>
+    </div>
+    <div class="clause"><span class="cn">6.2</span><h4>Qualifying CPD Activities</h4>
+      <p><strong>6.2.1 Formal Training and Certification (minimum 10 points):</strong> Office-accredited training programmes; recognised workshops and webinars; approved e-learning courses; the Office's Virtual Privacy Academy courses; acquisition or renewal of recognised international privacy certifications.</p>
+      <p><strong>6.2.2 Knowledge Contribution (maximum 10 points annually):</strong> publication of peer-reviewed articles; publication of industry articles and policy briefs.</p>
+      <p><strong>6.2.3 Professional Engagement (maximum 8 points annually):</strong> speaking engagements, panels and facilitation of accredited training; participation in recognised privacy conferences; membership in professional bodies; participation in Office technical working groups; mentorship of emerging privacy professionals; contributions to regulatory consultations.</p>
+    </div>
+    <div class="clause"><span class="cn">6.3</span><h4>Evidence of CPD Activities</h4><p>A DPO shall retain verifiable evidence — certificates of attendance, confirmation emails, copies or links to publications, formal letters of participation, and Professional Education and Engagement Review (PEER) Forms.</p></div>
+    <div class="clause"><span class="cn">6.4</span><h4>CPD Points Allocation &amp; Assessment</h4><p>The Office shall prescribe a CPD points framework, review compliance annually at revalidation, and may request CPD records for review at any time.</p></div>
+  </div>
+
+  <!-- PART VII -->
+  <div class="part" id="part7">
+    <div class="part-eyebrow">Part VII</div>
+    <h2>Compliance &amp; Enforcement</h2>
+    <div class="clause"><span class="cn">7.1</span><h4>Compliance Review</h4><p>Compliance with these Guidelines shall be reviewed annually during DPO verification revalidation.</p></div>
+    <div class="clause"><span class="cn">7.2</span><h4>Non-Compliance (Controller/Processor)</h4><p>A data controller or processor who fails to designate a DPO or ensure compliance may be subject to enforcement action under the Act, including a compliance notice, an enforcement notice, administrative fines, and any other available remedy.</p></div>
+    <div class="clause"><span class="cn">7.3</span><h4>Non-Compliance (DPO)</h4><p>A DPO who fails to meet prescribed CPD requirements may be placed on temporary inactive status pending remediation; failure to remediate within a specified period may result in suspension of verification status.</p></div>
+  </div>
+
+  <!-- PART VIII -->
+  <div class="part" id="part8">
+    <div class="part-eyebrow">Part VIII</div>
+    <h2>Transitional Provisions</h2>
+    <div class="clause"><span class="cn">8.1</span><h4>Transition Period</h4><p>Existing DPOs designated under Section 24 shall have twelve (12) months from issuance of these Guidelines to comply with the qualification, certification, and verification requirements.</p></div>
+    <div class="clause"><span class="cn">8.2</span><h4>Legacy Recognition</h4><p>A DPO who does not meet the certification requirements under Section 2.3 but possesses significant experience may be recognised case-by-case, provided they demonstrate expert knowledge of Kenyan data protection law, have held the role for at least three (3) years, submit a development plan to achieve certification within twelve (12) months, and meet all other requirements.</p></div>
+    <div class="clause"><span class="cn">8.3</span><h4>Training Accreditation</h4><p>The Office shall, within six (6) months of issuance, establish a process for accrediting training institutions and approving certification programmes.</p></div>
+    <div class="clause"><span class="cn">8.4</span><h4>Digital Platform</h4><p>The Office shall, within twelve (12) months of issuance, develop and launch the digital platform for submission and monitoring of DPO verification and CPD records.</p></div>
+  </div>
+
+  <!-- PART IX -->
+  <div class="part" id="part9">
+    <div class="part-eyebrow">Part IX</div>
+    <h2>Miscellaneous Provisions</h2>
+    <div class="clause"><span class="cn">9.1</span><h4>Interpretation</h4><p>These Guidelines shall be interpreted in accordance with the Data Protection Act, 2019 and any other relevant laws.</p></div>
+    <div class="clause"><span class="cn">9.2</span><h4>Amendment</h4><p>The Office may amend these Guidelines from time to time as necessary to give effect to the Act or to align with emerging best practices.</p></div>
+    <div class="clause"><span class="cn">9.3</span><h4>Review</h4><p>The Office shall review these Guidelines within three (3) years of issuance.</p></div>
+
+    <div class="signature-block">
+      Submitted for consideration by<br><b>The Office of the Data Protection Commissioner, Republic of Kenya</b><br>
+      Prepared by<br><b>Muchangi Patrick &amp; Associates Advocates, Nairobi</b><br>
+      Version 1.0 &middot; July 2026
+    </div>
+  </div>
+
+  <div class="firm-cta">
+    <span class="label">About this proposal</span>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> prepared this draft framework as part of our ongoing regulatory and policy work on data protection in Kenya. We welcome engagement from the ODPC, industry bodies, and fellow practitioners on refining it ahead of any formal consultation process.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn primary">Discuss This Proposal</a>
+      <a href="insight-kenya-dpo-framework-reform.html" class="cta-btn secondary">Read the Full Analysis</a>
+      <a href="/resources/practice-notes/" class="cta-btn secondary">Back to Knowledge Centre</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="docfoot">
+  <div class="wrap">
+    <div class="source-note">© 2026 Muchangi Patrick &amp; Associates Advocates. This is a policy proposal prepared by the firm for consideration by the Office of the Data Protection Commissioner. It does not constitute law, official ODPC guidance, or legal advice.</div>
+  </div>
+</footer>
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+    }
+    banner.classList.remove('show');
+  }
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

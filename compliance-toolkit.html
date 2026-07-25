@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compliance Toolkit | Kenya Privacy Law Review</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/compliance-toolkit.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Muchangi Patrick &amp; Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/compliance-toolkit.html" />
+<meta property="og:title" content="Compliance Toolkit — Kenya Privacy Law Review" />
+<meta property="og:description" content="The Compliance Toolkit provides practical implementation resources — templates, checklists and guides — for data protection, privacy and AI governance compliance in Kenya." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Compliance Toolkit — Kenya Privacy Law Review" />
+<meta name="twitter:description" content="The Compliance Toolkit provides practical implementation resources — templates, checklists and guides — for data protection, privacy and AI governance compliance in Kenya." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg" />
+
+<meta name="description" content="The Compliance Toolkit provides practical implementation resources — templates, checklists and guides — for data protection, privacy and AI governance compliance in Kenya." />
+<meta name="keywords" content="DPIA checklist Kenya, data protection policy template Kenya, AI governance checklist, compliance toolkit Kenya" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5" />
+<style>
+.pub-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:8px;}
+.pub-search{flex:1;min-width:220px;position:relative;}
+.pub-search input{width:100%;padding:13px 16px 13px 42px;border:1px solid var(--line);border-radius:var(--radius);font-family:var(--font-body);font-size:.92rem;background:var(--white);color:var(--ink);}
+.pub-search input:focus{outline:2px solid var(--cta);outline-offset:-1px;}
+.pub-search i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.85rem;}
+.pub-count{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.pub-grid{display:flex;flex-direction:column;gap:18px;margin-top:28px;}
+.pub-card{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--white);padding:32px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease);}
+.pub-card:hover{border-color:var(--cta);box-shadow:var(--shadow-soft);}
+.pub-card.is-hidden{display:none;}
+.pub-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.pub-num{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cta);font-weight:600;}
+.pub-cat-tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);border:1px solid var(--line);border-radius:20px;padding:4px 12px;}
+.pub-card h3{font-size:1.3rem;margin-bottom:6px;}
+.pub-card h3 a{transition:color .15s var(--ease);}
+.pub-card h3 a:hover{color:var(--cta);}
+.pub-dek{color:var(--slate);font-size:.95rem;max-width:760px;margin-bottom:6px;}
+.pub-sub{font-family:var(--font-display);font-style:italic;color:var(--muted);font-size:.92rem;margin-bottom:16px;}
+.pub-meta-row{display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-top:1px solid var(--line);padding-top:14px;margin-top:4px;}
+.pub-meta-row strong{color:var(--ink);font-weight:600;}
+.pub-actions{margin-left:auto;display:flex;gap:10px;}
+.pub-actions a{font-family:var(--font-body);text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600;padding:8px 16px;border-radius:20px;border:1px solid var(--ink);}
+.pub-actions a.pub-btn-primary{background:var(--ink);color:var(--white);}
+.pub-actions a.pub-btn-primary:hover{background:var(--cta);border-color:var(--cta);}
+.pub-actions a.pub-btn-ghost:hover{border-color:var(--cta);color:var(--cta);}
+.pub-empty{border:1px dashed var(--line);border-radius:var(--radius-lg);padding:48px 32px;text-align:center;color:var(--muted);margin-top:20px;}
+.pub-empty i{font-size:1.6rem;color:var(--cta);margin-bottom:14px;display:block;}
+.pub-infinity-note{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);text-align:center;margin-top:28px;letter-spacing:.03em;}
+.roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:28px;}
+.roadmap-card{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--white);padding:30px;}
+.roadmap-card i{font-size:1.4rem;color:var(--cta);margin-bottom:14px;display:block;}
+.roadmap-card h4{font-size:1.05rem;margin-bottom:10px;}
+.roadmap-card ul{margin:0;padding:0;}
+.roadmap-card li{font-size:.88rem;color:var(--slate);padding:5px 0 5px 18px;position:relative;}
+.roadmap-card li::before{content:"—";position:absolute;left:0;color:var(--cta);}
+.roadmap-status{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cta);border:1px solid var(--brass-light);border-radius:20px;padding:3px 10px;margin-top:16px;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Knowledge Centre",
+      "item": "https://dataprivacyadvocates.co.ke/resources/practice-notes/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Compliance Toolkit",
+      "item": "https://dataprivacyadvocates.co.ke/compliance-toolkit.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://dataprivacyadvocates.co.ke/compliance-toolkit.html#collectionpage",
+  "url": "https://dataprivacyadvocates.co.ke/compliance-toolkit.html",
+  "name": "Compliance Toolkit",
+  "description": "The Compliance Toolkit provides practical implementation resources — templates, checklists and guides — for data protection, privacy and AI governance compliance in Kenya.",
+  "isPartOf": {
+    "@id": "https://dataprivacyadvocates.co.ke/#website"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Kenya Data Protection Compliance Toolkit — 2026 Edition",
+        "url": "https://dataprivacyadvocates.co.ke/resources/compliance-toolkit-2026/"
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-utility">
+    <div class="container">
+      <div class="header-utility-contact">
+        <a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
+        <a href="mailto:consult@dataprivacyadvocates.co.ke"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
+        <a href="contact.html" class="hide-sm"><i class="fas fa-location-dot"></i>Pinetree Plaza, Nairobi</a>
+      </div>
+      <div class="header-utility-social">
+        <a href="https://www.linkedin.com/in/patrick-muchangi-507498216" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="container header-row">
+    <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html">Track Record</a>
+      <div class="nav-item">
+        <a href="/resources/practice-notes/" class="active">Knowledge Centre <i class="fas fa-chevron-down nav-caret"></i></a>
+        <div class="dropdown-panel">
+          <a href="/resources/practice-notes/"><i class="fas fa-file-pdf"></i><div><span>Practice Notes</span><small>Flagship legal analysis &amp; publications</small></div></a>
+          <a href="bills-review.html"><i class="fas fa-landmark"></i><div><span>Bills Review</span><small>Legislative analysis &amp; compliance impact</small></div></a>
+          <a href="regulatory-analysis.html"><i class="fas fa-file-shield"></i><div><span>Regulatory Analysis</span><small>What regulatory change means in practice</small></div></a>
+          <a href="insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
+          <a href="compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
+          <a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
+<a href="webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
+          <a href="comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
+          <div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
+        </div>
+      </div>
+      <a href="insights.html">Insights</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Book a Consultation</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-overlay"></div>
+
+<section class="page-hero">
+  <svg class="hero-flow-lines" viewBox="0 0 1440 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <path class="fl-line fl-1" d="M-100,70 C 120,10 260,130 480,70 C 700,10 840,130 1060,70 C 1220,25 1340,95 1540,60" />
+    <path class="fl-line fl-2" d="M-100,130 C 140,190 300,80 520,130 C 740,180 880,70 1100,125 C 1250,160 1360,105 1540,140" />
+    <path class="fl-line fl-3" d="M-100,20 C 160,70 320,-10 540,35 C 760,80 900,5 1120,45 C 1260,70 1380,25 1540,55" />
+    <path class="fl-line fl-4" d="M-100,190 C 150,140 310,220 530,180 C 750,140 890,225 1110,185 C 1250,160 1370,205 1540,175" />
+  </svg>
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / <a href="/resources/practice-notes/">Knowledge Centre</a> / Compliance Toolkit</div>
+    <div class="docket-eyebrow">Kenya Privacy Law Review — <strong>Compliance Toolkit</strong></div>
+    <h1>Compliance Toolkit.</h1>
+    <p>Practical implementation resources for turning legal analysis into an actual compliance programme &mdash; templates, checklists and guides, built out alongside our Practice Notes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="pub-grid reveal">
+      <article class="pub-card" data-category="Compliance Toolkit" data-title="Kenya Data Protection Compliance Toolkit 2026 Edition">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/TK/001/2026</span>
+          <span class="pub-cat-tag">Compliance Toolkit</span>
+        </div>
+        <h3><a href="resources/compliance-toolkit-2026/">Kenya Data Protection Compliance Toolkit &mdash; 2026 Edition</a></h3>
+        <div class="pub-sub">A practical, end-to-end framework aligned to the Data Protection Act, 2019 and the ODPC regulatory regime</div>
+        <p class="pub-dek">Thirteen sections taking an organisation from ODPC registration and privacy notices through DPAs, DPIAs, data subject rights, technical &amp; organisational security measures, breach response, cross-border transfers, AI governance and a master compliance checklist &mdash; with a curated set of ODPC and High Court determinations.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Published:</strong> July 2026</span>
+          <span><strong>Format:</strong> 13 sections</span>
+          <div class="pub-actions">
+            <a href="resources/compliance-toolkit-2026/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/kenya-data-protection-compliance-toolkit-2026.pdf" class="pub-btn-ghost" download data-kg-file="downloads/kenya-data-protection-compliance-toolkit-2026.pdf" data-kg-title="Kenya Data Protection Compliance Toolkit — 2026 Edition" data-kg-id="toolkit-2026">Download PDF</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h2 style="margin-top:48px;">Course Manuals</h2>
+    <div class="pub-grid reveal">
+      <article class="pub-card" data-category="Course Manuals" data-title="Data Protection &amp; GDPR Compliance: A Practical Course Manual">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/ACAD/001/2026</span>
+          <span class="pub-cat-tag">Course Manual</span>
+        </div>
+        <h3><a href="resources/course-manuals/data-protection-gdpr-compliance-course-manual/">Data Protection &amp; GDPR Compliance: A Practical Course Manual</a></h3>
+        <div class="pub-sub">Kenya DPA 2019 compared with UK/EU GDPR — for legal &amp; compliance practitioners</div>
+        <p class="pub-dek">A practitioner-level course manual walking through the Kenyan and UK/EU frameworks side by side, built for in-house counsel and compliance teams who need working fluency in both regimes.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 27 pages</span>
+          <div class="pub-actions">
+            <a href="resources/course-manuals/data-protection-gdpr-compliance-course-manual/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/data-protection-gdpr-compliance-course-manual.pdf" class="pub-btn-ghost" download data-kg-file="downloads/data-protection-gdpr-compliance-course-manual.pdf" data-kg-title="Data Protection &amp; GDPR Compliance Course Manual" data-kg-id="course-gdpr">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Course Manuals" data-title="Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/ACAD/002/2026</span>
+          <span class="pub-cat-tag">Companion Workbook</span>
+        </div>
+        <h3><a href="resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/">Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook</a></h3>
+        <div class="pub-sub">From knowledge to implementation for digital credit providers and fintechs operating in Kenya</div>
+        <p class="pub-dek">A working companion for fintech and digital-lending compliance teams — takes the regulatory framework and turns it into an implementation workbook rather than a reading list.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 22 pages</span>
+          <div class="pub-actions">
+            <a href="resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/fintech-data-law-regulatory-compliance-kenya.pdf" class="pub-btn-ghost" download data-kg-file="downloads/fintech-data-law-regulatory-compliance-kenya.pdf" data-kg-title="Fintech Data Law &amp; Regulatory Compliance (Kenya) Workbook" data-kg-id="course-fintech">Download PDF</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h2 style="margin-top:48px;">Standalone Templates</h2>
+    <div class="pub-grid reveal">
+      <article class="pub-card" data-category="Templates" data-title="Master Privacy Policy Template">
+        <div class="pub-card-top">
+          <span class="pub-num">MPA-DP-001</span>
+          <span class="pub-cat-tag">Template</span>
+        </div>
+        <h3><a href="resources/templates/privacy-policy-template/">Master Privacy Policy Template</a></h3>
+        <div class="pub-sub">A comprehensive, adaptable privacy policy aligned to the Data Protection Act, 2019</div>
+        <p class="pub-dek">Twenty-three sections covering data collected, lawful bases, cookies, AI-assisted processing, automated decision-making, cross-border transfers, security, retention, data subject rights, children's data and complaints — ready to adapt and publish.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Version:</strong> 1.0</span>
+          <span><strong>Format:</strong> 23 sections</span>
+          <div class="pub-actions">
+            <a href="resources/templates/privacy-policy-template/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/privacy-policy-template-mpa-dp-001.pdf" class="pub-btn-ghost" download data-kg-file="downloads/privacy-policy-template-mpa-dp-001.pdf" data-kg-title="Master Privacy Policy Template" data-kg-id="template-privacy-policy">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Templates" data-title="Cookie Policy Template">
+        <div class="pub-card-top">
+          <span class="pub-num">MPA-WEB-002</span>
+          <span class="pub-cat-tag">Template</span>
+        </div>
+        <h3><a href="resources/templates/cookie-policy-template/">Cookie Policy Template</a></h3>
+        <div class="pub-sub">A standalone cookie and tracking-technology notice for websites, portals and SaaS platforms</div>
+        <p class="pub-dek">Cookie categories, third-party and analytics cookies, AI-personalisation technologies, browser controls and consent withdrawal — applicable to websites, client portals, web applications and SaaS platforms.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Version:</strong> 1.0</span>
+          <span><strong>Format:</strong> 16 sections</span>
+          <div class="pub-actions">
+            <a href="resources/templates/cookie-policy-template/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/cookie-policy-template-mpa-web-002.pdf" class="pub-btn-ghost" download data-kg-file="downloads/cookie-policy-template-mpa-web-002.pdf" data-kg-title="Cookie Policy Template" data-kg-id="template-cookie-policy">Download PDF</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h2 style="margin-top:48px;">Standalone Checklists</h2>
+    <div class="pub-grid reveal">
+      <article class="pub-card" data-category="Checklists" data-title="Kenya Data Protection Compliance Checklist">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/CHK/001/2026</span>
+          <span class="pub-cat-tag">Checklist</span>
+        </div>
+        <h3><a href="resources/checklists/kenya-data-protection-compliance-checklist/">Kenya Data Protection Compliance Checklist</a></h3>
+        <div class="pub-sub">An executive self-assessment instrument &mdash; 20 scored requirements</div>
+        <p class="pub-dek">A board-level self-assessment against twenty core statutory and regulatory benchmarks, with a compliance score band and priority action plan.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 20 items</span>
+          <div class="pub-actions">
+            <a href="resources/checklists/kenya-data-protection-compliance-checklist/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/kenya-data-protection-compliance-checklist.pdf" class="pub-btn-ghost" download data-kg-file="downloads/kenya-data-protection-compliance-checklist.pdf" data-kg-title="Kenya Data Protection Compliance Checklist" data-kg-id="checklist-kenya-dp">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Checklists" data-title="Website Compliance Audit Checklist">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/CHK/002/2026</span>
+          <span class="pub-cat-tag">Checklist</span>
+        </div>
+        <h3><a href="resources/checklists/website-compliance-audit-checklist/">Website Compliance Audit Checklist</a></h3>
+        <div class="pub-sub">A practical self-assessment guide &mdash; 30 scored requirements</div>
+        <p class="pub-dek">Covers privacy notices, cookies, forms, analytics, payment gateways and user accounts on a website against the Data Protection Act, 2019 and applicable Regulations.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 30 items</span>
+          <div class="pub-actions">
+            <a href="resources/checklists/website-compliance-audit-checklist/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/website-compliance-audit-checklist.pdf" class="pub-btn-ghost" download data-kg-file="downloads/website-compliance-audit-checklist.pdf" data-kg-title="Website Compliance Audit Checklist" data-kg-id="checklist-website-audit">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Checklists" data-title="DPIA Checklist">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/CHK/003/2026</span>
+          <span class="pub-cat-tag">Checklist</span>
+        </div>
+        <h3><a href="resources/checklists/dpia-checklist/">DPIA Checklist</a></h3>
+        <div class="pub-sub">A practical screening &amp; assessment guide &mdash; 24 scored requirements</div>
+        <p class="pub-dek">Screens for when a Data Protection Impact Assessment is required under section 31 and the General Regulations, 2021, and walks through the assessment itself.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 24 items</span>
+          <div class="pub-actions">
+            <a href="resources/checklists/dpia-checklist/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/dpia-checklist.pdf" class="pub-btn-ghost" download data-kg-file="downloads/dpia-checklist.pdf" data-kg-title="DPIA Checklist" data-kg-id="checklist-dpia">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Checklists" data-title="AI Procurement Checklist">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/CHK/004/2026</span>
+          <span class="pub-cat-tag">Checklist</span>
+        </div>
+        <h3><a href="resources/checklists/ai-procurement-checklist/">AI Procurement Checklist</a></h3>
+        <div class="pub-sub">A practical vendor &amp; governance assessment guide &mdash; 26 scored requirements</div>
+        <p class="pub-dek">Data protection, AI governance and cybersecurity due diligence to embed before signing a contract for an AI-enabled tool or service.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 26 items</span>
+          <div class="pub-actions">
+            <a href="resources/checklists/ai-procurement-checklist/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/ai-procurement-checklist.pdf" class="pub-btn-ghost" download data-kg-file="downloads/ai-procurement-checklist.pdf" data-kg-title="AI Procurement Checklist" data-kg-id="checklist-ai-procurement">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Checklists" data-title="Data Breach Response Checklist">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/CHK/005/2026</span>
+          <span class="pub-cat-tag">Checklist</span>
+        </div>
+        <h3><a href="resources/checklists/breach-response-checklist/">Data Breach Response Checklist</a></h3>
+        <div class="pub-sub">An incident readiness &amp; response guide &mdash; 24 scored requirements</div>
+        <p class="pub-dek">Readiness against the 72-hour ODPC notification duty in section 43, incident response roles, and data subject notification content.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 24 items</span>
+          <div class="pub-actions">
+            <a href="resources/checklists/breach-response-checklist/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/breach-response-checklist.pdf" class="pub-btn-ghost" download data-kg-file="downloads/breach-response-checklist.pdf" data-kg-title="Data Breach Response Checklist" data-kg-id="checklist-breach-response">Download PDF</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub-card" data-category="Checklists" data-title="Data Audit Checklist">
+        <div class="pub-card-top">
+          <span class="pub-num">KPLR/CHK/006/2026</span>
+          <span class="pub-cat-tag">Checklist</span>
+        </div>
+        <h3><a href="resources/checklists/data-audit-checklist/">Data Audit Checklist</a></h3>
+        <div class="pub-sub">A practical data mapping &amp; governance guide &mdash; 26 scored requirements</div>
+        <p class="pub-dek">Maintaining an accurate record of processing activities and surfacing unknown or unauthorised data flows, in line with section 41.</p>
+        <div class="pub-meta-row">
+          <span><strong>Prepared by:</strong> Muchangi Patrick &amp; Co. Advocates</span>
+          <span><strong>Format:</strong> 26 items</span>
+          <div class="pub-actions">
+            <a href="resources/checklists/data-audit-checklist/" class="pub-btn-primary">Read Online</a>
+            <a href="downloads/data-audit-checklist.pdf" class="pub-btn-ghost" download data-kg-file="downloads/data-audit-checklist.pdf" data-kg-title="Data Audit Checklist" data-kg-id="checklist-data-audit">Download PDF</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="roadmap-grid reveal" style="margin-top:36px;">
+
+      <div class="roadmap-card">
+        <i class="fas fa-file-lines"></i>
+        <h4>More Templates Coming</h4>
+        <ul>
+          <li>Data Processing Agreements</li>
+          <li>AI Governance Policies</li>
+          <li>Incident Response Plans</li>
+          <li>Vendor Assessment Templates</li>
+        </ul>
+        <span class="roadmap-status">In development</span>
+      </div>
+
+      <div class="roadmap-card">
+        <i class="fas fa-compass"></i>
+        <h4>Standalone Guides</h4>
+        <ul>
+          <li>Board Data Protection Guide</li>
+          <li>CEO AI Governance Guide</li>
+          <li>HR Privacy Guide</li>
+        </ul>
+        <span class="roadmap-status">In development</span>
+      </div>
+
+    </div>
+
+    <div class="pub-empty reveal" style="margin-top:36px;">
+      <i class="fas fa-toolbox"></i>
+      <p>The full Compliance Toolkit above already covers registration, notices, DPAs, DPIAs, security, breach response, cross-border transfers and AI governance end to end. If you need a template or checklist that isn't listed above, our team can prepare it directly for your organisation ahead of general release.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container reveal">
+    <h2>Need a template or checklist before it's published?</h2>
+    <p>We regularly prepare these documents directly for clients. Get in touch and we'll scope it against your organisation's actual risk.</p>
+    <div class="cta-actions"><a href="contact.html" class="btn btn-white">Book a Consultation</a></div>
+  </div>
+</section>
+
+<section class="cta-band section--ink" id="subscribe">
+  <div class="container" style="text-align:center;">
+    <h2>Stay ahead of Kenya's data protection &amp; AI regulation</h2>
+    <p>A short monthly briefing from the Kenya Privacy Law Review — new ODPC determinations, guidance notes, and compliance deadlines. No spam, unsubscribe anytime.</p>
+    <form name="kplr-subscribe" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="subscribe-form" style="max-width:480px;margin:24px auto 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+      <input type="hidden" name="form-name" value="kplr-subscribe" />
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:inherit;font-size:.95rem;" />
+      <button type="submit" class="btn btn-brass">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+        <p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+        <div class="footer-social"><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn Company Page</span></a></div>
+      </div>
+      <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
+      <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="privacy-policy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="sitemap.html">Sitemap</a></div></div>
+  </div>
+</footer>
+
+<div class="cookie-banner">
+  <div class="cookie-banner-inner">
+    <p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we may in future also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="cookie-actions-row">
+      <button type="button" class="btn btn-line btn-sm btn-ghost cookie-essential">Essential Only</button>
+      <button type="button" class="btn btn-brass btn-sm cookie-accept">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js?v=8"></script>
+
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

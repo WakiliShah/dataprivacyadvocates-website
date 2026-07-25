@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UN's Global Dialogue on AI vs. Kenya's AI Bill</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/insight-un-global-dialogue-ai-bill.html" />
+<meta name="description" content="Guterres opened the UN's first Global Dialogue on AI Governance with four priorities and a Child Safety Pledge. How Kenya's AI Bill measures up." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/insight-un-global-dialogue-ai-bill.html" />
+<meta property="og:title" content="The Compliance Brief — The UN's Global Dialogue on AI Governance and Kenya's AI Bill | Muchangi Patrick & Associates Advocates" />
+<meta property="og:description" content="Guterres opened the UN's first Global Dialogue on AI Governance with four priorities and a new Child Safety Pledge. Here's how Kenya's AI Bill measures up." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/ai-governance.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Compliance Brief — The UN's Global Dialogue on AI Governance and Kenya's AI Bill | Muchangi Patrick & Associates Advocates" />
+<meta name="twitter:description" content="Guterres opened the UN's first Global Dialogue on AI Governance with four priorities and a new Child Safety Pledge. Here's how Kenya's AI Bill measures up." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/ai-governance.jpg" />
+
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root{
+    --ink:#1B1A17;
+    --paper:#F2ECDC;
+    --paper-dim:#E7DFC5;
+    --paper-deep:#DCD2AF;
+    --clay:#A8402C;
+    --clay-deep:#7E2F20;
+    --acacia:#46573A;
+    --acacia-light:#7C8B5E;
+    --gold:#C69A3E;
+    --slate:#5B5A52;
+    --sage:#B9C4A4;
+    --line:#c9bf9c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+
+  /* ===== MASTHEAD ===== */
+  .masthead{
+    border-bottom:3px solid var(--ink);
+    padding:28px 0 14px;
+    background:
+      repeating-linear-gradient(135deg, rgba(27,26,23,0.025) 0px, rgba(27,26,23,0.025) 1px, transparent 1px, transparent 14px);
+  }
+  .masthead-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;}
+  .masthead-title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-optical-sizing:auto;
+    font-size:clamp(34px,5.5vw,52px);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .masthead-title em{font-style:italic; font-weight:400; color:var(--clay);}
+  .masthead-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--slate);
+    text-align:right;
+  }
+  .masthead-tagline{
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ===== HERO ===== */
+  .hero{padding:52px 0 20px; border-bottom:1px solid var(--line);}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--clay); font-weight:600;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{content:"§"; font-size:15px;}
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(32px,5vw,50px);
+    font-weight:600;
+    line-height:1.08;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .hero .dek{
+    font-size:19px;
+    color:var(--slate);
+    max-width:640px;
+    font-weight:400;
+    margin-bottom:28px;
+  }
+  .byline{
+    display:flex; gap:20px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.05em;
+    padding-top:16px; border-top:1px solid var(--line);
+  }
+
+  /* ===== SECTION GENERIC ===== */
+  section{padding:48px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-size:clamp(24px,3.4vw,32px);
+    font-weight:600;
+    margin:0 0 8px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  h2.section-title .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--clay);
+    font-weight:600;
+  }
+  .section-intro{color:var(--slate); max-width:640px; margin-bottom:28px; font-size:15.5px;}
+
+  p{margin:0 0 16px;}
+
+  /* ===== RISK LADDER (signature element) ===== */
+  .ladder-wrap{
+    display:grid; grid-template-columns:14px 1fr; gap:22px;
+    margin-top:8px;
+  }
+  .ladder-rail{
+    background:linear-gradient(to bottom, var(--clay) 0%, var(--clay) 24%, var(--gold) 25%, var(--gold) 49%, var(--acacia-light) 50%, var(--acacia-light) 74%, var(--sage) 75%, var(--sage) 100%);
+    border-radius:7px;
+    position:relative;
+  }
+  .tier{
+    padding:20px 22px;
+    border:1px solid var(--line);
+    border-left:none;
+    background:var(--paper-dim);
+    margin-bottom:14px;
+    border-radius:0 8px 8px 0;
+    position:relative;
+  }
+  .tier:last-child{margin-bottom:0;}
+  .tier-head{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .tier-dot{width:10px; height:10px; border-radius:50%; flex:none;}
+  .tier.unacceptable .tier-dot{background:var(--clay);}
+  .tier.high .tier-dot{background:var(--gold);}
+  .tier.limited .tier-dot{background:var(--acacia-light);}
+  .tier.minimal .tier-dot{background:var(--sage);}
+  .tier-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .tier p{margin:0; font-size:15px; color:var(--ink);}
+  .tier-examples{color:var(--slate); font-size:13.5px; margin-top:4px;}
+
+  /* ===== CALLOUT / PULLQUOTE ===== */
+  .callout{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:10px;
+    padding:30px 32px;
+    margin:8px 0 0;
+  }
+  .callout .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:10px; display:block;
+  }
+  .callout p{color:var(--paper); font-size:16px; margin:0;}
+  .callout strong{color:var(--gold);}
+
+  .pullquote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(22px,3vw,28px);
+    line-height:1.4;
+    color:var(--clay-deep);
+    border-left:3px solid var(--clay);
+    padding-left:24px;
+    margin:32px 0;
+  }
+
+  /* ===== CLAUSE LIST (obligations) ===== */
+  .clause-list{list-style:none; margin:0; padding:0; counter-reset:clause;}
+  .clause-list li{
+    counter-increment:clause;
+    display:flex; gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .clause-list li:first-child{padding-top:0;}
+  .clause-list li::before{
+    content:"§" counter(clause);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    color:var(--clay);
+    flex:none;
+    width:42px;
+  }
+
+  /* ===== PENALTY BOX ===== */
+  .penalty-box{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--ink);
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:24px;
+  }
+  .penalty-cell{padding:24px 26px;}
+  .penalty-cell:first-child{border-right:1px solid var(--ink); background:var(--paper-dim);}
+  .penalty-cell:last-child{background:var(--clay); color:var(--paper);}
+  .penalty-figure{font-family:'Fraunces', serif; font-size:32px; font-weight:600; margin-bottom:4px;}
+  .penalty-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.8;}
+
+  /* ===== ICON GRID (commissioner powers) ===== */
+  .icon-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:24px;}
+  .icon-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    background:var(--paper-dim);
+  }
+  .icon-card svg{width:28px; height:28px; margin-bottom:10px;}
+  .icon-card h4{margin:0 0 6px; font-family:'IBM Plex Sans',sans-serif; font-size:15px; font-weight:600;}
+  .icon-card p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== CHECK LIST (what bill gets right) ===== */
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; margin-top:24px;}
+  .check-item{display:flex; gap:12px;}
+  .check-item svg{flex:none; margin-top:2px;}
+  .check-item h4{margin:0 0 4px; font-size:15px; font-weight:600;}
+  .check-item p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== GAP CARDS ===== */
+  .gap-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    margin-bottom:16px;
+    overflow:hidden;
+  }
+  .gap-card summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    padding:18px 22px;
+    background:var(--paper-dim);
+    font-weight:600;
+    font-family:'IBM Plex Sans',sans-serif;
+  }
+  .gap-card summary::-webkit-details-marker{display:none;}
+  .gap-card summary .gap-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--clay); font-size:13px; flex:none;
+  }
+  .gap-card summary::after{
+    content:"+"; margin-left:auto; font-family:'IBM Plex Mono',monospace;
+    font-size:18px; color:var(--slate); transition:transform 0.2s ease;
+  }
+  .gap-card[open] summary::after{content:"–";}
+  .gap-body{padding:4px 22px 22px; font-size:14.5px;}
+  .gap-body .impact{
+    margin-top:12px; padding:12px 14px;
+    background:var(--paper); border-left:3px solid var(--gold);
+    border-radius:0 6px 6px 0; font-size:13.5px; color:var(--slate);
+  }
+  .gap-body .impact strong{color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px;}
+
+  /* ===== COMPARISON TABLE ===== */
+  table.compare{width:100%; border-collapse:collapse; margin-top:24px; font-size:14px;}
+  table.compare th, table.compare td{
+    border:1px solid var(--line); padding:14px 16px; text-align:left; vertical-align:top;
+  }
+  table.compare th{
+    background:var(--ink); color:var(--paper);
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;
+  }
+  table.compare td:first-child{font-weight:600; background:var(--paper-dim); white-space:nowrap;}
+
+  /* ===== ACTION CHECKLIST ===== */
+  .action-list{list-style:none; margin:0; padding:0;}
+  .action-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:14px 0; border-bottom:1px dashed var(--line);
+  }
+  .action-list li .box{
+    width:18px; height:18px; border:1.5px solid var(--acacia); border-radius:4px; flex:none; margin-top:2px;
+  }
+  .strategic-list{margin:0; padding:0; list-style:none;}
+  .strategic-list li{padding:12px 0 12px 20px; border-left:2px solid var(--sage); margin-bottom:10px;}
+  .strategic-list b{display:block; font-size:14px; margin-bottom:3px;}
+  .strategic-list span{font-size:13.5px; color:var(--slate);}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:44px 0 30px;
+    margin-top:0;
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .seal{
+    width:64px; height:64px; flex:none;
+  }
+  footer .source-note{font-size:12.5px; color:#B8B3A2; max-width:480px; line-height:1.7;}
+  footer .fine{font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8A8577; margin-top:18px;}
+
+  @media (max-width:640px){
+    .penalty-box{grid-template-columns:1fr;}
+    .penalty-cell:first-child{border-right:none; border-bottom:1px solid var(--ink);}
+    .check-grid{grid-template-columns:1fr;}
+    .ladder-wrap{grid-template-columns:8px 1fr; gap:14px;}
+    footer .wrap{flex-direction:column;}
+  }
+  .mp-returnbar{background:var(--ink);border-bottom:2px solid var(--gold);}
+  .mp-returnbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap;}
+  .mp-returnbar-brand{display:flex;align-items:center;gap:10px;color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;}
+  .mp-returnbar-brand img{height:32px;width:auto;display:block;}
+  .mp-returnbar-brand b{color:var(--gold);font-weight:600;}
+  .mp-returnbar-back{color:var(--paper);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s;}
+  .mp-returnbar-back:hover{opacity:1;color:var(--gold);}
+  .editorial-credit{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);}
+  .firm-cta{
+    background:var(--paper-dim);
+    border:1px solid var(--clay);
+    border-radius:10px;
+    padding:28px 32px;
+    margin-top:8px;
+  }
+  .firm-cta .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--clay);
+    margin-bottom:12px; display:block; font-weight:600;
+  }
+  .firm-cta p{font-size:15px;color:var(--ink);margin:0 0 14px;}
+  .firm-cta p:last-of-type{margin-bottom:0;}
+  .firm-cta strong{color:var(--clay-deep);}
+  .firm-cta .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .firm-cta .cta-btn{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    text-decoration:none;padding:11px 20px;border-radius:6px;display:inline-block;
+  }
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--paper);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Governing by Design: the UN's AI priorities, read against Kenya's AI Bill",
+  "description": "Guterres opened the UN's first Global Dialogue on AI Governance with four priorities and a new Child Safety Pledge. Here's how Kenya's AI Bill measures up.",
+  "image": "https://dataprivacyadvocates.co.ke/images/ai-governance.jpg",
+  "datePublished": "2026-07-07",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dataprivacyadvocates.co.ke/insight-un-global-dialogue-ai-bill.html"
+  }
+}
+</script>
+
+<style>
+/* Standalone cookie banner (self-contained — this page doesn't load the main site's styles.css) */
+.mp-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#1B1A17;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(120%);transition:transform .45s ease;font-family:'IBM Plex Sans',sans-serif;}
+.mp-cookie-banner.show{transform:translateY(0);}
+.mp-cookie-banner-inner{max-width:1000px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.mp-cookie-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.68);max-width:620px;}
+.mp-cookie-text a{color:#C69A3E;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.mp-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.mp-cookie-btn{padding:10px 20px;font-size:12.5px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border:1px solid transparent;}
+.mp-cookie-btn.essential{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;}
+.mp-cookie-btn.essential:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.mp-cookie-btn.accept{background:#C69A3E;color:#1B1A17;}
+@media(max-width:640px){.mp-cookie-banner-inner{padding:18px;flex-direction:column;align-items:flex-start;}.mp-cookie-actions{width:100%;}}
+</style>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Legal Insights",
+      "item": "https://dataprivacyadvocates.co.ke/insights.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Governing by Design: the UN's AI priorities, read against Kenya's AI Bill",
+      "item": "https://dataprivacyadvocates.co.ke/insight-un-global-dialogue-ai-bill.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+
+<div class="mp-returnbar">
+  <div class="wrap mp-returnbar-inner">
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="insights.html" class="mp-returnbar-back">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <p class="masthead-title">The Compliance <em>Brief</em></p>
+      <div class="masthead-meta">Vol. 03 — Issue 35<br>Nairobi Edition</div>
+    </div>
+    <div class="masthead-tagline">Regulation, technology &amp; the business of Kenya</div>
+  </div>
+</div>
+
+<div class="hero wrap">
+  <span class="eyebrow">UN Global Dialogue on AI Governance &middot; Geneva, July 2026</span>
+  <h1>Governing by Design: the UN's AI priorities, read against Kenya's AI Bill</h1>
+  <p class="dek">193 nations just heard four priorities for AI governance, and a new global Child Safety Pledge. Kenya is drafting its own answer at the same time — here's where the two align, and where they don't yet.</p>
+  <div class="byline">
+    <span>Analysis</span>
+    <span>9 min read</span>
+    <span>AI Governance & Policy</span>
+  </div>
+  <div class="editorial-credit">By Patrick Muchangi, Founder &amp; Advocate — Muchangi Patrick &amp; Associates Advocates · Published July 2026</div>
+  <div style="margin-top:16px;"><a href="downloads/insight-un-global-dialogue-ai-bill.pdf" class="firm-cta cta-btn primary" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;" data-kg-file="downloads/insight-un-global-dialogue-ai-bill.pdf" data-kg-title="UN's Global Dialogue on AI vs. Kenya's AI Bill" data-kg-id="insight-un-global-dialogue-ai-bill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
+</div>
+
+<section class="wrap">
+  <p style="font-size:17px;">On 6 July 2026 in Geneva, UN Secretary-General António Guterres opened the first Global Dialogue on Artificial Intelligence Governance with a blunt warning: "an experiment is being run on our own societies — without a plan, and without consent." All 193 UN Member States, including Kenya, had a seat at that table. This piece reads Kenya's own Artificial Intelligence Bill, 2026 directly against the priorities the Secretary-General laid out.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§1</span> Four priorities from Geneva</h2>
+  <ul class="clause-list">
+    <li><div><strong>Safety.</strong> Common baselines for frontier systems, and a new AI Child Safety Pledge: prove a system is safe before a child can reach it, zero tolerance for AI-generated child sexual abuse material, and never leave a child in crisis without real human support.</div></li>
+    <li><div><strong>Red lines.</strong> Human rights are non-negotiable; in justice, healthcare and policing, machines may inform but humans must decide — and answer.</div></li>
+    <li><div><strong>Capacity.</strong> Private AI infrastructure investment approached half a trillion dollars last year; public investment for developing countries is "a rounding error." A new Global Network for AI Capacity Building and a forthcoming Global Fund for AI aim to close that gap.</div></li>
+    <li><div><strong>Transparency.</strong> An AI Environmental Transparency Initiative calling for public disclosure of data centres' carbon, water and land footprint, and renewable power by 2030.</div></li>
+  </ul>
+  <div class="pullquote">"When a child is harmed, the answer must never be 'the algorithm did it.'" — UN Secretary-General António Guterres</div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§2</span> Where Kenya's Bill already answers the call</h2>
+  <div class="check-grid">
+    <div class="check-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>
+      <div><h4>Four-tier risk classification</h4><p>A domestic attempt at exactly the baseline-setting Guterres called for.</p></div>
+    </div>
+    <div class="check-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>
+      <div><h4>Mandatory human rights impact assessments</h4><p>A direct embodiment of the "red lines" principle.</p></div>
+    </div>
+    <div class="check-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>
+      <div><h4>Data Protection Act, s.35</h4><p>Already bars decisions made solely on automated processing.</p></div>
+    </div>
+    <div class="check-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>
+      <div><h4>Deepfake criminalisation</h4><p>A partial response to the erosion-of-truth warning.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§3</span> Five gaps the Geneva speech exposes</h2>
+  <details class="gap-card" open>
+    <summary><span class="gap-num">01</span> No AI-specific child safety duties</summary>
+    <div class="gap-body">
+      <p>Nothing as specific as the three-rule pledge: pre-deployment child-safety testing, CSAM detection-and-removal, and a crisis-response protocol.</p>
+      <div class="impact"><strong>Business impact</strong>Kenyan child online safety instruments remain fragmented, with no AI-native duties for systems children can reach.</div>
+    </div>
+  </details>
+  <details class="gap-card">
+    <summary><span class="gap-num">02</span> Silence on power and infrastructure concentration</summary>
+    <div class="gap-body">
+      <p>Guterres named compute/data/talent concentration as a global "sovereignty gap." Kenya's Bill has no disclosure requirement for which foreign models sit underneath a locally deployed system.</p>
+      <div class="impact"><strong>Business impact</strong>No mechanism to assess Kenya's own exposure to foreign-provider dependency.</div>
+    </div>
+  </details>
+  <details class="gap-card">
+    <summary><span class="gap-num">03</span> No statutory link to the UN's capacity-building architecture</summary>
+    <div class="gap-body">
+      <p>Twenty-plus countries have nominated centres to the Global Network for AI Capacity Building. Kenya's Bill contains no hook into it or the coming Global Fund for AI.</p>
+      <div class="impact"><strong>Business impact</strong>A missed, cost-free opportunity to access international capacity-building resources.</div>
+    </div>
+  </details>
+  <details class="gap-card">
+    <summary><span class="gap-num">04</span> No environmental transparency obligations</summary>
+    <div class="gap-body">
+      <p>Notable given Kenya's own ambitions as a regional data-centre hub, and Guterres's warning that data centres could soon out-consume all but five nations in electricity.</p>
+      <div class="impact"><strong>Business impact</strong>Risk of importing infrastructure burden without corresponding disclosure or benefit-sharing.</div>
+    </div>
+  </details>
+  <details class="gap-card">
+    <summary><span class="gap-num">05</span> Safety testing still deferred to future regulation</summary>
+    <div class="gap-body">
+      <p>Guterres's "prove it is safe" standard is a direct challenge to a Bill that has not yet defined its own risk thresholds.</p>
+      <div class="impact"><strong>Business impact</strong>Nothing to test compliance against until regulations are finalised.</div>
+    </div>
+  </details>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§4</span> Five amendments worth making</h2>
+  <ul class="action-list">
+    <li><div class="box"></div><div><strong>Introduce a dedicated Child AI Safety schedule</strong>, importing the three-rule pledge directly and interlocking with the CA guidelines and KICA Amendment Bill.</div></li>
+    <li><div class="box"></div><div><strong>Add an AI-infrastructure-dependency disclosure requirement</strong> for high-risk systems, feeding a national concentration-risk register.</div></li>
+    <li><div class="box"></div><div><strong>Write Kenya's UN capacity-building participation into the Bill</strong>, mandating pursuit of Global Network nomination and Global Fund access.</div></li>
+    <li><div class="box"></div><div><strong>Introduce environmental disclosure obligations</strong> for AI infrastructure operating at scale in Kenya.</div></li>
+    <li><div class="box"></div><div><strong>Require binding risk-classification criteria</strong> in the primary legislation, not deferred regulations.</div></li>
+  </ul>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§5</span> The bottom line</h2>
+  <p>Guterres closed his Geneva remarks with a line worth holding onto: "we may be the last generation able to set the terms on which humanity and machines coexist... the door is still open. But it will not stay open long." Kenya has already opened that door domestically. The task now is finishing the walk through it.</p>
+  <div class="callout">
+    <span class="label">Where this goes next</span>
+    <p>The Global Dialogue reconvenes in New York next year. Kenya's AI Bill still needs to clear the <strong>National Assembly</strong> — a parallel window in which these gaps can still be closed.</p>
+  </div>
+</section>
+
+
+<section class="wrap">
+  <div class="firm-cta">
+    <span class="label">How this touches your data protection exposure</span>
+    <p>An AI governance framework doesn't sit apart from data protection law — most AI systems in Kenya run on personal data, which means your obligations under the Data Protection Act, 2019 are already live even before the AI Bill passes.</p>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> advises boards, AI deployers, and startups on data protection compliance, AI governance readiness, and cross-border data flows. If you're building or deploying AI systems in Kenya, we can help you map your exposure before the regulator does it for you.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn primary">Book a Consultation</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" class="cta-btn secondary">Chat on WhatsApp</a>
+      <a href="expertise.html" class="cta-btn secondary">See Our Data Privacy Practice</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="callout" style="background:var(--ink);border:1px solid var(--gold);">
+    <span class="label" style="color:var(--gold);">Talk to us</span>
+    <p style="color:var(--paper);font-size:17px;line-height:1.6;margin-bottom:18px;">
+      Muchangi Patrick &amp; Associates Advocates advises fintechs, startups, corporates and institutions on data protection and data privacy compliance across Kenya &mdash; from ODPC registration and DPIAs to outsourced DPO services and cross-border data transfer advisory. If the issues raised above touch your business, we can help you get ahead of them.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://dataprivacyadvocates.co.ke/contact.html" style="background:var(--gold);color:var(--ink);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Book a Consultation &rarr;</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" style="background:transparent;color:var(--paper);border:1px solid var(--paper-dim);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="seal" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="#C69A3E" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="24" stroke="#C69A3E" stroke-width="1"/>
+        <text x="32" y="30" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="9" font-weight="600">SB 4</text>
+        <text x="32" y="40" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="7">2026</text>
+      </svg>
+    </div>
+    <div class="source-note">
+      This analysis draws on the UN Secretary-General's remarks as delivered at the opening of the first Global Dialogue on Artificial Intelligence Governance, Geneva, 6 July 2026, alongside prior commentary on Kenya's Artificial Intelligence Bill, 2026 and the Data Protection Act, 2019.
+      <div class="fine">The Compliance Brief is prepared by the Editorial Board of Muchangi Patrick &amp; Associates Advocates · Nairobi · Not legal advice — consult qualified counsel before acting on this analysis.</div>
+    </div>
+  </div>
+</footer>
+
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+    }
+    banner.classList.remove('show');
+  }
+
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="script.js?v=8"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem("mp_cookie_consent"); } catch(e){ return null; } })();
+  gtag("consent", "default", {
+    "analytics_storage": mpConsent === "all" ? "granted" : "denied",
+    "ad_storage": "denied",
+    "ad_user_data": "denied",
+    "ad_personalization": "denied"
+  });
+  gtag("js", new Date());
+  gtag("config", "G-ZM2TZKZHJK");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy by Design | Kenya Privacy Law Review</title>
+<meta content="This Practice Note gives the accountability and data-minimisation principles of Kenyan data protection law their architectural form, building the proportionality analysis into a system's design rather than performing it retrospect" name="description"/>
+<link href="https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="Privacy by Design | Kenya Privacy Law Review" property="og:title"/>
+<meta content="This Practice Note gives the accountability and data-minimisation principles of Kenyan data protection law their architectural form, building the proportionality analysis into a system's design rather than performing it retrospect" property="og:description"/>
+<meta content="https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/" property="og:url"/>
+<meta content="Kenya Privacy Law Review" property="og:site_name"/>
+<meta content="https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/cover.jpg" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Privacy by Design | Kenya Privacy Law Review" name="twitter:title"/>
+<meta content="This Practice Note gives the accountability and data-minimisation principles of Kenyan data protection law their architectural form, building the proportionality analysis into a system's design rather than performing it retrospect" name="twitter:description"/>
+<meta content="https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/cover.jpg" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="/styles.css?v=5" rel="stylesheet"/>
+<meta content="#3f2b3d" name="theme-color"/>
+<link href="/assets/css/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Privacy by Design",
+      "alternativeHeadline": "Embedding Data Protection into Systems, Products and Processes under the Data Protection Act, 2019",
+      "author": {
+        "@id": "https://dataprivacyadvocates.co.ke/#founder"
+      },
+      "publisher": {
+        "@id": "https://dataprivacyadvocates.co.ke/#legalservice"
+      },
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "url": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/",
+      "image": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/cover.jpg",
+      "description": "This Practice Note gives the accountability and data-minimisation principles of Kenyan data protection law their architectural form, building the proportionality analysis into a system's design rather than performing it retrospectively as a compliance exercise. It applies Section 41 of the Data Protection Act, 2019 to system design decisions, drawing on the ODPC's decision in Okwomi v NHIF, and sets out a practical data-mapping and self-audit methodology for organisations building or procuring new systems.",
+      "keywords": "privacy by design, Section 41 DPA, Okwomi v NHIF, data mapping, DPIA, data minimisation, privacy by default",
+      "about": [
+        "Data Protection",
+        "Privacy by Design",
+        "Systems Architecture",
+        "DPIA"
+      ],
+      "isPartOf": {
+        "@id": "https://dataprivacyadvocates.co.ke/#kenya-privacy-law-review",
+        "@type": "PublicationVolume",
+        "name": "Kenya Privacy Law Review"
+      },
+      "identifier": "KPLR/PN/005/2026",
+      "inLanguage": "en",
+      "wordCount": null,
+      "@id": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/",
+      "associatedMedia": {
+        "@type": "DigitalDocument",
+        "@id": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/article.pdf",
+        "name": "Privacy by Design (PDF)",
+        "url": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/article.pdf",
+        "encodingFormat": "application/pdf",
+        "contentSize": "634698 bytes",
+        "isPartOf": {
+          "@id": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/"
+        },
+        "publisher": {
+          "@id": "https://dataprivacyadvocates.co.ke/#legalservice"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Resources",
+          "item": "https://dataprivacyadvocates.co.ke/resources/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Practice Notes",
+          "item": "https://dataprivacyadvocates.co.ke/resources/practice-notes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Privacy by Design",
+          "item": "https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body class="kplr">
+<div class="kplr-progress" data-kplr-progress=""></div>
+<header class="site-header">
+<div class="header-utility">
+<div class="container">
+<div class="header-utility-contact">
+<a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
+<a href="mailto:consult@dataprivacyadvocates.co.ke"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
+<a class="hide-sm" href="/contact.html"><i class="fas fa-location-dot"></i>Pinetree Plaza, Nairobi</a>
+</div>
+<div class="header-utility-social">
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/patrick-muchangi-507498216" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="container header-row">
+<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.png"/></a>
+<nav class="main-nav">
+<a href="/index.html">Home</a>
+<a href="/about.html">The Firm</a>
+<a href="/expertise.html">Solutions</a>
+<a href="/people.html">Our Founder</a>
+<div class="nav-item">
+<a class="active" href="/resources/practice-notes/">Knowledge Centre <i class="fas fa-chevron-down nav-caret"></i></a>
+<div class="dropdown-panel">
+<a href="/resources/practice-notes/"><i class="fas fa-file-pdf"></i><div><span>Practice Notes</span><small>Flagship legal analysis &amp; publications</small></div></a>
+<a href="/bills-review.html"><i class="fas fa-landmark"></i><div><span>Bills Review</span><small>Legislative analysis &amp; compliance impact</small></div></a>
+<a href="/regulatory-analysis.html"><i class="fas fa-file-shield"></i><div><span>Regulatory Analysis</span><small>What regulatory change means in practice</small></div></a>
+<a href="/insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
+<a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
+<a href="/webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
+<a href="/comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
+<div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
+</div>
+</div>
+<a href="/insights.html">Insights</a>
+<a href="/contact.html">Contact</a>
+<a class="nav-cta" href="/contact.html">Book a Consultation</a>
+</nav>
+<button aria-expanded="false" aria-label="Open menu" class="nav-toggle"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="nav-overlay"></div>
+<div class="kplr-breadcrumbs">
+<a href="/resources/practice-notes/">Knowledge Centre</a><span class="sep">/</span><a href="/resources/practice-notes/">Practice Notes</a><span class="sep">/</span><span>Privacy by Design</span>
+</div>
+<section class="kplr-hero">
+<div>
+<img alt="Cover of Privacy by Design" class="kplr-hero-cover" src="cover.jpg"/>
+</div>
+<div>
+<div class="kplr-hero-meta-row">
+<span class="kplr-badge kplr-badge-gold">KPLR/PN/005/2026</span>
+<span class="kplr-badge">Practice Note</span>
+<span class="kplr-badge">Data Protection</span>
+</div>
+<span class="kplr-eyebrow">Practice Note Series</span>
+<h1>Privacy by Design</h1>
+<p class="kplr-subtitle">Embedding Data Protection into Systems, Products and Processes under the Data Protection Act, 2019</p>
+<div class="kplr-metagrid">
+<div class="kplr-meta-item"><div class="kplr-meta-label">Author</div><div class="kplr-meta-value">Patrick Muchangi</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Published</div><div class="kplr-meta-value">July 2026</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Last Updated</div><div class="kplr-meta-value">July 2026</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Reading Time</div><div class="kplr-meta-value">None min</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Version</div><div class="kplr-meta-value">1.0</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Editorial Status</div><div class="kplr-meta-value">Published</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">DOI</div><div class="kplr-meta-value">Pending assignment</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Language</div><div class="kplr-meta-value">English</div></div>
+</div>
+<div class="kplr-hero-actions">
+<a class="kplr-btn kplr-btn-gold" href="#article-start">Read Online ↓</a>
+<a class="kplr-btn kplr-btn-outline" href="article.pdf" rel="noopener" target="_blank">Download PDF</a>
+<button class="kplr-btn kplr-btn-outline" data-kplr-print="" type="button">Print</button>
+</div>
+</div>
+</section>
+<div class="kplr-layout">
+<aside class="kplr-toc" data-kplr-toc="">
+<button class="kplr-toc-mobile-toggle" data-kplr-toc-toggle="" type="button">Table of Contents <span>▾</span></button>
+<div class="kplr-desktop-only" style="display:none;">On This Page</div>
+<ol>
+<li class=""><a href="#1-introduction-and-scope">1. INTRODUCTION AND SCOPE</a></li>
+<li class="sub"><a href="#1-1-purpose-of-this-practice-note">1.1 Purpose of this Practice Note</a></li>
+<li class="sub"><a href="#1-2-the-constitutional-foundation">1.2 The Constitutional Foundation</a></li>
+<li class="sub"><a href="#1-3-privacy-by-design-vs-privacy-by-default">1.3 Privacy by Design vs. Privacy by Default</a></li>
+<li class=""><a href="#2-the-legal-framework-for-privacy-by-design">2. THE LEGAL FRAMEWORK FOR PRIVACY BY DESIGN</a></li>
+<li class="sub"><a href="#2-1-section-41-of-the-data-protection-act-2019">2.1 Section 41 of the Data Protection Act, 2019</a></li>
+<li class="sub"><a href="#2-2-the-odpc-strategic-plan-2025-2029">2.2 The ODPC Strategic Plan 2025–2029</a></li>
+<li class=""><a href="#3-the-nhif-odpc-decision-when-systems-fail-privacy-by-design">3. THE NHIF ODPC DECISION — WHEN SYSTEMS FAIL PRIVACY BY DESIGN</a></li>
+<li class="sub"><a href="#3-1-facts">3.1 Facts</a></li>
+<li class="sub"><a href="#3-2-the-systemic-failure">3.2 The Systemic Failure</a></li>
+<li class="sub"><a href="#3-3-holdings">3.3 Holdings</a></li>
+<li class="sub"><a href="#3-4-significance">3.4 Significance</a></li>
+<li class="sub"><a href="#3-5-lessons-for-data-handlers">3.5 Lessons for Data Handlers</a></li>
+<li class=""><a href="#4-privacy-by-design-in-practice">4. PRIVACY BY DESIGN IN PRACTICE</a></li>
+<li class="sub"><a href="#4-1-the-seven-principles">4.1 The Seven Principles</a></li>
+<li class="sub"><a href="#4-2-practical-steps-for-organisations">4.2 Practical Steps for Organisations</a></li>
+<li class="sub"><a href="#4-3-data-minimisation-and-purpose-limitation">4.3 Data Minimisation and Purpose Limitation</a></li>
+<li class=""><a href="#5-data-protection-impact-assessments-as-a-design-tool">5. DATA PROTECTION IMPACT ASSESSMENTS AS A DESIGN TOOL</a></li>
+<li class="sub"><a href="#5-1-the-dpia-requirement">5.1 The DPIA Requirement</a></li>
+<li class=""><a href="#6-data-mapping-and-self-audits">6. DATA MAPPING AND SELF-AUDITS</a></li>
+<li class="sub"><a href="#6-1-the-importance-of-data-mapping">6.1 The Importance of Data Mapping</a></li>
+<li class="sub"><a href="#6-2-the-audit-process">6.2 The Audit Process</a></li>
+<li class="sub"><a href="#6-3-integrating-data-mapping-into-design">6.3 Integrating Data Mapping into Design</a></li>
+<li class=""><a href="#7-practical-implementation-strategies">7. PRACTICAL IMPLEMENTATION STRATEGIES</a></li>
+<li class="sub"><a href="#7-1-develop-a-privacy-by-design-policy">7.1 Develop a Privacy by Design Policy</a></li>
+<li class="sub"><a href="#7-2-appoint-a-data-protection-officer">7.2 Appoint a Data Protection Officer</a></li>
+<li class="sub"><a href="#7-3-implement-appropriate-technical-and-organisational-measures">7.3 Implement Appropriate Technical and Organisational Measures</a></li>
+<li class="sub"><a href="#7-4-conduct-dpias">7.4 Conduct DPIAs</a></li>
+<li class="sub"><a href="#7-5-data-minimisation">7.5 Data Minimisation</a></li>
+<li class="sub"><a href="#7-6-staff-training">7.6 Staff Training</a></li>
+<li class="sub"><a href="#7-7-vendor-management">7.7 Vendor Management</a></li>
+<li class=""><a href="#8-conclusion">8. CONCLUSION</a></li>
+<li><a href="#related-publications">Related Publications</a></li>
+</ol>
+</aside>
+<article class="kplr-article" data-kplr-article-root="">
+<a id="article-start"></a>
+<span class="kplr-eyebrow">Abstract</span>
+<p style="font-size:19px; font-style:italic; color:var(--text-soft); margin-top:8px;">This Practice Note gives the accountability and data-minimisation principles of Kenyan data protection law their architectural form, building the proportionality analysis into a system's design rather than performing it retrospectively as a compliance exercise. It applies Section 41 of the Data Protection Act, 2019 to system design decisions, drawing on the ODPC's decision in Okwomi v NHIF, and sets out a practical data-mapping and self-audit methodology for organisations building or procuring new systems.</p>
+<div class="kplr-callout">
+<div class="kplr-callout-title">Executive Summary</div>
+<p style="margin:0; font-size:16.5px; line-height:1.65;">Section 41 of the Data Protection Act, 2019 makes privacy by design and by default a binding legal obligation, not a best practice. The ODPC's decision in Okwomi v NHIF shows that a single unverified system field can trigger enforcement liability under Section 41. A Data Protection Impact Assessment carried out at the design stage is the clearest evidence an organisation can produce that it took Section 41 seriously, and data mapping, technical safeguards, staff training and vendor oversight together form the practical compliance programme this Practice Note recommends.</p>
+</div>
+<div class="kplr-callout">
+<div class="kplr-callout-title">Key Takeaways</div>
+<ul>
+<li>Section 41 of the Data Protection Act, 2019 makes privacy by design and by default a binding legal obligation, not a best practice.</li><li>The ODPC's decision in Okwomi v NHIF shows that a single unverified system field can trigger enforcement liability under Section 41.</li><li>A Data Protection Impact Assessment carried out at the design stage is the clearest evidence an organisation can produce that it took Section 41 seriously.</li><li>Data mapping, technical safeguards, staff training and vendor oversight together form the practical compliance programme this Practice Note recommends.</li>
+</ul>
+</div>
+<h2 id="1-introduction-and-scope">1. INTRODUCTION AND SCOPE</h2>
+<h3 id="1-1-purpose-of-this-practice-note">1.1 Purpose of this Practice Note</h3>
+<p>This Practice Note provides comprehensive guidance on the concept of privacy by design and by default under the Data Protection Act, 2019 (the “DPA”). It addresses the statutory obligation of data controllers and processors to embed data protection principles into the design of products, services, and systems from the very beginning, rather than as an afterthought.</p>
+<p>Privacy by design is not merely a compliance checkbox; it is a foundational approach to data protection that requires organisations to consider privacy and data protection issues at the design phase of any system, service, product, or process and then throughout its lifecycle. When properly implemented, privacy by design ensures that organisations achieve their objectives in the least privacy-intrusive way possible and that data subjects' rights are protected as a matter of course, not as an afterthought.</p>
+<p>“Privacy by design is not a theoretical concept — organisations must implement technical measures that prevent privacy violations from occurring in the first place.”</p>
+<h3 id="1-2-the-constitutional-foundation">1.2 The Constitutional Foundation</h3>
+<p>Article 31 of the Constitution of Kenya, 2010 guarantees the right to privacy as a fundamental human right. The DPA was enacted to give effect to this constitutional protection. The obligation to implement privacy by design arises directly from the DPA and is central to operationalising the constitutional right to privacy.</p>
+<h3 id="1-3-privacy-by-design-vs-privacy-by-default">1.3 Privacy by Design vs. Privacy by Default</h3>
+<p>The concepts of privacy by design and privacy by default are distinct but complementary:</p>
+<p>Privacy by Design requires data controllers and data processors to consider privacy and data protection issues at the design phase of any system, service, product, or process, and then throughout the lifecycle. Privacy principles must be “baked into” data processing and business activities from the outset.</p>
+<p>Privacy by Default requires organisations to ensure that, by default, only personal data necessary for each specific purpose is processed. The highest privacy standards apply automatically, and data subjects should not have to take any action to protect their privacy. Where organisations collect personal data, the default setting should be the most privacy-protective option.</p>
+<h2 id="2-the-legal-framework-for-privacy-by-design">2. THE LEGAL FRAMEWORK FOR PRIVACY BY DESIGN</h2>
+<h3 id="2-1-section-41-of-the-data-protection-act-2019">2.1 Section 41 of the Data Protection Act, 2019</h3>
+<p>Section 41 of the DPA is the primary provision governing privacy by design and by default. It provides:</p>
+<p>Section 41(1): Every data controller or data processor shall implement appropriate technical and organisational measures which are designed to implement the data protection principles in an effective manner and to integrate necessary safeguards for that purpose into the processing.</p>
+<p>Section 41(2): The data controller or data processor shall implement appropriate technical and organisational measures for ensuring that, by default, only personal data which is necessary for each specific purpose is processed, taking into consideration — the amount of personal data collected, the extent of its processing, the period of its storage, its accessibility, the cost of processing data, and the technologies and tools used.</p>
+<p>Section 41(3) requires a data controller or data processor to consider the following measures:</p>
+<p>1. Identify reasonably foreseeable internal and external risks to personal data under the person's possession or control and establish and maintain appropriate safeguards against the identified risks 2. Ensure pseudonymisation and encryption of personal data 3. Provide for access to personal data in a timely manner in the event of a physical or technical incident 4. Verify that the safeguards are effectively implemented 5. Ensure that the safeguards are continually updated in response to new risks or deficiencies</p>
+<h3 id="2-2-the-odpc-strategic-plan-2025-2029">2.2 The ODPC Strategic Plan 2025–2029</h3>
+<p>The ODPC's Strategic Plan 2025–2029 explicitly commits to promoting data protection by design or by default as a core principle. The Plan envisions fostering trust and transparency in data protection in Kenya, with data protection by design embedded as a foundational principle across all sectors.</p>
+<p>The Plan's focus on privacy by design is further evidenced by the ODPC's collaboration with Konza Technopolis to implement privacy-by-design principles in smart city infrastructure, reflecting a shared vision to ensure that digital transformation in Kenya is built on a foundation of trust, accountability, and respect for data privacy.</p>
+<h2 id="3-the-nhif-odpc-decision-when-systems-fail-privacy-by-design">3. THE NHIF ODPC DECISION — WHEN SYSTEMS FAIL PRIVACY BY DESIGN</h2>
+<p>CASE IN FOCUS Simon Mukabane Okwomi v. National Health Insurance Fund ODPC Complaint No. 1685 of 2023 [2025] · Office of the Data Protection Commissioner</p>
+<h3 id="3-1-facts">3.1 Facts</h3>
+<p>The Complainant discovered that the National Health Insurance Fund (NHIF) had included unknown individuals as beneficiaries under his medical cover without his knowledge or consent. When the Complainant wrote to NHIF demanding the immediate removal of these unknown beneficiaries, NHIF failed to adhere to his request for rectification.</p>
+<h3 id="3-2-the-systemic-failure">3.2 The Systemic Failure</h3>
+<p>The ODPC's investigation revealed a more fundamental issue. The inclusion of unknown beneficiaries was not merely a data accuracy problem; it was attributable to NHIF's failure to incorporate, in its ICT systems, a safeguard to confirm data subjects' identities prior to updating their beneficiaries. The result was that unknown beneficiaries could be added to a member's cover inadvertently.</p>
+<p>In its response to the complaint, NHIF confirmed that it had not incorporated the necessary validation control to confirm the Complainant's beneficiaries.</p>
+<h3 id="3-3-holdings">3.3 Holdings</h3>
+<p>The ODPC found that NHIF's systems did not meet the requirements of Section 41 of the DPA. By failing to incorporate identity verification safeguards at the design stage of its ICT systems, NHIF had violated its obligation to implement appropriate technical and organisational measures for data processing. The ODPC found that NHIF did not fulfil its obligations under Section 41 of the DPA.</p>
+<p>“A single design flaw can result in multiple data protection breaches — the obligation under Section 41 requires proactive, not reactive, action.”</p>
+<h3 id="3-4-significance">3.4 Significance</h3>
+<p>First, privacy by design is not merely a theoretical concept. Organisations must implement technical measures that prevent privacy violations from occurring in the first place.</p>
+<p>Second, system design failures can lead to privacy violations that affect numerous data subjects. A single design flaw can result in multiple data protection breaches.</p>
+<p>Third, conducting a Data Protection Impact Assessment at the design stage would have helped NHIF identify and mitigate the risk of unauthorised beneficiaries being added to members' covers.</p>
+<p>Fourth, the obligation to implement appropriate technical and organisational measures under Section 41 requires proactive, not reactive, action.</p>
+<h3 id="3-5-lessons-for-data-handlers">3.5 Lessons for Data Handlers</h3>
+<p>1. Verify identities at the point of data capture: ensure that systems confirm data subjects' identities before making changes to their personal data. 2. Conduct DPIAs at design stage: a DPIA would have identified the risk of unauthorised beneficiary additions and prompted the implementation of safeguards. 3. Regularly audit and update systems: data protection by design requires continuous monitoring and updating of systems in response to new risks or deficiencies. 4. Implement access controls and validation mechanisms: technical safeguards such as two-factor authentication, authorisation workflows, and validation rules should be built into systems.</p>
+<h2 id="4-privacy-by-design-in-practice">4. PRIVACY BY DESIGN IN PRACTICE</h2>
+<h3 id="4-1-the-seven-principles">4.1 The Seven Principles</h3>
+<p>While the DPA does not expressly codify the seven foundational principles of privacy by design, these principles provide a useful framework for implementation:</p>
+<p>1. Proactive not Reactive; Preventative not Remedial — privacy by design is about preventing privacy breaches before they occur, not fixing them after the fact. 2. Privacy as the Default Setting — personal data should be automatically protected in any given IT system or business practice. 3. Privacy Embedded into Design — privacy should be integrated into the design and architecture of IT systems and business practices, not added on. 4. Full Functionality, Positive-Sum not Zero-Sum — privacy by design accommodates all legitimate interests rather than forcing unnecessary trade-offs. 5. End-to-End Security, Full Lifecycle Protection — privacy must be incorporated throughout the entire lifecycle of personal data, from collection to deletion. 6. Visibility and Transparency — all stakeholders should be assured the system operates according to its stated promises and objectives. 7. Respect for User Privacy — the interests of the individual remain paramount, with strong privacy defaults, appropriate notice, and user-friendly options.</p>
+<h3 id="4-2-practical-steps-for-organisations">4.2 Practical Steps for Organisations</h3>
+<p>1. Embed privacy considerations at the outset of any system, service, product, or process. 2. Specify personal data required before processing starts, and why it is necessary. 3. Appropriately inform individuals of how their data will be processed before collection begins. 4. Only process necessary personal data — limit processing to what the specific purpose requires. 5. Implement technical measures to limit repurposing of personal data beyond its original collection purpose.</p>
+<h3 id="4-3-data-minimisation-and-purpose-limitation">4.3 Data Minimisation and Purpose Limitation</h3>
+<p>Data minimisation and purpose limitation are core elements of privacy by design. The DPA requires that personal data collected should be adequate, relevant, and limited to what is necessary in relation to the purposes for which it is processed. Organisations should ask themselves:</p>
+<ul><li>Is the collection of this personal data necessary?</li><li>Is the volume of data being collected proportionate?</li><li>Is the personal data being used for purposes other than those for which it was collected?</li><li>Are we storing data longer than necessary?</li></ul>
+<h2 id="5-data-protection-impact-assessments-as-a-design-tool">5. DATA PROTECTION IMPACT ASSESSMENTS AS A DESIGN TOOL</h2>
+<h3 id="5-1-the-dpia-requirement">5.1 The DPIA Requirement</h3>
+<p>Section 31 of the DPA requires data controllers to carry out a Data Protection Impact Assessment (DPIA) before processing that is likely to result in a high risk to the rights and freedoms of data subjects. Regulation 49 of the General Regulations classifies processing operations that present high risks, including:</p>
+<p>1. Automated decision-making or profiling with legal or similar effects 2. Large-scale processing for a purpose other than originally intended 3. Processing of biometric or genetic data 4. Changes increasing risk to data subjects 5. Large-scale processing of personal data</p>
+<h2 id="6-data-mapping-and-self-audits">6. DATA MAPPING AND SELF-AUDITS</h2>
+<p>5.2 What a DPIA Must Address For a DPIA to meet the minimum requirements of the DPA and its subsidiary legislation, it must address:</p>
+<ul><li>The amount of personal data processed and the extent of processing</li><li>The storage and accessibility of the personal data</li><li>The state of technological development available for processing</li><li>The specific risks attendant to the processing of personal data</li><li>A systematic description of the intended processing operations and their purpose</li><li>The necessity and proportionality of the processing operations</li><li>The risks to the rights and freedoms of data subjects</li><li>The measures envisaged to address the identified risks</li><li>The safeguards implemented to ensure the protection of personal data</li></ul>
+<p>5.3 The Worldcoin Decision In Republic v. Tools for Humanity Corporation (US) &amp; 8 others, the High Court emphasised the importance of DPIAs. The Court found that the respondents had not carried out a DPIA prior to processing biometric personal data, in contravention of the DPA. Consequently, the Court prohibited any further processing of biometric personal data without first undertaking a DPIA.</p>
+<p>The Court noted that a DPIA is an accountability tool that enables data handlers to identify, assess, and mitigate risks to the rights and freedoms of data subjects during data processing activities. Without a DPIA, organisations cannot demonstrate that they have adequately considered and addressed privacy risks.</p>
+<p>“Without a DPIA, organisations cannot demonstrate that they have adequately considered and addressed privacy risks.”</p>
+<p>5.4 When to Conduct a DPIA 1. Before processing begins — the DPIA must be completed before the processing commences. 2. Where processing is high-risk — likely to result in a high risk to data subjects' rights and freedoms. 3. When changes are made — where changes to processing operations increase the risk to data subjects. 4. When new technologies are adopted — where innovative technologies are used for processing.</p>
+<p>5.5 Submission to ODPC Where the DPIA indicates that the processing would result in a high risk that cannot be adequately mitigated, the data controller must consult the ODPC before proceeding. Regulation 49 requires data handlers to submit a DPIA report 60 days before processing personal data where the processing is likely to pose a high risk.</p>
+<p>6. DATA MAPPING AND SELF-AUDITS</p>
+<h3 id="6-1-the-importance-of-data-mapping">6.1 The Importance of Data Mapping</h3>
+<p>Data mapping is a foundational activity for implementing privacy by design. The ODPC emphasises that organisations should conduct self-audits to understand what categories of personal data they handle and process, how the personal data is stored, protected, and how such personal data moves in and out of the organisation. Data mapping helps organisations:</p>
+<p>1. Identify processing activities — covering collection, recording, organisation, structuring, storage, adaptation, alteration, retrieval, consultation, use, disclosure, dissemination, alignment, combination, restriction, erasure, or destruction of personal data. 2. Assess compliance — self-audits and data mapping determine compliance with the DPA and the nature of personal data handled. 3. Identify risks — by mapping data flows, organisations can identify risks to personal data and implement appropriate safeguards.</p>
+<h3 id="6-2-the-audit-process">6.2 The Audit Process</h3>
+<p>Organisations should undertake internal audits and data mapping to understand:</p>
+<ul><li>What personal data is held — identify all categories of personal data processed.</li><li>Why it is processed — determine the purposes for which personal data is processed.</li><li>How it is processed — identify collection, storage, use, and disclosure operations.</li><li>Who processes it — identify all data controllers, data processors, and third parties involved.</li><li>Where it is processed — identify locations, including any cross-border transfers.</li><li>How long it is retained — identify retention periods and ensure timely deletion.</li></ul>
+<h3 id="6-3-integrating-data-mapping-into-design">6.3 Integrating Data Mapping into Design</h3>
+<p>Data mapping should be integrated into the design process for any system, service, product, or process that will process personal data. By understanding the data flows from the outset, organisations can design systems that minimise data collection, restrict access, and ensure compliance with the DPA's principles.</p>
+<h2 id="7-practical-implementation-strategies">7. PRACTICAL IMPLEMENTATION STRATEGIES</h2>
+<h3 id="7-1-develop-a-privacy-by-design-policy">7.1 Develop a Privacy by Design Policy</h3>
+<p>Organisations should develop a comprehensive policy on privacy by design that addresses:</p>
+<ul><li>Governance — who is responsible for implementing privacy by design?</li><li>Process — how will privacy considerations be integrated into design processes?</li><li>Standards — what are the minimum privacy standards that must be met?</li><li>Audit — how will compliance be monitored and verified?</li><li>Review — how will policies be updated in response to new risks?</li></ul>
+<h3 id="7-2-appoint-a-data-protection-officer">7.2 Appoint a Data Protection Officer</h3>
+<p>Section 24 of the DPA requires organisations to appoint a Data Protection Officer where they are a data controller or processor. The DPO plays a critical role in implementing privacy by design by advising on data processing requirements, ensuring compliance with the DPA, facilitating capacity building of staff, providing advice on DPIAs, and cooperating with the Data Commissioner.</p>
+<h3 id="7-3-implement-appropriate-technical-and-organisational-measures">7.3 Implement Appropriate Technical and Organisational Measures</h3>
+<p>Section 41 of the DPA requires organisations to implement appropriate technical and organisational measures including:</p>
+<p>1. Identifying foreseeable risks — identify reasonably foreseeable internal and external risks to personal data. 2. Establishing safeguards — establish and maintain appropriate safeguards against identified risks. 3. Pseudonymisation and encryption — ensure pseudonymisation and encryption of personal data. 4. Timely access — provide for access to personal data in a timely manner in the event of a physical or technical incident. 5. Verification — verify that safeguards are effectively implemented. 6. Continuous updating — ensure that safeguards are continually updated in response to new risks or deficiencies.</p>
+<h3 id="7-4-conduct-dpias">7.4 Conduct DPIAs</h3>
+<p>Organisations should conduct DPIAs where processing is likely to result in a high risk to data subjects' rights and freedoms. DPIAs should be conducted before processing begins and should be reviewed periodically.</p>
+<h3 id="7-5-data-minimisation">7.5 Data Minimisation</h3>
+<p>Organisations should collect only the personal data necessary for their purposes. Section 41(2) requires organisations to ensure that, by default, only personal data which is necessary for each specific purpose is processed.</p>
+<h3 id="7-6-staff-training">7.6 Staff Training</h3>
+<p>Privacy by design requires a cultural shift within organisations. Staff at all levels must understand the importance of data protection and the practical steps they can take to implement privacy by design. Organisations should:</p>
+<ul><li>Provide regular training to all staff on data protection principles and requirements.</li><li>Create awareness of the importance of privacy by design.</li><li>Embed a privacy-centric culture where data protection is everyone's responsibility.</li></ul>
+<h3 id="7-7-vendor-management">7.7 Vendor Management</h3>
+<p>Privacy by design extends to third-party vendors. Organisations must ensure that vendors who process personal data on their behalf implement appropriate privacy by design measures.</p>
+<h2 id="8-conclusion">8. CONCLUSION</h2>
+<p>Privacy by design is a foundational principle of Kenya's data protection framework. Section 41 of the DPA requires organisations to embed data protection into the design of systems, products, and processes from the outset. The ODPC has emphasised the importance of privacy by design, and enforcement actions such as the NHIF decision demonstrate that the ODPC will hold organisations accountable for failing to implement appropriate technical and organisational measures.</p>
+<p>Data handlers must adopt a proactive approach to privacy by design, integrating data protection principles into all stages of their operations. DPIAs, data mapping, self-audits, and the implementation of technical and organisational measures are essential tools for achieving compliance.</p>
+<p>The NHIF decision serves as a powerful reminder that privacy by design is not merely a theoretical obligation. Organisations that fail to embed privacy into their systems expose themselves to enforcement action and risk violating the rights of data subjects. In an era of rapid digital transformation, privacy by design is not optional — it is a legal requirement and a business imperative.</p>
+<p>SUMMARY TABLE</p>
+<p>Legal Basis Section 41 of the DPA requires privacy by design and by default</p>
+<p>NHIF Decision Failure to incorporate identity verification at design stage violates Section 41</p>
+<p>DPIA as Design Tool DPIAs help identify and mitigate risks at the design stage</p>
+<p>Data Minimisation Only collect personal data necessary for the specific purpose</p>
+<p>Technical Measures Encryption, pseudonymisation, and validation controls are essential</p>
+<p>Organisational Policies, training, and governance structures are required Measures</p>
+<p>Vendor Management Ensure third parties implement privacy by design</p>
+<div class="kplr-disclaimer-box">
+<strong style="color:var(--text);">Disclaimer:</strong> This Practice Note is provided for general informational purposes
+      and does not constitute legal advice. Reading this publication does not create an advocate-client relationship
+      with Muchangi Patrick &amp; Associates Advocates. For advice on a specific matter, please
+      <a href="/contact.html" style="color:var(--accent);">book a consultation</a>.
+      Spotted an error or an update we should reflect?
+      <a href="mailto:consult@dataprivacyadvocates.co.ke?subject=Correction%20—%20KPLR/PN/005/2026" style="color:var(--accent);">Let us know</a>.
+    </div>
+</article>
+<aside class="kplr-sidebar">
+<div class="kplr-side-panel">
+<h4>Reader Actions</h4>
+<div class="kplr-side-actions">
+<a class="kplr-side-link" href="article.pdf" rel="noopener" target="_blank">⬇ Download PDF</a>
+<button class="kplr-side-link" data-kplr-print="" type="button">🖶 Print Article</button>
+<button class="kplr-side-link" data-kplr-copy-link="" type="button">🔗 Copy Link</button>
+<button class="kplr-side-link" data-kplr-bookmark="" type="button">☆ Bookmark</button>
+<a class="kplr-side-link" href="mailto:consult@dataprivacyadvocates.co.ke?subject=Suggested%20update%20—%20KPLR/PN/005/2026">✎ Suggest an Update</a>
+</div>
+</div>
+<div class="kplr-side-panel">
+<h4>Share</h4>
+<div class="kplr-share-row">
+<a class="kplr-btn kplr-btn-outline kplr-btn-sm" data-kplr-share="linkedin" rel="noopener" target="_blank">in</a>
+<a class="kplr-btn kplr-btn-outline kplr-btn-sm" data-kplr-share="x" rel="noopener" target="_blank">X</a>
+<a class="kplr-btn kplr-btn-outline kplr-btn-sm" data-kplr-share="whatsapp" rel="noopener" target="_blank">WA</a>
+<a class="kplr-btn kplr-btn-outline kplr-btn-sm" data-kplr-share="email">✉</a>
+</div>
+</div>
+<div class="kplr-side-panel" data-kplr-citation-panel="" data-meta="{&quot;title&quot;: &quot;Privacy by Design&quot;, &quot;subtitle&quot;: &quot;Embedding Data Protection into Systems, Products and Processes under the Data Protection Act, 2019&quot;, &quot;journal&quot;: &quot;Kenya Privacy Law Review&quot;, &quot;url&quot;: &quot;https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/&quot;, &quot;author&quot;: &quot;Patrick Muchangi&quot;, &quot;pubNumber&quot;: &quot;005&quot;, &quot;ref&quot;: &quot;KPLR/PN/005/2026&quot;, &quot;year&quot;: &quot;2026&quot;, &quot;dateDisplay&quot;: &quot;July 2026&quot;, &quot;slug&quot;: &quot;privacy-by-design&quot;, &quot;citationText&quot;: &quot;Patrick Muchangi, 'Privacy by Design: Embedding Data Protection into Systems, Products and Processes under the Data Protection Act, 2019', Kenya Privacy Law Review, Practice Note No. 005 (July 2026).&quot;}">
+<h4>Cite This Publication</h4>
+<div class="kplr-citation-tabs">
+<button class="kplr-citation-tab active" data-kplr-citation-tab="apa">APA</button>
+<button class="kplr-citation-tab" data-kplr-citation-tab="oscola">OSCOLA</button>
+<button class="kplr-citation-tab" data-kplr-citation-tab="bluebook">Bluebook</button>
+<button class="kplr-citation-tab" data-kplr-citation-tab="chicago">Chicago</button>
+<button class="kplr-citation-tab" data-kplr-citation-tab="harvard">Harvard</button>
+</div>
+<div class="kplr-citation-text" data-kplr-citation-text=""></div>
+<button class="kplr-btn kplr-btn-gold kplr-btn-sm kplr-btn-block" data-kplr-citation-copy="" type="button">Copy Citation</button>
+<div class="kplr-export-row">
+<button class="kplr-btn kplr-btn-outline kplr-btn-sm" data-kplr-export-bibtex="" style="flex:1;" type="button">BibTeX</button>
+<button class="kplr-btn kplr-btn-outline kplr-btn-sm" data-kplr-export-ris="" style="flex:1;" type="button">RIS</button>
+</div>
+<div class="kplr-qr-box">
+<img alt="QR code linking to this publication" loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fdataprivacyadvocates.co.ke%2Fresources%2Fpractice-notes%2Fprivacy-by-design%2F"/>
+<div style="font-size:12.5px; color:var(--text-soft); line-height:1.5;">Scan to open this publication, or use the permanent URL below.<br/><span style="color:var(--accent); word-break:break-all;">https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/</span></div>
+</div>
+</div>
+<div class="kplr-side-panel">
+<h4>Publication Metadata</h4>
+<div class="kplr-reading-meta">
+<div>Publication ID: <b>kplr-pn-005</b></div>
+<div>Reference: <b>KPLR/PN/005/2026</b></div>
+<div>Practice Area: <b>Data Protection</b></div>
+<div>Reading Time: <b>None minutes</b> (~None words)</div>
+<div>Version: <b>1.0</b></div>
+</div>
+</div>
+</aside>
+</div>
+<div class="kplr-authorbox">
+<div class="kplr-authorbox-inner">
+<div class="kplr-author-photo">MP</div>
+<div>
+<h4>Patrick Muchangi</h4>
+<div class="kplr-author-role">Advocate of the High Court of Kenya · Founder, Muchangi Patrick &amp; Associates Advocates</div>
+<p>Patrick Muchangi is an Advocate of the High Court of Kenya and founder of Muchangi Patrick &amp; Associates Advocates, a boutique Nairobi practice specialising in data protection, privacy, AI governance, and technology law. He is a Certified Professional Mediator, holds an LL.B from the University of Nairobi and a Post-Graduate Diploma from the Kenya School of Law, and edits the Kenya Privacy Law Review.</p>
+<div class="kplr-author-links">
+<a href="/resources/practice-notes/">More by this author</a>
+<a href="/">Firm website</a>
+</div>
+</div>
+</div>
+</div>
+<div class="kplr-callout kplr-next-step">
+<div class="kplr-callout-title">Take the Next Step</div>
+<p style="margin:0 0 12px;">Privacy by design starts at the product and website layer. Our Website Compliance Audit Checklist scores your site against thirty concrete requirements.</p>
+<p style="margin:0;"><a href="/resources/checklists/website-compliance-audit-checklist/" style="color:var(--accent);font-weight:600;">Open the Website Compliance Audit Checklist &rarr;</a></p>
+</div>
+<section class="kplr-related" id="related-publications">
+<h2 class="kplr-section-title">Related Publications</h2>
+<div class="kplr-related-grid">
+<a class="kplr-card" href="/resources/practice-notes/architecture-of-lawful-processing/">
+<div class="kplr-card-cover"><img alt="Cover of The Architecture of Lawful Processing" loading="lazy" src="/resources/practice-notes/architecture-of-lawful-processing/cover-thumb.jpg"/></div>
+<div class="kplr-card-body">
+<div class="kplr-card-toprow"><span class="kplr-card-num">KPLR/PN/001/2026</span><span class="kplr-card-cat">Practice Note</span></div>
+<h3 class="kplr-card-title">The Architecture of Lawful Processing</h3>
+<div class="kplr-card-area">Constitutional Law</div>
+<div class="kplr-card-footer"><span class="read">Read Online →</span><span>None min</span></div>
+</div>
+</a>
+<a class="kplr-card" href="/resources/practice-notes/employee-monitoring/">
+<div class="kplr-card-cover"><img alt="Cover of Employee Monitoring" loading="lazy" src="/resources/practice-notes/employee-monitoring/cover-thumb.jpg"/></div>
+<div class="kplr-card-body">
+<div class="kplr-card-toprow"><span class="kplr-card-num">KPLR/PN/002/2026</span><span class="kplr-card-cat">Practice Note</span></div>
+<h3 class="kplr-card-title">Employee Monitoring</h3>
+<div class="kplr-card-area">Employment</div>
+<div class="kplr-card-footer"><span class="read">Read Online →</span><span>None min</span></div>
+</div>
+</a>
+<a class="kplr-card" href="/resources/practice-notes/cross-border-data-transfers/">
+<div class="kplr-card-cover"><img alt="Cover of Cross-Border Data Transfers" loading="lazy" src="/resources/practice-notes/cross-border-data-transfers/cover-thumb.jpg"/></div>
+<div class="kplr-card-body">
+<div class="kplr-card-toprow"><span class="kplr-card-num">KPLR/PN/003/2026</span><span class="kplr-card-cat">Practice Note</span></div>
+<h3 class="kplr-card-title">Cross-Border Data Transfers</h3>
+<div class="kplr-card-area">Cross-Border Transfers</div>
+<div class="kplr-card-footer"><span class="read">Read Online →</span><span>None min</span></div>
+</div>
+</a>
+</div>
+</section>
+<nav class="kplr-prevnext">
+<a class="kplr-pn-link kplr-pn-prev" href="../ai-procurement/"><div class="dir">← Previous</div><div class="ttl">Artificial Intelligence Procurement</div></a>
+<div></div>
+</nav>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.png"/></a>
+<p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+<div class="footer-social">
+<a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+<div><h5>Firm</h5><a href="/about.html">About Us</a><a href="/insights.html">Insights</a><a href="/contact.html">Careers</a></div>
+<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="/bills-review.html">Bills Review</a><a href="/regulatory-analysis.html">Regulatory Analysis</a><a href="/compliance-toolkit.html">Compliance Toolkit</a><a href="/webinars.html">Webinars</a></div>
+<div><h5>Solutions</h5><a href="/expertise.html">Data Protection &amp; Privacy</a><a href="/expertise.html">GDPR &amp; Cross-Border</a><a href="/expertise.html">Fintech &amp; Startups</a><a href="/expertise.html">AI Governance</a></div>
+<div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" rel="noopener" target="_blank">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
+<div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="/cookie-notice.html">Cookie Notice</a></div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved. Kenya Privacy Law Review is a publication of Muchangi Patrick &amp; Associates Advocates.</span>
+<div class="links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div>
+</div>
+</div>
+</footer>
+<div class="cookie-banner">
+<div class="cookie-banner-inner">
+<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we may in future also use cookies to understand how visitors use this site. For more information, see our <a href="/cookie-notice.html">Cookie Notice</a>.</p>
+<div class="cookie-actions-row">
+<button class="btn btn-line btn-sm btn-ghost cookie-essential" type="button">Essential Only</button>
+<button class="btn btn-brass btn-sm cookie-accept" type="button">Accept All</button>
+</div>
+</div>
+</div>
+<script src="/script.js?v=8"></script>
+<script src="/assets/js/site.js"></script>
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

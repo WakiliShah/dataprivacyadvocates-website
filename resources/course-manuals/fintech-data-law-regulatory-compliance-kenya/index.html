@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem("mp_cookie_consent"); } catch(e){ return null; } })();
+  gtag("consent", "default", {
+    "analytics_storage": mpConsent === "all" ? "granted" : "denied",
+    "ad_storage": "denied",
+    "ad_user_data": "denied",
+    "ad_personalization": "denied"
+  });
+  gtag("js", new Date());
+  gtag("config", "G-ZM2TZKZHJK");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook | Kenya Privacy Law Review</title>
+<meta content="A practitioner workbook for Kenyan digital credit providers and fintechs — the six-instrument regulatory stack, data lineage and mapping, lawful consent architecture, automated underwriting, ethical debt collection, DSARs and DPIAs." name="description"/>
+<link href="https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook | Kenya Privacy Law Review" property="og:title"/>
+<meta content="A practitioner workbook for Kenyan digital credit providers and fintechs — the six-instrument regulatory stack, data lineage and mapping, lawful consent architecture, automated underwriting, ethical debt collection, DSARs and DPIAs." property="og:description"/>
+<meta content="https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/" property="og:url"/>
+<meta content="Kenya Privacy Law Review" property="og:site_name"/>
+<meta content="https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/cover.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook | Kenya Privacy Law Review" name="twitter:title"/>
+<meta content="A practitioner workbook for Kenyan digital credit providers and fintechs — the six-instrument regulatory stack, data lineage and mapping, lawful consent architecture, automated underwriting, ethical debt collection, DSARs and DPIAs." name="twitter:description"/>
+<meta content="https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/cover.jpg" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="/styles.css?v=5" rel="stylesheet"/>
+<meta content="#3f2b3d" name="theme-color"/>
+<link href="/assets/css/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "headline": "Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook",
+      "author": {
+        "@id": "https://dataprivacyadvocates.co.ke/#founder"
+      },
+      "publisher": {
+        "@id": "https://dataprivacyadvocates.co.ke/#legalservice"
+      },
+      "datePublished": "2026-07-01",
+      "url": "https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/",
+      "image": "https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/cover.jpg",
+      "description": "A practitioner workbook for Kenyan digital credit providers and fintechs — the six-instrument regulatory stack, data lineage and mapping, lawful consent architecture, automated underwriting, ethical debt collection, DSARs and DPIAs.",
+      "inLanguage": "en",
+      "identifier": "KPLR/ACAD/002/2026"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "KPLR Academy",
+          "item": "https://dataprivacyadvocates.co.ke/academy.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook",
+          "item": "https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body class="kplr">
+<div class="kplr-progress" data-kplr-progress=""></div>
+<header class="site-header">
+<div class="header-utility">
+<div class="container">
+<div class="header-utility-contact">
+<a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
+<a href="mailto:consult@dataprivacyadvocates.co.ke"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
+<a class="hide-sm" href="/contact.html"><i class="fas fa-location-dot"></i>Pinetree Plaza, Nairobi</a>
+</div>
+<div class="header-utility-social">
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/patrick-muchangi-507498216" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="container header-row">
+<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.png"/></a>
+<nav class="main-nav">
+<a href="/index.html">Home</a>
+<a href="/about.html">The Firm</a>
+<a href="/expertise.html">Solutions</a>
+<a href="/people.html">Our Founder</a>
+<div class="nav-item">
+<a class="active" href="/resources/practice-notes/">Knowledge Centre <i class="fas fa-chevron-down nav-caret"></i></a>
+<div class="dropdown-panel">
+<a href="/resources/practice-notes/"><i class="fas fa-file-pdf"></i><div><span>Practice Notes</span><small>Flagship legal analysis &amp; publications</small></div></a>
+<a href="/bills-review.html"><i class="fas fa-landmark"></i><div><span>Bills Review</span><small>Legislative analysis &amp; compliance impact</small></div></a>
+<a href="/regulatory-analysis.html"><i class="fas fa-file-shield"></i><div><span>Regulatory Analysis</span><small>What regulatory change means in practice</small></div></a>
+<a href="/insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
+<a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
+<a href="/academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training &amp; certification programmes</small></div></a>
+<a href="/webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
+<a href="/comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
+<div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
+</div>
+</div>
+<a href="/insights.html">Insights</a>
+<a href="/contact.html">Contact</a>
+<a class="nav-cta" href="/contact.html">Book a Consultation</a>
+</nav>
+<button aria-expanded="false" aria-label="Open menu" class="nav-toggle"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="nav-overlay"></div>
+<div class="kplr-breadcrumbs">
+<a href="/academy.html">KPLR Academy</a><span class="sep">/</span><span>Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook</span>
+</div>
+<section class="kplr-hero">
+<div>
+<img alt="Cover of Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook" class="kplr-hero-cover" src="cover.jpg"/>
+</div>
+<div>
+<div class="kplr-hero-meta-row">
+<span class="kplr-badge kplr-badge-gold">KPLR/ACAD/002/2026</span>
+<span class="kplr-badge">Companion Workbook</span>
+<span class="kplr-badge">Financial Services</span>
+</div>
+<span class="kplr-eyebrow">KPLR Academy · Companion Workbook &amp; Practitioner Study Guide</span>
+<h1>Fintech Data Law &amp; Regulatory Compliance (Kenya) — Companion Workbook</h1>
+<p class="kplr-subtitle">From knowledge to implementation for digital credit providers and fintechs operating in Kenya</p>
+<div class="kplr-metagrid">
+<div class="kplr-meta-item"><div class="kplr-meta-label">Author</div><div class="kplr-meta-value">Patrick Muchangi</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Published</div><div class="kplr-meta-value">July 2026</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Format</div><div class="kplr-meta-value">22 pages · PDF &amp; Online</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Version</div><div class="kplr-meta-value">1.0</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Editorial Status</div><div class="kplr-meta-value">Published</div></div>
+<div class="kplr-meta-item"><div class="kplr-meta-label">Language</div><div class="kplr-meta-value">English</div></div>
+</div>
+<div class="kplr-hero-actions">
+<a class="kplr-btn kplr-btn-gold" href="#article-start">Read Online ↓</a>
+<a class="kplr-btn kplr-btn-outline" download="" href="article.pdf" rel="noopener" target="_blank" data-kg-file="article.pdf" data-kg-title="Fintech Data Law & Regulatory Compliance (Kenya) Workbook" data-kg-id="course-fintech">Download PDF</a>
+<button class="kplr-btn kplr-btn-outline" data-kplr-print="" type="button">Print</button>
+</div>
+</div>
+</section>
+<div class="kplr-layout">
+<aside class="kplr-toc" data-kplr-toc="">
+<button class="kplr-toc-mobile-toggle" data-kplr-toc-toggle="" type="button">Table of Contents <span>▾</span></button>
+<ol>
+<li><a href="#how-to-use">How to Use This Workbook</a></li>
+<li><a href="#module-1">Module 1 · Regulatory Landscape &amp; Registration Architecture</a></li>
+<li><a href="#module-2">Module 2 · Data Architecture, Lineage &amp; Mapping</a></li>
+<li><a href="#module-3">Module 3 · Lawful Bases, Consent Architecture &amp; User Journey Design</a></li>
+<li><a href="#module-4">Module 4 · Automated Decision-Making &amp; Algorithmic Underwriting</a></li>
+<li><a href="#module-5">Module 5 · Ethical Debt Collection &amp; Third-Party Data Risk</a></li>
+<li><a href="#module-6">Module 6 · Subject Access Requests &amp; Data Portability</a></li>
+<li><a href="#module-7">Module 7 · Data Protection Impact Assessments</a></li>
+<li><a href="#glossary">Quick Reference Glossary</a></li>
+</ol>
+</aside>
+<article class="kplr-article" data-kplr-article-root="">
+<a id="article-start"></a>
+<span class="kplr-eyebrow">Abstract</span>
+<p style="font-size:19px; font-style:italic; color:var(--text-soft); margin-top:8px;">This workbook is the companion to KPLR's Fintech Data Law &amp; Regulatory Compliance (Kenya) programme, built specifically for digital credit providers (DCPs) and financial technology platforms. It moves from the concurrent six-instrument regulatory stack through data lineage mapping, consent architecture, algorithmic underwriting, ethical debt recovery, subject access requests and DPIAs — with worked templates and clause language drafted for direct adaptation.</p>
+<div class="kplr-callout">
+<div class="kplr-callout-title">Purpose</div>
+<p style="margin:0;">This is a legal reference and internal planning tool, not legal advice. Each module contains statutory citations, practitioner boxes drawn from Kenyan fintech enforcement practice, worked examples, reflection questions, and a module completion checklist.</p>
+</div>
+<h2 id="module-1">Module 1 · Regulatory Landscape &amp; Registration Architecture</h2>
+<p>Article 31(c)–(d) of the Constitution is the starting point for any DCP processing borrower data — a fundamental right enforceable independently of the DPA 2019. Six instruments apply concurrently to a Digital Credit Provider: the Constitution (Art. 31); the Data Protection Act, 2019; the Data Protection (General) Regulations, 2021; the Data Protection (Registration) Regulations, 2021; the CBK (Digital Credit Providers) Regulations, 2022; and POCAMLA, Cap. 59B.</p>
+<p>The ODPC's Section 8 powers include maintaining the controller/processor register, reviewing DPIAs, investigating complaints, issuing enforcement notices, and imposing fines up to KES 5,000,000 or 1% of turnover, whichever is lower. As of 2025, the ODPC had issued over 40 formal enforcement notices to digital credit providers — commonly for unregistered operation, invalid consent flows, failure to appoint a DPO, and debt-shaming via contact-list scraping.</p>
+<h3>The POCAMLA vs DPA Retention-Erasure Conflict</h3>
+<p>Where a closed loan account's data is subject to an erasure request, s.28(2)(c) DPA exempts erasure where retention is required by law — and POCAMLA s.40 requires 7-year retention of KYC and transaction records. The resolution: restrict (rather than delete) the data into a non-operational archive, notify the subject in writing of the retention period and their right to complain to the ODPC, and execute automated, logged deletion once the 7-year window expires. Article 17(3)(b) GDPR contains an identical exemption for EU data subjects.</p>
+<p>Registration runs a seven-step path: determine your tier; create an ODPC portal account; specify processing activities; declare your security architecture; upload a board-approved Data Protection Policy; pay the fee via eCitizen; and receive a certificate valid for 24 months.</p>
+<h2 id="module-2">Module 2 · Data Architecture, Lineage &amp; Mapping</h2>
+<p>Data lineage is the auditable trail of every personal data element from capture to deletion. In 2024 ODPC inspections, 73% of enforcement findings related not to unlawful processing itself but to the DCP's inability to produce a documented lineage trail proving the processing was lawful.</p>
+<p>Section 2 distinguishes standard from sensitive personal data, each with different legal-basis and storage requirements — national ID numbers require contract performance plus a legal obligation and 7-year POCAMLA retention; biometric face images require explicit consent, isolated storage and a 90-day maximum retention; racial or ethnic origin data is prohibited from credit-scoring use entirely under Article 27 of the Constitution.</p>
+<p>A compliant data mapping registry — the first document an ODPC audit requests — records, for every data element: legal basis, storage location, access level, external sharing, and retention period, cross-referenced against the Data Protection Policy, vendor DPAs, and the ODPC registration filing.</p>
+<p>Role-based access control implements the data-minimisation principle (s.3(c)) across four tiers: a masking customer-care portal with zero export rights; machine-to-machine access for the credit-scoring engine with immutable audit logging; the highest human access tier for Compliance &amp; Legal; and pseudonymised, DPO-approved datasets only for Data Science.</p>
+<h2 id="module-3">Module 3 · Lawful Bases, Consent Architecture &amp; User Journey Design</h2>
+<p>Section 30 sets out seven lawful bases. Contract performance is the strongest basis for core lending operations; legitimate interests (fraud prevention, security logging) is medium-risk and requires a documented Legitimate Interests Assessment; consent is high-risk if invalid, since it renders all downstream processing unlawful.</p>
+<p>Section 32 establishes four pillars of valid consent, identical in substance to GDPR Article 7: <strong>freely given</strong> (a loan cannot be conditioned on unrelated processing, e.g. contact-list access); <strong>specific</strong> (one checkbox per purpose — a single box covering scoring, marketing and sharing is invalid as to all three); <strong>informed</strong> (identity of the controller, categories of data, purposes, retention, recipients, cross-border transfer, and withdrawal method must all be disclosed); and <strong>unambiguous</strong> (an affirmative click or toggle — pre-ticked boxes and "by continuing to browse" language never constitute valid consent).</p>
+<p>The workbook supplies production-ready consent screen copy for core registration and CRB access authorisation, and a worked table converting three common non-compliant clauses (all-in-one device-sensor access; unrestricted third-party sharing; "use constitutes acceptance") into compliant, purpose-specific replacements.</p>
+<h2 id="module-4">Module 4 · Automated Decision-Making &amp; Algorithmic Underwriting</h2>
+<p>Section 35(1) DPA gives data subjects a right against decisions based solely on automated processing that significantly affects them — a threshold that loan approval or rejection plainly meets, triggering Section 35 for virtually every digital lending platform's core business activity. GDPR Article 22 is substantively identical for EU-linked platforms.</p>
+<p>Section 35 imposes three mandatory safeguards: proactive, plain-language transparency about the automated logic before processing begins; a right to human intervention via an accessible appeal mechanism, reviewed by a compliance officer empowered to override the algorithm; and a right to express a view, giving the borrower a meaningful chance to submit further evidence before the review concludes.</p>
+<p>Article 27 of the Constitution prohibits discrimination on protected grounds, which an algorithm can violate indirectly through proxy variables — neighbourhood as a socio-economic/ethnic proxy, SMS activity patterns reflecting religious observance, or historical loan data that encodes past discriminatory outcomes. The recommended safeguard is an independent bias audit every six months, retained and producible to the ODPC on request.</p>
+<h2 id="module-5">Module 5 · Ethical Debt Collection &amp; Third-Party Data Risk</h2>
+<p>DPA s.3/s.25 and CBK Regulation 19(2) create a dual-liability zone for every recovery contact. Direct calls, in-app notices, emails and SMS to the borrower's own registered channels are authorised; a call to the borrower's employer disclosing debt status, WhatsApp messages to the borrower's contact list, or social-media posting of debt details are prohibited outright, carrying civil and criminal exposure under Sections 25 and 72.</p>
+<p>Where a Debt Collection Agency (DCA) is engaged, it acts as a Data Processor and the DCP remains fully liable as Controller. The workbook sets out six mandatory DPA clauses: purpose limitation restricting the DCA to the specific assigned debt; a 48-hour mandatory destruction clause on account recall or full recovery, evidenced in writing; a sub-processing prohibition; unannounced audit rights; indemnification; and a schedule of prohibited conduct and required call scripts.</p>
+<h2 id="module-6">Module 6 · Subject Access Requests &amp; Data Portability</h2>
+<p>Sections 26–33 grant eight operational rights — access, rectification, erasure, restriction, portability, objection, protection against automated decisions, and the right to complain to the ODPC — most carrying a 21-day response deadline (rectification: 14 days). The six-step SAR protocol runs: log the request on receipt (Day 0, the clock does not pause for verification); verify identity proportionately, without requiring notarised documents; assess scope across every system including archives and call recordings; apply only narrowly justified exemptions (trade secrets, third-party data, active AML investigations, privileged communications); package the response with a cover letter; and deliver within 21 days via encrypted channel, logging completion in the SAR register.</p>
+<p>Section 33 portability is best implemented as a self-service, in-app JSON export containing verified identity, account history, third-party transmission logs and consent history — satisfying both s.33 DPA and Article 20 GDPR simultaneously.</p>
+<h2 id="module-7">Module 7 · Data Protection Impact Assessments</h2>
+<p>Section 35(2) makes a DPIA mandatory wherever processing is likely to create high risk, with six fintech-specific triggers including any ML-based credit scoring system, large-scale sensitive-data processing, systematic financial or location monitoring, new technology deployment, database linkage with external registries, and any cross-border transfer. Where residual risk stays high after mitigation, s.35(6) requires ODPC consultation before commencing processing — the ODPC has up to eight weeks to respond, and proceeding before that response is a criminal offence.</p>
+<p>A worked six-section DPIA for a 50,000-profile ML credit scoring system is provided in full, including a necessity-and-proportionality table (concluding, for example, that contact-list data is not necessary or proportionate for credit assessment and its processing should be prohibited) and a risk-identification table scoring inherent versus residual risk for proxy-discrimination, biometric breach, DCA misuse and cross-border transfer risks.</p>
+<h2 id="glossary">Quick Reference Glossary</h2>
+<p>The workbook closes with a statutory glossary (personal data, sensitive personal data, controller, processor, consent, processing, DPIA, DPO, profiling, pseudonymisation) cross-referenced to the DPA 2019 and, where incorporated by reference, the GDPR.</p>
+<div class="kplr-disclaimer-box">
+<strong style="color:var(--text);">Disclaimer:</strong> This publication is provided for general informational purposes
+      and does not constitute legal advice. Reading this publication does not create an advocate-client relationship
+      with Muchangi Patrick &amp; Associates Advocates. For advice on a specific matter, please
+      <a href="/contact.html" style="color:var(--accent);">book a consultation</a>.
+    </div>
+</article>
+<aside class="kplr-sidebar">
+<div class="kplr-side-panel">
+<h4>Reader Actions</h4>
+<div class="kplr-side-actions">
+<a class="kplr-side-link" download="" href="article.pdf" rel="noopener" target="_blank" data-kg-file="article.pdf" data-kg-title="Fintech Data Law & Regulatory Compliance (Kenya) Workbook" data-kg-id="course-fintech">⬇ Download PDF</a>
+<button class="kplr-side-link" data-kplr-print="" type="button">🖶 Print</button>
+<button class="kplr-side-link" data-kplr-copy-link="" type="button">🔗 Copy Link</button>
+</div>
+</div>
+<div class="kplr-side-panel">
+<h4>Publication Metadata</h4>
+<div class="kplr-reading-meta">
+<div>Reference: <b>KPLR/ACAD/002/2026</b></div>
+<div>Type: <b>Companion Workbook</b></div>
+<div>Practice Area: <b>Financial Services</b></div>
+<div>Format: <b>22 pages</b></div>
+</div>
+</div>
+</aside>
+</div>
+<div class="kplr-authorbox">
+<div class="kplr-authorbox-inner">
+<div class="kplr-author-photo">PM</div>
+<div>
+<h4>Patrick Muchangi</h4>
+<div class="kplr-author-role">Advocate of the High Court of Kenya · Founder, Muchangi Patrick &amp; Associates Advocates</div>
+<p>Patrick Muchangi is an Advocate of the High Court of Kenya and founder of Muchangi Patrick &amp; Associates Advocates, a Nairobi practice specialising in data protection, privacy, AI governance and technology law, and editor of the Kenya Privacy Law Review.</p>
+<div class="kplr-author-links">
+<a href="/resources/practice-notes/">More publications</a>
+<a href="/">Firm website</a>
+</div>
+</div>
+</div>
+</div>
+<section class="kplr-related" id="related-publications">
+<h2 class="kplr-section-title">Related Resources</h2>
+<div class="kplr-related-grid">
+<a class="kplr-card" href="/resources/course-manuals/data-protection-gdpr-compliance-course-manual/">
+<div class="kplr-card-cover"><img alt="Cover of Data Protection &amp; GDPR Compliance Course Manual" loading="lazy" src="/resources/course-manuals/data-protection-gdpr-compliance-course-manual/cover.jpg"/></div>
+<div class="kplr-card-body">
+<div class="kplr-card-toprow"><span class="kplr-card-num">KPLR/ACAD/001/2026</span><span class="kplr-card-cat">Course Manual</span></div>
+<h3 class="kplr-card-title">Data Protection &amp; GDPR Compliance</h3>
+<div class="kplr-card-area">Data Protection &amp; GDPR</div>
+<div class="kplr-card-footer"><span class="read">Read Online →</span><span>Course Manual</span></div>
+</div>
+</a>
+<a class="kplr-card" href="/sector-financial-services.html">
+<div class="kplr-card-cover"><img alt="Financial Services sector page" loading="lazy" src="/images/fintech-payment.jpg"/></div>
+<div class="kplr-card-body">
+<div class="kplr-card-toprow"><span class="kplr-card-num">Sector</span><span class="kplr-card-cat">Solutions</span></div>
+<h3 class="kplr-card-title">Financial Services &amp; Fintech</h3>
+<div class="kplr-card-area">Sector Solutions</div>
+<div class="kplr-card-footer"><span class="read">View Sector →</span><span></span></div>
+</div>
+</a>
+</div>
+</section>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.png"/></a>
+<p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+<div class="footer-social"><a aria-label="LinkedIn" href="https://www.linkedin.com/in/patrick-muchangi-507498216" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a></div>
+</div>
+<div><h5>Firm</h5><a href="/about.html">About Us</a><a href="/insights.html">Insights</a><a href="/contact.html">Careers</a></div>
+<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="/bills-review.html">Bills Review</a><a href="/regulatory-analysis.html">Regulatory Analysis</a><a href="/compliance-toolkit.html">Compliance Toolkit</a><a href="/webinars.html">Webinars</a><a href="/academy.html">KPLR Academy</a></div>
+<div><h5>Solutions</h5><a href="/expertise.html">Data Protection &amp; Privacy</a><a href="/expertise.html">GDPR &amp; Cross-Border</a><a href="/expertise.html">Fintech &amp; Startups</a><a href="/expertise.html">AI Governance</a></div>
+<div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" rel="noopener" target="_blank">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
+<div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="/cookie-notice.html">Cookie Notice</a></div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved. Kenya Privacy Law Review is a publication of Muchangi Patrick &amp; Associates Advocates.</span>
+<div class="links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div>
+</div>
+</div>
+</footer>
+<div class="cookie-banner">
+<div class="cookie-banner-inner">
+<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. For more information, see our <a href="/cookie-notice.html">Cookie Notice</a>.</p>
+<div class="cookie-actions-row">
+<button class="btn btn-line btn-sm btn-ghost cookie-essential" type="button">Essential Only</button>
+<button class="btn btn-brass btn-sm cookie-accept" type="button">Accept All</button>
+</div>
+</div>
+</div>
+<script src="/script.js?v=8"></script>
+<script src="/assets/js/site.js"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

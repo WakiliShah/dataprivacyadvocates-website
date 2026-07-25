@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Explicit allow rules for AI/LLM crawlers — the wildcard rule above already
+# covers these, but naming them explicitly is current (2026) best practice
+# and protects against them being blocked later at the CDN/hosting layer
+# without robots.txt being updated to match.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://dataprivacyadvocates.co.ke/sitemap.xml

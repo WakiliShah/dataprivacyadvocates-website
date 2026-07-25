@@ -1,0 +1,21 @@
+# SACCO Executive Brief campaign landing page — clean URL for the email
+# campaign, pointing at the flat root-level HTML file.
+/executive-briefs/sacco-digital-governance                          /sacco-executive-brief.html                                      200!
+/executive-briefs/sacco-digital-trust                                /sacco-digital-trust-executive-brief.html                        200!
+/executive-briefs/sacco-digital-lending                              /sacco-digital-lending-executive-brief.html                      200!
+/executive-briefs/schools-data-protection                            /schools-data-protection-executive-brief.html                    200!
+
+# SACCO Guarantor Data Liability practice note — clean URL for the
+# LinkedIn campaign, pointing at the flat root-level HTML file.
+/executive-briefs/sacco-guarantor-data-liability                     /insight-sacco-guarantor-data-liability.html                     200!
+
+# Knowledge Centre — the placeholder Resource Centre landing page is gone;
+# every entry point goes straight to a real publication listing.
+/resources/                                         /resources/practice-notes/                                       301!
+/resources/index.html                               /resources/practice-notes/                                       301!
+/resources.html                                     /resources/practice-notes/                                       301!
+/practice-notes.html                                /resources/practice-notes/                                       301!
+/insight-kenya-ai-procurement-practice-note.html    /resources/practice-notes/ai-procurement/                        301!
+/insight-kenya-cross-border-data.html               /resources/practice-notes/cross-border-data-transfers/           301!
+/downloads/insight-kenya-ai-procurement-practice-note.pdf   /resources/practice-notes/ai-procurement/article.pdf              301!
+/downloads/insight-kenya-cross-border-data.pdf              /resources/practice-notes/cross-border-data-transfers/article.pdf 301!

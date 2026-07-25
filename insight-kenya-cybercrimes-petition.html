@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<title>Kenya's Cybercrimes Amendment Act Challenge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/insight-kenya-cybercrimes-petition.html" />
+<meta name="description" content="Nine petitioners challenge Kenya's Cybercrimes Amendment Act, including a website-blocking power issued without a court order." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/insight-kenya-cybercrimes-petition.html" />
+<meta property="og:title" content="The Docket Brief — Cybercrimes Amendment Act Challenge" />
+<meta property="og:description" content="Nine petitioners are challenging Kenya's Cybercrimes Amendment Act — including a website-blocking power issued without a court order. Inside the case, the clash of arguments, and the fact correction the headlines missed." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/cybersecurity-lock.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Docket Brief — Cybercrimes Amendment Act Challenge" />
+<meta name="twitter:description" content="Nine petitioners are challenging Kenya's Cybercrimes Amendment Act — including a website-blocking power issued without a court order. Inside the case, the clash of arguments, and the fact correction the headlines missed." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/cybersecurity-lock.jpg" />
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<style>
+  /* Fonts now loaded via <link> tags in <head> for non-blocking rendering */
+
+  :root{
+    --ink:#1B2430;
+    --parchment:#F7F3E8;
+    --parchment-deep:#EFE8D6;
+    --brass:#9C7A2E;
+    --brass-light:#C9A24B;
+    --red:#7A2430;
+    --slate:#5B6472;
+    --line:#D8CFB8;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:800px;margin:0 auto;padding:0 28px 80px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    border-bottom:3px solid var(--ink);
+    padding:38px 0 18px;
+    margin-bottom:6px;
+  }
+  .kicker{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--cta);
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .kicker span:last-child{color:var(--slate);letter-spacing:.1em;}
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size:clamp(34px,5.6vw,54px);
+    line-height:1.04;
+    margin:14px 0 10px;
+    letter-spacing:-0.01em;
+  }
+  .title em{font-style:italic;color:var(--red);font-weight:500;}
+  .dek{
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    color:var(--slate);
+    max-width:60ch;
+    margin:0 0 4px;
+  }
+  .byline-credit{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:14px;
+  }
+
+  /* ---------- Docket stamp block ---------- */
+  .docket{
+    margin:28px 0 34px;
+    border:1px solid var(--ink);
+    background:var(--parchment-deep);
+    padding:20px 24px;
+    position:relative;
+  }
+  .docket::before{
+    content:"CASE DOCKET";
+    position:absolute;
+    top:-11px;
+    left:20px;
+    background:var(--parchment);
+    padding:0 8px;
+    font-family:'Inter',sans-serif;
+    font-size:10.5px;
+    letter-spacing:.18em;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .docket-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+  }
+  .docket-grid .full{grid-column:1/-1;}
+  .docket-grid dt{color:var(--cta);font-weight:700;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px;}
+  .docket-grid dd{margin:0;color:var(--ink);}
+
+  /* ---------- Section headers ---------- */
+  h2.section{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:26px;
+    margin:52px 0 6px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  h2.section .num{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    color:var(--cta);
+    letter-spacing:.05em;
+  }
+  .section-rule{border:none;border-top:1px solid var(--line);margin:0 0 22px;}
+
+  p{margin:0 0 16px;font-size:16.5px;}
+  strong{color:var(--ink);}
+
+  /* ---------- Provision cards ---------- */
+  .provision{
+    border-left:3px solid var(--brass);
+    background:rgba(156,122,46,0.06);
+    padding:16px 20px;
+    margin:18px 0;
+  }
+  .provision h3{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin:0 0 8px;
+    font-weight:700;
+  }
+  .provision p{margin-bottom:0;font-size:15.5px;}
+
+  /* ---------- Two-column clash ---------- */
+  .clash{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--line);
+    margin:24px 0;
+  }
+  .clash > div{padding:20px 22px;}
+  .clash .side-a{background:rgba(122,36,48,0.05);border-right:1px solid var(--line);}
+  .clash .side-b{background:rgba(91,100,114,0.06);}
+  .clash h4{
+    font-family:'Inter',sans-serif;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    margin:0 0 10px;
+    font-weight:700;
+  }
+  .side-a h4{color:var(--red);}
+  .side-b h4{color:var(--slate);}
+  .clash ul{margin:0;padding-left:18px;font-size:14.5px;}
+  .clash li{margin-bottom:8px;}
+  @media (max-width:600px){
+    .clash{grid-template-columns:1fr;}
+    .clash .side-a{border-right:none;border-bottom:1px solid var(--line);}
+  }
+
+  /* ---------- Callout / the overlooked fact ---------- */
+  .callout{
+    background:var(--ink);
+    color:var(--parchment);
+    padding:26px 26px;
+    margin:26px 0;
+    position:relative;
+  }
+  .callout::before{
+    content:"WHAT MOST COVERAGE MISSED";
+    font-family:'Inter',sans-serif;
+    font-size:10.5px;
+    letter-spacing:.18em;
+    font-weight:700;
+    color:var(--brass-light);
+    display:block;
+    margin-bottom:10px;
+  }
+  .callout p{color:var(--parchment);font-size:16px;margin-bottom:0;}
+  .callout p + p{margin-top:12px;}
+  .callout strong{color:var(--brass-light);}
+
+  /* ---------- Citation strip ---------- */
+  .citelist{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:var(--slate);
+    columns:2;
+    column-gap:24px;
+    margin:14px 0 0;
+  }
+  .citelist div{break-inside:avoid;margin-bottom:8px;padding-left:12px;border-left:2px solid var(--line);}
+  @media (max-width:600px){.citelist{columns:1;}}
+
+  /* ---------- Relief list ---------- */
+  .relief{list-style:none;margin:0;padding:0;counter-reset:relief;}
+  .relief li{
+    counter-increment:relief;
+    position:relative;
+    padding:10px 0 10px 40px;
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+  }
+  .relief li::before{
+    content:counter(relief, lower-alpha) ")";
+    position:absolute;
+    left:0;
+    top:10px;
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    color:var(--cta);
+    font-size:14px;
+  }
+
+  /* ---------- Status footer ---------- */
+  .status{
+    margin-top:44px;
+    border:1px dashed var(--red);
+    padding:18px 22px;
+    background:rgba(122,36,48,0.04);
+  }
+  .status h4{
+    font-family:'Inter',sans-serif;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin:0 0 8px;
+    font-weight:700;
+  }
+  .status p{font-size:15px;margin-bottom:0;}
+
+  /* ---------- Firm CTA ---------- */
+  .firm-cta{
+    margin-top:36px;
+    border:1px solid var(--brass);
+    background:var(--parchment);
+    padding:28px 30px;
+  }
+  .firm-cta::before{
+    content:"HOW THIS TOUCHES YOUR DATA PROTECTION EXPOSURE";
+    font-family:'Inter',sans-serif;
+    font-size:10.5px;
+    letter-spacing:.18em;
+    font-weight:700;
+    color:var(--cta);
+    display:block;
+    margin-bottom:12px;
+  }
+  .firm-cta p{font-size:15px;color:var(--ink);margin-bottom:14px;}
+  .firm-cta p:last-of-type{margin-bottom:0;}
+  .firm-cta .cta-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
+  .firm-cta .cta-btn{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:2px;
+    display:inline-block;
+  }
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--parchment);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+
+  footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:3px solid var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:var(--slate);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kenya's Cybercrimes Law Faces Its Broadest Constitutional Test Yet",
+  "description": "Nine petitioners are challenging Kenya's Cybercrimes Amendment Act — including a website-blocking power issued without a court order. Inside the case, the clash of arguments, and the fact correction the headlines missed.",
+  "image": "https://dataprivacyadvocates.co.ke/images/cybersecurity-lock.jpg",
+  "datePublished": "2026-07-04",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dataprivacyadvocates.co.ke/insight-kenya-cybercrimes-petition.html"
+  }
+}
+</script>
+
+<style>
+/* Standalone cookie banner (self-contained — this page doesn't load the main site's styles.css) */
+.mp-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#1B1A17;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(120%);transition:transform .45s ease;font-family:'IBM Plex Sans',sans-serif;}
+.mp-cookie-banner.show{transform:translateY(0);}
+.mp-cookie-banner-inner{max-width:1000px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.mp-cookie-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.68);max-width:620px;}
+.mp-cookie-text a{color:#C69A3E;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.mp-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.mp-cookie-btn{padding:10px 20px;font-size:12.5px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border:1px solid transparent;}
+.mp-cookie-btn.essential{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;}
+.mp-cookie-btn.essential:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.mp-cookie-btn.accept{background:#C69A3E;color:#1B1A17;}
+@media(max-width:640px){.mp-cookie-banner-inner{padding:18px;flex-direction:column;align-items:flex-start;}.mp-cookie-actions{width:100%;}}
+</style>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Legal Insights",
+      "item": "https://dataprivacyadvocates.co.ke/insights.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kenya's Cybercrimes Law Faces Its Broadest Constitutional Test Yet",
+      "item": "https://dataprivacyadvocates.co.ke/insight-kenya-cybercrimes-petition.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker"><span>The Docket Brief · Public Law Desk</span><span>4 July 2026</span></div>
+    <h1 class="title">Kenya's Cybercrimes Law Faces Its <em>Broadest</em> Constitutional Test Yet</h1>
+    <p class="dek">Nine petitioners, eighteen respondents, and eight interested parties collide over a single amendment clause — and a website-blocking power nobody voted on.</p>
+    <div class="byline-credit">By Patrick Muchangi, Founder &amp; Advocate — Muchangi Patrick &amp; Associates Advocates</div>
+  <div style="margin-top:16px;"><a href="downloads/insight-kenya-cybercrimes-petition.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;" data-kg-file="downloads/insight-kenya-cybercrimes-petition.pdf" data-kg-title="Kenya's Cybercrimes Amendment Act Challenge" data-kg-id="insight-cybercrimes-petition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
+  </div>
+
+  <div class="docket">
+    <dl class="docket-grid">
+      <div><dt>Court</dt><dd>High Court of Kenya, Constitutional &amp; Human Rights Division — Nairobi</dd></div>
+      <div><dt>Judge</dt><dd>Hon. Justice P. M. Nyaundi</dd></div>
+      <div><dt>Citation</dt><dd>[2026] KEHC 9453 (KLR)</dd></div>
+      <div><dt>Judgment Date</dt><dd>2 July 2026</dd></div>
+      <div class="full"><dt>Consolidated Petitions</dt><dd>E671, E673, E677, E698, E705 &amp; E716 of 2025 — lead file E671</dd></div>
+      <div class="full"><dt>Statute Under Fire</dt><dd>Computer Misuse and Cybercrimes (Amendment) Act, 2025</dd></div>
+    </dl>
+  </div>
+
+  <p>On 6 November 2025, the High Court folded six separate petitions — filed by, among others, the Law Society of Kenya, the Kenya Human Rights Commission, ICJ-Kenya, Article 19 East Africa, and MP Babu Owino — into one consolidated challenge. Before the merits were even argued, the court had already suspended the most contentious phrase in the amendment: the words <strong>"is likely to cause them to commit suicide."</strong> That conservatory order is the reason this case has been watched so closely since last year, and it's worth understanding exactly what is — and isn't — being fought over.</p>
+
+  <h2 class="section"><span class="num">01</span> The Three Provisions on Trial</h2>
+  <hr class="section-rule">
+
+  <div class="provision">
+    <h3>Section 27(1)(b) — The "Emotional Harm" Clause</h3>
+    <p>Criminalises electronic communication that is "grossly offensive," causes "serious emotional distress," or is "likely to cause" the recipient to commit suicide. Petitioners say these are subjective, unmeasurable standards; a conviction carries up to <strong>Kshs 20 million in fines or 10 years' imprisonment.</strong></p>
+  </div>
+
+  <div class="provision">
+    <h3>Section 6(1)(ja) — NC4's Website-Blocking Power</h3>
+    <p>Lets the National Computer and Cybercrimes Co-ordination Committee (NC4) restrict access to websites or apps linked to "unlawful activities," "religious extremism," or "cultism" — <strong>without a prior court order.</strong> This is the provision petitioners call administrative "prior restraint."</p>
+  </div>
+
+  <div class="provision">
+    <h3>Section 6(1)(j) — Content Morality Clause</h3>
+    <p>Criminalises "pornographic, immoral or sexually explicit content" online, which petitioners frame as unconstitutional moral paternalism reaching into private digital consumption.</p>
+  </div>
+
+  <h2 class="section"><span class="num">02</span> Where the Two Sides Actually Disagree</h2>
+  <hr class="section-rule">
+  <p>Strip away the procedural noise and the fight comes down to two irreconcilable readings of the same words.</p>
+
+  <div class="clash">
+    <div class="side-a">
+      <h4>Petitioners argue</h4>
+      <ul>
+        <li>The law criminalises <em>speculative psychological outcomes</em>, not conduct — turning criminal law into a tool of intimidation.</li>
+        <li>Blocking a website without judicial sign-off hands a court's job to an administrative committee, breaching separation of powers.</li>
+        <li>The Bill touched county functions and needed Senate approval under Article 110(1) — it never got it.</li>
+        <li>Public participation was inadequate before passage.</li>
+        <li>Penalties are grossly disproportionate to a harm that is, by the law's own language, only "likely."</li>
+      </ul>
+    </div>
+    <div class="side-b">
+      <h4>State respondents argue</h4>
+      <ul>
+        <li>Section 27 was already tested and upheld in <em>BAKE v Attorney-General</em> (2020) — this fight is <strong>res judicata</strong> and belongs to a pending Court of Appeal case, not a fresh petition.</li>
+        <li>Cyberspace is borderless and needs calibrated regulation to protect national security, dignity, and children.</li>
+        <li>The statute targets conduct, with intent and causation as objective anchors — not opinion.</li>
+        <li>Statutes carry a presumption of constitutionality that petitioners haven't rebutted with concrete evidence.</li>
+        <li>Parliament followed proper procedure; claims of arbitrary enforcement are hypothetical.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>The State's entire res judicata defence rests on treating the 2025 amendment as old news. But petitioners point out the 2020 <em>BAKE</em> case tested the <strong>2018 wording</strong> of Section 27 — the suicide clause, the NC4 blocking power, and the identity-verification dispute didn't exist yet. Courts generally can't be barred from reviewing a provision that wasn't even law the last time they looked. Whether Justice Nyaundi accepts that distinction is arguably the single most consequential threshold question in the entire case — more consequential, procedurally, than the vagueness arguments that dominate the headlines.</p>
+  </div>
+
+  <h2 class="section"><span class="num">03</span> The Correction Nobody Reported</h2>
+  <hr class="section-rule">
+  <p>Here is the detail that separates a court filing from a headline. A central plank of the petitioners' privacy argument is that the amendment imposes <strong>mandatory identity verification</strong> for social media users — a surveillance risk to whistleblowers and activists.</p>
+
+  <div class="callout">
+    <p><strong>The Data Protection Commissioner, joined as the 4th Interested Party, says that provision does not exist.</strong> In sworn testimony from John Walubengo, the Commissioner states that a textual review of the <em>actual assented statute</em> reveals no such identity-verification requirement anywhere in it. What the Act does contain are narrower cybersecurity definitions — of "access," "identity theft," and "virtual account" — which is a materially different thing from compelling every user to verify who they are.</p>
+    <p>That doesn't kill the petitioners' broader privacy case, but it means one of their most-quoted claims may be arguing against a law that isn't actually on the books. It's the kind of factual correction that only surfaces when someone reads the interested-party affidavits rather than the press statement.</p>
+  </div>
+
+  <h2 class="section"><span class="num">04</span> The Doctrines Doing the Real Work</h2>
+  <hr class="section-rule">
+  <p>Both sides reach for the same three constitutional tests, and how the court weighs them will decide the case far more than any single fact will:</p>
+  <ul>
+    <li><strong>Void for vagueness:</strong> can an ordinary citizen tell, in advance, what "likely to cause suicide" actually forbids? Petitioners lean on <em>Geoffrey Andare v Attorney-General</em> and the American cases <em>Papachristou v Jacksonville</em> and <em>Grayned v Rockford</em> to argue no.</li>
+    <li><strong>Prior restraint:</strong> is blocking a site before any court examines it a "drastic interference," as Kenyan courts previously warned in the <em>Wanuri Kahiu</em> Film Classification Board case? Petitioners say NC4's power fits that description exactly.</li>
+    <li><strong>Article 24 proportionality:</strong> even a legitimate goal — protecting mental health, curbing harassment — has to be pursued by the least restrictive means available. Petitioners argue a blanket criminal statute with 10-year sentences fails that test; the state says the law is already narrowly tailored.</li>
+  </ul>
+
+  <p style="margin-top:8px;">Interested parties widened the lens further than either side alone: the Kenya National Commission on Human Rights argued that suicide-related harm needs a <strong>public health response, not criminalisation</strong>, and cited an ECOWAS ruling and European Court of Human Rights precedent treating internet access itself as a derivative right that arbitrary shutdowns impermissibly chill.</p>
+
+  <div class="citelist">
+    <div>Geoffrey Andare v AG &amp; 2 Others [2016] eKLR</div>
+    <div>National Assembly v Katiba Institute [2023] KECA 1174</div>
+    <div>Wanuri Kahiu v KFCB [2020] KEHC 6500</div>
+    <div>BAKE v AG &amp; 3 Others [2020] KEHC 7924</div>
+    <div>Senate v Speaker of National Assembly [2025] KESC 49</div>
+    <div>Ahmet Yildirim v Turkey (ECHR, 2012)</div>
+    <div>Amnesty Int'l Togo v Togolese Republic (ECOWAS)</div>
+    <div>Grayned v City of Rockford, 408 U.S. 104 (1972)</div>
+  </div>
+
+  <h2 class="section"><span class="num">05</span> What the Petitioners Actually Want</h2>
+  <hr class="section-rule">
+  <p>Beyond striking down individual clauses, the consolidated petition asks the court to go further than most cybercrime challenges typically do:</p>
+  <ul class="relief">
+    <li>Declare NC4's website-blocking power (6(1)(ja)) and the morality clause (6(1)(j)) unconstitutional and void.</li>
+    <li>Declare the impugned provisions vague, overbroad, and contrary to the principle of legality.</li>
+    <li>Declare the Kshs 20 million / 10-year penalties manifestly excessive.</li>
+    <li>Quash any blocking directives already issued under the Act.</li>
+    <li>Find the Act void for lack of Senate involvement and inadequate public participation.</li>
+    <li>Issue an order of mandamus compelling Parliament to bring the Act back in line with the Constitution.</li>
+  </ul>
+
+  <div class="status">
+    <h4>Where things stand</h4>
+    <p>This record captures the introduction, the parties' full pleadings, and their written and oral submissions — the argument, not yet the outcome. The suicide-clause wording remains suspended under the November 2025 conservatory order while the court weighs its decision. Anyone citing a "ruling" on the substantive questions at this stage is getting ahead of the record.</p>
+  </div>
+
+  <div class="firm-cta">
+    <p>Whichever way the court rules on Section 6(1)(ja) and the identity-verification question, the underlying compliance exposure for Kenyan businesses is already live: what data you collect, how you verify users, and what you're obliged to disclose if NC4 or the ODPC comes calling.</p>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> advises boards, fintechs, and platforms on exactly this intersection — data protection compliance under Kenya's Data Protection Act, cybercrimes exposure, and how to respond if a regulator or law enforcement request lands on your desk. If this case affects how your business handles user data or content moderation, we can help you get ahead of it rather than react to it.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn primary">Book a Consultation</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" class="cta-btn secondary">Chat on WhatsApp</a>
+      <a href="expertise.html" class="cta-btn secondary">See Our Data Privacy Practice</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>Source: Kenya Law — [2026] KEHC 9453 (KLR), Judgment of 2 July 2026</span>
+    <span>Public domain record, National Council for Law Reporting</span>
+  </footer>
+
+</div>
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+    }
+    banner.classList.remove('show');
+  }
+
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="script.js?v=8"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>
