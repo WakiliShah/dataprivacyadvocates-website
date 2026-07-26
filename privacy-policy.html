@@ -9,9 +9,7 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -128,6 +126,7 @@
       </div>
       <a href="insights.html">Insights</a>
       <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="nav-cta">Book a Consultation</a>
     </nav>

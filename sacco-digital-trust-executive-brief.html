@@ -8,9 +8,7 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -146,6 +144,7 @@
       </div>
       <a href="insights.html">Insights</a>
       <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="nav-cta">Book a Consultation</a>
     </nav>
@@ -261,7 +260,7 @@
       <span><i class="fas fa-graduation-cap"></i>Educational Publication</span>
     </div>
     <div class="eb-hero-ctas">
-      <a href="downloads/executive-brief-002-sacco-digital-trust.pdf" download class="btn btn-brass"><i class="fas fa-file-arrow-down"></i> Download Executive Brief (PDF)</a>
+      <a href="downloads/executive-brief-002-sacco-digital-trust.pdf" download class="btn btn-brass" data-kg-file="downloads/executive-brief-002-sacco-digital-trust.pdf" data-kg-title="Digital Trust in Kenya's SACCO Sector" data-kg-id="exec-brief-sacco-digital-trust"><i class="fas fa-file-arrow-down"></i> Download Executive Brief (PDF)</a>
       <a href="#read-online" class="btn btn-line"><i class="fas fa-book-open"></i> Read Online</a>
     </div>
     <a href="#gap-analysis" class="eb-tertiary"><i class="fas fa-calendar-check"></i> Book a Complimentary 10-Minute Digital Trust Gap Analysis</a>
@@ -340,7 +339,7 @@
       <h2>A Board-ready publication, prepared for circulation.</h2>
       <p>Download a professionally formatted PDF suitable for Board circulation and executive discussion.</p>
       <div class="eb-download-actions">
-        <a href="downloads/executive-brief-002-sacco-digital-trust.pdf" download class="btn btn-brass"><i class="fas fa-file-arrow-down"></i> Download PDF</a>
+        <a href="downloads/executive-brief-002-sacco-digital-trust.pdf" download class="btn btn-brass" data-kg-file="downloads/executive-brief-002-sacco-digital-trust.pdf" data-kg-title="Digital Trust in Kenya's SACCO Sector" data-kg-id="exec-brief-sacco-digital-trust"><i class="fas fa-file-arrow-down"></i> Download PDF</a>
         <a href="#read-online" class="btn btn-line" style="border-color:rgba(23,16,26,.2);color:var(--ink);">Read Online</a>
       </div>
     </div>
@@ -504,7 +503,7 @@
       </div>
       <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
       <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
-      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
       <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
     </div>
@@ -524,7 +523,7 @@
 
 <!-- MOBILE STICKY CTA -->
 <div class="mobile-booking-bar" id="eb-mobile-bar">
-  <a href="downloads/executive-brief-002-sacco-digital-trust.pdf" download class="btn btn-line" style="border-color:rgba(23,16,26,.2);color:var(--ink);">
+  <a href="downloads/executive-brief-002-sacco-digital-trust.pdf" download class="btn btn-line" style="border-color:rgba(23,16,26,.2);color:var(--ink);" data-kg-file="downloads/executive-brief-002-sacco-digital-trust.pdf" data-kg-title="Digital Trust in Kenya's SACCO Sector" data-kg-id="exec-brief-sacco-digital-trust">
     <i class="fas fa-file-arrow-down"></i> Download PDF
   </a>
   <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="btn btn-brass">

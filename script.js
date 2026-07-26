@@ -163,8 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const consultForm = document.querySelector('.consult-form');
     if (!consultForm) return;
     const params = new URLSearchParams(window.location.search);
-    const pkg = params.get('package') || params.get('tier');
+    const pkg = params.get('package');
     const interest = params.get('interest');
+    const tier = params.get('tier');
     const score = params.get('score');
     const band = params.get('band');
     const sector = params.get('sector');
@@ -180,7 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
       starter = `I'd like to register under the ${pkgLabels[pkg] || pkg} ODPC registration package.`;
     } else if (interest === 'retainer') {
       if (inquirySelect) inquirySelect.value = 'retainer';
-      starter = "I'm interested in an ongoing compliance retainer — please share scope and pricing.";
+      const tierInfo = {
+        essential: { label: 'Essential Compliance Retainer', price: 'KES 28,000/month' },
+        standard: { label: 'SACCO & SME Standard Retainer', price: 'KES 42,000/month' },
+        board: { label: 'Board Advisory Retainer', price: 'KES 85,000/month' }
+      };
+      const t = tier && tierInfo[tier];
+      starter = t
+        ? `I'm interested in the ${t.label} (${t.price}) — please send the engagement letter and next steps.`
+        : "I'm interested in an ongoing compliance retainer — please share scope and pricing.";
     } else if (interest === 'compliance-report' || score) {
       if (inquirySelect) inquirySelect.value = 'audit';
       starter = `I completed the compliance self-assessment${sector ? ' (' + sector + ' sector)' : ''} and scored ${score || '—'}%${band ? ' (' + band + ')' : ''}. I'd like to discuss the results.`;
@@ -258,7 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('mp_cookie_consent', value);
       localStorage.setItem('mp_cookie_consent_date', new Date().toISOString());
       if (typeof gtag === 'function') {
-        gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+        const granted = value === 'all' ? 'granted' : 'denied';
+        gtag('consent', 'update', {
+          'analytics_storage': granted,
+          'ad_storage': granted,
+          'ad_user_data': granted,
+          'ad_personalization': granted
+        });
       }
       banner.classList.remove('show');
     };
@@ -297,7 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('mp_cookie_consent', value);
         localStorage.setItem('mp_cookie_consent_date', new Date().toISOString());
         if (typeof gtag === 'function') {
-          gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+          const granted = value === 'all' ? 'granted' : 'denied';
+          gtag('consent', 'update', {
+            'analytics_storage': granted,
+            'ad_storage': granted,
+            'ad_user_data': granted,
+            'ad_personalization': granted
+          });
         }
         if (savedMsg) {
           savedMsg.classList.add('show');
@@ -335,6 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn     = document.getElementById('kg-submit');
 
   let pendingFile = null;
+  let pendingReveal = null;
   let lastFocused = null;
 
   const encode = (data) => Object.keys(data)
@@ -354,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModal = (trigger) => {
     lastFocused = document.activeElement;
     pendingFile = trigger.getAttribute('data-kg-file');
+    pendingReveal = trigger.getAttribute('data-kg-reveal');
     const title = trigger.getAttribute('data-kg-title') || 'This resource';
     const id = trigger.getAttribute('data-kg-id') || title;
 
@@ -362,7 +385,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     titleEl.textContent = title;
-    if (eyebrowEl) eyebrowEl.textContent = 'Free resource';
+    if (eyebrowEl) eyebrowEl.textContent = pendingReveal ? 'Free, personalised' : 'Free resource';
+    if (submitBtn) submitBtn.innerHTML = pendingReveal ? 'Show my results <i class="fas fa-arrow-right"></i>' : 'Get the download <i class="fas fa-arrow-right"></i>';
     resourceField.value = id;
     errorBox.classList.remove('is-visible');
     form.hidden = false;
@@ -390,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastFocused) lastFocused.focus();
   };
 
-  document.querySelectorAll('[data-kg-file]').forEach((trigger) => {
+  document.querySelectorAll('[data-kg-file], [data-kg-reveal]').forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       openModal(trigger);
@@ -429,25 +453,45 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           form.hidden = true;
           successBox.hidden = false;
-          successText.textContent = 'Your download should start automatically. A copy of the link is also below if you need it again.';
-          if (manualLink && pendingFile) manualLink.href = pendingFile;
+          if (pendingReveal) {
+            successText.textContent = "You're all set — your personalised breakdown is ready below.";
+            if (manualLink) manualLink.hidden = true;
+          } else {
+            successText.textContent = 'Your download should start automatically. A copy of the link is also below if you need it again.';
+            if (manualLink && pendingFile) { manualLink.hidden = false; manualLink.href = pendingFile; }
+          }
           if (pendingFile) triggerDownload(pendingFile);
+          if (pendingReveal) { revealTarget(pendingReveal); closeModal(); }
         })
         .catch(() => {
           // Network/Forms failure — don't block a legitimate reader from
-          // the document; surface the direct link as a fallback instead.
-          errorBox.textContent = "We couldn't reach our server just now. You can still get the file below — we'd still love your email next time.";
+          // the document (or their own already-computed results) just
+          // because the lead notification didn't reach us.
+          if (pendingReveal) {
+            errorBox.textContent = "We couldn't reach our server just now, but here's your breakdown anyway — we'd still love your details next time.";
+          } else {
+            errorBox.textContent = "We couldn't reach our server just now. You can still get the file below — we'd still love your email next time.";
+          }
           errorBox.classList.add('is-visible');
-          if (manualLink && pendingFile) manualLink.href = pendingFile;
+          if (manualLink && pendingFile) { manualLink.hidden = false; manualLink.href = pendingFile; }
           form.hidden = true;
           successBox.hidden = false;
-          successText.textContent = 'Here is your download:';
+          successText.textContent = pendingReveal ? "Here's your breakdown:" : 'Here is your download:';
           if (pendingFile) triggerDownload(pendingFile);
+          if (pendingReveal) { revealTarget(pendingReveal); closeModal(); }
         })
         .finally(() => {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Get the download <i class="fas fa-arrow-right"></i>';
+          submitBtn.innerHTML = pendingReveal ? 'Show my results <i class="fas fa-arrow-right"></i>' : 'Get the download <i class="fas fa-arrow-right"></i>';
         });
     });
+  }
+
+  function revealTarget(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.hidden = false;
+    target.classList.add('is-revealed');
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 250);
   }
 });

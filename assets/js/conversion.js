@@ -145,4 +145,79 @@
   } else {
     buildWidget();
   }
+
+  /* ---------------- Retargeting pixels (Meta / LinkedIn) ----------------
+     NOT ACTIVE until real IDs are added below. Replace META_PIXEL_ID and
+     LINKEDIN_PARTNER_ID with the firm's actual Meta Pixel ID and LinkedIn
+     Partner ID — until then these functions are no-ops.
+
+     Both pixels are consent-gated: they only load after a visitor clicks
+     "Accept All" on the cookie banner (or enables analytics in the
+     preference centre) — the same mp_cookie_consent signal that unlocks
+     GA4. Nothing loads on page view, and nothing loads for a visitor who
+     chooses "Essential Only". This mirrors the consent standard the firm
+     advises its own clients to meet under the Data Protection Act.
+     ------------------------------------------------------------------- */
+  var META_PIXEL_ID = "REPLACE_WITH_META_PIXEL_ID";
+  var LINKEDIN_PARTNER_ID = "REPLACE_WITH_LINKEDIN_PARTNER_ID";
+  var pixelsLoaded = false;
+
+  function hasMarketingConsent() {
+    try { return window.localStorage.getItem("mp_cookie_consent") === "all"; }
+    catch (e) { return false; }
+  }
+
+  function loadMetaPixel() {
+    if (META_PIXEL_ID.indexOf("REPLACE_WITH") === 0) return;
+    /* Standard Meta Pixel base code. */
+    (function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+      t = b.createElement(e); t.async = true; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", META_PIXEL_ID);
+    window.fbq("track", "PageView");
+  }
+
+  function loadLinkedInInsight() {
+    if (LINKEDIN_PARTNER_ID.indexOf("REPLACE_WITH") === 0) return;
+    /* Standard LinkedIn Insight Tag base code. */
+    window._linkedin_partner_id = LINKEDIN_PARTNER_ID;
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(LINKEDIN_PARTNER_ID);
+    if (!window.lintrk) {
+      window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); };
+      window.lintrk.q = [];
+    }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript"; b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+  }
+
+  function loadMarketingPixelsIfConsented() {
+    if (pixelsLoaded || !hasMarketingConsent()) return;
+    pixelsLoaded = true;
+    loadMetaPixel();
+    loadLinkedInInsight();
+  }
+
+  // Returning visitor who already accepted in a prior session.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadMarketingPixelsIfConsented);
+  } else {
+    loadMarketingPixelsIfConsented();
+  }
+  // First-time visitor accepting just now, via the banner or the
+  // preference centre on cookie-notice.html — load without a reload.
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest ? e.target.closest(".cookie-accept, .pref-save") : null;
+    if (el) setTimeout(loadMarketingPixelsIfConsented, 0);
+  }, true);
 })();

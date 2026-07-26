@@ -9,9 +9,7 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -85,6 +83,23 @@
   .chk-flags li.ok i{color:#1a7a4c;}
   .chk-result-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
 
+  .chk-gate-card{display:flex;align-items:center;gap:18px;text-align:left;background:var(--paper-2);border:1px dashed var(--line);border-radius:var(--radius-lg);padding:22px 24px;margin:24px 0;}
+  .chk-gate-card i{font-size:1.6rem;color:var(--cta);flex-shrink:0;}
+  .chk-gate-card h4{font-size:1rem;margin-bottom:4px;}
+  .chk-gate-card p{font-size:.85rem;color:var(--muted);margin:0;}
+  .chk-gate-card .btn{flex-shrink:0;white-space:nowrap;}
+  @media (max-width:600px){.chk-gate-card{flex-direction:column;text-align:center;}}
+
+  .chk-personalised{display:none;text-align:left;background:#eef6f2;border:1px solid #c9e5d8;border-radius:var(--radius-lg);padding:26px 28px;margin:24px 0;}
+  .chk-personalised.is-revealed{display:block;}
+  .chk-personalised h4{font-size:1.05rem;margin-bottom:16px;display:flex;align-items:center;gap:9px;}
+  .chk-personalised h4 i{color:#1a7a4c;}
+  .chk-priority-list{margin:0 0 20px;padding-left:22px;}
+  .chk-priority-list li{font-size:.9rem;color:var(--ink);padding:8px 0;line-height:1.55;}
+  .chk-priority-list li strong{display:block;color:var(--ink);margin-bottom:2px;}
+  .chk-personalised-cta{font-size:.88rem;color:var(--slate);border-top:1px solid #c9e5d8;padding-top:16px;}
+  .chk-personalised-cta a{color:var(--cta);font-weight:600;}
+
   .bonus-strip{max-width:720px;margin:0 auto 80px;padding:0 20px;}
   .bonus-card{border:1px dashed var(--line);border-radius:var(--radius-lg);padding:28px 30px;display:flex;align-items:center;gap:20px;}
   .bonus-card i{font-size:1.8rem;color:var(--cta);flex-shrink:0;}
@@ -147,6 +162,7 @@
       </div>
       <a href="insights.html">Insights</a>
       <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="nav-cta">Book a Consultation</a>
     </nav>
@@ -158,7 +174,7 @@
   <div class="container">
     <span class="eyebrow">Free 2-Minute Self-Check</span>
     <h1>Is Your Business ODPC-Compliant?</h1>
-    <p class="lede">Answer 8 quick yes/no questions. At the end, you'll know whether you likely need to register with the ODPC and where your biggest gaps are — no email required.</p>
+    <p class="lede">Answer 8 quick yes/no questions. At the end, you'll get your score and gaps instantly — no email required — plus the option to unlock a free, personalised, priority-ordered fix list.</p>
   </div>
 </section>
 
@@ -167,42 +183,42 @@
     <div class="chk-progress"><div class="chk-progress-bar" id="chkProgressBar"></div></div>
 
     <div class="chk-questions">
-      <div class="chk-q is-active" data-q="0" data-flag="Your team is collecting personal data without a documented lawful basis for each use.">
+      <div class="chk-q is-active" data-q="0" data-flag="Your team is collecting personal data without a documented lawful basis for each use." data-fix="Start with a one-page data map: list every place you collect personal data (loan forms, M-Pesa statements, ID copies, HR files) and the lawful basis for each. This is the document the ODPC asks for first.">
         <span class="qnum">Question 1 of 8</span>
         <h3>Do you know exactly what personal data your business collects (names, phone numbers, ID numbers, payment details, etc.) and why?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="1" data-flag="You don't have a data inventory — the first thing the ODPC will ask for if you register or if there's a complaint.">
+      <div class="chk-q" data-q="1" data-flag="You don't have a data inventory — the first thing the ODPC will ask for if you register or if there's a complaint." data-fix="Build a simple register of processing activities: what data, why you hold it, how long, and who else sees it (auditors, credit reference bureaus, vendors). A retainer client gets this drafted for them in month one.">
         <span class="qnum">Question 2 of 8</span>
         <h3>Do you have a written data inventory or register of processing activities?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="2" data-flag="No published privacy policy — a basic transparency requirement under the Data Protection Act.">
+      <div class="chk-q" data-q="2" data-flag="No published privacy policy — a basic transparency requirement under the Data Protection Act." data-fix="Publish a privacy policy that actually reflects what you do with data — not a generic template. This is usually the fastest, cheapest gap to close.">
         <span class="qnum">Question 3 of 8</span>
         <h3>Does your business have a published privacy policy that customers or users can actually read?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="3" data-flag="More than 10 employees or over KES 5M turnover means registration is very likely mandatory, not optional.">
+      <div class="chk-q" data-q="3" data-flag="More than 10 employees or over KES 5M turnover means registration is very likely mandatory, not optional." data-fix="This is usually the most urgent item on this list — registration is very likely mandatory, not discretionary, at your size. See our fixed-fee ODPC Registration package below." data-priority="1">
         <span class="qnum">Question 4 of 8</span>
         <h3>Does your business have more than 10 employees, or annual turnover above KES 5 million?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="4" data-flag="You're in a sector (health, finance, telecoms, betting, direct marketing, political canvassing) that must register regardless of size.">
+      <div class="chk-q" data-q="4" data-flag="You're in a sector (health, finance, telecoms, betting, direct marketing, political canvassing) that must register regardless of size." data-fix="Regulated-sector businesses (including SACCOs and financial services) must register regardless of headcount or turnover. Treat this as mandatory, not optional." data-priority="1">
         <span class="qnum">Question 5 of 8</span>
         <h3>Is your business in health, financial services, telecoms, betting/gaming, direct marketing, or political canvassing?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="5" data-flag="You have no registration with the ODPC yet, despite likely meeting the threshold.">
+      <div class="chk-q" data-q="5" data-flag="You have no registration with the ODPC yet, despite likely meeting the threshold." data-fix="If you meet the threshold above and aren't registered, this is your top priority — it's the one gap the ODPC can act on directly. Fixed-fee registration is usually filed within 3–5 working days of a complete file." data-priority="1">
         <span class="qnum">Question 6 of 8</span>
         <h3>Is your business currently registered with the ODPC as a data controller or processor?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="6" data-flag="No breach response plan — a gap that becomes very costly the moment an incident actually happens.">
+      <div class="chk-q" data-q="6" data-flag="No breach response plan — a gap that becomes very costly the moment an incident actually happens." data-fix="Write a one-page breach response plan now, while there's no pressure: who gets notified internally, how you assess risk to data subjects, and the 72-hour ODPC notification clock. This is standard in every retainer tier." data-priority="2">
         <span class="qnum">Question 7 of 8</span>
         <h3>If personal data were exposed or lost tomorrow, do you have a plan for who to notify and how?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
       </div>
-      <div class="chk-q" data-q="7" data-flag="Data shared with vendors, cloud providers, or partners abroad without a data processing or transfer agreement.">
+      <div class="chk-q" data-q="7" data-flag="Data shared with vendors, cloud providers, or partners abroad without a data processing or transfer agreement." data-fix="Get signed data processing agreements in place with every vendor and cloud provider that touches your data, especially any based outside Kenya. This is a common, overlooked gap even in otherwise-compliant businesses." data-priority="2">
         <span class="qnum">Question 8 of 8</span>
         <h3>If you share data with vendors, cloud providers, or partners outside Kenya, do you have signed data processing or transfer agreements with them?</h3>
         <div class="chk-answers"><button class="chk-answer-btn yes" data-val="yes">Yes</button><button class="chk-answer-btn no" data-val="no">No</button></div>
@@ -220,6 +236,22 @@
       <div class="chk-result-score" id="chkScore">0 / 8</div>
       <p id="chkResultSummary">compliance signals in place</p>
       <ul class="chk-flags" id="chkFlags"></ul>
+
+      <div class="chk-gate-card" id="chkGateCard">
+        <i class="fas fa-list-check"></i>
+        <div>
+          <h4>Want your personalised, priority-ordered fix list?</h4>
+          <p>Free — we'll rank your specific gaps by urgency and tell you exactly what to fix first, based on your actual answers above.</p>
+        </div>
+        <a href="#" class="btn btn-brass" id="chkUnlockBtn" data-kg-title="Your Personalised Compliance Fix List" data-kg-id="checklist-personalised-breakdown" data-kg-reveal="chkPersonalised">Get My Fix List <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="chk-personalised" id="chkPersonalised" hidden>
+        <h4><i class="fas fa-clipboard-list"></i> Your priority order</h4>
+        <ol class="chk-priority-list" id="chkPriorityList"></ol>
+        <div class="chk-personalised-cta" id="chkPersonalisedCta"></div>
+      </div>
+
       <div class="chk-result-actions">
         <a href="odpc-registration.html" class="btn btn-brass">See the Fixed-Fee Registration Package</a>
         <a href="downloads/kenya-data-protection-compliance-checklist.pdf" class="btn btn-line" target="_blank" rel="noopener" data-kg-file="downloads/kenya-data-protection-compliance-checklist.pdf" data-kg-title="Kenya Data Protection Compliance Checklist" data-kg-id="checklist-kenya-dp">Download the Full 20-Point PDF</a>
@@ -259,7 +291,7 @@
       </div>
       <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
       <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
-      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
       <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
     </div>
@@ -292,6 +324,11 @@
   var summaryEl = document.getElementById('chkResultSummary');
   var titleEl = document.getElementById('chkResultTitle');
   var flagsEl = document.getElementById('chkFlags');
+  var gateCard = document.getElementById('chkGateCard');
+  var priorityListEl = document.getElementById('chkPriorityList');
+  var personalisedCtaEl = document.getElementById('chkPersonalisedCta');
+  var quizScoreField = document.getElementById('kg-quiz-score');
+  var quizGapsField = document.getElementById('kg-quiz-gaps');
 
   function show(i){
     questions.forEach(function(q, idx){ q.classList.toggle('is-active', idx === i); });
@@ -336,9 +373,13 @@
 
     var yesCount = 0;
     var flagList = [];
+    var gapQuestions = [];
     questions.forEach(function(q, idx){
       if (answers[idx] === 'yes') { yesCount++; }
-      else { flagList.push(q.getAttribute('data-flag')); }
+      else {
+        flagList.push(q.getAttribute('data-flag'));
+        gapQuestions.push(q);
+      }
     });
 
     scoreEl.textContent = yesCount + ' / ' + total;
@@ -362,6 +403,46 @@
       titleEl.textContent = 'Your business is likely exposed right now';
       summaryEl.textContent = 'Based on your answers, you likely need to register with the ODPC and close several basic gaps as soon as possible.';
     }
+
+    // Nothing to unlock if there are no gaps — skip the gate entirely.
+    if (gapQuestions.length === 0) {
+      if (gateCard) gateCard.style.display = 'none';
+      return;
+    }
+
+    // Sort gaps by priority (registration/threshold gaps first, then
+    // ongoing governance gaps, then unranked) and build the gated list.
+    var sorted = gapQuestions.slice().sort(function(a, b){
+      var pa = parseInt(a.getAttribute('data-priority'), 10) || 9;
+      var pb = parseInt(b.getAttribute('data-priority'), 10) || 9;
+      return pa - pb;
+    });
+
+    var listHtml = '';
+    var gapLabels = [];
+    sorted.forEach(function(q, i){
+      var fix = q.getAttribute('data-fix') || q.getAttribute('data-flag');
+      var qShort = q.querySelector('h3').textContent;
+      gapLabels.push(qShort);
+      listHtml += '<li><strong>' + (i + 1) + '. ' + qShort + '</strong>' + fix + '</li>';
+    });
+    priorityListEl.innerHTML = listHtml;
+
+    // Registration gaps (priority 1) mean registration is the urgent next
+    // step; otherwise, multiple ongoing gaps point toward a retainer.
+    var hasRegistrationGap = sorted.some(function(q){ return q.getAttribute('data-priority') === '1'; });
+    if (hasRegistrationGap) {
+      personalisedCtaEl.innerHTML = 'Your most urgent gap is registration itself. <a href="odpc-registration.html">See the fixed-fee ODPC Registration package &rarr;</a>';
+    } else if (gapQuestions.length >= 2) {
+      personalisedCtaEl.innerHTML = 'These are the kind of ongoing gaps an outsourced DPO closes and keeps closed. <a href="retainer.html">See Compliance Retainer tiers &rarr;</a>';
+    } else {
+      personalisedCtaEl.innerHTML = 'One gap left — usually quick to close. <a href="contact.html">Talk it through with us &rarr;</a>';
+    }
+
+    // Carry the results into the lead-gate form so a follow-up call
+    // starts from the actual gaps, not a cold intro.
+    if (quizScoreField) quizScoreField.value = yesCount + '/' + total;
+    if (quizGapsField) quizGapsField.value = gapLabels.join(' | ');
   }
 
   show(0);
@@ -380,6 +461,8 @@
 <form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="kplr-resource-request"/>
 <input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<input id="kg-quiz-score" name="quiz_score" type="hidden" value=""/>
+<input id="kg-quiz-gaps" name="quiz_gaps" type="hidden" value=""/>
 <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
 <input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
 <input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>

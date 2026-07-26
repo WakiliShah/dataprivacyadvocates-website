@@ -9,9 +9,7 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -337,6 +335,7 @@
         </div>
       </div>
       <a href="insights.html" class="active">Insights</a>
+      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="nav-cta">Book a Consultation</a>
     </nav>
@@ -380,7 +379,7 @@
       <article class="list-entry" data-category="Cross-Border">
         <h3><a href="/resources/practice-notes/cross-border-data-transfers/">Moving personal data out of Kenya, lawfully</a></h3>
         <p class="excerpt">The practical routes available for transferring personal data out of Kenya without falling foul of the Act.</p>
-        <div class="meta-row"><span class="tag">Cross-Border</span><span class="dot"></span><span>May 2026</span><span class="dot"></span><span>7 min read</span><span class="dot"></span><a href="/resources/practice-notes/cross-border-data-transfers/article.pdf" download>Download PDF</a></div>
+        <div class="meta-row"><span class="tag">Cross-Border</span><span class="dot"></span><span>May 2026</span><span class="dot"></span><span>7 min read</span><span class="dot"></span><a href="/resources/practice-notes/cross-border-data-transfers/article.pdf" download data-kg-file="/resources/practice-notes/cross-border-data-transfers/article.pdf" data-kg-title="Cross-Border Data Transfers" data-kg-id="practice-note-cross-border-data-transfers">Download PDF</a></div>
       </article>
     </div>
     <p class="reveal" style="color:var(--muted);font-size:.88rem;max-width:640px;margin-top:-4px;">Looking for our AI, fintech, jurisprudence or enforcement analysis? That's moved to <a href="/resources/practice-notes/">Practice Notes</a>, <a href="bills-review.html">Bills Review</a>, <a href="regulatory-analysis.html">Regulatory Analysis</a> and <a href="comparative-law.html">Comparative Law</a> — each now has its own dedicated, searchable archive.</p>
@@ -593,7 +592,7 @@
       </div>
       <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
       <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
-      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
       <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
     </div>
