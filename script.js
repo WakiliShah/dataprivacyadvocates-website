@@ -174,6 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const inquirySelect = consultForm.querySelector('[name="inquiry_type"]');
     const messageField = consultForm.querySelector('[name="matter"]');
     let starter = '';
+    const tierInfo = {
+      essential: { label: 'Essential Compliance Retainer', price: 'KES 35,000/month' },
+      standard: { label: 'SACCO & SME Standard Retainer', price: 'KES 55,000/month' },
+      board: { label: 'Board Advisory Retainer', price: 'KES 130,000/month' }
+    };
 
     if (pkg) {
       const pkgLabels = { 'micro-small': 'Micro/Small package', 'medium': 'Medium package', 'large': 'Large/Enterprise package' };
@@ -181,11 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
       starter = `I'd like to register under the ${pkgLabels[pkg] || pkg} ODPC registration package.`;
     } else if (interest === 'retainer') {
       if (inquirySelect) inquirySelect.value = 'retainer';
-      const tierInfo = {
-        essential: { label: 'Essential Compliance Retainer', price: 'KES 28,000/month' },
-        standard: { label: 'SACCO & SME Standard Retainer', price: 'KES 42,000/month' },
-        board: { label: 'Board Advisory Retainer', price: 'KES 85,000/month' }
-      };
       const t = tier && tierInfo[tier];
       starter = t
         ? `I'm interested in the ${t.label} (${t.price}) — please send the engagement letter and next steps.`
@@ -196,6 +196,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (messageField && starter && !messageField.value) messageField.value = starter;
+
+    // RETAINER "GET STARTED" FAST PATH — a visitor who clicked "Get Started"
+    // on a specific retainer tier has already decided what they want; asking
+    // them to book a free 10-minute call first is an extra, unwanted step.
+    // Swap the hero to a direct sign-up prompt and send them straight to the
+    // form below, which is already pre-filled with their tier above.
+    if (interest === 'retainer' && tier && tierInfo[tier]) {
+      const t = tierInfo[tier];
+      const heroEyebrow = document.getElementById('booking-hero-eyebrow');
+      const heroTitle = document.getElementById('booking-hero-title');
+      const heroCopy = document.getElementById('booking-hero-copy');
+      const heroPrimaryBtn = document.getElementById('booking-hero-primary-btn');
+      const fallbackEyebrow = document.getElementById('fallback-eyebrow');
+      const fallbackTitle = document.getElementById('fallback-title');
+      const fallbackCopy = document.getElementById('fallback-copy');
+
+      if (heroEyebrow) heroEyebrow.textContent = 'Retainer Sign-Up';
+      if (heroTitle) heroTitle.textContent = `Get Started — ${t.label}`;
+      if (heroCopy) heroCopy.textContent = `You've selected the ${t.label} (${t.price}). Confirm a few details below and we'll send the engagement letter and next steps — no need to book a call first.`;
+      if (heroPrimaryBtn) {
+        heroPrimaryBtn.removeAttribute('target');
+        heroPrimaryBtn.removeAttribute('rel');
+        heroPrimaryBtn.href = '#contact-form';
+        heroPrimaryBtn.innerHTML = '<i class="fas fa-arrow-down"></i> Continue to Sign-Up Form';
+      }
+      if (fallbackEyebrow) fallbackEyebrow.textContent = 'Confirm Your Details';
+      if (fallbackTitle) fallbackTitle.textContent = `Complete your ${t.label} sign-up`;
+      if (fallbackCopy) fallbackCopy.textContent = "Fill in your details below and a partner will send your engagement letter and onboarding steps within one business day. Prefer to talk first? Use WhatsApp or the call link above.";
+
+      const formWrap = document.querySelector('.form-wrap--simple');
+      if (formWrap) formWrap.id = 'contact-form';
+
+      const mobileBtn = document.getElementById('mobile-booking-bar-btn');
+      if (mobileBtn) {
+        mobileBtn.removeAttribute('target');
+        mobileBtn.removeAttribute('rel');
+        mobileBtn.href = '#contact-form';
+        mobileBtn.innerHTML = '<i class="fas fa-arrow-down"></i> Continue Sign-Up';
+      }
+    }
   })();
 
   const forms = document.querySelectorAll('.consult-form');
