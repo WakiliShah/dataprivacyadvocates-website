@@ -1,0 +1,14 @@
+{
+  "name": "dataprivacyadvocates-site",
+  "private": true,
+  "type": "module",
+  "description": "Muchangi Patrick & Associates Advocates — dataprivacyadvocates.co.ke static site + Netlify Functions form pipeline.",
+  "dependencies": {
+    "@netlify/blobs": "^10.7.10",
+    "nodemailer": "^9.0.3"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^5.3.0",
+    "@types/nodemailer": "^8.0.1"
+  }
+}

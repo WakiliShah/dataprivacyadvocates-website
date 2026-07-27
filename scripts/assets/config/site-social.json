@@ -1,0 +1,17 @@
+{
+  "_comment": "Single source of truth for the firm's external identity links. Used to generate the LinkedIn markup and JSON-LD sameAs/@id values across every page of dataprivacyadvocates.co.ke. Update this file first, then re-run scripts/apply-linkedin-schema.py to propagate the change site-wide.",
+  "organization": {
+    "id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "linkedinCompanyUrl": "https://www.linkedin.com/company/muchangipatrickadvocates/"
+  },
+  "founder": {
+    "id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "linkedinPersonalUrl": "https://www.linkedin.com/in/patrick-muchangi-507498216"
+  },
+  "website": {
+    "id": "https://dataprivacyadvocates.co.ke/#website",
+    "url": "https://dataprivacyadvocates.co.ke/"
+  }
+}

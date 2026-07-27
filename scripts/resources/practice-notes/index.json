@@ -1,0 +1,153 @@
+[
+  {
+    "slug": "architecture-of-lawful-processing",
+    "ref": "KPLR/PN/001/2026",
+    "title": "The Architecture of Lawful Processing",
+    "subtitle": "Constitutional Foundations, Statutory Design, and the Doctrine of Proportionality under the Data Protection Act, 2019",
+    "category": "Practice Note",
+    "practiceArea": "Constitutional Law",
+    "topics": [
+      "Data Protection",
+      "Constitutional Law",
+      "Lawful Basis",
+      "Proportionality"
+    ],
+    "keywords": [
+      "Article 31",
+      "Data Protection Act 2019",
+      "legitimate interest",
+      "proportionality doctrine",
+      "Nubian Rights Forum",
+      "ODPC",
+      "lawful processing"
+    ],
+    "author": "Patrick Muchangi",
+    "publicationDate": "2026-07-01",
+    "readingTime": null,
+    "featured": true,
+    "editorsPick": true,
+    "url": "/resources/practice-notes/architecture-of-lawful-processing/",
+    "coverThumb": "/resources/practice-notes/architecture-of-lawful-processing/cover-thumb.jpg"
+  },
+  {
+    "slug": "employee-monitoring",
+    "ref": "KPLR/PN/002/2026",
+    "title": "Employee Monitoring",
+    "subtitle": "Balancing Employer Oversight and Employee Privacy Rights under the Data Protection Act, 2019",
+    "category": "Practice Note",
+    "practiceArea": "Employment",
+    "topics": [
+      "Data Protection",
+      "Employment",
+      "Workplace Surveillance",
+      "Biometrics"
+    ],
+    "keywords": [
+      "employee monitoring",
+      "workplace surveillance",
+      "biometric data",
+      "K v Dig Deep",
+      "KUJ v KBC",
+      "consent",
+      "legitimate interest",
+      "Section 41 DPA"
+    ],
+    "author": "Patrick Muchangi",
+    "publicationDate": "2026-07-08",
+    "readingTime": null,
+    "featured": false,
+    "editorsPick": false,
+    "url": "/resources/practice-notes/employee-monitoring/",
+    "coverThumb": "/resources/practice-notes/employee-monitoring/cover-thumb.jpg"
+  },
+  {
+    "slug": "cross-border-data-transfers",
+    "ref": "KPLR/PN/003/2026",
+    "title": "Cross-Border Data Transfers",
+    "subtitle": "Legal, Privacy and Governance Considerations for Kenyan Organisations",
+    "category": "Practice Note",
+    "practiceArea": "Cross-Border Transfers",
+    "topics": [
+      "Data Protection",
+      "Cross-Border Transfers",
+      "Cloud Computing",
+      "International Transfers"
+    ],
+    "keywords": [
+      "cross-border transfer",
+      "Sections 48-50 DPA",
+      "adequacy",
+      "appropriate safeguards",
+      "data localisation",
+      "Aaditi Rajput v Diamond Trust Bank",
+      "Malabo Convention"
+    ],
+    "author": "Patrick Muchangi",
+    "publicationDate": "2026-07-15",
+    "readingTime": null,
+    "featured": true,
+    "editorsPick": false,
+    "url": "/resources/practice-notes/cross-border-data-transfers/",
+    "coverThumb": "/resources/practice-notes/cross-border-data-transfers/cover-thumb.jpg"
+  },
+  {
+    "slug": "ai-procurement",
+    "ref": "KPLR/PN/004/2026",
+    "title": "Artificial Intelligence Procurement",
+    "subtitle": "Building a Governance Framework under Kenya's Data Protection Act, 2019",
+    "category": "Practice Note",
+    "practiceArea": "Artificial Intelligence",
+    "topics": [
+      "Artificial Intelligence",
+      "Data Protection",
+      "Procurement",
+      "Governance"
+    ],
+    "keywords": [
+      "AI procurement",
+      "Section 41 DPA",
+      "Artificial Intelligence Bill 2026",
+      "DPIA",
+      "algorithmic accountability",
+      "Wangai v Cabinet Secretary for ICT",
+      "KS 3007:2025"
+    ],
+    "author": "Patrick Muchangi",
+    "publicationDate": "2026-07-22",
+    "readingTime": null,
+    "featured": true,
+    "editorsPick": true,
+    "url": "/resources/practice-notes/ai-procurement/",
+    "coverThumb": "/resources/practice-notes/ai-procurement/cover-thumb.jpg"
+  },
+  {
+    "slug": "privacy-by-design",
+    "ref": "KPLR/PN/005/2026",
+    "title": "Privacy by Design",
+    "subtitle": "Embedding Data Protection into Systems, Products and Processes under the Data Protection Act, 2019",
+    "category": "Practice Note",
+    "practiceArea": "Data Protection",
+    "topics": [
+      "Data Protection",
+      "Privacy by Design",
+      "Systems Architecture",
+      "DPIA"
+    ],
+    "keywords": [
+      "privacy by design",
+      "Section 41 DPA",
+      "Okwomi v NHIF",
+      "data mapping",
+      "DPIA",
+      "data minimisation",
+      "privacy by default"
+    ],
+    "author": "Patrick Muchangi",
+    "publicationDate": "2026-07-29",
+    "readingTime": null,
+    "featured": false,
+    "editorsPick": false,
+    "url": "/resources/practice-notes/privacy-by-design/",
+    "coverThumb": "/resources/practice-notes/privacy-by-design/cover-thumb.jpg"
+  }
+]

@@ -1,0 +1,19 @@
+## KPLR / dataprivacyadvocates.co.ke — Netlify configuration
+## Added as part of the Form Automation Standard build. This site has no
+## build step (static HTML) — only the functions directory is declared here
+## so form-submit.mts is picked up regardless of dashboard settings.
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# PART 8 — baseline security headers, site-wide. Does not require touching
+# any of the 104 HTML files individually.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
