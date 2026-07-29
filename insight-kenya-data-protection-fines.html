@@ -9,7 +9,9 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -43,7 +45,6 @@
 <meta name="theme-color" content="#17101a" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <style>
   :root{
     --ink:#1B1A17;
@@ -509,18 +510,15 @@
 <body>
 <nav class="mp-gnav" id="mpGlobalNav">
   <div class="mp-gnav-inner">
-    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.png" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
     <div class="mp-gnav-links">
       <a href="index.html">Home</a>
       <a href="about.html">The Firm</a>
       <a href="expertise.html">Solutions</a>
       <a href="people.html">Our Team</a>
-      <a href="insights.html#case-notes">Track Record</a>
+      <a href="experience.html">Track Record</a>
       <a href="/resources/practice-notes/">Knowledge Centre</a>
       <a href="insights.html">Insights</a>
-      <a href="webinars.html">Webinars</a>
-      <a href="odpc-registration.html">ODPC Registration</a>
-      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
     </div>
@@ -543,7 +541,7 @@
 
 <div class="mp-returnbar">
   <div class="wrap mp-returnbar-inner">
-    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.png" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
     <a href="insights.html" class="mp-returnbar-back">&larr; Back to Insights</a>
   </div>
 </div>
@@ -568,7 +566,7 @@
     <span>Data Protection & Enforcement</span>
   </div>
   <div class="editorial-credit">By Patrick Muchangi, Founder &amp; Advocate — Muchangi Patrick &amp; Associates Advocates · Published July 2026</div>
-  <div style="margin-top:16px;"><a href="downloads/insight-kenya-data-protection-fines.pdf" class="firm-cta cta-btn primary" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;" data-kg-file="downloads/insight-kenya-data-protection-fines.pdf" data-kg-title="Meta's GDPR Fines vs. Kenya's Fine Structure" data-kg-id="insight-data-protection-fines"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
+  <div style="margin-top:16px;"><a href="downloads/insight-kenya-data-protection-fines.pdf" class="firm-cta cta-btn primary" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
 </div>
 
 <section class="wrap">
@@ -674,31 +672,6 @@
   </div>
 </section>
 
-<section style="background:#1B1A17;padding:56px 24px;text-align:center;">
-  <div style="max-width:560px;margin:0 auto;">
-    <h2 style="font-family:'Fraunces',serif;color:#F2ECDC;font-size:1.6rem;font-weight:600;margin:0 0 10px;">Stay ahead of Kenya's data protection &amp; AI regulation</h2>
-    <p style="color:rgba(242,236,220,.75);font-size:14.5px;line-height:1.6;margin:0 0 22px;font-family:'IBM Plex Sans',sans-serif;">A short monthly briefing from the Kenya Privacy Law Review &mdash; new ODPC determinations, guidance notes and compliance deadlines. No spam, unsubscribe anytime.</p>
-    <form name="kplr-subscribe" method="POST" action="/api/form-submit" class="consult-form" data-form-type="newsletter" style="max-width:460px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-      <input type="hidden" name="form_type" value="newsletter" />
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
-      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:'IBM Plex Sans',sans-serif;font-size:.95rem;" />
-      <button type="submit" style="background:#C69A3E;color:#1B1A17;border:none;padding:12px 22px;border-radius:6px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;font-size:14px;cursor:pointer;">Subscribe</button>
-      <div style="width:100%;text-align:left;font-size:.78rem;line-height:1.45;opacity:.85;margin-top:2px;">
-        <label style="display:flex;align-items:flex-start;gap:6px;cursor:pointer;font-weight:normal;">
-          <input type="checkbox" name="consent" value="true" required style="margin-top:3px;flex-shrink:0;" />
-          <span>By subscribing you consent to receive newsletters, legal updates, invitations to webinars and related communications from Muchangi Patrick &amp; Associates Advocates. You may unsubscribe at any time.</span>
-        </label>
-        <details style="margin-top:6px;">
-          <summary style="cursor:pointer;">Privacy notice</summary>
-          <p style="margin:6px 0 0;">We collect your email address to send the Kenya Privacy Law Review newsletter. Lawful basis: your consent. Purpose: legal updates and newsletters. Retention: until you unsubscribe. You may access, correct, or request deletion of your data, or unsubscribe, at any time &mdash; see our <a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a> or email consult@dataprivacyadvocates.co.ke.</p>
-        </details>
-      </div>
-      <input type="hidden" name="rendered_at" value="" class="js-rendered-at" />
-      <p class="form-status" style="width:100%;margin-top:10px;display:none;font-family:'IBM Plex Sans',sans-serif;"></p>
-    </form>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <div>
@@ -722,17 +695,17 @@
   <div class="mp-gfoot-inner">
     <div class="mp-gfoot-top">
       <div>
-        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.png" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
         <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
       </div>
       <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
-      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
-      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
     </div>
     <div class="mp-gfoot-bottom">
       <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
-      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+      <div class="links"><a href="cookie-notice.html">Cookie Notice</a><a href="insights.html">Sitemap</a></div>
     </div>
   </div>
 </footer>
@@ -759,8 +732,7 @@
       localStorage.setItem(KEY + '_date', new Date().toISOString());
     } catch(e) {}
     if (typeof gtag === 'function') {
-      var granted = value === 'all' ? 'granted' : 'denied';
-      gtag('consent', 'update', { 'analytics_storage': granted, 'ad_storage': granted, 'ad_user_data': granted, 'ad_personalization': granted });
+      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
     }
     banner.classList.remove('show');
   }
@@ -779,36 +751,5 @@
   }
 })();
 </script>
-<script src="script.js?v=11"></script>
-
-<!-- KPLR Resource Gate (email-gated download) -->
-<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
-<div class="kg-modal-inner" id="kg-modal-inner">
-<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
-<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
-<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
-<h3 id="kg-modal-title">This resource</h3>
-<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
-<div class="kg-error" id="kg-error"></div>
-<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
-<input name="form-name" type="hidden" value="kplr-resource-request"/>
-<input id="kg-resource-field" name="resource" type="hidden" value=""/>
-<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
-<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
-<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
-<input name="organisation" placeholder="Organisation (optional)" type="text"/>
-<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
-<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
-</form>
-<div class="kg-success" hidden="" id="kg-success">
-<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
-<h3>You're in.</h3>
-<p id="kg-success-text">Your download should start automatically.</p>
-<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
-</div>
-</div>
-</div>
-
-<script src="/assets/js/conversion.js"></script>
 </body>
 </html>

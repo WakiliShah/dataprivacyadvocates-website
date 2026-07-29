@@ -267,14 +267,6 @@
     var band = bandFor(report.overallPct);
     var sector = SECTORS.filter(function (s) { return s.id === state.sector; })[0] || SECTORS[4];
 
-    if (typeof gtag === 'function') {
-      gtag('event', 'compliance_checker_complete', {
-        score: report.overallPct,
-        band: band.label,
-        sector: sector.id
-      });
-    }
-
     var html = '<div class="kc-step-label">Your Report</div>';
     html += '<h3>Compliance Readiness Report</h3>';
     html += '<div class="kc-report-score"><div class="big">' + report.overallPct + '%</div>' +
@@ -292,11 +284,8 @@
 
     html += '<p style="font-size:.82rem;color:var(--muted);margin-top:8px;">Unanswered controls are scored as not yet in place. This self-assessment is directional and does not constitute legal advice.</p>';
 
-    var contactHref = 'contact.html?interest=compliance-report&score=' + report.overallPct +
-      '&band=' + encodeURIComponent(band.label) + '&sector=' + encodeURIComponent(sector.id);
-
     html += '<div class="kc-report-actions">' +
-      '<a href="' + contactHref + '" class="btn btn-brass btn-sm">Discuss This Report <i class="fas fa-arrow-right"></i></a>' +
+      '<a href="contact.html" class="btn btn-brass btn-sm">Discuss This Report <i class="fas fa-arrow-right"></i></a>' +
       '<button type="button" class="btn btn-line btn-sm" id="kc-print">Print / Save Report</button>' +
       '<button type="button" class="btn btn-line btn-sm" id="kc-restart">Retake Assessment</button>' +
       '</div>';

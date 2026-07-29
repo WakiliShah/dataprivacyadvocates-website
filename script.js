@@ -153,116 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', toggleStickyBar);
   }
 
-  // CONTACT FORM QUALIFICATION — pre-fill the inquiry dropdown and a starter
-  // message from query params that CTAs elsewhere on the site already carry
-  // (?package= from ODPC Registration, ?interest= from the compliance
-  // checker report / retainer-style CTAs, ?score=/?band=/?sector= from the
-  // self-assessment). No page reload, no server round-trip — this just
-  // fills in fields the visitor would otherwise have had to type themselves.
-  (function prefillContactForm() {
-    const consultForm = document.querySelector('.consult-form');
-    if (!consultForm) return;
-    const params = new URLSearchParams(window.location.search);
-    const pkg = params.get('package');
-    const interest = params.get('interest');
-    const tier = params.get('tier');
-    const score = params.get('score');
-    const band = params.get('band');
-    const sector = params.get('sector');
-    if (!pkg && !interest && !score) return;
-
-    const inquirySelect = consultForm.querySelector('[name="inquiry_type"]');
-    const messageField = consultForm.querySelector('[name="matter"]');
-    let starter = '';
-    const tierInfo = {
-      essential: { label: 'Essential Compliance Retainer', price: 'KES 35,000/month' },
-      standard: { label: 'SACCO & SME Standard Retainer', price: 'KES 55,000/month' },
-      board: { label: 'Board Advisory Retainer', price: 'KES 130,000/month' }
-    };
-
-    if (pkg) {
-      const pkgLabels = { 'micro-small': 'Micro/Small package', 'medium': 'Medium package', 'large': 'Large/Enterprise package' };
-      if (inquirySelect) inquirySelect.value = 'registration';
-      starter = `I'd like to register under the ${pkgLabels[pkg] || pkg} ODPC registration package.`;
-    } else if (interest === 'retainer') {
-      if (inquirySelect) inquirySelect.value = 'retainer';
-      const t = tier && tierInfo[tier];
-      starter = t
-        ? `I'm interested in the ${t.label} (${t.price}) — please send the engagement letter and next steps.`
-        : "I'm interested in an ongoing compliance retainer — please share scope and pricing.";
-    } else if (interest === 'compliance-report' || score) {
-      if (inquirySelect) inquirySelect.value = 'audit';
-      starter = `I completed the compliance self-assessment${sector ? ' (' + sector + ' sector)' : ''} and scored ${score || '—'}%${band ? ' (' + band + ')' : ''}. I'd like to discuss the results.`;
-    }
-
-    if (messageField && starter && !messageField.value) messageField.value = starter;
-
-    // RETAINER "GET STARTED" FAST PATH — a visitor who clicked "Get Started"
-    // on a specific retainer tier has already decided what they want; asking
-    // them to book a free 10-minute call first is an extra, unwanted step.
-    // Swap the hero to a direct sign-up prompt and send them straight to the
-    // form below, which is already pre-filled with their tier above.
-    if (interest === 'retainer' && tier && tierInfo[tier]) {
-      const t = tierInfo[tier];
-      const heroEyebrow = document.getElementById('booking-hero-eyebrow');
-      const heroTitle = document.getElementById('booking-hero-title');
-      const heroCopy = document.getElementById('booking-hero-copy');
-      const heroPrimaryBtn = document.getElementById('booking-hero-primary-btn');
-      const fallbackEyebrow = document.getElementById('fallback-eyebrow');
-      const fallbackTitle = document.getElementById('fallback-title');
-      const fallbackCopy = document.getElementById('fallback-copy');
-
-      if (heroEyebrow) heroEyebrow.textContent = 'Retainer Sign-Up';
-      if (heroTitle) heroTitle.textContent = `Get Started — ${t.label}`;
-      if (heroCopy) heroCopy.textContent = `You've selected the ${t.label} (${t.price}). Confirm a few details below and we'll send the engagement letter and next steps — no need to book a call first.`;
-      if (heroPrimaryBtn) {
-        heroPrimaryBtn.removeAttribute('target');
-        heroPrimaryBtn.removeAttribute('rel');
-        heroPrimaryBtn.href = '#contact-form';
-        heroPrimaryBtn.innerHTML = '<i class="fas fa-arrow-down"></i> Continue to Sign-Up Form';
-      }
-      if (fallbackEyebrow) fallbackEyebrow.textContent = 'Confirm Your Details';
-      if (fallbackTitle) fallbackTitle.textContent = `Complete your ${t.label} sign-up`;
-      if (fallbackCopy) fallbackCopy.textContent = "Fill in your details below and a partner will send your engagement letter and onboarding steps within one business day. Prefer to talk first? Use WhatsApp or the call link above.";
-
-      const formWrap = document.querySelector('.form-wrap--simple');
-      if (formWrap) formWrap.id = 'contact-form';
-
-      const mobileBtn = document.getElementById('mobile-booking-bar-btn');
-      if (mobileBtn) {
-        mobileBtn.removeAttribute('target');
-        mobileBtn.removeAttribute('rel');
-        mobileBtn.href = '#contact-form';
-        mobileBtn.innerHTML = '<i class="fas fa-arrow-down"></i> Continue Sign-Up';
-      }
-    }
-  })();
-
-  // Default acknowledgment copy per form_type — used only when a form
-  // doesn't set its own data-success-message/data-success-label. Centralised
-  // here so copy changes don't require editing every page that embeds a
-  // given form type (see FORM-AUDIT and the Client Communication &
-  // Automation Standard for the full form inventory).
-  const DEFAULT_ACK = {
-    newsletter: {
-      label: 'Subscribed',
-      message: "You're subscribed. Watch your inbox for the next KPLR briefing — new ODPC determinations, guidance notes and compliance deadlines."
-    },
-    feedback: {
-      label: 'Feedback received',
-      message: 'Thank you — your feedback helps shape the next briefing.'
-    },
-    consultation: {
-      label: 'Request received',
-      message: "Thank you for contacting Muchangi Patrick & Associates Advocates. We aim to respond within one business day. If your enquiry is urgent, you may also schedule a Digital Trust Gap Analysis using the booking link above."
-    }
-  };
-
-  // PART 8: stamp every form's rendered_at hidden field with the current
-  // time as soon as the page is ready — form-submit.mts rejects submissions
-  // that arrive implausibly fast after render (a common bot signature).
-  document.querySelectorAll('.js-rendered-at').forEach((el) => { el.value = String(Date.now()); });
-
   const forms = document.querySelectorAll('.consult-form');
   forms.forEach((form) => {
     form.addEventListener('submit', (e) => {
@@ -270,9 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = form.querySelector('button[type="submit"]');
       const status = form.querySelector('.form-status') || form.parentElement.querySelector('.form-status');
       const original = btn.textContent;
-      const formType = form.dataset.formType || 'consultation';
-      const defaults = DEFAULT_ACK[formType] || DEFAULT_ACK.consultation;
-      const successMessage = form.dataset.successMessage || defaults.message;
+      const successMessage = form.dataset.successMessage ||
+        "Thank you for contacting Muchangi Patrick & Associates Advocates. We aim to respond within one business day. If your enquiry is urgent, you may also schedule a Digital Trust Gap Analysis using the booking link above.";
       btn.textContent = 'Sending…';
       btn.disabled = true;
       if (status) { status.style.display = 'none'; status.textContent = ''; }
@@ -284,18 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
         .then((response) => {
           if (response.ok) {
-            btn.textContent = form.dataset.successLabel || defaults.label;
-            if (typeof gtag === 'function') {
-              const eventName = formType === 'newsletter' ? 'newsletter_signup'
-                : formType === 'feedback' ? 'feedback_form_submit'
-                : 'contact_form_submit';
-              const eventParams = { page_path: window.location.pathname };
-              if (eventName === 'contact_form_submit') {
-                const inquiryField = form.querySelector('[name="inquiry_type"]');
-                eventParams.inquiry_type = (inquiryField && inquiryField.value) || 'general';
-              }
-              gtag('event', eventName, eventParams);
-            }
+            btn.textContent = form.dataset.successLabel || 'Request received';
             form.reset();
             if (status) {
               status.textContent = successMessage;
@@ -332,13 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('mp_cookie_consent', value);
       localStorage.setItem('mp_cookie_consent_date', new Date().toISOString());
       if (typeof gtag === 'function') {
-        const granted = value === 'all' ? 'granted' : 'denied';
-        gtag('consent', 'update', {
-          'analytics_storage': granted,
-          'ad_storage': granted,
-          'ad_user_data': granted,
-          'ad_personalization': granted
-        });
+        gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
       }
       banner.classList.remove('show');
     };
@@ -377,13 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('mp_cookie_consent', value);
         localStorage.setItem('mp_cookie_consent_date', new Date().toISOString());
         if (typeof gtag === 'function') {
-          const granted = value === 'all' ? 'granted' : 'denied';
-          gtag('consent', 'update', {
-            'analytics_storage': granted,
-            'ad_storage': granted,
-            'ad_user_data': granted,
-            'ad_personalization': granted
-          });
+          gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
         }
         if (savedMsg) {
           savedMsg.classList.add('show');
@@ -393,170 +259,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (globalBanner) globalBanner.classList.remove('show');
       });
     }
-  }
-});
-
-/* ==== Resource Gate — email-gated downloads (checklists, templates,
-   compliance toolkits, course manuals). Reuses the site's Netlify Forms
-   setup (see .kg-form / name="kplr-resource-request") so submissions land
-   in the same place as the newsletter signups. Progressive: if a visitor
-   has already unlocked once on this device, later clicks skip straight
-   to the file instead of re-asking. ==== */
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('kg-modal');
-  if (!modal) return;
-
-  const inner       = document.getElementById('kg-modal-inner');
-  const closeBtn     = document.getElementById('kg-modal-close');
-  const titleEl      = document.getElementById('kg-modal-title');
-  const eyebrowEl     = document.getElementById('kg-modal-eyebrow');
-  const form         = document.getElementById('kg-form');
-  const resourceField = document.getElementById('kg-resource-field');
-  const emailField    = document.getElementById('kg-email');
-  const nameField      = document.getElementById('kg-name');
-  const errorBox      = document.getElementById('kg-error');
-  const successBox    = document.getElementById('kg-success');
-  const successText   = document.getElementById('kg-success-text');
-  const manualLink    = document.getElementById('kg-manual-link');
-  const submitBtn     = document.getElementById('kg-submit');
-
-  let pendingFile = null;
-  let pendingReveal = null;
-  let lastFocused = null;
-
-  const encode = (data) => Object.keys(data)
-    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
-    .join('&');
-
-  const triggerDownload = (file) => {
-    const a = document.createElement('a');
-    a.href = file;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  };
-
-  const openModal = (trigger) => {
-    lastFocused = document.activeElement;
-    pendingFile = trigger.getAttribute('data-kg-file');
-    pendingReveal = trigger.getAttribute('data-kg-reveal');
-    const title = trigger.getAttribute('data-kg-title') || 'This resource';
-    const id = trigger.getAttribute('data-kg-id') || title;
-
-    if (typeof gtag === 'function') {
-      gtag('event', 'resource_gate_open', { resource_id: id, resource_title: title });
-    }
-
-    titleEl.textContent = title;
-    if (eyebrowEl) eyebrowEl.textContent = pendingReveal ? 'Free, personalised' : 'Free resource';
-    if (submitBtn) submitBtn.innerHTML = pendingReveal ? 'Show my results <i class="fas fa-arrow-right"></i>' : 'Get the download <i class="fas fa-arrow-right"></i>';
-    resourceField.value = id;
-    errorBox.classList.remove('is-visible');
-    form.hidden = false;
-    successBox.hidden = true;
-    form.reset();
-    resourceField.value = id;
-
-    // Returning visitor who already unlocked a resource on this device —
-    // skip straight to the file rather than asking again.
-    const savedEmail = localStorage.getItem('kplr_gate_email');
-    if (savedEmail) {
-      emailField.value = savedEmail;
-    }
-
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('nav-locked');
-    setTimeout(() => nameField && nameField.focus(), 60);
-  };
-
-  const closeModal = () => {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('nav-locked');
-    if (lastFocused) lastFocused.focus();
-  };
-
-  document.querySelectorAll('[data-kg-file], [data-kg-reveal]').forEach((trigger) => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(trigger);
-    });
-  });
-
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-  });
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      errorBox.classList.remove('is-visible');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-
-      const formData = new FormData(form);
-      const payload = {};
-      formData.forEach((value, key) => { payload[key] = value; });
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(payload)
-      })
-        .then(() => {
-          localStorage.setItem('kplr_gate_email', payload.email || '');
-          if (typeof gtag === 'function') {
-            gtag('event', 'resource_gate_submit', {
-              resource_id: payload.resource || '',
-              page_path: window.location.pathname
-            });
-          }
-          form.hidden = true;
-          successBox.hidden = false;
-          if (pendingReveal) {
-            successText.textContent = "You're all set — your personalised breakdown is ready below.";
-            if (manualLink) manualLink.hidden = true;
-          } else {
-            successText.textContent = 'Your download should start automatically. A copy of the link is also below if you need it again.';
-            if (manualLink && pendingFile) { manualLink.hidden = false; manualLink.href = pendingFile; }
-          }
-          if (pendingFile) triggerDownload(pendingFile);
-          if (pendingReveal) { revealTarget(pendingReveal); closeModal(); }
-        })
-        .catch(() => {
-          // Network/Forms failure — don't block a legitimate reader from
-          // the document (or their own already-computed results) just
-          // because the lead notification didn't reach us.
-          if (pendingReveal) {
-            errorBox.textContent = "We couldn't reach our server just now, but here's your breakdown anyway — we'd still love your details next time.";
-          } else {
-            errorBox.textContent = "We couldn't reach our server just now. You can still get the file below — we'd still love your email next time.";
-          }
-          errorBox.classList.add('is-visible');
-          if (manualLink && pendingFile) { manualLink.hidden = false; manualLink.href = pendingFile; }
-          form.hidden = true;
-          successBox.hidden = false;
-          successText.textContent = pendingReveal ? "Here's your breakdown:" : 'Here is your download:';
-          if (pendingFile) triggerDownload(pendingFile);
-          if (pendingReveal) { revealTarget(pendingReveal); closeModal(); }
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = pendingReveal ? 'Show my results <i class="fas fa-arrow-right"></i>' : 'Get the download <i class="fas fa-arrow-right"></i>';
-        });
-    });
-  }
-
-  function revealTarget(id) {
-    const target = document.getElementById(id);
-    if (!target) return;
-    target.hidden = false;
-    target.classList.add('is-revealed');
-    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 250);
   }
 });

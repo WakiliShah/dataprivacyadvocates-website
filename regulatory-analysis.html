@@ -8,7 +8,9 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -42,9 +44,6 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
 <link rel="manifest" href="site.webmanifest" />
 <meta name="theme-color" content="#17101a" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=5" />
 <style>
 .pub-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:8px;}
@@ -217,13 +216,13 @@
     </div>
   </div>
   <div class="container header-row">
-    <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+    <a href="index.html" class="brand"><img src="images/logo.png" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html">The Firm</a>
       <a href="expertise.html">Solutions</a>
       <a href="people.html">Our Team</a>
-      <a href="insights.html#case-notes">Track Record</a>
+      <a href="experience.html">Track Record</a>
       <div class="nav-item">
         <a href="/resources/practice-notes/" class="active">Knowledge Centre <i class="fas fa-chevron-down nav-caret"></i></a>
         <div class="dropdown-panel">
@@ -233,14 +232,11 @@
           <a href="insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
           <a href="compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
           <a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
-<a href="webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
           <a href="comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
           <div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
         </div>
       </div>
       <a href="insights.html">Insights</a>
-      <a href="odpc-registration.html">ODPC Registration</a>
-      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="nav-cta">Book a Consultation</a>
     </nav>
@@ -302,7 +298,7 @@
         <p>What every Board should be preparing for, as information, technology and AI risk move from the server room to the boardroom.</p>
         <div class="rs-card-actions">
           <a class="rs-primary" href="reg-series-001-digital-trust-governance.html">Read Briefing</a>
-          <a class="rs-ghost" href="downloads/reg-series-001-digital-trust-governance.pdf" download data-kg-file="downloads/reg-series-001-digital-trust-governance.pdf" data-kg-title="The Future of Digital Trust Governance in Kenya" data-kg-id="reg-series-001">Download PDF</a>
+          <a class="rs-ghost" href="downloads/reg-series-001-digital-trust-governance.pdf" download>Download PDF</a>
         </div>
       </div>
 
@@ -312,7 +308,7 @@
         <p>What directors need to own before a serious incident, not after one.</p>
         <div class="rs-card-actions">
           <a class="rs-primary" href="reg-series-002-cybersecurity-governance.html">Read Briefing</a>
-          <a class="rs-ghost" href="downloads/reg-series-002-cybersecurity-governance.pdf" download data-kg-file="downloads/reg-series-002-cybersecurity-governance.pdf" data-kg-title="Cybersecurity Governance: Why the Board Owns the Breach" data-kg-id="reg-series-002">Download PDF</a>
+          <a class="rs-ghost" href="downloads/reg-series-002-cybersecurity-governance.pdf" download>Download PDF</a>
         </div>
       </div>
 
@@ -322,7 +318,7 @@
         <p>Why governing AI can no longer wait for the law that will eventually require it.</p>
         <div class="rs-card-actions">
           <a class="rs-primary" href="reg-series-003-ai-oversight.html">Read Briefing</a>
-          <a class="rs-ghost" href="downloads/reg-series-003-ai-oversight.pdf" download data-kg-file="downloads/reg-series-003-ai-oversight.pdf" data-kg-title="Artificial Intelligence Oversight: The Board's Newest Fiduciary Duty" data-kg-id="reg-series-003">Download PDF</a>
+          <a class="rs-ghost" href="downloads/reg-series-003-ai-oversight.pdf" download>Download PDF</a>
         </div>
       </div>
 
@@ -332,7 +328,7 @@
         <p>What Boards of regionally active institutions need to know about where their data actually goes.</p>
         <div class="rs-card-actions">
           <a class="rs-primary" href="reg-series-004-cross-border-data-governance.html">Read Briefing</a>
-          <a class="rs-ghost" href="downloads/reg-series-004-cross-border-data-governance.pdf" download data-kg-file="downloads/reg-series-004-cross-border-data-governance.pdf" data-kg-title="Cross-Border Data Governance" data-kg-id="reg-series-004">Download PDF</a>
+          <a class="rs-ghost" href="downloads/reg-series-004-cross-border-data-governance.pdf" download>Download PDF</a>
         </div>
       </div>
 
@@ -342,7 +338,7 @@
         <p>What separates an institution that manages a data breach from one a data breach manages.</p>
         <div class="rs-card-actions">
           <a class="rs-primary" href="reg-series-005-breach-response-readiness.html">Read Briefing</a>
-          <a class="rs-ghost" href="downloads/reg-series-005-breach-response-readiness.pdf" download data-kg-file="downloads/reg-series-005-breach-response-readiness.pdf" data-kg-title="Breach Response Readiness" data-kg-id="reg-series-005">Download PDF</a>
+          <a class="rs-ghost" href="downloads/reg-series-005-breach-response-readiness.pdf" download>Download PDF</a>
         </div>
       </div>
 
@@ -378,37 +374,37 @@
       <article class="list-entry" data-category="DPO Framework" data-title="Kenya Data Protection Officer framework decade behind Mauritius Nigeria">
         <h3><a href="insight-kenya-dpo-framework-reform.html">Kenya's Data Protection Officer framework is a decade behind Mauritius and Nigeria</a></h3>
         <p class="excerpt">A comparative look at how Mauritius and Nigeria structure their DPO frameworks &mdash; and why Kenya's own framework has room to catch up.</p>
-        <div class="meta-row"><span class="tag">DPO Framework</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>9 min read</span><span class="dot"></span><a href="downloads/insight-kenya-dpo-framework-reform.pdf" download data-kg-file="downloads/insight-kenya-dpo-framework-reform.pdf" data-kg-title="The Compliance Brief — Kenya's DPO Framework Gap" data-kg-id="insight-dpo-framework-reform">Download PDF</a></div>
+        <div class="meta-row"><span class="tag">DPO Framework</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>9 min read</span><span class="dot"></span><a href="downloads/insight-kenya-dpo-framework-reform.pdf" download>Download PDF</a></div>
       </article>
 
       <article class="list-entry" data-category="Enforcement" data-title="ODPC enforcement trends grace period is over">
         <h3><a href="insight-kenya-odpc-enforcement.html">The grace period is over</a></h3>
         <p class="excerpt">The ODPC's enforcement posture has hardened. Here's what that shift actually looks like in practice.</p>
-        <div class="meta-row"><span class="tag">Enforcement</span><span class="dot"></span><span>Apr 2026</span><span class="dot"></span><span>6 min read</span><span class="dot"></span><a href="downloads/insight-kenya-odpc-enforcement.pdf" download data-kg-file="downloads/insight-kenya-odpc-enforcement.pdf" data-kg-title="The Compliance Brief — ODPC Enforcement Trends" data-kg-id="insight-odpc-enforcement">Download PDF</a></div>
+        <div class="meta-row"><span class="tag">Enforcement</span><span class="dot"></span><span>Apr 2026</span><span class="dot"></span><span>6 min read</span><span class="dot"></span><a href="downloads/insight-kenya-odpc-enforcement.pdf" download>Download PDF</a></div>
       </article>
 
       <article class="list-entry" data-category="Jurisprudence" data-title="Kenya data protection case law Volume II privacy beyond ODPC">
         <h3><a href="insight-kenya-odpc-case-law-vol2.html">Kenya's data protection case law, Volume II: privacy rights, consent and digital identity beyond the ODPC</a></h3>
         <p class="excerpt">A second sweep of the case law, this time looking past the ODPC to how courts are handling consent and digital identity disputes directly.</p>
-        <div class="meta-row"><span class="tag">Jurisprudence</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>10 min read</span><span class="dot"></span><a href="downloads/insight-kenya-odpc-case-law-vol2.pdf" download data-kg-file="downloads/insight-kenya-odpc-case-law-vol2.pdf" data-kg-title="Kenya DP Case Law, Vol. II: Privacy Beyond the ODPC" data-kg-id="insight-odpc-case-law-vol2">Download PDF</a></div>
+        <div class="meta-row"><span class="tag">Jurisprudence</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>10 min read</span><span class="dot"></span><a href="downloads/insight-kenya-odpc-case-law-vol2.pdf" download>Download PDF</a></div>
       </article>
 
       <article class="list-entry" data-category="Jurisprudence" data-title="Kenya data protection case law 12 High Court decisions ODPC disputes">
         <h3><a href="insight-kenya-odpc-high-court-jurisprudence.html">Kenya's data protection case law so far: what 12 High Court decisions say about ODPC disputes and privacy rights</a></h3>
         <p class="excerpt">Twelve decisions in, the High Court's approach to ODPC disputes is starting to show a consistent shape. Here's what it is.</p>
-        <div class="meta-row"><span class="tag">Jurisprudence</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>11 min read</span><span class="dot"></span><a href="downloads/insight-kenya-odpc-high-court-jurisprudence.pdf" download data-kg-file="downloads/insight-kenya-odpc-high-court-jurisprudence.pdf" data-kg-title="Kenya DP Case Law: ODPC Disputes in the High Court" data-kg-id="insight-odpc-high-court-jurisprudence">Download PDF</a></div>
+        <div class="meta-row"><span class="tag">Jurisprudence</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>11 min read</span><span class="dot"></span><a href="downloads/insight-kenya-odpc-high-court-jurisprudence.pdf" download>Download PDF</a></div>
       </article>
 
       <article class="list-entry" data-category="Fintech" data-title="Wild West mobile lending digital lending reforms 2026">
         <h3><a href="insight-kenya-digital-lending-reforms.html">The Wild West of mobile lending just closed</a></h3>
         <p class="excerpt">New reforms have closed the gap digital lenders were operating in. What it means for anyone still running an old playbook.</p>
-        <div class="meta-row"><span class="tag">Fintech</span><span class="dot"></span><span>Mar 2026</span><span class="dot"></span><span>7 min read</span><span class="dot"></span><a href="downloads/insight-kenya-digital-lending-reforms.pdf" download data-kg-file="downloads/insight-kenya-digital-lending-reforms.pdf" data-kg-title="The Compliance Brief — Digital Lending Reforms 2026" data-kg-id="insight-digital-lending-reforms">Download PDF</a></div>
+        <div class="meta-row"><span class="tag">Fintech</span><span class="dot"></span><span>Mar 2026</span><span class="dot"></span><span>7 min read</span><span class="dot"></span><a href="downloads/insight-kenya-digital-lending-reforms.pdf" download>Download PDF</a></div>
       </article>
 
       <article class="list-entry" data-category="Public Law" data-title="website blocking power cybercrimes amendment act challenge on trial">
         <h3><a href="insight-kenya-cybercrimes-petition.html">The website-blocking power nobody voted on is now on trial</a></h3>
         <p class="excerpt">A constitutional petition is testing how far the state can go in ordering a website blocked &mdash; and what due process has to say about it.</p>
-        <div class="meta-row"><span class="tag">Public Law</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>8 min read</span><span class="dot"></span><a href="downloads/insight-kenya-cybercrimes-petition.pdf" download data-kg-file="downloads/insight-kenya-cybercrimes-petition.pdf" data-kg-title="Kenya's Cybercrimes Amendment Act Challenge" data-kg-id="insight-cybercrimes-petition">Download PDF</a></div>
+        <div class="meta-row"><span class="tag">Public Law</span><span class="dot"></span><span>Jul 2026</span><span class="dot"></span><span>8 min read</span><span class="dot"></span><a href="downloads/insight-kenya-cybercrimes-petition.pdf" download>Download PDF</a></div>
       </article>
 
     </div>
@@ -437,52 +433,27 @@
   </div>
 </section>
 
-<section class="cta-band section--ink" id="subscribe">
-  <div class="container" style="text-align:center;">
-    <h2>Stay ahead of Kenya's data protection &amp; AI regulation</h2>
-    <p>A short monthly briefing from the Kenya Privacy Law Review — new ODPC determinations, guidance notes, and compliance deadlines. No spam, unsubscribe anytime.</p>
-    <form name="kplr-subscribe" method="POST" action="/api/form-submit" class="subscribe-form consult-form" data-form-type="newsletter" style="max-width:480px;margin:24px auto 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-      <input type="hidden" name="form_type" value="newsletter" />
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
-      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:inherit;font-size:.95rem;" />
-      <button type="submit" class="btn btn-brass">Subscribe</button>
-      <div style="width:100%;text-align:left;font-size:.78rem;line-height:1.45;opacity:.85;margin-top:2px;">
-        <label style="display:flex;align-items:flex-start;gap:6px;cursor:pointer;font-weight:normal;">
-          <input type="checkbox" name="consent" value="true" required style="margin-top:3px;flex-shrink:0;" />
-          <span>By subscribing you consent to receive newsletters, legal updates, invitations to webinars and related communications from Muchangi Patrick &amp; Associates Advocates. You may unsubscribe at any time.</span>
-        </label>
-        <details style="margin-top:6px;">
-          <summary style="cursor:pointer;">Privacy notice</summary>
-          <p style="margin:6px 0 0;">We collect your email address to send the Kenya Privacy Law Review newsletter. Lawful basis: your consent. Purpose: legal updates and newsletters. Retention: until you unsubscribe. You may access, correct, or request deletion of your data, or unsubscribe, at any time &mdash; see our <a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a> or email consult@dataprivacyadvocates.co.ke.</p>
-        </details>
-      </div>
-      <input type="hidden" name="rendered_at" value="" class="js-rendered-at" />
-      <p class="form-status" style="width:100%;margin-top:10px;display:none;"></p>
-    </form>
-  </div>
-</section>
-
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+        <a href="index.html" class="brand"><img src="images/logo.png" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
         <p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
         <div class="footer-social"><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn Company Page</span></a></div>
       </div>
       <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
-      <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
-      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
-      <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="privacy-policy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="sitemap.html">Sitemap</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div></div>
   </div>
 </footer>
 
 <div class="cookie-banner">
   <div class="cookie-banner-inner">
-    <p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we may in future also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
     <div class="cookie-actions-row">
       <button type="button" class="btn btn-line btn-sm btn-ghost cookie-essential">Essential Only</button>
       <button type="button" class="btn btn-brass btn-sm cookie-accept">Accept All</button>
@@ -490,7 +461,7 @@
   </div>
 </div>
 
-<script src="script.js?v=11"></script>
+<script src="script.js?v=8"></script>
 <script>
 (function(){
   var filterBar = document.querySelector('.blog-filters');
@@ -531,35 +502,5 @@
   applyFilters();
 })();
 </script>
-
-<!-- KPLR Resource Gate (email-gated download) -->
-<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
-<div class="kg-modal-inner" id="kg-modal-inner">
-<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
-<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
-<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
-<h3 id="kg-modal-title">This resource</h3>
-<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
-<div class="kg-error" id="kg-error"></div>
-<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
-<input name="form-name" type="hidden" value="kplr-resource-request"/>
-<input id="kg-resource-field" name="resource" type="hidden" value=""/>
-<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
-<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
-<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
-<input name="organisation" placeholder="Organisation (optional)" type="text"/>
-<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
-<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
-</form>
-<div class="kg-success" hidden="" id="kg-success">
-<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
-<h3>You're in.</h3>
-<p id="kg-success-text">Your download should start automatically.</p>
-<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
-</div>
-</div>
-</div>
-
-<script src="/assets/js/conversion.js"></script>
 </body>
 </html>

@@ -9,7 +9,9 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -43,9 +45,6 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
 <link rel="manifest" href="site.webmanifest" />
 <meta name="theme-color" content="#17101a" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=7" />
 
 <script type="application/ld+json">
@@ -150,7 +149,7 @@
     </div>
   </div>
   <div class="container header-row">
-    <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+    <a href="index.html" class="brand"><img src="images/logo.png" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html">The Firm</a>
@@ -166,14 +165,11 @@
           <a href="insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
           <a href="compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
           <a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
-<a href="webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
           <a href="comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
           <div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
         </div>
       </div>
       <a href="insights.html">Insights</a>
-      <a href="odpc-registration.html">ODPC Registration</a>
-      <a href="retainer.html">Retainer</a>
       <a href="contact.html" class="active">Contact</a>
       <a href="contact.html" class="nav-cta">Book a Consultation</a>
     </nav>
@@ -200,20 +196,19 @@
 <section class="booking-hero">
   <div class="container">
     <div class="booking-hero-card reveal">
-      <div class="eyebrow" id="booking-hero-eyebrow">10 Minutes &middot; Virtual &middot; No Cost</div>
-      <h2 id="booking-hero-title">Book a Complimentary 10-Minute Digital Trust Gap Analysis</h2>
-      <p id="booking-hero-copy">Discuss your organisation's privacy, cybersecurity and digital governance challenges with a specialist. No obligation.</p>
-      <div class="booking-actions" id="booking-hero-actions">
-        <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="btn btn-brass btn-lg" id="booking-hero-primary-btn"><i class="fas fa-calendar-check"></i> Book a Complimentary 10-Minute Digital Trust Gap Analysis</a>
+      <div class="eyebrow">10 Minutes &middot; Virtual &middot; No Cost</div>
+      <h2>Book a Complimentary 10-Minute Digital Trust Gap Analysis</h2>
+      <p>Discuss your organisation's privacy, cybersecurity and digital governance challenges with a specialist. No obligation.</p>
+      <div class="booking-actions">
+        <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="btn btn-brass btn-lg"><i class="fas fa-calendar-check"></i> Book a Complimentary 10-Minute Digital Trust Gap Analysis</a>
         <a href="https://wa.me/254736358938" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Prefer WhatsApp? Ask a Quick Question</a>
       </div>
       <ul class="trust-badges">
         <li><i class="fas fa-check"></i> Data Protection &amp; Privacy Law</li>
         <li><i class="fas fa-check"></i> Digital Trust Governance</li>
         <li><i class="fas fa-check"></i> AI &amp; Cybersecurity Governance</li>
-        <li><i class="fas fa-bolt"></i> Retainer clients onboarded within 3 business days</li>
       </ul>
-      <p class="booking-meta">Prefer email? <a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a> — we respond within one business day. Or call <a href="tel:+254722878607">0722 878 607</a> / <a href="tel:+254736358938">0736 358 938</a>.</p>
+      <p class="booking-meta">Prefer email? <a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a> — we respond within one business day.</p>
     </div>
   </div>
 </section>
@@ -237,24 +232,16 @@
 <section class="section" style="padding-top:20px;">
   <div class="container">
     <div class="section-head center">
-      <div class="eyebrow" style="justify-content:center;" id="fallback-eyebrow">Can't Book Right Now?</div>
-      <h2 style="font-size:2rem;" id="fallback-title">Leave your details and we'll contact you.</h2>
-      <p id="fallback-copy">If a call isn't convenient right now, tell us briefly what you're facing and a partner will respond within one business day.</p>
+      <div class="eyebrow" style="justify-content:center;">Can't Book Right Now?</div>
+      <h2 style="font-size:2rem;">Leave your details and we'll contact you.</h2>
+      <p>If a call isn't convenient right now, tell us briefly what you're facing and a partner will respond within one business day.</p>
     </div>
     <div class="form-wrap form-wrap--simple reveal" style="max-width:640px;">
-      <form class="consult-form" data-form-type="consultation" action="https://formspree.io/f/xdarywop" method="POST">
+      <form class="consult-form" action="https://formspree.io/f/xdarywop" method="POST">
         <div class="form-grid form-grid--simple">
           <div class="field"><label for="full_name">Full Name</label><input type="text" id="full_name" name="full_name" required /></div>
           <div class="field"><label for="company">Organisation</label><input type="text" id="company" name="company" /></div>
           <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required /></div>
-          <div class="field"><label for="inquiry_type">What do you need?</label>
-            <select id="inquiry_type" name="inquiry_type">
-              <option value="registration">ODPC Registration</option>
-              <option value="retainer">Ongoing Compliance Retainer</option>
-              <option value="audit">Compliance Audit / Review</option>
-              <option value="general" selected>Something else</option>
-            </select>
-          </div>
           <div class="field"><label for="matter">Message</label><textarea id="matter" name="matter" required></textarea></div>
         </div>
         <p class="form-status" style="margin-top:12px;display:none;"></p>
@@ -277,7 +264,7 @@
         <p style="color:var(--muted);margin-bottom:10px;"><i class="fas fa-phone" style="color:var(--cta);margin-right:8px;"></i><a href="tel:+254722878607">0722 878 607</a></p>
         <p style="color:var(--muted);margin-bottom:10px;"><i class="fab fa-whatsapp" style="color:#25D366;margin-right:8px;"></i><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 — WhatsApp us</a></p>
         <p style="color:var(--muted);margin-bottom:4px;"><i class="fas fa-envelope" style="color:var(--cta);margin-right:8px;"></i><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a> — general consultations</p>
-        <p style="color:var(--muted);margin-bottom:4px;padding-left:26px;"><a href="mailto:dpo@dataprivacyadvocates.co.ke">dpo@dataprivacyadvocates.co.ke</a> — Data Protection Officer</p>
+        <p style="color:var(--muted);margin-bottom:4px;padding-left:26px;"><a href="mailto:dataprotectionofficer@dataprivacyadvocates.co.ke">dataprotectionofficer@dataprivacyadvocates.co.ke</a> — Data Protection Officer</p>
         <p style="color:var(--muted);margin-bottom:10px;padding-left:26px;"><a href="mailto:compliance@dataprivacyadvocates.co.ke">compliance@dataprivacyadvocates.co.ke</a> — compliance matters</p>
         <p style="color:var(--muted);margin-bottom:10px;"><i class="fas fa-clock" style="color:var(--cta);margin-right:8px;"></i>Monday – Friday, 8:00am – 5:30pm</p>
         <p style="color:var(--muted);margin-bottom:0;"><i class="fab fa-linkedin-in" style="color:var(--cta);margin-right:8px;" aria-hidden="true"></i><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page">Follow us on LinkedIn</a></p>
@@ -294,52 +281,27 @@
   </div>
 </section>
 
-<section class="cta-band section--ink" id="subscribe">
-  <div class="container" style="text-align:center;">
-    <h2>Stay ahead of Kenya's data protection &amp; AI regulation</h2>
-    <p>A short monthly briefing from the Kenya Privacy Law Review — new ODPC determinations, guidance notes, and compliance deadlines. No spam, unsubscribe anytime.</p>
-    <form name="kplr-subscribe" method="POST" action="/api/form-submit" class="subscribe-form consult-form" data-form-type="newsletter" style="max-width:480px;margin:24px auto 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-      <input type="hidden" name="form_type" value="newsletter" />
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
-      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:inherit;font-size:.95rem;" />
-      <button type="submit" class="btn btn-brass">Subscribe</button>
-      <div style="width:100%;text-align:left;font-size:.78rem;line-height:1.45;opacity:.85;margin-top:2px;">
-        <label style="display:flex;align-items:flex-start;gap:6px;cursor:pointer;font-weight:normal;">
-          <input type="checkbox" name="consent" value="true" required style="margin-top:3px;flex-shrink:0;" />
-          <span>By subscribing you consent to receive newsletters, legal updates, invitations to webinars and related communications from Muchangi Patrick &amp; Associates Advocates. You may unsubscribe at any time.</span>
-        </label>
-        <details style="margin-top:6px;">
-          <summary style="cursor:pointer;">Privacy notice</summary>
-          <p style="margin:6px 0 0;">We collect your email address to send the Kenya Privacy Law Review newsletter. Lawful basis: your consent. Purpose: legal updates and newsletters. Retention: until you unsubscribe. You may access, correct, or request deletion of your data, or unsubscribe, at any time &mdash; see our <a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a> or email consult@dataprivacyadvocates.co.ke.</p>
-        </details>
-      </div>
-      <input type="hidden" name="rendered_at" value="" class="js-rendered-at" />
-      <p class="form-status" style="width:100%;margin-top:10px;display:none;"></p>
-    </form>
-  </div>
-</section>
-
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+        <a href="index.html" class="brand"><img src="images/logo.png" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
         <p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
         <div class="footer-social"><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn Company Page</span></a></div>
       </div>
       <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
-      <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
-      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
-      <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="privacy-policy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="sitemap.html">Sitemap</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div></div>
   </div>
 </footer>
 
 <div class="cookie-banner">
   <div class="cookie-banner-inner">
-    <p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we may in future also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
     <div class="cookie-actions-row">
       <button type="button" class="btn btn-line btn-sm btn-ghost cookie-essential">Essential Only</button>
       <button type="button" class="btn btn-brass btn-sm cookie-accept">Accept All</button>
@@ -352,12 +314,11 @@
      stays one tap away without permanently covering content. JS-controlled
      visibility lives in script.js (#mobile-booking-bar). -->
 <div class="mobile-booking-bar" id="mobile-booking-bar">
-  <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="btn btn-brass" id="mobile-booking-bar-btn">
+  <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="btn btn-brass">
     <i class="fas fa-calendar-check"></i> Book a Complimentary 10-Minute Digital Trust Gap Analysis
   </a>
 </div>
 
-<script src="script.js?v=11"></script>
-<script src="/assets/js/conversion.js"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
