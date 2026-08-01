@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SASRA and the ODPC: Where SACCO Compliance Overlaps</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/insight-sacco-sasra-odpc-overlap.html" />
+<meta name="description" content="Deposit-taking SACCOs answer to both SASRA and the ODPC. Here's where the two regimes overlap, where they don't, and what that means for governance." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/insight-sacco-sasra-odpc-overlap.html" />
+<meta property="og:title" content="SASRA and the ODPC: Where SACCO Compliance Overlaps | Muchangi Patrick & Associates Advocates" />
+<meta property="og:description" content="Being SASRA-compliant on paper doesn't mean a SACCO is covered on data protection, and vice versa. A practical map of where the two regimes meet." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SASRA and the ODPC: Where SACCO Compliance Overlaps | Muchangi Patrick & Associates Advocates" />
+<meta name="twitter:description" content="Being SASRA-compliant on paper doesn't mean a SACCO is covered on data protection, and vice versa. A practical map of where the two regimes meet." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg" />
+
+
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root{
+    --ink:#1B1A17;
+    --paper:#F2ECDC;
+    --paper-dim:#E7DFC5;
+    --paper-deep:#DCD2AF;
+    --clay:#A8402C;
+    --clay-deep:#7E2F20;
+    --acacia:#46573A;
+    --acacia-light:#7C8B5E;
+    --gold:#C69A3E;
+    --slate:#5B5A52;
+    --sage:#B9C4A4;
+    --line:#c9bf9c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+
+  /* ===== MASTHEAD ===== */
+  .masthead{
+    border-bottom:3px solid var(--ink);
+    padding:28px 0 14px;
+    background:
+      repeating-linear-gradient(135deg, rgba(27,26,23,0.025) 0px, rgba(27,26,23,0.025) 1px, transparent 1px, transparent 14px);
+  }
+  .masthead-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;}
+  .masthead-title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-optical-sizing:auto;
+    font-size:clamp(34px,5.5vw,52px);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .masthead-title em{font-style:italic; font-weight:400; color:var(--clay);}
+  .masthead-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--slate);
+    text-align:right;
+  }
+  .masthead-tagline{
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ===== HERO ===== */
+  .hero{padding:52px 0 20px; border-bottom:1px solid var(--line);}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--clay); font-weight:600;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{content:"§"; font-size:15px;}
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(32px,5vw,50px);
+    font-weight:600;
+    line-height:1.08;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .hero .dek{
+    font-size:19px;
+    color:var(--slate);
+    max-width:640px;
+    font-weight:400;
+    margin-bottom:28px;
+  }
+  .byline{
+    display:flex; gap:20px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.05em;
+    padding-top:16px; border-top:1px solid var(--line);
+  }
+
+  /* ===== SECTION GENERIC ===== */
+  section{padding:48px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-size:clamp(24px,3.4vw,32px);
+    font-weight:600;
+    margin:0 0 8px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  h2.section-title .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--clay);
+    font-weight:600;
+  }
+  .section-intro{color:var(--slate); max-width:640px; margin-bottom:28px; font-size:15.5px;}
+
+  p{margin:0 0 16px;}
+
+  /* ===== RISK LADDER (signature element) ===== */
+  .ladder-wrap{
+    display:grid; grid-template-columns:14px 1fr; gap:22px;
+    margin-top:8px;
+  }
+  .ladder-rail{
+    background:linear-gradient(to bottom, var(--clay) 0%, var(--clay) 24%, var(--gold) 25%, var(--gold) 49%, var(--acacia-light) 50%, var(--acacia-light) 74%, var(--sage) 75%, var(--sage) 100%);
+    border-radius:7px;
+    position:relative;
+  }
+  .tier{
+    padding:20px 22px;
+    border:1px solid var(--line);
+    border-left:none;
+    background:var(--paper-dim);
+    margin-bottom:14px;
+    border-radius:0 8px 8px 0;
+    position:relative;
+  }
+  .tier:last-child{margin-bottom:0;}
+  .tier-head{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .tier-dot{width:10px; height:10px; border-radius:50%; flex:none;}
+  .tier.unacceptable .tier-dot{background:var(--clay);}
+  .tier.high .tier-dot{background:var(--gold);}
+  .tier.limited .tier-dot{background:var(--acacia-light);}
+  .tier.minimal .tier-dot{background:var(--sage);}
+  .tier-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .tier p{margin:0; font-size:15px; color:var(--ink);}
+  .tier-examples{color:var(--slate); font-size:13.5px; margin-top:4px;}
+
+  /* ===== CALLOUT / PULLQUOTE ===== */
+  .callout{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:10px;
+    padding:30px 32px;
+    margin:8px 0 0;
+  }
+  .callout .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:10px; display:block;
+  }
+  .callout p{color:var(--paper); font-size:16px; margin:0;}
+  .callout strong{color:var(--gold);}
+
+  .pullquote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(22px,3vw,28px);
+    line-height:1.4;
+    color:var(--clay-deep);
+    border-left:3px solid var(--clay);
+    padding-left:24px;
+    margin:32px 0;
+  }
+
+  /* ===== CLAUSE LIST (obligations) ===== */
+  .clause-list{list-style:none; margin:0; padding:0; counter-reset:clause;}
+  .clause-list li{
+    counter-increment:clause;
+    display:flex; gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .clause-list li:first-child{padding-top:0;}
+  .clause-list li::before{
+    content:"§" counter(clause);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    color:var(--clay);
+    flex:none;
+    width:42px;
+  }
+
+  /* ===== PENALTY BOX ===== */
+  .penalty-box{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--ink);
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:24px;
+  }
+  .penalty-cell{padding:24px 26px;}
+  .penalty-cell:first-child{border-right:1px solid var(--ink); background:var(--paper-dim);}
+  .penalty-cell:last-child{background:var(--clay); color:var(--paper);}
+  .penalty-figure{font-family:'Fraunces', serif; font-size:32px; font-weight:600; margin-bottom:4px;}
+  .penalty-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.8;}
+
+  /* ===== ICON GRID (commissioner powers) ===== */
+  .icon-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:24px;}
+  .icon-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    background:var(--paper-dim);
+  }
+  .icon-card svg{width:28px; height:28px; margin-bottom:10px;}
+  .icon-card h4{margin:0 0 6px; font-family:'IBM Plex Sans',sans-serif; font-size:15px; font-weight:600;}
+  .icon-card p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== CHECK LIST (what bill gets right) ===== */
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; margin-top:24px;}
+  .check-item{display:flex; gap:12px;}
+  .check-item svg{flex:none; margin-top:2px;}
+  .check-item h4{margin:0 0 4px; font-size:15px; font-weight:600;}
+  .check-item p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== GAP CARDS ===== */
+  .gap-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    margin-bottom:16px;
+    overflow:hidden;
+  }
+  .gap-card summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    padding:18px 22px;
+    background:var(--paper-dim);
+    font-weight:600;
+    font-family:'IBM Plex Sans',sans-serif;
+  }
+  .gap-card summary::-webkit-details-marker{display:none;}
+  .gap-card summary .gap-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--clay); font-size:13px; flex:none;
+  }
+  .gap-card summary::after{
+    content:"+"; margin-left:auto; font-family:'IBM Plex Mono',monospace;
+    font-size:18px; color:var(--slate); transition:transform 0.2s ease;
+  }
+  .gap-card[open] summary::after{content:"–";}
+  .gap-body{padding:4px 22px 22px; font-size:14.5px;}
+  .gap-body .impact{
+    margin-top:12px; padding:12px 14px;
+    background:var(--paper); border-left:3px solid var(--gold);
+    border-radius:0 6px 6px 0; font-size:13.5px; color:var(--slate);
+  }
+  .gap-body .impact strong{color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px;}
+
+  /* ===== COMPARISON TABLE ===== */
+  table.compare{width:100%; border-collapse:collapse; margin-top:24px; font-size:14px;}
+  @media(max-width:700px){ table.compare{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; white-space:nowrap;} table.compare td:first-child{white-space:normal;} }
+  table.compare th, table.compare td{
+    border:1px solid var(--line); padding:14px 16px; text-align:left; vertical-align:top;
+  }
+  table.compare th{
+    background:var(--ink); color:var(--paper);
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;
+  }
+  table.compare td:first-child{font-weight:600; background:var(--paper-dim); white-space:nowrap;}
+
+  /* ===== ACTION CHECKLIST ===== */
+  .action-list{list-style:none; margin:0; padding:0;}
+  .action-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:14px 0; border-bottom:1px dashed var(--line);
+  }
+  .action-list li .box{
+    width:18px; height:18px; border:1.5px solid var(--acacia); border-radius:4px; flex:none; margin-top:2px;
+  }
+  .strategic-list{margin:0; padding:0; list-style:none;}
+  .strategic-list li{padding:12px 0 12px 20px; border-left:2px solid var(--sage); margin-bottom:10px;}
+  .strategic-list b{display:block; font-size:14px; margin-bottom:3px;}
+  .strategic-list span{font-size:13.5px; color:var(--slate);}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:44px 0 30px;
+    margin-top:0;
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .seal{
+    width:64px; height:64px; flex:none;
+  }
+  footer .source-note{font-size:12.5px; color:#B8B3A2; max-width:480px; line-height:1.7;}
+  footer .fine{font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8A8577; margin-top:18px;}
+
+  @media (max-width:640px){
+    .penalty-box{grid-template-columns:1fr;}
+    .penalty-cell:first-child{border-right:none; border-bottom:1px solid var(--ink);}
+    .check-grid{grid-template-columns:1fr;}
+    .ladder-wrap{grid-template-columns:8px 1fr; gap:14px;}
+    footer .wrap{flex-direction:column;}
+  }
+  .mp-returnbar{background:var(--ink);border-bottom:2px solid var(--gold);}
+  .mp-returnbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap;}
+  .mp-returnbar-brand{display:flex;align-items:center;gap:10px;color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;}
+  .mp-returnbar-brand img{height:32px;width:auto;display:block;}
+  .mp-returnbar-brand b{color:var(--gold);font-weight:600;}
+  .mp-returnbar-back{color:var(--paper);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s;}
+  .mp-returnbar-back:hover{opacity:1;color:var(--gold);}
+  .editorial-credit{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);}
+  .firm-cta{
+    background:var(--paper-dim);
+    border:1px solid var(--clay);
+    border-radius:10px;
+    padding:28px 32px;
+    margin-top:8px;
+  }
+  .firm-cta .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--clay);
+    margin-bottom:12px; display:block; font-weight:600;
+  }
+  .firm-cta p{font-size:15px;color:var(--ink);margin:0 0 14px;}
+  .firm-cta p:last-of-type{margin-bottom:0;}
+  .firm-cta strong{color:var(--clay-deep);}
+  .firm-cta .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .firm-cta .cta-btn{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    text-decoration:none;padding:11px 20px;border-radius:6px;display:inline-block;
+  }
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--paper);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SASRA and the ODPC: Where SACCO Compliance Overlaps",
+  "description": "Deposit-taking SACCOs answer to both SASRA and the ODPC. A practical map of where the two regimes overlap, where they don't, and what that means for governance.",
+  "image": "https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg",
+  "datePublished": "2026-07-24",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dataprivacyadvocates.co.ke/insight-sacco-sasra-odpc-overlap.html"
+  }
+}
+</script>
+
+<style>
+/* Standalone cookie banner (self-contained — this page doesn't load the main site's styles.css) */
+.mp-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#1B1A17;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(120%);transition:transform .45s ease;font-family:'IBM Plex Sans',sans-serif;}
+.mp-cookie-banner.show{transform:translateY(0);}
+.mp-cookie-banner-inner{max-width:1000px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.mp-cookie-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.68);max-width:620px;}
+.mp-cookie-text a{color:#C69A3E;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.mp-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.mp-cookie-btn{padding:10px 20px;font-size:12.5px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border:1px solid transparent;}
+.mp-cookie-btn.essential{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;}
+.mp-cookie-btn.essential:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.mp-cookie-btn.accept{background:#C69A3E;color:#1B1A17;}
+@media(max-width:640px){.mp-cookie-banner-inner{padding:18px;flex-direction:column;align-items:flex-start;}.mp-cookie-actions{width:100%;}}
+</style>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Legal Insights",
+      "item": "https://dataprivacyadvocates.co.ke/insights.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SASRA and the ODPC: Where SACCO Compliance Overlaps",
+      "item": "https://dataprivacyadvocates.co.ke/insight-sacco-sasra-odpc-overlap.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html#case-notes">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="retainer.html">Retainer</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+
+<div class="mp-returnbar">
+  <div class="wrap mp-returnbar-inner">
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="insights.html" class="mp-returnbar-back">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <p class="masthead-title">Practice <em>Note</em></p>
+      <div class="masthead-meta">SACCOs &amp; Cooperatives Series<br>Nairobi Edition</div>
+    </div>
+    <div class="masthead-tagline">Regulation, technology &amp; the business of Kenya</div>
+  </div>
+</div>
+
+<div class="hero wrap">
+  <span class="eyebrow">Dual Regulation</span>
+  <h1>SASRA and the ODPC: Where SACCO Compliance Overlaps</h1>
+  <p class="dek">Being SASRA-compliant on paper doesn't mean a SACCO is covered on data protection — and the reverse is just as true.</p>
+  <div class="byline">
+    <span>Practice Note</span>
+    <span>7 min read</span>
+    <span>SACCOs &amp; Cooperatives</span>
+  </div>
+  <div class="editorial-credit">By Muchangi Patrick, Advocate — Muchangi Patrick &amp; Associates Advocates · Published July 2026</div>
+</div>
+
+<section class="wrap">
+  <p style="font-size:17px;">Every deposit-taking SACCO in Kenya already knows it answers to the SACCO Societies Regulatory Authority (SASRA) — licensing, prudential standards, corporate governance, capital adequacy, and increasingly, ICT and cyber-risk expectations. Far fewer boards have mapped how much of that same territory is separately, and independently, regulated by the Office of the Data Protection Commissioner (ODPC) under the Data Protection Act, 2019.</p>
+  <p style="font-size:17px;">These are two different regulators, with two different mandates, two different enforcement powers, and two different inspection regimes. A SACCO can pass a SASRA on-site inspection and still be fully exposed to an ODPC complaint — because the two regimes ask related but distinct questions.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§1</span> Two regulators, two different mandates</h2>
+  <p class="section-intro">SASRA licenses and supervises deposit-taking SACCOs under the SACCO Societies Act, 2008 — capital adequacy, liquidity, corporate governance, and increasingly, ICT and operational risk standards. The ODPC's mandate is entirely separate: oversight of how personal data is processed, by any controller or processor in Kenya, under the Data Protection Act, 2019.</p>
+  <p>A SACCO's SASRA licence says nothing about its ODPC registration status. The two are assessed independently, by different regulators, against different criteria — by design, not by oversight.</p>
+
+  <div class="callout" style="margin-top:8px;">
+    <span class="label">The assumption boards make</span>
+    <p>Because SASRA's supervisory reach already feels thorough — governance reviews, risk-based supervision, periodic inspections — it's easy for a board to assume that being in good standing with SASRA means the SACCO's data handling is also covered. It doesn't. Registration with the ODPC, a documented lawful basis for processing member data, and a published privacy policy are ODPC-specific obligations that SASRA supervision does not test for.</p>
+  </div>
+
+  <div style="margin-top:24px;border:1px solid var(--clay);border-radius:10px;padding:22px 26px;background:var(--paper-dim);display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+    <div style="flex:1;min-width:220px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);font-weight:600;display:block;margin-bottom:6px;">Not sure where your SACCO stands?</span>
+      <p style="margin:0;font-size:14.5px;">Run our free 2-minute <strong>ODPC Compliance Self-Assessment</strong> to see your registration status and biggest data protection gaps — separate from, and in addition to, your SASRA compliance position.</p>
+    </div>
+    <a href="odpc-compliance-checklist.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;flex:none;">Take the Self-Assessment &rarr;</a>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§2</span> Where the two regimes actually meet</h2>
+  <p class="section-intro">The overlap isn't in the law itself — it's in the underlying operations. The same systems, files and third-party relationships a SASRA inspector reviews for prudential purposes are, at the same time, personal data processing activities regulated by the ODPC.</p>
+  <div class="icon-grid">
+    <div class="icon-card"><h4>Governance &amp; risk registers</h4><p>SASRA expects documented ICT and operational risk controls; data protection expects its own accountability records and safeguards. Related evidence, separate requirements.</p></div>
+    <div class="icon-card"><h4>Core banking &amp; member data</h4><p>The same member and loan files a SASRA inspection reviews for prudential completeness are personal data subject to the Data Protection Act's own principles.</p></div>
+    <div class="icon-card"><h4>Outsourcing &amp; vendors</h4><p>SASRA's expectations around outsourced core functions (IT systems, credit reference checks) sit alongside the separate requirement for signed data processing agreements with those same vendors.</p></div>
+    <div class="icon-card"><h4>Incident reporting</h4><p>Significant IT or operational incidents may trigger SASRA reporting expectations and, independently, the ODPC's own breach-notification clock.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§3</span> Where they diverge</h2>
+  <div class="pullquote">Passing a SASRA inspection tells you nothing about whether you're registered with the ODPC.</div>
+  <p>SASRA supervision does not check whether a SACCO has registered as a data controller, whether it has a documented lawful basis for processing member and guarantor data, or whether it has published a privacy policy — those are ODPC-specific obligations. Equally, the ODPC does not assess capital adequacy, liquidity ratios or governance structure. A SACCO can be a genuine model of data protection practice and still fall short of a prudential requirement, or the reverse. Neither regulator's approval substitutes for the other's.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§4</span> The governance gap this creates</h2>
+  <p class="section-intro">Most SACCO boards already have a Risk &amp; Audit Committee reporting on SASRA compliance. Far fewer have an equivalent structure asking data-protection-specific questions — and the DPO function, where it exists at all, is often informal or bundled into a compliance officer's already-full plate.</p>
+  <div class="check-grid">
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Designated DPO or compliance lead</h4><p>Named, with data protection explicitly in their mandate — not assumed to sit inside general risk.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Confirmed ODPC registration</h4><p>Verified independently of SASRA licensing status.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Data inventory / register of processing</h4><p>Covering member, guarantor and staff data separately from the SASRA risk register.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Vendor agreements reviewed twice</h4><p>Once for prudential/outsourcing risk, once for data processing terms — the same contract, two different checklists.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Breach response plan</h4><p>Timed to satisfy both any SASRA incident-reporting expectation and the ODPC's notification clock.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Board reporting that names both regimes</h4><p>Not folded into a single "compliance" line item that only reflects SASRA status.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§5</span> Questions every SACCO board should ask</h2>
+  <ul class="strategic-list">
+    <li><b>To the CEO</b><span>Are we registered with the ODPC, separately from our SASRA licence?</span></li>
+    <li><b>To the Head of Risk &amp; Compliance</b><span>Does our risk register treat data protection as its own risk category, not a subset of operational risk?</span></li>
+    <li><b>To the DPO or compliance lead</b><span>When did we last review our vendor and outsourcing agreements specifically for data processing terms?</span></li>
+    <li><b>To Internal Audit</b><span>Has our data protection posture ever been reviewed independently of our SASRA compliance audit?</span></li>
+  </ul>
+  <p style="margin-top:20px;">These are governance questions as much as they are compliance questions — and they're the ones a board should be able to answer before a regulator, either one, asks first.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§6</span> The bottom line</h2>
+  <p>Dual regulation is additive, not either/or. Treating "SASRA compliant" and "data protection compliant" as the same box on the same checklist gives a board a false sense of assurance — because the two regulators are, quite deliberately, asking different questions about the same institution. The SACCOs that get ahead of this are the ones that build governance structures that answer both, separately and explicitly, rather than hoping one covers the other.</p>
+  <div class="callout">
+    <span class="label">Final thought</span>
+    <p>If your SACCO's compliance reporting has a line for SASRA and nothing separately for the ODPC, that's usually the first gap worth closing — not because it's the biggest risk, but because it's the easiest one to miss entirely.</p>
+  </div>
+</section>
+
+
+<section class="wrap">
+  <div class="firm-cta">
+    <span class="label">How this touches your SACCO's compliance posture</span>
+    <p>SASRA licensing and ODPC registration are two separate boxes to tick — not one. If your board's compliance reporting only has a line for SASRA, that's usually the first gap worth closing.</p>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> advises SACCO boards, CEOs and compliance teams on data protection governance, ODPC registration and outsourced DPO support that sits alongside — not in place of — your SASRA compliance function.</p>
+    <div class="cta-row">
+      <a href="retainer.html" class="cta-btn primary">See Compliance Retainer Tiers</a>
+      <a href="odpc-registration.html" class="cta-btn secondary">ODPC Registration</a>
+      <a href="contact.html" class="cta-btn secondary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="callout" style="background:var(--ink);border:1px solid var(--gold);">
+    <span class="label" style="color:var(--gold);">Talk to us</span>
+    <p style="color:var(--paper);font-size:17px;line-height:1.6;margin-bottom:18px;">
+      Muchangi Patrick &amp; Associates Advocates advises SACCOs, fintechs, startups and corporates on data protection compliance across Kenya &mdash; from ODPC registration and DPIAs to outsourced DPO services and cross-border data transfer advisory. If the overlap above touches your SACCO, we can help you close the gap.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://dataprivacyadvocates.co.ke/contact.html" style="background:var(--gold);color:var(--ink);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Book a Consultation &rarr;</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" style="background:transparent;color:var(--paper);border:1px solid var(--paper-dim);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="seal" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="#C69A3E" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="24" stroke="#C69A3E" stroke-width="1"/>
+        <text x="32" y="30" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="9" font-weight="600">DPA</text>
+        <text x="32" y="40" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="7">2019</text>
+      </svg>
+    </div>
+    <div class="source-note">
+      This practice note draws on the Data Protection Act, 2019, the SACCO Societies Act, 2008, and Article 31 of the Constitution of Kenya.
+      <div class="fine">This practice note is prepared by Muchangi Patrick, Advocate, Muchangi Patrick &amp; Associates Advocates · Nairobi · Not legal advice — consult qualified counsel before acting on this analysis.</div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      var granted = value === 'all' ? 'granted' : 'denied';
+      gtag('consent', 'update', { 'analytics_storage': granted, 'ad_storage': granted, 'ad_user_data': granted, 'ad_personalization': granted });
+    }
+    banner.classList.remove('show');
+  }
+
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="script.js?v=11"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

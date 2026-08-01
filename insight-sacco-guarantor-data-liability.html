@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Data Protection Liability in Every SACCO Loan File</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/insight-sacco-guarantor-data-liability.html" />
+<meta name="description" content="Guarantors are independent data subjects under Kenya's Data Protection Act, 2019 — and SACCO boards rarely ask what the lawful basis is for processing their data." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/insight-sacco-guarantor-data-liability.html" />
+<meta property="og:title" content="The Hidden Data Protection Liability in Every SACCO Loan File | Muchangi Patrick & Associates Advocates" />
+<meta property="og:description" content="Why every SACCO board should re-examine how it processes guarantors' personal data — lessons from ODPC Complaint No. 1966 of 2024." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Hidden Data Protection Liability in Every SACCO Loan File | Muchangi Patrick & Associates Advocates" />
+<meta name="twitter:description" content="Why every SACCO board should re-examine how it processes guarantors' personal data — lessons from ODPC Complaint No. 1966 of 2024." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg" />
+
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#17101a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root{
+    --ink:#1B1A17;
+    --paper:#F2ECDC;
+    --paper-dim:#E7DFC5;
+    --paper-deep:#DCD2AF;
+    --clay:#A8402C;
+    --clay-deep:#7E2F20;
+    --acacia:#46573A;
+    --acacia-light:#7C8B5E;
+    --gold:#C69A3E;
+    --slate:#5B5A52;
+    --sage:#B9C4A4;
+    --line:#c9bf9c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+
+  /* ===== MASTHEAD ===== */
+  .masthead{
+    border-bottom:3px solid var(--ink);
+    padding:28px 0 14px;
+    background:
+      repeating-linear-gradient(135deg, rgba(27,26,23,0.025) 0px, rgba(27,26,23,0.025) 1px, transparent 1px, transparent 14px);
+  }
+  .masthead-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;}
+  .masthead-title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-optical-sizing:auto;
+    font-size:clamp(34px,5.5vw,52px);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .masthead-title em{font-style:italic; font-weight:400; color:var(--clay);}
+  .masthead-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--slate);
+    text-align:right;
+  }
+  .masthead-tagline{
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ===== HERO ===== */
+  .hero{padding:52px 0 20px; border-bottom:1px solid var(--line);}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--clay); font-weight:600;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{content:"§"; font-size:15px;}
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(32px,5vw,50px);
+    font-weight:600;
+    line-height:1.08;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .hero .dek{
+    font-size:19px;
+    color:var(--slate);
+    max-width:640px;
+    font-weight:400;
+    margin-bottom:28px;
+  }
+  .byline{
+    display:flex; gap:20px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.05em;
+    padding-top:16px; border-top:1px solid var(--line);
+  }
+
+  /* ===== SECTION GENERIC ===== */
+  section{padding:48px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-size:clamp(24px,3.4vw,32px);
+    font-weight:600;
+    margin:0 0 8px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  h2.section-title .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--clay);
+    font-weight:600;
+  }
+  .section-intro{color:var(--slate); max-width:640px; margin-bottom:28px; font-size:15.5px;}
+
+  p{margin:0 0 16px;}
+
+  /* ===== RISK LADDER (signature element) ===== */
+  .ladder-wrap{
+    display:grid; grid-template-columns:14px 1fr; gap:22px;
+    margin-top:8px;
+  }
+  .ladder-rail{
+    background:linear-gradient(to bottom, var(--clay) 0%, var(--clay) 24%, var(--gold) 25%, var(--gold) 49%, var(--acacia-light) 50%, var(--acacia-light) 74%, var(--sage) 75%, var(--sage) 100%);
+    border-radius:7px;
+    position:relative;
+  }
+  .tier{
+    padding:20px 22px;
+    border:1px solid var(--line);
+    border-left:none;
+    background:var(--paper-dim);
+    margin-bottom:14px;
+    border-radius:0 8px 8px 0;
+    position:relative;
+  }
+  .tier:last-child{margin-bottom:0;}
+  .tier-head{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .tier-dot{width:10px; height:10px; border-radius:50%; flex:none;}
+  .tier.unacceptable .tier-dot{background:var(--clay);}
+  .tier.high .tier-dot{background:var(--gold);}
+  .tier.limited .tier-dot{background:var(--acacia-light);}
+  .tier.minimal .tier-dot{background:var(--sage);}
+  .tier-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .tier p{margin:0; font-size:15px; color:var(--ink);}
+  .tier-examples{color:var(--slate); font-size:13.5px; margin-top:4px;}
+
+  /* ===== CALLOUT / PULLQUOTE ===== */
+  .callout{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:10px;
+    padding:30px 32px;
+    margin:8px 0 0;
+  }
+  .callout .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:10px; display:block;
+  }
+  .callout p{color:var(--paper); font-size:16px; margin:0;}
+  .callout strong{color:var(--gold);}
+
+  .pullquote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(22px,3vw,28px);
+    line-height:1.4;
+    color:var(--clay-deep);
+    border-left:3px solid var(--clay);
+    padding-left:24px;
+    margin:32px 0;
+  }
+
+  /* ===== CLAUSE LIST (obligations) ===== */
+  .clause-list{list-style:none; margin:0; padding:0; counter-reset:clause;}
+  .clause-list li{
+    counter-increment:clause;
+    display:flex; gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .clause-list li:first-child{padding-top:0;}
+  .clause-list li::before{
+    content:"§" counter(clause);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    color:var(--clay);
+    flex:none;
+    width:42px;
+  }
+
+  /* ===== PENALTY BOX ===== */
+  .penalty-box{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--ink);
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:24px;
+  }
+  .penalty-cell{padding:24px 26px;}
+  .penalty-cell:first-child{border-right:1px solid var(--ink); background:var(--paper-dim);}
+  .penalty-cell:last-child{background:var(--clay); color:var(--paper);}
+  .penalty-figure{font-family:'Fraunces', serif; font-size:32px; font-weight:600; margin-bottom:4px;}
+  .penalty-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.8;}
+
+  /* ===== ICON GRID (commissioner powers) ===== */
+  .icon-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:24px;}
+  .icon-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    background:var(--paper-dim);
+  }
+  .icon-card svg{width:28px; height:28px; margin-bottom:10px;}
+  .icon-card h4{margin:0 0 6px; font-family:'IBM Plex Sans',sans-serif; font-size:15px; font-weight:600;}
+  .icon-card p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== CHECK LIST (what bill gets right) ===== */
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; margin-top:24px;}
+  .check-item{display:flex; gap:12px;}
+  .check-item svg{flex:none; margin-top:2px;}
+  .check-item h4{margin:0 0 4px; font-size:15px; font-weight:600;}
+  .check-item p{margin:0; font-size:13.5px; color:var(--slate);}
+
+  /* ===== GAP CARDS ===== */
+  .gap-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    margin-bottom:16px;
+    overflow:hidden;
+  }
+  .gap-card summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    padding:18px 22px;
+    background:var(--paper-dim);
+    font-weight:600;
+    font-family:'IBM Plex Sans',sans-serif;
+  }
+  .gap-card summary::-webkit-details-marker{display:none;}
+  .gap-card summary .gap-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--clay); font-size:13px; flex:none;
+  }
+  .gap-card summary::after{
+    content:"+"; margin-left:auto; font-family:'IBM Plex Mono',monospace;
+    font-size:18px; color:var(--slate); transition:transform 0.2s ease;
+  }
+  .gap-card[open] summary::after{content:"–";}
+  .gap-body{padding:4px 22px 22px; font-size:14.5px;}
+  .gap-body .impact{
+    margin-top:12px; padding:12px 14px;
+    background:var(--paper); border-left:3px solid var(--gold);
+    border-radius:0 6px 6px 0; font-size:13.5px; color:var(--slate);
+  }
+  .gap-body .impact strong{color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px;}
+
+  /* ===== COMPARISON TABLE ===== */
+  table.compare{width:100%; border-collapse:collapse; margin-top:24px; font-size:14px;}
+  @media(max-width:700px){ table.compare{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; white-space:nowrap;} table.compare td:first-child{white-space:normal;} }
+  table.compare th, table.compare td{
+    border:1px solid var(--line); padding:14px 16px; text-align:left; vertical-align:top;
+  }
+  table.compare th{
+    background:var(--ink); color:var(--paper);
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;
+  }
+  table.compare td:first-child{font-weight:600; background:var(--paper-dim); white-space:nowrap;}
+
+  /* ===== ACTION CHECKLIST ===== */
+  .action-list{list-style:none; margin:0; padding:0;}
+  .action-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:14px 0; border-bottom:1px dashed var(--line);
+  }
+  .action-list li .box{
+    width:18px; height:18px; border:1.5px solid var(--acacia); border-radius:4px; flex:none; margin-top:2px;
+  }
+  .strategic-list{margin:0; padding:0; list-style:none;}
+  .strategic-list li{padding:12px 0 12px 20px; border-left:2px solid var(--sage); margin-bottom:10px;}
+  .strategic-list b{display:block; font-size:14px; margin-bottom:3px;}
+  .strategic-list span{font-size:13.5px; color:var(--slate);}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:44px 0 30px;
+    margin-top:0;
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .seal{
+    width:64px; height:64px; flex:none;
+  }
+  footer .source-note{font-size:12.5px; color:#B8B3A2; max-width:480px; line-height:1.7;}
+  footer .fine{font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8A8577; margin-top:18px;}
+
+  @media (max-width:640px){
+    .penalty-box{grid-template-columns:1fr;}
+    .penalty-cell:first-child{border-right:none; border-bottom:1px solid var(--ink);}
+    .check-grid{grid-template-columns:1fr;}
+    .ladder-wrap{grid-template-columns:8px 1fr; gap:14px;}
+    footer .wrap{flex-direction:column;}
+  }
+  .mp-returnbar{background:var(--ink);border-bottom:2px solid var(--gold);}
+  .mp-returnbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap;}
+  .mp-returnbar-brand{display:flex;align-items:center;gap:10px;color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;}
+  .mp-returnbar-brand img{height:32px;width:auto;display:block;}
+  .mp-returnbar-brand b{color:var(--gold);font-weight:600;}
+  .mp-returnbar-back{color:var(--paper);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s;}
+  .mp-returnbar-back:hover{opacity:1;color:var(--gold);}
+  .editorial-credit{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);}
+  .firm-cta{
+    background:var(--paper-dim);
+    border:1px solid var(--clay);
+    border-radius:10px;
+    padding:28px 32px;
+    margin-top:8px;
+  }
+  .firm-cta .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--clay);
+    margin-bottom:12px; display:block; font-weight:600;
+  }
+  .firm-cta p{font-size:15px;color:var(--ink);margin:0 0 14px;}
+  .firm-cta p:last-of-type{margin-bottom:0;}
+  .firm-cta strong{color:var(--clay-deep);}
+  .firm-cta .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .firm-cta .cta-btn{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    text-decoration:none;padding:11px 20px;border-radius:6px;display:inline-block;
+  }
+  .firm-cta .cta-btn.primary{background:var(--ink);color:var(--paper);}
+  .firm-cta .cta-btn.secondary{border:1px solid var(--ink);color:var(--ink);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Hidden Data Protection Liability in Every SACCO Loan File",
+  "description": "Why every SACCO board should re-examine how it processes guarantors' personal data under the Data Protection Act, 2019.",
+  "image": "https://dataprivacyadvocates.co.ke/images/compliance-checklist.jpg",
+  "datePublished": "2026-06-01",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dataprivacyadvocates.co.ke/#founder",
+    "name": "Patrick Muchangi",
+    "jobTitle": "Founder & Advocate",
+    "sameAs": [
+      "https://www.linkedin.com/in/patrick-muchangi-507498216"
+    ]
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+    "name": "Muchangi Patrick & Associates Advocates",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/muchangipatrickadvocates/"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dataprivacyadvocates.co.ke/insight-sacco-guarantor-data-liability.html"
+  }
+}
+</script>
+
+<style>
+/* Standalone cookie banner (self-contained — this page doesn't load the main site's styles.css) */
+.mp-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#1B1A17;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(120%);transition:transform .45s ease;font-family:'IBM Plex Sans',sans-serif;}
+.mp-cookie-banner.show{transform:translateY(0);}
+.mp-cookie-banner-inner{max-width:1000px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.mp-cookie-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.68);max-width:620px;}
+.mp-cookie-text a{color:#C69A3E;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.mp-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+.mp-cookie-btn{padding:10px 20px;font-size:12.5px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border:1px solid transparent;}
+.mp-cookie-btn.essential{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;}
+.mp-cookie-btn.essential:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.mp-cookie-btn.accept{background:#C69A3E;color:#1B1A17;}
+@media(max-width:640px){.mp-cookie-banner-inner{padding:18px;flex-direction:column;align-items:flex-start;}.mp-cookie-actions{width:100%;}}
+</style>
+
+<style>
+/* ===== Shared site navigation & footer (injected — matches main site design system) ===== */
+.mp-gnav{background:#17101a;position:relative;z-index:1000;}
+.mp-gnav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;font-family:'Inter',sans-serif;}
+.mp-gnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;flex-shrink:0;}
+.mp-gnav-brand img{height:38px;width:auto;display:block;}
+.mp-gnav-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;letter-spacing:.01em;white-space:nowrap;}
+.mp-gnav-links{display:flex;align-items:center;gap:26px;}
+.mp-gnav-links a{color:rgba(247,246,242,.78);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.01em;white-space:nowrap;transition:color .2s;}
+.mp-gnav-links a:hover{color:#ecc981;}
+.mp-gnav-cta{background:#bd9148;color:#17101a !important;padding:9px 18px;border-radius:2px;font-weight:600 !important;}
+.mp-gnav-cta:hover{background:#ecc981;color:#17101a !important;}
+.mp-gnav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.mp-gnav-toggle span{width:22px;height:2px;background:#f7f6f2;display:block;}
+@media(max-width:900px){
+  .mp-gnav-links{position:absolute;top:64px;left:0;right:0;background:#17101a;flex-direction:column;align-items:flex-start;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .mp-gnav.open .mp-gnav-links{max-height:520px;}
+  .mp-gnav-links a{width:100%;padding:14px 24px;border-top:1px solid rgba(247,246,242,.08);}
+  .mp-gnav-cta{margin:14px 24px;text-align:center;}
+  .mp-gnav-toggle{display:flex;}
+  .mp-gnav-inner{padding:0 20px;}
+}
+@media(min-width:901px){.mp-gnav-toggle{display:none;}}
+
+.mp-gfoot{background:#17101a;color:rgba(247,246,242,.7);font-family:'Inter',sans-serif;margin-top:0;}
+.mp-gfoot-inner{max-width:1240px;margin:0 auto;padding:56px 32px 28px;}
+.mp-gfoot-top{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(247,246,242,.1);}
+.mp-gfoot-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f7f6f2;margin-bottom:14px;}
+.mp-gfoot-brand img{height:28px;width:auto;}
+.mp-gfoot-brand span{font-family:'Fraunces',serif;font-size:15px;font-weight:600;}
+.mp-gfoot-blurb{font-size:13.5px;line-height:1.6;max-width:280px;color:rgba(247,246,242,.55);}
+.mp-gfoot h5{color:#f7f6f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:14px;}
+.mp-gfoot-col a,.mp-gfoot-col p{display:block;color:rgba(247,246,242,.6);font-size:13.5px;text-decoration:none;margin-bottom:10px;line-height:1.5;}
+.mp-gfoot-col a:hover{color:#ecc981;}
+.mp-gfoot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(247,246,242,.45);}
+.mp-gfoot-bottom .links{display:flex;gap:18px;}
+.mp-gfoot-bottom a{color:rgba(247,246,242,.45);text-decoration:none;}
+.mp-gfoot-bottom a:hover{color:#ecc981;}
+@media(max-width:900px){
+  .mp-gfoot-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .mp-gfoot-top{grid-template-columns:1fr;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Legal Insights",
+      "item": "https://dataprivacyadvocates.co.ke/insights.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The Hidden Data Protection Liability in Every SACCO Loan File",
+      "item": "https://dataprivacyadvocates.co.ke/insight-sacco-guarantor-data-liability.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="mp-gnav" id="mpGlobalNav">
+  <div class="mp-gnav-inner">
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <div class="mp-gnav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">The Firm</a>
+      <a href="expertise.html">Solutions</a>
+      <a href="people.html">Our Team</a>
+      <a href="insights.html#case-notes">Track Record</a>
+      <a href="/resources/practice-notes/">Knowledge Centre</a>
+      <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="retainer.html">Retainer</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
+    </div>
+    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+(function(){
+  var toggle = document.getElementById('mpGlobalNavToggle');
+  var nav = document.getElementById('mpGlobalNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+
+
+<div class="mp-returnbar">
+  <div class="wrap mp-returnbar-inner">
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="insights.html" class="mp-returnbar-back">&larr; Back to Insights</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <p class="masthead-title">Practice <em>Note</em></p>
+      <div class="masthead-meta">Financial Services Series<br>Nairobi Edition</div>
+    </div>
+    <div class="masthead-tagline">Regulation, technology &amp; the business of Kenya</div>
+  </div>
+</div>
+
+<div class="hero wrap">
+  <span class="eyebrow">ODPC Complaint No. 1966 of 2024</span>
+  <h1>The Hidden Data Protection Liability in Every SACCO Loan File</h1>
+  <p class="dek">Why every SACCO board should re-examine how it processes guarantors' personal data — before the regulator asks first.</p>
+  <div class="byline">
+    <span>Practice Note</span>
+    <span>9 min read</span>
+    <span>Financial Services &amp; SACCOs</span>
+  </div>
+  <div class="editorial-credit">By Muchangi Patrick, Advocate — Muchangi Patrick &amp; Associates Advocates · Published July 2026</div>
+  <div style="margin-top:16px;"><a href="downloads/guarantor-data-liability-sacco-loan-file.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;" data-kg-file="downloads/guarantor-data-liability-sacco-loan-file.pdf" data-kg-title="The Hidden Data Protection Liability in Every SACCO Loan File" data-kg-id="insight-sacco-guarantor-data-liability"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Download PDF</a></div>
+</div>
+
+<section class="wrap">
+  <p style="font-size:17px;">Every SACCO in Kenya depends on guarantors. Without them, many SACCO lending models would simply not function. Boards discuss liquidity, credit risk, capital adequacy, provisioning, cyber security and fraud — yet one category of institutional risk rarely appears in Board papers despite being embedded in virtually every loan issued: the processing of guarantors' personal data.</p>
+  <p style="font-size:17px;">Most SACCOs have invested heavily in credit risk management. Far fewer have asked the more fundamental legal question — at every stage of the guarantor relationship, what is the lawful basis under the Data Protection Act, 2019 for processing the guarantor's personal data? That question is no longer theoretical. It is a regulatory, governance and litigation question.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§1</span> The assumption that may cost SACCOs millions</h2>
+  <p class="section-intro">Within many SACCOs, guarantor information is treated as though it automatically forms part of the borrower's loan file. Operationally, that assumption feels logical. Legally, it is incomplete.</p>
+  <p>The guarantor does not cease to be an independent individual merely because they guarantee another member's loan. They remain an independent data subject under the Data Protection Act, 2019 — and that distinction changes everything. Every collection, verification, storage, disclosure, sharing, retention and destruction of the guarantor's personal information constitutes processing regulated by the Act. The guarantee document does not suspend constitutional privacy rights, nor does it create unlimited authority to process personal data for every future purpose.</p>
+
+  <div class="callout" style="margin-top:8px;">
+    <span class="label">The forgotten data subject</span>
+    <p>When a loan application arrives, attention naturally focuses on the borrower. The guarantor becomes an administrative requirement — <strong>ID card, payroll number, phone number, employment details, salary information, member number, savings information, shareholding, next of kin, signature, sometimes even biometric verification</strong> — all entering the SACCO's systems with one question seldom asked: has the SACCO analysed the lawful basis for each stage of processing that data?</p>
+  </div>
+
+  <div style="margin-top:24px;border:1px solid var(--clay);border-radius:10px;padding:22px 26px;background:var(--paper-dim);display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+    <div style="flex:1;min-width:220px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);font-weight:600;display:block;margin-bottom:6px;">Free download</span>
+      <p style="margin:0;font-size:14.5px;">A one-page, print-ready checklist: <strong>18 SACCO Data Protection Red Flags</strong>, grouped by where the risk actually sits — origination, recovery, sharing, retention and governance.</p>
+    </div>
+    <a href="downloads/sacco-data-protection-red-flags.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:6px;flex:none;" data-kg-file="downloads/sacco-data-protection-red-flags.pdf" data-kg-title="SACCO Data Protection Red Flags — Cheat Sheet" data-kg-id="sacco-red-flags-cheatsheet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg> Get the Cheat Sheet</a>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§2</span> Article 31 does not stop at the borrower</h2>
+  <p class="section-intro">The Constitution of Kenya guarantees every person the right to privacy, and the Data Protection Act gives that right practical effect for every identifiable natural person — not merely borrowers, not merely members.</p>
+  <div class="pullquote">Guarantor information is not merely credit information. It is constitutionally protected personal data.</div>
+  <p>Collecting information is one legal activity. Verifying identity is another. Submitting documents to the Credit Committee is another. Sharing information with payroll departments is another. Engaging debt collectors is another. Instructing advocates is another. Reporting to regulators may be another. Retaining records after loan discharge is another. Each processing activity requires its own legal justification.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§3</span> The guarantor lifecycle is a data processing lifecycle</h2>
+  <p class="section-intro">Viewed through a data protection lens, the guarantor relationship consists of multiple regulated processing activities — and the legal analysis does not end because the loan has been approved.</p>
+
+  <div class="icon-grid">
+    <div class="icon-card"><h4>Origination</h4><p>Nomination, collection, identity verification and eligibility assessment.</p></div>
+    <div class="icon-card"><h4>Approval</h4><p>Credit committee circulation, loan approval, storage within core banking systems.</p></div>
+    <div class="icon-card"><h4>Administration</h4><p>Ongoing loan administration and communication during repayment.</p></div>
+    <div class="icon-card"><h4>Default &amp; recovery</h4><p>Monitoring, employer engagement, debt recovery and litigation.</p></div>
+    <div class="icon-card"><h4>Discharge</h4><p>Loan discharge, records retention and, eventually, secure destruction.</p></div>
+  </div>
+
+  <p style="margin-top:24px;">Each stage should have a lawful basis, a defined purpose, identified recipients, a documented retention period, appropriate security safeguards and accountability records.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§4</span> The dangerous assumption about consent</h2>
+  <p class="section-intro">Many institutions believe that once a guarantor signs the guarantee form, the SACCO has obtained unrestricted authority to process that person's information indefinitely. That assumption is legally unsafe.</p>
+
+  <p>Consent, where relied upon, must be:</p>
+  <ul class="clause-list">
+    <li><div><strong>Freely given</strong> — not a condition buried inside the guarantee form.</div></li>
+    <li><div><strong>Specific</strong> — tied to a defined purpose, not a blanket authorisation.</div></li>
+    <li><div><strong>Informed</strong> — the guarantor understands what is being agreed to.</div></li>
+    <li><div><strong>Unequivocal</strong> — no ambiguity about what was agreed.</div></li>
+    <li><div><strong>Demonstrated by a clear affirmative act</strong> — capable of being evidenced later.</div></li>
+  </ul>
+
+  <div class="callout">
+    <span class="label">Why it matters</span>
+    <p>Consent is only <strong>one</strong> lawful basis recognised under the Data Protection Act. Many SACCO processing activities are more appropriately justified by contractual necessity, legal obligation, or another lawful basis entirely. A signature on a guarantee form is not a substitute for a lawful basis analysis.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§5</span> The blind spot during debt recovery</h2>
+  <p class="section-intro">It is during default that the greatest privacy risks frequently arise. The urgency of debt recovery does not suspend the Data Protection Act.</p>
+  <p>The borrower stops paying. Pressure increases. Letters are written, calls are made, employers are contacted, external advocates receive files, debt collectors become involved. Information may be shared with insurers, payroll offices, regulators or courts. <strong>Every disclosure constitutes processing</strong> — and every disclosure should be capable of legal justification, satisfying the principles of lawfulness, fairness, necessity and proportionality.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§6</span> The question every Board should ask</h2>
+  <p class="section-intro">Imagine an ODPC investigator arriving and asking a simple question: demonstrate the lawful basis for every processing activity involving guarantors' personal data, from nomination to destruction.</p>
+  <p>Could the institution immediately produce, or would management begin reconstructing explanations only after the investigation has commenced?</p>
+
+  <div class="check-grid">
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Record of Processing Activities</h4><p>With a documented lawful basis analysis for each stage.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Privacy notices</h4><p>Given to guarantors, not only to borrowers.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Processor &amp; sharing agreements</h4><p>Covering CRBs, employers, recovery agents and advocates.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Retention schedules</h4><p>Access logs, disclosure records and audit reports.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Board-approved policies</h4><p>Reflected in day-to-day staff procedures.</p></div></div>
+    <div class="check-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#46573A" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg><div><h4>Accountability, not assumption</h4><p>Demonstrated through evidence, not "this is how it has always been done."</p></div></div>
+  </div>
+
+  <p style="margin-top:24px;">This is not solely an ICT issue, nor exclusively a legal one — it is a <strong>governance</strong> issue. Boards are responsible for ensuring appropriate governance systems exist; senior management for implementation; Data Protection Officers for oversight; internal auditors for assurance; legal advisers for interpreting statutory obligations; and credit managers for operating the lending process day to day. Failure at any point may expose the institution to regulatory scrutiny.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§7</span> A lesson from recent regulatory enforcement</h2>
+  <p class="section-intro">Recent determinations by the Office of the Data Protection Commissioner demonstrate that financial institutions cannot assume disclosure of personal data during lending or debt recovery is automatically lawful.</p>
+  <p>The Commissioner has shown a willingness to scrutinise the lawful basis for processing, unnecessary disclosure of personal information, proportionality of processing, accountability measures and organisational governance. These determinations underscore a broader regulatory message: financial necessity does not override statutory privacy obligations. For SACCOs, this should prompt a comprehensive review of guarantor processing practices — not a narrow review of consent clauses alone.</p>
+
+  <div class="callout">
+    <span class="label">A real determination on point</span>
+    <p>In <strong>ODPC Complaint No. 1966 of 2024</strong>, the Commissioner held a digital lender liable for sharing a borrower's <em>and their guarantor's</em> ID numbers, phone number and salary details with third parties without a lawful basis, ordering compensation. Our 12 August 2026 briefing, <a href="webinars.html" style="color:var(--gold);">The Guarantor Gap</a>, walks SACCO boards through what that determination means in practice.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§8</span> Questions every CEO should ask on Monday morning</h2>
+  <ul class="strategic-list">
+    <li><b>To the Head of Credit</b><span>Can we map every stage at which we process a guarantor's personal data?</span></li>
+    <li><b>To the Data Protection Officer</b><span>What lawful basis applies to each of those processing activities?</span></li>
+    <li><b>To management, from Internal Audit</b><span>Where is the documentary evidence demonstrating compliance?</span></li>
+    <li><b>To external legal advisers</b><span>Does the guarantee documentation accurately reflect the institution's actual processing activities?</span></li>
+  </ul>
+  <p style="margin-top:20px;">These are governance questions. They are also risk management questions.</p>
+</section>
+
+<section class="wrap">
+  <h2 class="section-title"><span class="num">§9</span> The bottom line</h2>
+  <p>The future leaders in Kenya's SACCO sector will not be those that merely digitise lending. They will be those that integrate privacy governance into every stage of the lending lifecycle — recognising that guarantor information is not simply an operational asset, but regulated personal data protected by the Constitution and the Data Protection Act, 2019. They will document their lawful bases, strengthen accountability, train staff, review disclosures, and govern personal data with the same discipline they apply to financial risk.</p>
+  <div class="callout">
+    <span class="label">Final thought</span>
+    <p>Every SACCO in Kenya has guarantor files. The real question is whether those files would withstand the scrutiny of an ODPC inspection. When the regulator eventually asks the institution to <strong>show the lawful basis for every stage of its processing of guarantors' personal data</strong>, will it produce a documented governance framework — or merely explain that this is how it has always been done?</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="firm-cta">
+    <span class="label">How this touches your SACCO's compliance posture</span>
+    <p>Guarantor data isn't a footnote to your lending file — it's a live, regulated processing activity from nomination through to destruction, and your obligations under the Data Protection Act, 2019 apply at every stage.</p>
+    <p><strong>Muchangi Patrick &amp; Associates Advocates</strong> advises SACCO boards, CEOs and compliance teams on data protection governance, lawful-basis mapping, and ODPC readiness. If your guarantor files haven't had a data protection review, we can help you get ahead of it before the regulator asks.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn primary">Book a Consultation</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" class="cta-btn secondary">Chat on WhatsApp</a>
+      <a href="expertise.html" class="cta-btn secondary">See Our Data Privacy Practice</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="callout" style="background:var(--ink);border:1px solid var(--gold);">
+    <span class="label" style="color:var(--gold);">Talk to us</span>
+    <p style="color:var(--paper);font-size:17px;line-height:1.6;margin-bottom:18px;">
+      Muchangi Patrick &amp; Associates Advocates advises fintechs, startups, corporates and institutions on data protection and data privacy compliance across Kenya &mdash; from ODPC registration and DPIAs to outsourced DPO services and cross-border data transfer advisory. If the issues raised above touch your business, we can help you get ahead of them.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://dataprivacyadvocates.co.ke/contact.html" style="background:var(--gold);color:var(--ink);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Book a Consultation &rarr;</a>
+      <a href="https://wa.me/254736358938" target="_blank" rel="noopener" style="background:transparent;color:var(--paper);border:1px solid var(--paper-dim);font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:#1B1A17;padding:56px 24px;text-align:center;">
+  <div style="max-width:560px;margin:0 auto;">
+    <h2 style="font-family:'Fraunces',serif;color:#F2ECDC;font-size:1.6rem;font-weight:600;margin:0 0 10px;">Stay ahead of Kenya's data protection &amp; AI regulation</h2>
+    <p style="color:rgba(242,236,220,.75);font-size:14.5px;line-height:1.6;margin:0 0 22px;font-family:'IBM Plex Sans',sans-serif;">A short monthly briefing from the Kenya Privacy Law Review &mdash; new ODPC determinations, guidance notes and compliance deadlines. No spam, unsubscribe anytime.</p>
+    <form name="kplr-subscribe" method="POST" action="/api/form-submit" class="consult-form" data-form-type="newsletter" style="max-width:460px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+      <input type="hidden" name="form_type" value="newsletter" />
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:'IBM Plex Sans',sans-serif;font-size:.95rem;" />
+      <button type="submit" style="background:#C69A3E;color:#1B1A17;border:none;padding:12px 22px;border-radius:6px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;font-size:14px;cursor:pointer;">Subscribe</button>
+      <div style="width:100%;text-align:left;font-size:.78rem;line-height:1.45;opacity:.85;margin-top:2px;">
+        <label style="display:flex;align-items:flex-start;gap:6px;cursor:pointer;font-weight:normal;">
+          <input type="checkbox" name="consent" value="true" required style="margin-top:3px;flex-shrink:0;" />
+          <span>By subscribing you consent to receive newsletters, legal updates, invitations to webinars and related communications from Muchangi Patrick &amp; Associates Advocates. You may unsubscribe at any time.</span>
+        </label>
+        <details style="margin-top:6px;">
+          <summary style="cursor:pointer;">Privacy notice</summary>
+          <p style="margin:6px 0 0;">We collect your email address to send the Kenya Privacy Law Review newsletter. Lawful basis: your consent. Purpose: legal updates and newsletters. Retention: until you unsubscribe. You may access, correct, or request deletion of your data, or unsubscribe, at any time &mdash; see our <a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a> or email consult@dataprivacyadvocates.co.ke.</p>
+        </details>
+      </div>
+      <input type="hidden" name="rendered_at" value="" class="js-rendered-at" />
+      <p class="form-status" style="width:100%;margin-top:10px;display:none;font-family:'IBM Plex Sans',sans-serif;"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="seal" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" stroke="#C69A3E" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="24" stroke="#C69A3E" stroke-width="1"/>
+        <text x="32" y="30" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="9" font-weight="600">DPA</text>
+        <text x="32" y="40" text-anchor="middle" fill="#C69A3E" font-family="IBM Plex Mono" font-size="7">2019</text>
+      </svg>
+    </div>
+    <div class="source-note">
+      This practice note draws on the Data Protection Act, 2019, Article 31 of the Constitution of Kenya, and recent determinations of the Office of the Data Protection Commissioner, including Complaint No. 1966 of 2024.
+      <div class="fine">This practice note is prepared by Muchangi Patrick, Advocate, Muchangi Patrick &amp; Associates Advocates · Nairobi · Not legal advice — consult qualified counsel before acting on this analysis.</div>
+    </div>
+  </div>
+</footer>
+
+
+
+<footer class="mp-gfoot">
+  <div class="mp-gfoot-inner">
+    <div class="mp-gfoot-top">
+      <div>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+      </div>
+      <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
+    </div>
+    <div class="mp-gfoot-bottom">
+      <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+<div class="mp-cookie-banner" id="mpCookieBanner">
+  <div class="mp-cookie-banner-inner">
+    <p class="mp-cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. See our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="mp-cookie-actions">
+      <button type="button" class="mp-cookie-btn essential" id="mpCookieEssential">Essential Only</button>
+      <button type="button" class="mp-cookie-btn accept" id="mpCookieAccept">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mp_cookie_consent';
+  var banner = document.getElementById('mpCookieBanner');
+  if (!banner) return;
+  var stored;
+  try { stored = localStorage.getItem(KEY); } catch(e) { stored = null; }
+
+  function setConsent(value){
+    try {
+      localStorage.setItem(KEY, value);
+      localStorage.setItem(KEY + '_date', new Date().toISOString());
+    } catch(e) {}
+    if (typeof gtag === 'function') {
+      var granted = value === 'all' ? 'granted' : 'denied';
+      gtag('consent', 'update', { 'analytics_storage': granted, 'ad_storage': granted, 'ad_user_data': granted, 'ad_personalization': granted });
+    }
+    banner.classList.remove('show');
+  }
+
+  if (!stored) {
+    setTimeout(function(){
+      banner.classList.add('show');
+      var autoTimer = setTimeout(function(){
+        try { if (!localStorage.getItem(KEY)) setConsent('essential'); } catch(e) {}
+      }, 6000);
+      var accept = document.getElementById('mpCookieAccept');
+      var essential = document.getElementById('mpCookieEssential');
+      if (accept) accept.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('all'); });
+      if (essential) essential.addEventListener('click', function(){ clearTimeout(autoTimer); setConsent('essential'); });
+    }, 600);
+  }
+})();
+</script>
+<script src="script.js?v=11"></script>
+
+<!-- KPLR Resource Gate (email-gated download) -->
+<div aria-hidden="true" aria-labelledby="kg-modal-title" aria-modal="true" class="kg-modal" id="kg-modal" role="dialog">
+<div class="kg-modal-inner" id="kg-modal-inner">
+<button aria-label="Close" class="kg-modal-close" id="kg-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+<div class="kg-modal-icon"><i class="fas fa-file-arrow-down"></i></div>
+<div class="kg-modal-eyebrow" id="kg-modal-eyebrow">Free resource</div>
+<h3 id="kg-modal-title">This resource</h3>
+<p class="kg-modal-intro">Tell us where to send it. You'll also get the KPLR monthly briefing — new ODPC determinations, guidance notes and compliance deadlines. Unsubscribe anytime.</p>
+<div class="kg-error" id="kg-error"></div>
+<form class="kg-form" data-netlify="true" id="kg-form" method="POST" name="kplr-resource-request" netlify-honeypot="bot-field">
+<input name="form-name" type="hidden" value="kplr-resource-request"/>
+<input id="kg-resource-field" name="resource" type="hidden" value=""/>
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+<input id="kg-name" name="name" placeholder="Full name" required="" type="text"/>
+<input id="kg-email" name="email" placeholder="you@company.co.ke" required="" type="email"/>
+<input name="organisation" placeholder="Organisation (optional)" type="text"/>
+<button class="kplr-btn kplr-btn-gold" id="kg-submit" type="submit">Get the download <i class="fas fa-arrow-right"></i></button>
+<p class="kg-fineprint">We'll never share your email. Reading or downloading this resource does not create an advocate-client relationship.</p>
+</form>
+<div class="kg-success" hidden="" id="kg-success">
+<div class="kg-success-icon"><i class="fas fa-circle-check"></i></div>
+<h3>You're in.</h3>
+<p id="kg-success-text">Your download should start automatically.</p>
+<a class="kplr-btn kplr-btn-outline" href="#" id="kg-manual-link" rel="noopener" target="_blank">Download now</a>
+</div>
+</div>
+</div>
+
+<script src="/assets/js/conversion.js"></script>
+</body>
+</html>

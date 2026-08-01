@@ -3,7 +3,7 @@
    Navy / Ink / Brass palette. Serif display + grotesk body.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts now loaded via <link rel="preconnect"> + <link rel="stylesheet"> tags in each page's <head> for faster, non-blocking rendering (see 404.html or index.html for the pattern). */
 
 :root{
   --ink:#17101a;
@@ -1203,4 +1203,50 @@ a:focus-visible,button:focus-visible,.field input:focus-visible,
   .dtf-pillar,.dtf-node,.dtf-line{opacity:1;transform:none;transition:none;stroke-dashoffset:0;}
   .dtf-diagram.in .dtf-node--final rect{animation:none;}
   .wbcu-card,.card{transition:none;}
+}
+
+/* ==== Resource Gate modal (email-gated downloads: checklists, templates,
+   toolkits, course manuals) — same visual language as .kc-modal above. ==== */
+.kg-modal{
+  position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(23,16,26,.72);backdrop-filter:blur(3px);
+  opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility .25s;
+}
+.kg-modal.is-open{opacity:1;visibility:visible;}
+.kg-modal-inner{
+  background:var(--paper);color:var(--ink);border-radius:var(--radius-lg);
+  width:100%;max-width:460px;max-height:88vh;overflow-y:auto;
+  padding:40px;position:relative;box-shadow:var(--shadow-hard);
+  transform:translateY(16px);transition:transform .3s var(--ease);text-align:left;
+}
+.kg-modal.is-open .kg-modal-inner{transform:translateY(0);}
+.kg-modal-close{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:var(--paper-2);
+  color:var(--ink);font-size:.95rem;
+}
+.kg-modal-close:hover{background:var(--cta);color:var(--white);}
+.kg-modal-icon{width:44px;height:44px;border-radius:50%;background:rgba(139,105,50,.1);color:var(--cta);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:16px;}
+.kg-modal-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--cta);margin-bottom:8px;}
+.kg-modal-inner h3{font-size:1.35rem;margin-bottom:8px;line-height:1.3;}
+.kg-modal-intro{color:var(--slate);margin-bottom:22px;font-size:.92rem;}
+.kg-field-row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.kg-field-row input{flex:1;min-width:140px;}
+.kg-form input[type="text"],.kg-form input[type="email"]{
+  width:100%;padding:12px 14px;border-radius:6px;border:1px solid var(--line);
+  font-family:inherit;font-size:.92rem;margin-bottom:10px;background:var(--white);color:var(--ink);
+}
+.kg-form input:focus{outline:2px solid var(--cta);outline-offset:1px;}
+.kg-form button[type="submit"]{width:100%;justify-content:center;margin-top:4px;}
+.kg-fineprint{font-size:.76rem;color:var(--muted);margin-top:12px;line-height:1.5;}
+.kg-error{display:none;background:rgba(138,46,46,.08);color:var(--error);border-radius:6px;padding:10px 12px;font-size:.84rem;margin-bottom:12px;}
+.kg-error.is-visible{display:block;}
+.kg-success{text-align:center;padding:6px 0;}
+.kg-success-icon{color:var(--success);font-size:2.4rem;margin-bottom:14px;}
+.kg-success h3{font-size:1.3rem;margin-bottom:8px;}
+.kg-success p{color:var(--slate);font-size:.92rem;margin-bottom:20px;}
+.kg-modal[aria-hidden="true"]{pointer-events:none;}
+@media(max-width:640px){
+  .kg-modal-inner{padding:30px 22px;}
 }

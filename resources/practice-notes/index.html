@@ -3,6 +3,23 @@
 
 <html data-theme="light" lang="en">
 <head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem("mp_cookie_consent"); } catch(e){ return null; } })();
+  gtag("consent", "default", {
+    "analytics_storage": mpConsent === "all" ? "granted" : "denied",
+    "ad_storage": "denied",
+    "ad_user_data": "denied",
+    "ad_personalization": "denied"
+  });
+  gtag("js", new Date());
+  gtag("config", "G-ZM2TZKZHJK");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Practice Notes | Kenya Privacy Law Review</title>
@@ -144,12 +161,12 @@
 </div>
 </div>
 <div class="container header-row">
-<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.png"/></a>
+<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.webp"/></a>
 <nav class="main-nav">
 <a href="/index.html">Home</a>
 <a href="/about.html">The Firm</a>
 <a href="/expertise.html">Solutions</a>
-<a href="/people.html">Our Founder</a>
+<a href="/people.html">Our Team</a>
 <div class="nav-item">
 <a class="active" href="/resources/practice-notes/">Knowledge Centre <i class="fas fa-chevron-down nav-caret"></i></a>
 <div class="dropdown-panel">
@@ -158,11 +175,14 @@
 <a href="/regulatory-analysis.html"><i class="fas fa-file-shield"></i><div><span>Regulatory Analysis</span><small>What regulatory change means in practice</small></div></a>
 <a href="/insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
 <a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
+<a href="/webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
 <a href="/comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
 <div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
 </div>
 </div>
 <a href="/insights.html">Insights</a>
+<a href="/odpc-registration.html">ODPC Registration</a>
+<a href="/retainer.html">Retainer</a>
 <a href="/contact.html">Contact</a>
 <a class="nav-cta" href="/contact.html">Book a Consultation</a>
 </nav>
@@ -221,7 +241,7 @@
 <section style="max-width:480px;margin:56px auto 0;text-align:center;padding:0 20px;">
 <p style="font-weight:600;margin-bottom:4px;">New practice notes, as they're published.</p>
 <p style="font-size:0.9rem;color:#5b5b63;margin-bottom:16px;">Get each new Kenya Privacy Law Review practice note by email. No spam, unsubscribe any time.</p>
-<form class="consult-form" action="https://formspree.io/f/xdarywop" method="POST" data-success-message="You're subscribed. Watch your inbox for the next practice note." data-success-label="Subscribed" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+<form class="consult-form" data-form-type="newsletter" action="https://formspree.io/f/xdarywop" method="POST" data-success-message="You're subscribed. Watch your inbox for the next practice note." data-success-label="Subscribed" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
 <input type="hidden" name="form_type" value="Practice Notes signup" />
 <label for="pn_newsletter_email" class="sr-only">Email address</label>
 <input type="email" id="pn_newsletter_email" name="email" placeholder="you@company.com" required style="flex:1 1 240px;min-width:200px;padding:12px 16px;border-radius:8px;border:1px solid rgba(23,16,26,.2);" />
@@ -233,39 +253,40 @@
 <div class="container">
 <div class="footer-top">
 <div class="footer-brand">
-<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.png"/></a>
+<a class="brand" href="/index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="/images/logo.webp"/></a>
 <p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
 <div class="footer-social">
-<a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/patrick-muchangi-507498216" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 </div>
 </div>
 <div><h5>Firm</h5><a href="/about.html">About Us</a><a href="/insights.html">Insights</a><a href="/contact.html">Careers</a></div>
-<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="/bills-review.html">Bills Review</a><a href="/regulatory-analysis.html">Regulatory Analysis</a><a href="/compliance-toolkit.html">Compliance Toolkit</a></div>
+<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="/bills-review.html">Bills Review</a><a href="/regulatory-analysis.html">Regulatory Analysis</a><a href="/compliance-toolkit.html">Compliance Toolkit</a><a href="/webinars.html">Webinars</a></div>
 <div><h5>Solutions</h5><a href="/expertise.html">Data Protection &amp; Privacy</a><a href="/expertise.html">GDPR &amp; Cross-Border</a><a href="/expertise.html">Fintech &amp; Startups</a><a href="/expertise.html">AI Governance</a></div>
 <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" rel="noopener" target="_blank">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
-<div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="/cookie-notice.html">Cookie Notice</a></div>
+<div><h5>Legal</h5><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms-of-use.html">Terms of Use</a><a href="/cookie-notice.html">Cookie Notice</a></div>
 </div>
 <div class="footer-bottom">
 <span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved. Kenya Privacy Law Review is a publication of Muchangi Patrick &amp; Associates Advocates.</span>
-<div class="links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div>
+<div class="links"><a href="/privacy-policy.html">Privacy</a><a href="/accessibility.html">Accessibility</a><a href="/sitemap.html">Sitemap</a></div>
 </div>
 </div>
 </footer>
 <div class="cookie-banner">
 <div class="cookie-banner-inner">
-<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we may in future also use cookies to understand how visitors use this site. For more information, see our <a href="/cookie-notice.html">Cookie Notice</a>.</p>
+<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. For more information, see our <a href="/cookie-notice.html">Cookie Notice</a>.</p>
 <div class="cookie-actions-row">
 <button class="btn btn-line btn-sm btn-ghost cookie-essential" type="button">Essential Only</button>
 <button class="btn btn-brass btn-sm cookie-accept" type="button">Accept All</button>
 </div>
 </div>
 </div>
-<script src="/script.js?v=8"></script>
+<script src="/script.js?v=11"></script>
 <script src="/assets/js/site.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     KPLR.initListing("/resources/practice-notes/index.json", "[data-kplr-grid]");
   });
 </script>
+<script src="/assets/js/conversion.js"></script>
 </body>
 </html>

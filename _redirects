@@ -5,6 +5,10 @@
 /executive-briefs/sacco-digital-lending                              /sacco-digital-lending-executive-brief.html                      200!
 /executive-briefs/schools-data-protection                            /schools-data-protection-executive-brief.html                    200!
 
+# SACCO Guarantor Data Liability practice note — clean URL for the
+# LinkedIn campaign, pointing at the flat root-level HTML file.
+/executive-briefs/sacco-guarantor-data-liability                     /insight-sacco-guarantor-data-liability.html                     200!
+
 # Knowledge Centre — the placeholder Resource Centre landing page is gone;
 # every entry point goes straight to a real publication listing.
 /resources/                                         /resources/practice-notes/                                       301!

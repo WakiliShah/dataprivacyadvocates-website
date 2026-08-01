@@ -8,7 +8,7 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -32,6 +32,7 @@
 <meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/gavel-review.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
 <link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
@@ -281,15 +282,18 @@
 <body>
 <nav class="mp-gnav" id="mpGlobalNav">
   <div class="mp-gnav-inner">
-    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.png" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
     <div class="mp-gnav-links">
       <a href="index.html">Home</a>
       <a href="about.html">The Firm</a>
       <a href="expertise.html">Solutions</a>
       <a href="people.html">Our Team</a>
-      <a href="experience.html">Track Record</a>
+      <a href="insights.html#case-notes">Track Record</a>
       <a href="/resources/practice-notes/">Knowledge Centre</a>
       <a href="insights.html">Insights</a>
+      <a href="webinars.html">Webinars</a>
+      <a href="odpc-registration.html">ODPC Registration</a>
+      <a href="retainer.html">Retainer</a>
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
     </div>
@@ -312,7 +316,7 @@
 
 <div class="mp-returnbar">
   <div class="wrap mp-returnbar-inner">
-    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.png" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
+    <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
     <a href="insights.html" class="mp-returnbar-back">&larr; Back to the Blog</a>
   </div>
 </div>
@@ -364,6 +368,14 @@
   </div>
 </section>
 
+
+<section class="wrap">
+  <div class="callout" style="background:var(--paper-dim);border:1px solid var(--clay);">
+    <span class="label" style="color:var(--clay);">Related resource</span>
+    <p style="color:var(--ink);">See how your own organisation would score against the same twenty benchmarks the ODPC and the courts test disputes like this one against.</p>
+    <p style="color:var(--ink);margin-top:10px;"><a href="/resources/checklists/kenya-data-protection-compliance-checklist/" style="color:var(--clay-deep);font-weight:600;">Open the Kenya Data Protection Compliance Checklist &rarr;</a></p>
+  </div>
+</section>
 <section class="wrap">
   <div class="callout" style="background:var(--ink);border:1px solid var(--gold);">
     <span class="label" style="color:var(--gold);">Continue reading</span>
@@ -393,17 +405,17 @@
   <div class="mp-gfoot-inner">
     <div class="mp-gfoot-top">
       <div>
-        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.png" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
+        <a href="index.html" class="mp-gfoot-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
         <p class="mp-gfoot-blurb">A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
       </div>
       <div class="mp-gfoot-col"><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
-      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a></div>
-      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div class="mp-gfoot-col"><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div class="mp-gfoot-col"><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
       <div class="mp-gfoot-col"><h5>Contact</h5><p>Nairobi, Kenya</p><p><a href="tel:+254722878607">0722 878 607</a></p><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p><p><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></p></div>
     </div>
     <div class="mp-gfoot-bottom">
       <span>&copy; 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
-      <div class="links"><a href="cookie-notice.html">Cookie Notice</a><a href="insights.html">Sitemap</a></div>
+      <div class="links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a><a href="sitemap.html">Sitemap</a></div>
     </div>
   </div>
 </footer>
@@ -429,7 +441,8 @@
       localStorage.setItem(KEY + '_date', new Date().toISOString());
     } catch(e) {}
     if (typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': value === 'all' ? 'granted' : 'denied' });
+      var granted = value === 'all' ? 'granted' : 'denied';
+      gtag('consent', 'update', { 'analytics_storage': granted, 'ad_storage': granted, 'ad_user_data': granted, 'ad_personalization': granted });
     }
     banner.classList.remove('show');
   }
@@ -447,5 +460,6 @@
   }
 })();
 </script>
+<script src="/assets/js/conversion.js"></script>
 </body>
 </html>

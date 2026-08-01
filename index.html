@@ -10,9 +10,7 @@
   var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
   gtag('consent', 'default', {
     'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'G-ZM2TZKZHJK');
@@ -44,7 +42,14 @@
 <link href="images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="site.webmanifest" rel="manifest"/>
 <meta content="#17101a" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="styles.css?v=5" rel="stylesheet"/>
+<style>
+  .path-card:hover{border-color:var(--cta);box-shadow:var(--shadow-soft);}
+  @media (max-width:800px){.path-grid{grid-template-columns:1fr !important;}}
+</style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "LegalService",
@@ -198,7 +203,7 @@
 </div>
 <div class="container header-row">
 <a class="brand" href="index.html">
-<img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="images/logo.png"/>
+<img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="images/logo.webp"/>
 </a>
 <nav class="main-nav">
 <a class="active" href="index.html">Home</a>
@@ -215,11 +220,14 @@
 <a href="insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
 <a href="compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
           <a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
+<a href="webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
 <a href="comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
 <div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
 </div>
 </div>
 <a href="insights.html">Insights</a>
+<a href="odpc-registration.html">ODPC Registration</a>
+<a href="retainer.html">Retainer</a>
 <a href="contact.html">Contact</a>
 <a class="nav-cta" href="contact.html">Book a Consultation</a>
 </nav>
@@ -238,14 +246,14 @@
 <div class="container hero-inner hero-inner--solo">
 <div>
 <div class="eyebrow reveal">Advocates of the High Court of Kenya</div>
-<h1 class="hero-fade-1">Independent Digital Trust Assurance<br/><em>for the Digital Economy</em></h1>
-<p class="lede hero-fade-2">We help Boards, educational institutions, healthcare providers, financial institutions and technology companies build trust through independent governance, legal expertise, technology insight and evidence-based advisory services.</p>
+<h1 class="hero-fade-1">Data Protection &amp; AI Governance<br/><em>with a litigator's rigour</em></h1>
+<p class="lede hero-fade-2">We help SMEs, startups and organisations adopting AI tools build compliant, defensible data governance — grounded in the same evidentiary discipline that has secured reported High Court wins.</p>
 <div class="hero-actions hero-fade-3">
-<a class="btn btn-brass" href="contact.html">Request an Executive Briefing <i class="fas fa-arrow-right"></i></a>
+<a class="btn btn-brass" href="contact.html">Book a Consultation <i class="fas fa-arrow-right"></i></a>
 <a class="btn btn-line" href="#advisory-solutions">Explore Advisory Services</a>
 </div>
 <div class="hero-stats">
-<div><span class="num" data-count="10">10+</span><span class="lab">Years Legal Practice Experience</span></div>
+<div><span class="num" data-count="2">2</span><span class="lab">Reported High Court Acquittals</span></div>
 <div><span class="num" data-count="5">5</span><span class="lab">Advisory Solutions</span></div>
 <div><span class="num">100%</span><span class="lab">Focus on Digital Trust &amp; Governance</span></div>
 <div><span class="num">Est. 2023</span><span class="lab">Founding Year</span></div>
@@ -253,13 +261,32 @@
 </div>
 </div>
 </section>
+<!-- SELF-SELECT PATHWAY: SACCO/SME vs Board/Enterprise -->
+<section class="section" style="padding-top:56px;padding-bottom:56px;">
+<div class="container">
+<div class="path-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+<a href="retainer.html" class="path-card" style="display:block;border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 32px;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease;">
+<div class="eyebrow" style="margin-bottom:10px;">Running a SACCO or SME?</div>
+<h3 style="font-size:1.25rem;margin-bottom:8px;color:var(--ink);">Get an outsourced DPO on retainer</h3>
+<p style="color:var(--muted);font-size:.92rem;margin-bottom:14px;">Ongoing compliance support, transparent monthly pricing, no 12-month lock-in — built for organisations that need real ongoing cover, not a one-off consulting engagement. SACCOs: also dual-regulated by SASRA — <a href="insight-sacco-sasra-odpc-overlap.html" style="color:var(--cta);font-weight:600;">see the overlap &rarr;</a></p>
+<span style="color:var(--cta);font-weight:600;font-size:.9rem;">See retainer tiers &rarr;</span>
+</a>
+<a href="odpc-registration.html" class="path-card" style="display:block;border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 32px;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease;">
+<div class="eyebrow" style="margin-bottom:10px;">Not yet registered with the ODPC?</div>
+<h3 style="font-size:1.25rem;margin-bottom:8px;color:var(--ink);">Fixed-fee ODPC registration</h3>
+<p style="color:var(--muted);font-size:.92rem;margin-bottom:14px;">If your business handles personal data in Kenya, you likely need to register as a data controller or processor. One quoted fee, filed within 3–5 working days.</p>
+<span style="color:var(--cta);font-weight:600;font-size:.9rem;">See fixed-fee packages &rarr;</span>
+</a>
+</div>
+</div>
+</section>
 <!-- WHY BOARDS CHOOSE US -->
 <section class="section wbcu-section">
 <div class="container">
 <div class="section-head reveal">
-<div class="eyebrow">Why Boards Choose Us</div>
-<h2>Assurance built for the boardroom, not just the compliance file.</h2>
-<p>Four disciplines, one independent advisory practice — built to give directors and executive teams a clear line of sight over digital risk.</p>
+<div class="eyebrow">Why Clients Choose Us</div>
+<h2>Assurance built on evidence, not just the compliance file.</h2>
+<p>Four disciplines, one independent advisory practice — built to give founders, executive teams and, as the practice grows, Boards, a clear line of sight over digital risk.</p>
 </div>
 <div class="wbcu-grid reveal stagger">
 <div class="wbcu-card"><i class="fas fa-shield-halved"></i><h3>Digital Trust Assurance</h3><p>Independent governance reviews that strengthen Board oversight of information, technology and AI risk.</p></div>
@@ -273,11 +300,11 @@
 <section class="section intro-context">
 <div class="container">
 <div class="section-head reveal">
-<h2>Boards can no longer govern what they cannot see.</h2>
+<h2>You can't govern what you can't see.</h2>
 </div>
 <div class="intro-context-body reveal">
-<p>Today's organisations depend on information, technology and artificial intelligence more than ever before. That dependence brings a governance question every Board now has to answer: does leadership have independent, evidence-based visibility over how these assets are managed — or is it relying on assurances from the same teams responsible for running them?</p>
-<p>Muchangi Patrick &amp; Associates Advocates exists to answer that question. We combine legal expertise, governance discipline, technology insight and evidence-based assessment to help Boards, executive teams and regulators understand, govern, and continuously improve Digital Trust — across data protection, cybersecurity, AI governance and cross-border compliance.</p>
+<p>Today's organisations depend on information, technology and artificial intelligence more than ever before. That dependence brings a governance question every leadership team has to answer: do you have independent, evidence-based visibility over how these assets are managed — or are you relying on assurances from the same teams responsible for running them?</p>
+<p>Muchangi Patrick &amp; Associates Advocates exists to answer that question. We combine legal expertise, litigation-honed diligence and evidence-based assessment to help founders and executive teams understand, govern and continuously improve their Digital Trust posture — across data protection, cybersecurity, AI governance and cross-border compliance.</p>
 </div>
 </div>
 </section>
@@ -323,7 +350,7 @@
 <div class="section-head reveal">
 <div class="eyebrow">Knowledge &amp; Compliance Centre</div>
 <h2>Turn regulatory complexity into a clear compliance picture.</h2>
-<p>Assess your organisation against Kenya's Data Protection Act in minutes, then explore the same scholarship our clients rely on — Practice Notes, Bills Review and DPO guidance, updated as the law develops.</p>
+<p>Assess your organisation against Kenya's Data Protection Act in minutes, then explore the same research and analysis behind our advisory work — Practice Notes, Bills Review and DPO guidance, updated as the law develops.</p>
 </div>
 <div class="kc-checker-card reveal">
 <div class="kc-checker-icon"><i class="fas fa-shield-halved"></i></div>
@@ -616,36 +643,62 @@
 </div>
 </div>
 </section>
+<section class="cta-band section--ink" id="subscribe">
+  <div class="container" style="text-align:center;">
+    <h2>Stay ahead of Kenya's data protection &amp; AI regulation</h2>
+    <p>A short monthly briefing from the Kenya Privacy Law Review — new ODPC determinations, guidance notes, and compliance deadlines. No spam, unsubscribe anytime.</p>
+    <form name="kplr-subscribe" method="POST" action="/api/form-submit" class="subscribe-form consult-form" data-form-type="newsletter" style="max-width:480px;margin:24px auto 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+      <input type="hidden" name="form_type" value="newsletter" />
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:inherit;font-size:.95rem;" />
+      <button type="submit" class="btn btn-brass">Subscribe</button>
+      <div style="width:100%;text-align:left;font-size:.78rem;line-height:1.45;opacity:.85;margin-top:2px;">
+        <label style="display:flex;align-items:flex-start;gap:6px;cursor:pointer;font-weight:normal;">
+          <input type="checkbox" name="consent" value="true" required style="margin-top:3px;flex-shrink:0;" />
+          <span>By subscribing you consent to receive newsletters, legal updates, invitations to webinars and related communications from Muchangi Patrick &amp; Associates Advocates. You may unsubscribe at any time.</span>
+        </label>
+        <details style="margin-top:6px;">
+          <summary style="cursor:pointer;">Privacy notice</summary>
+          <p style="margin:6px 0 0;">We collect your email address to send the Kenya Privacy Law Review newsletter. Lawful basis: your consent. Purpose: legal updates and newsletters. Retention: until you unsubscribe. You may access, correct, or request deletion of your data, or unsubscribe, at any time &mdash; see our <a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a> or email consult@dataprivacyadvocates.co.ke.</p>
+        </details>
+      </div>
+      <input type="hidden" name="rendered_at" value="" class="js-rendered-at" />
+      <p class="form-status" style="width:100%;margin-top:10px;display:none;"></p>
+    </form>
+  </div>
+</section>
+
 <footer class="site-footer">
 <div class="container">
 <div class="footer-top">
 <div class="footer-brand">
-<a class="brand" href="index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="images/logo.png"/></a>
+<a class="brand" href="index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="images/logo.webp"/></a>
 <p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
 <div class="footer-social"><a aria-label="LinkedIn Company Page" href="https://www.linkedin.com/company/muchangipatrickadvocates/" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="fab fa-linkedin-in"></i><span class="sr-only">LinkedIn Company Page</span></a></div>
 </div>
 <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
-<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a></div>
-<div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+<div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
 <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" rel="noopener" target="_blank">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
-<div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
+<div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
 </div>
 <div class="footer-bottom">
 <span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span>
-<div class="links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div>
+<div class="links"><a href="privacy-policy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="sitemap.html">Sitemap</a></div>
 </div>
 </div>
 </footer>
 <div class="cookie-banner">
 <div class="cookie-banner-inner">
-<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we may in future also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
 <div class="cookie-actions-row">
 <button class="btn btn-line btn-sm btn-ghost cookie-essential" type="button">Essential Only</button>
 <button class="btn btn-brass btn-sm cookie-accept" type="button">Accept All</button>
 </div>
 </div>
 </div>
-<script src="script.js?v=8"></script>
+<script src="script.js?v=11"></script>
 <script src="compliance-checker.js?v=1"></script>
+<script src="/assets/js/conversion.js"></script>
 </body>
 </html>
