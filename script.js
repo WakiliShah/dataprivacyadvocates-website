@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     consultation: {
       label: 'Request received',
-      message: "Thank you for contacting Muchangi Patrick & Associates Advocates. We aim to respond within one business day. If your enquiry is urgent, you may also schedule a Digital Trust Gap Analysis using the booking link above."
+      message: "Thank you for contacting Muchangi Patrick & Associates Advocates. We aim to respond within one business day. We will contact you to arrange a suitable consultation time."
     }
   };
 

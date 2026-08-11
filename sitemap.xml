@@ -1,584 +1,612 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/odpc-registration.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/odpc-compliance-checklist.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sacco-executive-brief.html</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/about.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sector-education.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sector-healthcare.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sector-financial-services.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sector-technology.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sector-corporate.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sector-public-sector.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/expertise.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/ai-procurement/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/cross-border-data-transfers/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/employee-monitoring/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/architecture-of-lawful-processing/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/bills-review.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/regulatory-analysis.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/comparative-law.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/compliance-toolkit.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/templates/privacy-policy-template/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/templates/cookie-policy-template/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/checklists/kenya-data-protection-compliance-checklist/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/checklists/website-compliance-audit-checklist/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/checklists/dpia-checklist/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/checklists/ai-procurement-checklist/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/checklists/breach-response-checklist/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/checklists/data-audit-checklist/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/academy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/odpc-registration.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.95</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/odpc-compliance-checklist.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.85</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sacco-executive-brief.html</loc>
+<lastmod>2026-07-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/about.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
 
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insights.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-platinum-credit-limited-v-data-protection-commis.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-chelete-credit-limited-v-office-of-the-data-prot.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-kenya-airways-plc-v-obano.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-republic-v-office-of-the-data-protection-commiss.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-paprika-limited-v-office-of-the-data-protection.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-bore-v-alliance-leasing-limited-and-another.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-balicha-v-platinum-credit-limited.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-shah-v-shah-ta-john-cumming-and-company-and-anot.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-premier-credit-ltd-v-office-of-the-data-protecti.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-taifa-dt-sacco-society-limited-v-otieno.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-republic-v-office-of-data-protection-commissione.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-irungu-v-lintons-academy.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-chege-v-sholei.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-tirito-v-murage-ta-murage-juma-and-company-advoc.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-otieno-v-university-of-nairobi-and-8-others.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-savla-v-okonji.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-barasa-v-csi-energy-group-limited.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-kipchirchir-v-hornbill-rongai-limited.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-matanta-v-old-boma-limited-ta-saruni-basecamp.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-githinji-v-muhindi-mweusi-supermarket-limited.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-tulia-amboseli-safari-camp-limited-v-opiyo-and-2.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-onduko-v-squier-and-another.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-odhiambo-and-another-v-attorney-general-and-anot.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-in-re-estate-of-samuel-kamau-nganga-deceased.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-hair-manufacturing-limited-darling-kenya-v-kirum.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-ouko-v-independent-policing-oversight-authority.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-thika-water-and-sewerage-company-limited-v-korir.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-vihiga-college-of-business-and-technical-trainin.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-savla-v-maralal-energy-limited-and-2-others.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-mwaniki-v-safaricom-plc.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-wangai-and-2-others-v-cabinet-secretary-ministry.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-republic-v-muthoni.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/case-republic-v-komba.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-odpc-case-law-vol2.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-dpo-framework-reform.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resource-guidelines-dpo-framework.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-cybercrimes-petition.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-ai-bill-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-digital-lending-reforms.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-odpc-enforcement.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-fca-ai-review-kenya.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-age-verification-texas.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-kenya-data-protection-fines.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-un-global-dialogue-ai-bill.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/people.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/contact.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/reg-series-001-digital-trust-governance.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/reg-series-002-cybersecurity-governance.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/reg-series-003-ai-oversight.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/reg-series-004-cross-border-data-governance.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/reg-series-005-breach-response-readiness.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sacco-digital-trust-executive-brief.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sacco-digital-lending-executive-brief.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/schools-data-protection-executive-brief.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/webinars.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-sacco-guarantor-data-liability.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/insight-sacco-sasra-odpc-overlap.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/sitemap.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/privacy-policy.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/terms-of-use.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/accessibility.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/retainer.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/cookie-notice.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/compliance-toolkit-2026/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/course-manuals/data-protection-gdpr-compliance-course-manual/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url><loc>https://dataprivacyadvocates.co.ke/odpc-response-appeals.html</loc><lastmod>2026-08-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://dataprivacyadvocates.co.ke/enforcement-defence.html</loc><lastmod>2026-08-11</lastmod></url>
-  <url><loc>https://dataprivacyadvocates.co.ke/high-court-appellate-counsel.html</loc><lastmod>2026-08-11</lastmod></url>
-  <url><loc>https://dataprivacyadvocates.co.ke/regulatory-dispute-support.html</loc><lastmod>2026-08-11</lastmod></url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sector-education.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sector-healthcare.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sector-financial-services.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sector-technology.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sector-corporate.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sector-public-sector.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/expertise.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.95</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/ai-procurement/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/cross-border-data-transfers/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/employee-monitoring/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/privacy-by-design/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/architecture-of-lawful-processing/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/bills-review.html</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/regulatory-analysis.html</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/comparative-law.html</loc>
+<changefreq>weekly</changefreq>
+<priority>0.85</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/compliance-toolkit.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/templates/privacy-policy-template/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/templates/cookie-policy-template/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/checklists/kenya-data-protection-compliance-checklist/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/checklists/website-compliance-audit-checklist/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/checklists/dpia-checklist/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/checklists/ai-procurement-checklist/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/checklists/breach-response-checklist/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/checklists/data-audit-checklist/</loc>
+<lastmod>2026-07-15</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.75</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/academy.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insights.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-platinum-credit-limited-v-data-protection-commis.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-chelete-credit-limited-v-office-of-the-data-prot.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-kenya-airways-plc-v-obano.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-republic-v-office-of-the-data-protection-commiss.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-paprika-limited-v-office-of-the-data-protection.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-bore-v-alliance-leasing-limited-and-another.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-balicha-v-platinum-credit-limited.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-shah-v-shah-ta-john-cumming-and-company-and-anot.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-premier-credit-ltd-v-office-of-the-data-protecti.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-taifa-dt-sacco-society-limited-v-otieno.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-republic-v-office-of-data-protection-commissione.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-irungu-v-lintons-academy.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-chege-v-sholei.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-tirito-v-murage-ta-murage-juma-and-company-advoc.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-otieno-v-university-of-nairobi-and-8-others.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-savla-v-okonji.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-barasa-v-csi-energy-group-limited.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-kipchirchir-v-hornbill-rongai-limited.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-matanta-v-old-boma-limited-ta-saruni-basecamp.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-githinji-v-muhindi-mweusi-supermarket-limited.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-tulia-amboseli-safari-camp-limited-v-opiyo-and-2.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-onduko-v-squier-and-another.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-odhiambo-and-another-v-attorney-general-and-anot.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-in-re-estate-of-samuel-kamau-nganga-deceased.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-hair-manufacturing-limited-darling-kenya-v-kirum.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-ouko-v-independent-policing-oversight-authority.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-thika-water-and-sewerage-company-limited-v-korir.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-vihiga-college-of-business-and-technical-trainin.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-savla-v-maralal-energy-limited-and-2-others.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-mwaniki-v-safaricom-plc.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-wangai-and-2-others-v-cabinet-secretary-ministry.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-republic-v-muthoni.html</loc>
+<lastmod>2026-07-22</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/case-republic-v-komba.html</loc>
+<lastmod>2026-07-22</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-odpc-high-court-jurisprudence.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-odpc-case-law-vol2.html</loc>
+<lastmod>2026-07-05</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-dpo-framework-reform.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resource-guidelines-dpo-framework.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-cybercrimes-petition.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-ai-bill-2026.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-digital-lending-reforms.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-odpc-enforcement.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-fca-ai-review-kenya.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-age-verification-texas.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-kenya-data-protection-fines.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-un-global-dialogue-ai-bill.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/people.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/contact.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/reg-series-001-digital-trust-governance.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/reg-series-002-cybersecurity-governance.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/reg-series-003-ai-oversight.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/reg-series-004-cross-border-data-governance.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/reg-series-005-breach-response-readiness.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sacco-digital-trust-executive-brief.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sacco-digital-lending-executive-brief.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/schools-data-protection-executive-brief.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/webinars.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-sacco-guarantor-data-liability.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/insight-sacco-sasra-odpc-overlap.html</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/sitemap.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/privacy-policy.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/terms-of-use.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/accessibility.html</loc>
+<lastmod>2026-07-25</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/retainer.html</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.95</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/cookie-notice.html</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/compliance-toolkit-2026/</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/course-manuals/data-protection-gdpr-compliance-course-manual/</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/resources/course-manuals/fintech-data-law-regulatory-compliance-kenya/</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url><loc>https://dataprivacyadvocates.co.ke/odpc-response-appeals.html</loc><lastmod>2026-08-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://dataprivacyadvocates.co.ke/enforcement-defence.html</loc><lastmod>2026-08-11</lastmod></url>
+<url><loc>https://dataprivacyadvocates.co.ke/high-court-appellate-counsel.html</loc><lastmod>2026-08-11</lastmod></url>
+<url><loc>https://dataprivacyadvocates.co.ke/regulatory-dispute-support.html</loc><lastmod>2026-08-11</lastmod></url>
 <url><loc>https://dataprivacyadvocates.co.ke/cybersecurity-law.html</loc><lastmod>2026-08-11</lastmod></url>
 <url><loc>https://dataprivacyadvocates.co.ke/technology-contracts.html</loc><lastmod>2026-08-11</lastmod></url>
 <url><loc>https://dataprivacyadvocates.co.ke/vendor-processor-agreements.html</loc><lastmod>2026-08-11</lastmod></url>
 <url><loc>https://dataprivacyadvocates.co.ke/cloud-data-transfers.html</loc><lastmod>2026-08-11</lastmod></url>
 <url><loc>https://dataprivacyadvocates.co.ke/it-compliance-counsel.html</loc><lastmod>2026-08-11</lastmod></url>
-<url><loc>https://dataprivacyadvocates.co.ke/fintech-startup-advisory.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/commercial-agreements.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/regulatory-counselling.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/privacy-clauses-transactions.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/corporate-data-governance.html</loc><lastmod>2026-08-11</lastmod></url></urlset>
+<url><loc>https://dataprivacyadvocates.co.ke/fintech-startup-advisory.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/commercial-agreements.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/regulatory-counselling.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/privacy-clauses-transactions.html</loc><lastmod>2026-08-11</lastmod></url><url><loc>https://dataprivacyadvocates.co.ke/corporate-data-governance.html</loc><lastmod>2026-08-11</lastmod></url> <url>
+<loc>https://dataprivacyadvocates.co.ke/policy-procedure-drafting.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/regulatory-review.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/gdpr-cross-border-compliance.html</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/executive-briefs/sacco-digital-governance</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/executive-briefs/sacco-digital-trust</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/executive-briefs/sacco-digital-lending</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://dataprivacyadvocates.co.ke/executive-briefs/schools-data-protection</loc>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+</urlset>
