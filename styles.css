@@ -1250,3 +1250,167 @@ a:focus-visible,button:focus-visible,.field input:focus-visible,
 @media(max-width:640px){
   .kg-modal-inner{padding:30px 22px;}
 }
+
+/* ==========================================================================
+   HOMEPAGE HERO — services sidebar + hero composition + contact strip
+   Added for the redesigned homepage (sidebar of practice-area links, hero
+   image right, gold/black premium legal aesthetic). Scoped under the
+   "hh-" prefix so it cannot collide with existing site rules.
+   ========================================================================== */
+.hh-hero{background:var(--ink);padding-top:102px;}
+.hh-grid{display:flex;align-items:stretch;}
+
+/* Sidebar */
+.hh-sidebar{
+  flex:0 0 400px;background:var(--ink);
+  border-right:1px solid rgba(255,255,255,.07);
+  padding:44px 30px 40px 40px;
+}
+.hh-sidebar-eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--brass-light);margin-bottom:22px;
+}
+.hh-sidebar-eyebrow::before{content:'';width:26px;height:1px;background:var(--brass-light);}
+.hh-service-group{border:none;margin-bottom:16px;}
+.hh-service-group summary{list-style:none;cursor:pointer;}
+.hh-service-group summary::-webkit-details-marker{display:none;}
+.hh-service-group-title{
+  display:flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,var(--cta) 0%,var(--brass) 100%);
+  color:var(--white);font-weight:600;font-size:.88rem;
+  padding:13px 16px;border-radius:8px;user-select:none;
+}
+.hh-service-group-title i:first-child{font-size:.92rem;width:16px;text-align:center;flex-shrink:0;}
+.hh-service-group-title .hh-chevron{margin-left:auto;font-size:.7rem;transition:transform .2s var(--ease);opacity:.85;}
+.hh-service-group[open] .hh-chevron{transform:rotate(180deg);}
+.hh-service-list{list-style:none;padding:14px 4px 2px 6px;margin:0;}
+.hh-service-list li{margin-bottom:9px;}
+.hh-service-list li:last-child{margin-bottom:0;}
+.hh-service-list a{
+  display:flex;align-items:center;gap:9px;
+  color:rgba(255,255,255,.78);font-size:.86rem;text-decoration:none;line-height:1.3;
+  transition:color .2s;
+}
+.hh-service-list a::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brass-light);flex-shrink:0;}
+.hh-service-list a:hover,.hh-service-list a:focus-visible{color:var(--brass-light);}
+
+/* Main hero panel */
+.hh-main{
+  position:relative;overflow:hidden;flex:1 1 auto;min-width:0;
+  display:flex;align-items:center;
+  padding:70px 56px;
+  background:radial-gradient(circle at 78% 18%, rgba(189,145,72,.14), transparent 55%), linear-gradient(160deg,var(--ink) 0%,var(--ink-2) 55%,var(--navy) 100%);
+}
+.hh-main-image{
+  position:absolute;top:0;right:0;bottom:0;width:52%;
+  background-size:cover;background-position:center;
+}
+.hh-main-image::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg, var(--ink) 0%, rgba(23,16,26,.5) 32%, rgba(23,16,26,0) 66%);
+}
+.hh-main-content{position:relative;z-index:2;max-width:600px;}
+.hh-main-content h1{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(2.1rem,4vw,3.5rem);line-height:1.1;
+  color:var(--white);margin-bottom:20px;
+}
+.hh-sub{
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:1.12rem;color:var(--brass-light);margin-bottom:36px;
+}
+.hh-main .hero-actions{margin-bottom:0;}
+
+/* Bottom contact strip */
+.hh-contact-strip{
+  background:#120c14;border-top:1px solid rgba(255,255,255,.08);
+  padding:16px 40px;display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:14px 32px;
+}
+.hh-contact-left{display:flex;flex-wrap:wrap;align-items:center;gap:24px;}
+.hh-contact-strip a{
+  color:rgba(255,255,255,.78);font-size:.8rem;
+  display:inline-flex;align-items:center;gap:8px;transition:color .2s;
+}
+.hh-contact-strip a:hover{color:var(--brass-light);}
+.hh-contact-strip i{color:var(--brass-light);font-size:.8rem;}
+.hh-contact-right a{font-size:.95rem;}
+
+/* ==========================================================================
+   FIXED / VIEW-BASED HOMEPAGE
+   The homepage is a single, fixed full-viewport view — no page-level
+   scrolling. If the services list is taller than the available height on a
+   shorter screen, the sidebar scrolls internally rather than the page.
+   Scoped to body.home-fixed-view so it never affects any other page that
+   shares this stylesheet.
+   ========================================================================== */
+body.home-fixed-view{height:100vh;overflow:hidden;}
+body.home-fixed-view .hh-hero{
+  height:100vh;box-sizing:border-box;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+body.home-fixed-view .hh-grid{flex:1 1 auto;min-height:0;overflow:hidden;}
+body.home-fixed-view .hh-sidebar{
+  height:100%;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:rgba(236,201,129,.35) transparent;
+}
+body.home-fixed-view .hh-sidebar::-webkit-scrollbar{width:6px;}
+body.home-fixed-view .hh-sidebar::-webkit-scrollbar-thumb{background:rgba(236,201,129,.3);border-radius:3px;}
+body.home-fixed-view .hh-main{height:100%;overflow:hidden;}
+body.home-fixed-view .hh-contact-strip{flex-shrink:0;}
+
+@media(max-width:1152px){
+  .hh-sidebar{flex-basis:360px;padding:40px 26px 36px 32px;}
+  .hh-main{padding:60px 44px;}
+}
+@media(max-width:1024px){
+  .hh-sidebar{flex-basis:320px;padding:36px 22px 32px 28px;}
+  .hh-main{padding:56px 36px;}
+  .hh-main-image{width:46%;}
+}
+@media(max-width:981px){
+  .hh-grid{flex-direction:column;}
+  .hh-sidebar{order:2;flex-basis:auto;border-right:none;border-top:1px solid rgba(255,255,255,.07);padding:40px 28px;}
+  .hh-main{order:1;flex-direction:column;align-items:flex-start;padding:56px 28px 0;}
+  .hh-main-image{
+    position:static;width:100%;height:280px;order:2;
+    margin-top:32px;border-radius:8px;
+  }
+  .hh-main-image::after{display:none;}
+  .hh-main-content{order:1;max-width:100%;padding-bottom:44px;}
+
+  /* Below the sidebar-beside-hero breakpoint, the sidebar and hero stack —
+     there isn't a sane way to keep a 19-link services list plus a full
+     hero fully on-screen with no scrolling on a phone or tablet, so this
+     single view is allowed to scroll as one unit here (it is still the
+     one and only view on the page — nothing else is appended below it). */
+  body.home-fixed-view{height:auto;overflow:visible;}
+  body.home-fixed-view .hh-hero{height:auto;overflow:visible;}
+  body.home-fixed-view .hh-grid{overflow:visible;}
+  body.home-fixed-view .hh-sidebar{height:auto;overflow-y:visible;}
+  body.home-fixed-view .hh-main{height:auto;overflow:visible;}
+}
+@media(max-width:640px){
+  .hh-hero{padding-top:88px;}
+  .hh-sidebar{padding:34px 20px;}
+  .hh-main{padding:44px 20px 0;}
+  .hh-main-content{padding-bottom:36px;}
+  .hh-main-image{height:220px;margin-top:24px;}
+  .hh-contact-strip{padding:16px 20px;justify-content:center;text-align:center;}
+  .hh-contact-left{justify-content:center;gap:16px;}
+  .hh-service-group-title{font-size:.84rem;padding:12px 14px;}
+}
+
+/* Final homepage fidelity overrides — scoped to the fixed homepage only. */
+@media (min-width:982px){
+ body.home-fixed-view .header-utility{display:none;} body.home-fixed-view .site-header{height:112px;} body.home-fixed-view .site-header .header-row{height:112px;align-items:center;}
+ body.home-fixed-view .homepage-brand{display:flex;align-items:center;gap:12px;width:380px;text-decoration:none;} body.home-fixed-view .homepage-brand-icon{width:74px;height:88px;object-fit:contain;flex:0 0 auto;} body.home-fixed-view .homepage-brand-copy{display:flex;flex-direction:column;line-height:1.02;} body.home-fixed-view .homepage-brand-copy strong{font-family:Georgia,'Times New Roman',serif;font-size:1.08rem;letter-spacing:.01em;color:#fff;font-weight:600;} body.home-fixed-view .homepage-brand-copy em{font-family:Georgia,'Times New Roman',serif;font-size:.78rem;letter-spacing:.08em;color:var(--brass-light);font-style:normal;margin-top:8px;}
+ body.home-fixed-view .main-nav{gap:28px;align-items:center;} body.home-fixed-view .main-nav > a[href="people.html"],body.home-fixed-view .main-nav > a[href="insights.html"]{display:none;}
+ body.home-fixed-view .hh-hero{padding-top:112px;} body.home-fixed-view .hh-sidebar{flex-basis:427px;padding:26px 24px 28px 36px;} body.home-fixed-view .hh-sidebar-eyebrow{font-size:.9rem;letter-spacing:.03em;margin-bottom:16px;} body.home-fixed-view .hh-sidebar-eyebrow::before{display:none;}
+ body.home-fixed-view .hh-service-group{margin-bottom:18px;} body.home-fixed-view .hh-service-group-title{font-family:var(--font-display);font-size:1.08rem;font-weight:500;padding:14px 18px;border-radius:16px;} body.home-fixed-view .hh-service-list{padding:11px 6px 1px 42px;} body.home-fixed-view .hh-service-list li{margin-bottom:8px;} body.home-fixed-view .hh-service-list a{font-size:.9rem;}
+ body.home-fixed-view .hh-main{padding:0;display:block;background:#0d0a0e;} body.home-fixed-view .hh-main-image{inset:0;width:100%;height:100%;background-position:center;background-size:cover;} body.home-fixed-view .hh-main-image::after{background:linear-gradient(90deg,rgba(10,8,10,.98) 0%,rgba(10,8,10,.91) 16%,rgba(10,8,10,.58) 42%,rgba(10,8,10,.12) 72%,rgba(10,8,10,.02) 100%),linear-gradient(0deg,rgba(10,8,10,.25),rgba(10,8,10,.05));}
+ body.home-fixed-view .hh-main-content{position:absolute;left:42px;top:50%;transform:translateY(-50%);max-width:720px;padding:0;} body.home-fixed-view .hh-main-content .eyebrow{font-family:var(--font-display);font-size:1.55rem;letter-spacing:0;color:var(--brass-light);text-transform:none;margin-bottom:18px;} body.home-fixed-view .hh-main-content .eyebrow::after{content:'';display:block;width:60px;height:2px;background:var(--brass-light);margin-top:18px;} body.home-fixed-view .hh-main-content h1{font-size:clamp(3.4rem,4.5vw,5.4rem);line-height:1.03;margin:26px 0 22px;max-width:760px;} body.home-fixed-view .hh-sub{font-size:1.45rem;margin-bottom:40px;} body.home-fixed-view .hh-main .btn-brass{font-size:1.02rem;padding:16px 26px;border-radius:18px;}
+ body.home-fixed-view .hh-contact-strip{min-height:58px;padding:12px 36px;background:#09070a;} body.home-fixed-view .hh-contact-strip a{font-size:.88rem;}
+}
+@media(max-width:981px){body.home-fixed-view .header-utility{display:none;} body.home-fixed-view .site-header .header-row{min-height:82px;} body.home-fixed-view .homepage-brand{display:flex;align-items:center;gap:8px;} body.home-fixed-view .homepage-brand-icon{width:48px;height:56px;object-fit:contain;} body.home-fixed-view .homepage-brand-copy strong{font-size:.78rem;line-height:1.02;color:#fff;} body.home-fixed-view .homepage-brand-copy em{font-size:.58rem;color:var(--brass-light);font-style:normal;letter-spacing:.06em;} body.home-fixed-view .hh-hero{padding-top:82px;}}

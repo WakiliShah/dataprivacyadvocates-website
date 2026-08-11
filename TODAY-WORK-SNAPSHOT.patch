@@ -1,0 +1,705 @@
+diff --git a/index.html b/index.html
+index e88c87b..40ec7e5 100644
+--- a/index.html
++++ b/index.html
+@@ -1,18 +1,25 @@
+ <!DOCTYPE html>
+ 
+ <html lang="en">
+-<head>
+-<!-- Consent-aware Google tag (GA4) GÇö collection stays off until the visitor
+-     accepts analytics cookies via the banner or the preference centre. -->
+-<script>
+-  window.dataLayer = window.dataLayer || [];
+-  function gtag(){dataLayer.push(arguments);}
+-  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+-  gtag('consent', 'default', {
+-    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+-    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+-  });
+-  gtag('js', new Date());
++</svg>
++<div class="container hero-inner hero-inner--solo">
++  <div>
++    <div class="eyebrow reveal">Advocates of the High Court of Kenya</div>
++    <h1 class="hero-fade-1">Data Protection &amp; AI Governance<br/><em>with a litigator's rigour</em></h1>
++    <p class="lede hero-fade-2">We help SMEs, startups and organisations adopting AI tools build compliant, defensible data governance GÇö grounded in the same evidentiary discipline that has secured reported High Court wins.</p>
++    <div class="hero-actions hero-fade-3">
++      <a class="btn btn-brass" href="contact.html">Book a Consultation <i class="fas fa-arrow-right"></i></a>
++      <a class="btn btn-line" href="#advisory-solutions">Explore Advisory Services</a>
++    </div>
++    <div class="hero-stats">
++      <div><span class="num" data-count="2">2</span><span class="lab">Reported High Court Acquittals</span></div>
++      <div><span class="num" data-count="5">5</span><span class="lab">Advisory Solutions</span></div>
++      <div><span class="num">100%</span><span class="lab">Focus on Digital Trust &amp; Governance</span></div>
++      <div><span class="num">Est. 2023</span><span class="lab">Founding Year</span></div>
++    </div>
++  </div>
++  <p>Four disciplines, one independent advisory practice GÇö built to give founders, executive teams and, as the practice grows, Boards, a clear line of sight over digital risk.</p>
++</div>
+   gtag('config', 'G-ZM2TZKZHJK');
+ </script>
+ <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+@@ -187,7 +194,7 @@
+   }
+ }</script>
+ </head>
+-<body>
++<body class="homepage">
+ <header class="site-header">
+ <div class="header-utility">
+ <div class="container">
+@@ -219,7 +226,7 @@
+ <a href="regulatory-analysis.html"><i class="fas fa-file-shield"></i><div><span>Regulatory Analysis</span><small>What regulatory change means in practice</small></div></a>
+ <a href="insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
+ <a href="compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
+-          <a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
++<a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
+ <a href="webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
+ <a href="comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
+ <div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all GåÆ</a></div>
+@@ -229,7 +236,7 @@
+ <a href="odpc-registration.html">ODPC Registration</a>
+ <a href="retainer.html">Retainer</a>
+ <a href="contact.html">Contact</a>
+-<a class="nav-cta" href="contact.html">Book a Consultation</a>
++<a class="nav-cta" href="contact.html">FREE CONSULTATION</a>
+ </nav>
+ <button aria-expanded="false" aria-label="Open menu" class="nav-toggle"><span></span><span></span><span></span></button>
+ </div>
+@@ -243,429 +250,148 @@
+ <path class="fl-line fl-3" d="M-100,20 C 160,70 320,-10 540,35 C 760,80 900,5 1120,45 C 1260,70 1380,25 1540,55"></path>
+ <path class="fl-line fl-4" d="M-100,190 C 150,140 310,220 530,180 C 750,140 890,225 1110,185 C 1250,160 1370,205 1540,175"></path>
+ </svg>
+-<div class="container hero-inner hero-inner--solo">
+-<div>
+-<div class="eyebrow reveal">Advocates of the High Court of Kenya</div>
+-<h1 class="hero-fade-1">Data Protection &amp; AI Governance<br/><em>with a litigator's rigour</em></h1>
+-<p class="lede hero-fade-2">We help SMEs, startups and organisations adopting AI tools build compliant, defensible data governance GÇö grounded in the same evidentiary discipline that has secured reported High Court wins.</p>
+-<div class="hero-actions hero-fade-3">
+-<a class="btn btn-brass" href="contact.html">Book a Consultation <i class="fas fa-arrow-right"></i></a>
+-<a class="btn btn-line" href="#advisory-solutions">Explore Advisory Services</a>
+-</div>
+-<div class="hero-stats">
+-<div><span class="num" data-count="2">2</span><span class="lab">Reported High Court Acquittals</span></div>
+-<div><span class="num" data-count="5">5</span><span class="lab">Advisory Solutions</span></div>
+-<div><span class="num">100%</span><span class="lab">Focus on Digital Trust &amp; Governance</span></div>
+-<div><span class="num">Est. 2023</span><span class="lab">Founding Year</span></div>
+-</div>
+-</div>
+-</div>
+-</section>
+-<!-- SELF-SELECT PATHWAY: SACCO/SME vs Board/Enterprise -->
+-<section class="section" style="padding-top:56px;padding-bottom:56px;">
+-<div class="container">
+-<div class="path-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+-<a href="retainer.html" class="path-card" style="display:block;border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 32px;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease;">
+-<div class="eyebrow" style="margin-bottom:10px;">Running a SACCO or SME?</div>
+-<h3 style="font-size:1.25rem;margin-bottom:8px;color:var(--ink);">Get an outsourced DPO on retainer</h3>
+-<p style="color:var(--muted);font-size:.92rem;margin-bottom:14px;">Ongoing compliance support, transparent monthly pricing, no 12-month lock-in GÇö built for organisations that need real ongoing cover, not a one-off consulting engagement. SACCOs: also dual-regulated by SASRA GÇö <a href="insight-sacco-sasra-odpc-overlap.html" style="color:var(--cta);font-weight:600;">see the overlap &rarr;</a></p>
+-<span style="color:var(--cta);font-weight:600;font-size:.9rem;">See retainer tiers &rarr;</span>
+-</a>
+-<a href="odpc-registration.html" class="path-card" style="display:block;border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 32px;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease;">
+-<div class="eyebrow" style="margin-bottom:10px;">Not yet registered with the ODPC?</div>
+-<h3 style="font-size:1.25rem;margin-bottom:8px;color:var(--ink);">Fixed-fee ODPC registration</h3>
+-<p style="color:var(--muted);font-size:.92rem;margin-bottom:14px;">If your business handles personal data in Kenya, you likely need to register as a data controller or processor. One quoted fee, filed within 3GÇô5 working days.</p>
+-<span style="color:var(--cta);font-weight:600;font-size:.9rem;">See fixed-fee packages &rarr;</span>
+-</a>
+-</div>
+-</div>
+-</section>
+-<!-- WHY BOARDS CHOOSE US -->
+-<section class="section wbcu-section">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Why Clients Choose Us</div>
+-<h2>Assurance built on evidence, not just the compliance file.</h2>
+-<p>Four disciplines, one independent advisory practice GÇö built to give founders, executive teams and, as the practice grows, Boards, a clear line of sight over digital risk.</p>
+-</div>
+-<div class="wbcu-grid reveal stagger">
+-<div class="wbcu-card"><i class="fas fa-shield-halved"></i><h3>Digital Trust Assurance</h3><p>Independent governance reviews that strengthen Board oversight of information, technology and AI risk.</p></div>
+-<div class="wbcu-card"><i class="fas fa-diagram-project"></i><h3>Law + Technology + AI</h3><p>Integrated expertise across law, digital governance, artificial intelligence and information risk.</p></div>
+-<div class="wbcu-card"><i class="fas fa-magnifying-glass-chart"></i><h3>Evidence-Based Methodology</h3><p>Every engagement follows a structured evidence methodology with independently verifiable findings.</p></div>
+-<div class="wbcu-card"><i class="fas fa-file-signature"></i><h3>Executive Reporting</h3><p>Clear, Board-ready reports that support governance decisions rather than add to them.</p></div>
+-</div>
+-</div>
+-</section>
+-<!-- DIGITAL TRUST INTRO -->
+-<section class="section intro-context">
+-<div class="container">
+-<div class="section-head reveal">
+-<h2>You can't govern what you can't see.</h2>
+-</div>
+-<div class="intro-context-body reveal">
+-<p>Today's organisations depend on information, technology and artificial intelligence more than ever before. That dependence brings a governance question every leadership team has to answer: do you have independent, evidence-based visibility over how these assets are managed GÇö or are you relying on assurances from the same teams responsible for running them?</p>
+-<p>Muchangi Patrick &amp; Associates Advocates exists to answer that question. We combine legal expertise, litigation-honed diligence and evidence-based assessment to help founders and executive teams understand, govern and continuously improve their Digital Trust posture GÇö across data protection, cybersecurity, AI governance and cross-border compliance.</p>
+-</div>
+-</div>
+-</section>
+-<!-- FLAGSHIP ADVISORY SERVICES -->
+-<section class="section section--paper2" id="advisory-solutions">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Our Advisory Solutions</div>
+-<h2>Structured engagements, built for Board-level assurance.</h2>
+-<p>Five focused advisory solutions, each combining legal expertise, governance discipline and technology insight into a single, evidence-based engagement.</p>
+-</div>
+-<div class="grid-3 reveal stagger">
+-<div class="card"><span class="num">01</span><h3>School Digital Trust SnapshotGäó</h3><p>Independent governance review for educational institutions, covering student, staff and research data.</p><a class="more" href="contact.html">Learn more GåÆ</a></div>
+-<div class="card"><span class="num">02</span><h3>Board Digital Trust AssessmentGäó</h3><p>Executive assurance over digital governance, designed for Boards and Risk Committees.</p><a class="more" href="contact.html">Learn more GåÆ</a></div>
+-<div class="card"><span class="num">03</span><h3>AI Governance ReviewGäó</h3><p>Governance of artificial intelligence risks and opportunities, from procurement through deployment.</p><a class="more" href="contact.html">Learn more GåÆ</a></div>
+-<div class="card"><span class="num">04</span><h3>Third-Party Data Governance ReviewGäó</h3><p>Independent review of processors, vendors and digital ecosystems your organisation depends on.</p><a class="more" href="contact.html">Learn more GåÆ</a></div>
+-<div class="card"><span class="num">05</span><h3>Digital Governance Maturity AssessmentGäó</h3><p>An organisation-wide Digital Trust review, benchmarking governance maturity end to end.</p><a class="more" href="contact.html">Learn more GåÆ</a></div>
+-</div>
+-</div>
+-</section>
+-<!-- METHODOLOGY -->
+-<section class="section methodology-section">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Our Methodology</div>
+-<h2>The Phoenix Digital Trust MethodGäó</h2>
+-<p>A structured, six-stage methodology that takes every engagement from public intelligence review through to Board briefing.</p>
+-</div>
+-<div class="method-timeline reveal" id="method-timeline">
+-<div class="method-track"><div class="method-track-fill"></div></div>
+-<div class="method-stage"><span class="method-num">1</span><h3>Public Intelligence Review</h3></div>
+-<div class="method-stage"><span class="method-num">2</span><h3>Stakeholder Interviews</h3></div>
+-<div class="method-stage"><span class="method-num">3</span><h3>Evidence Validation</h3></div>
+-<div class="method-stage"><span class="method-num">4</span><h3>Governance Assessment</h3></div>
+-<div class="method-stage"><span class="method-num">5</span><h3>Executive Reporting</h3></div>
+-<div class="method-stage"><span class="method-num">6</span><h3>Board Briefing</h3></div>
+-</div>
+-</div>
+-</section>
+-<!-- KNOWLEDGE & COMPLIANCE CENTRE -->
+-<section class="section kc-section" id="knowledge-centre">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Knowledge &amp; Compliance Centre</div>
+-<h2>Turn regulatory complexity into a clear compliance picture.</h2>
+-<p>Assess your organisation against Kenya's Data Protection Act in minutes, then explore the same research and analysis behind our advisory work GÇö Practice Notes, Bills Review and DPO guidance, updated as the law develops.</p>
+-</div>
+-<div class="kc-checker-card reveal">
+-<div class="kc-checker-icon"><i class="fas fa-shield-halved"></i></div>
+-<div class="kc-checker-body">
+-<h3>Data Privacy Compliance Checker</h3>
+-<p>A structured self-assessment built on the Data Protection Act, 2019 GÇö covering lawful basis, data subject rights, consent, DPO governance, vendor management, security, breach response, cross-border transfers and retention. Answer honestly and receive an instant, category-by-category readiness report.</p>
+-<div class="kc-stats">
+-<div><span class="num">10 min</span><span class="lab">Typical time to complete</span></div>
+-<div><span class="num">52</span><span class="lab">Legal controls assessed</span></div>
+-<div><span class="num">5</span><span class="lab">Sector-specific tracks</span></div>
+-<div><span class="num">Instant</span><span class="lab">Compliance report</span></div>
+-</div>
+-<button class="btn btn-brass" id="kc-start-btn" type="button">Start Assessment <i class="fas fa-arrow-right"></i></button>
+-</div>
+-</div>
+-<div class="kc-pub-badge reveal"><i class="fas fa-database"></i> Kenya Privacy Law Review GÇö <strong>5 Practice Notes</strong> -+ AI Bill Review -+ DPO Guidelines -+ Updated Regularly</div>
+-<div class="kc-subsection reveal">
+-<div class="kc-subhead">
+-<h3>Kenya Privacy Law Review GÇö Practice Notes</h3>
+-<a class="more" href="/resources/practice-notes/">Explore Practice Notes GåÆ</a>
+-</div>
+-<div class="kplr-notes-grid">
+-<a class="kplr-note-card" href="/resources/practice-notes/architecture-of-lawful-processing/">
+-<div class="kplr-note-cover">
+-<img alt="Kenya Privacy Law Review, Practice Note No. 001 GÇö The Architecture of Lawful Processing" loading="lazy" src="resources/practice-notes/architecture-of-lawful-processing/cover-thumb.jpg"/>
+-<span class="kplr-note-ribbon">PN 001</span>
+-</div>
+-<div class="kplr-note-meta">
+-<span class="kplr-note-tag">Constitutional Law</span>
+-<span class="kplr-note-title">The Architecture of Lawful Processing</span>
+-</div>
+-</a>
+-<a class="kplr-note-card" href="/resources/practice-notes/employee-monitoring/">
+-<div class="kplr-note-cover">
+-<img alt="Kenya Privacy Law Review, Practice Note No. 002 GÇö Employee Monitoring" loading="lazy" src="resources/practice-notes/employee-monitoring/cover-thumb.jpg"/>
+-<span class="kplr-note-ribbon">PN 002</span>
+-</div>
+-<div class="kplr-note-meta">
+-<span class="kplr-note-tag">Employment</span>
+-<span class="kplr-note-title">Employee Monitoring</span>
+-</div>
+-</a>
+-<a class="kplr-note-card" href="/resources/practice-notes/cross-border-data-transfers/">
+-<div class="kplr-note-cover">
+-<img alt="Kenya Privacy Law Review, Practice Note No. 003 GÇö Cross-Border Data Transfers" loading="lazy" src="resources/practice-notes/cross-border-data-transfers/cover-thumb.jpg"/>
+-<span class="kplr-note-ribbon">PN 003</span>
+-</div>
+-<div class="kplr-note-meta">
+-<span class="kplr-note-tag">Cross-Border</span>
+-<span class="kplr-note-title">Cross-Border Data Transfers</span>
+-</div>
+-</a>
+-<a class="kplr-note-card" href="/resources/practice-notes/ai-procurement/">
+-<div class="kplr-note-cover">
+-<img alt="Kenya Privacy Law Review, Practice Note No. 004 GÇö Artificial Intelligence Procurement" loading="lazy" src="resources/practice-notes/ai-procurement/cover-thumb.jpg"/>
+-<span class="kplr-note-ribbon">PN 004</span>
+-</div>
+-<div class="kplr-note-meta">
+-<span class="kplr-note-tag">Artificial Intelligence</span>
+-<span class="kplr-note-title">Artificial Intelligence Procurement</span>
+-</div>
+-</a>
+-<a class="kplr-note-card" href="/resources/practice-notes/privacy-by-design/">
+-<div class="kplr-note-cover">
+-<img alt="Kenya Privacy Law Review, Practice Note No. 005 GÇö Privacy by Design" loading="lazy" src="resources/practice-notes/privacy-by-design/cover-thumb.jpg"/>
+-<span class="kplr-note-ribbon">PN 005</span>
+-</div>
+-<div class="kplr-note-meta">
+-<span class="kplr-note-tag">Systems &amp; Product Design</span>
+-<span class="kplr-note-title">Privacy by Design</span>
+-</div>
+-</a>
++<div class="container hero-inner hero-inner--home">
++<div class="hero-identity reveal">
++<h1 class="hero-brand">Muchangi Patrick & Associates Advocates</h1>
++<p class="hero-positioning">Data Protection Law. AI Governance.</p>
++<p class="hero-brand-subtitle">Technology Law Firm</p>
+ </div>
+-</div>
+-<div class="kc-subsection reveal">
+-<div class="kc-subhead">
+-<h3>AI Bill Review</h3>
+-<a class="more" href="bills-review.html">Explore Bills Review GåÆ</a>
+-</div>
+-<div class="kc-cover-row kc-cover-row--small">
+-<a class="kc-cover" href="insight-kenya-ai-bill-2026.html">
+-<div class="kc-cover-face cover-3"><i class="fas fa-robot"></i><span class="kc-cover-ref">Compliance Brief</span></div>
+-<div class="kc-cover-body"><span class="kc-cover-tag">Bills Review</span><span class="kc-cover-title">Kenya's Artificial Intelligence Bill, 2026</span></div>
+-</a>
+-<a class="kc-cover" href="insight-fca-ai-review-kenya.html">
+-<div class="kc-cover-face cover-5"><i class="fas fa-scale-unbalanced"></i><span class="kc-cover-ref">Comparative Law</span></div>
+-<div class="kc-cover-body"><span class="kc-cover-tag">Comparative</span><span class="kc-cover-title">Kenya's AI Bill vs. the UK's FCA Review</span></div>
+-</a>
+-<a class="kc-cover" href="insight-un-global-dialogue-ai-bill.html">
+-<div class="kc-cover-face cover-1"><i class="fas fa-people-group"></i><span class="kc-cover-ref">Comparative Law</span></div>
+-<div class="kc-cover-body"><span class="kc-cover-tag">Comparative</span><span class="kc-cover-title">UN's Global Dialogue on AI vs. Kenya's AI Bill</span></div>
+-</a>
+-</div>
+-</div>
+-<div class="kc-subsection reveal">
+-<div class="kc-subhead">
+-<h3>DPO Guidelines</h3>
+-<a class="more" href="/resources/practice-notes/">More Resources GåÆ</a>
+-</div>
+-<div class="kc-cover-row kc-cover-row--small">
+-<a class="kc-cover" href="resource-guidelines-dpo-framework.html">
+-<div class="kc-cover-face cover-2"><i class="fas fa-user-shield"></i><span class="kc-cover-ref">Draft Guidance</span></div>
+-<div class="kc-cover-body"><span class="kc-cover-tag">DPO Framework</span><span class="kc-cover-title">Draft Guidelines on Data Protection Officers</span></div>
+-</a>
+-<a class="kc-cover" href="insight-kenya-dpo-framework-reform.html">
+-<div class="kc-cover-face cover-6"><i class="fas fa-building-shield"></i><span class="kc-cover-ref">Compliance Brief</span></div>
+-<div class="kc-cover-body"><span class="kc-cover-tag">DPO Framework</span><span class="kc-cover-title">Kenya's DPO Framework Gap</span></div>
+-</a>
+-<div class="kc-cover-more-card">More DPO guidance is added to this archive as the framework develops.</div>
+-</div>
+-</div>
+-</div>
+-</section>
+-<!-- COMPLIANCE CHECKER MODAL -->
+-<div aria-hidden="true" aria-labelledby="kc-modal-title" aria-modal="true" class="kc-modal" id="kc-modal" role="dialog">
+-<div class="kc-modal-inner" id="kc-modal-inner">
+-<button aria-label="Close compliance checker" class="kc-modal-close" id="kc-modal-close" type="button"><i class="fas fa-xmark"></i></button>
+-<div id="kc-modal-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Data Privacy Compliance Checker</div>
+-<div class="kc-progress-track"><div class="kc-progress-bar" id="kc-progress-bar"></div></div>
+-<div id="kc-modal-body"><!-- rendered by compliance-checker.js --></div>
+-</div>
+-</div>
+-<!-- SOCIAL PROOF / CREDIBILITY STRIP -->
+-<section class="trust-strip">
+-<div class="container trust-row">
+-<span class="trust-label">Advocates of the High Court of Kenya</span>
+-<div class="trust-icons">
+-<span><i class="fas fa-shield-halved"></i>Digital Trust Advisory</span>
+-<span><i class="fas fa-microchip"></i>Technology Governance</span>
+-<span><i class="fas fa-database"></i>Data Protection</span>
+-<span><i class="fas fa-robot"></i>AI Governance</span>
+-<span><i class="fas fa-user-tie"></i>Board Advisory</span>
+-</div>
+-</div>
+-</section>
+-<!-- WHY US -->
+-<section class="section">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Why Muchangi Patrick &amp; Associates</div>
+-<h2>A different kind of counsel.</h2>
+-<p>We built our practice around one discipline GÇö technology, data and digital governance GÇö which means we speak the language of your Board, your regulator and your product teams alike.</p>
+-</div>
+-<div class="pillars reveal stagger">
+-<div class="pillar"><i class="fas fa-laptop-code"></i><h3>Technology Driven</h3><p>Deep fluency in data, software, fintech, AI and digital infrastructure matters.</p></div>
+-<div class="pillar"><i class="fas fa-shield-halved"></i><h3>ODPC Regulatory Focus</h3><p>Close, practical working knowledge of the Office of the Data Protection Commissioner (ODPC) GÇö registration, compliance audits, enforcement notices, breach reporting and appeals.</p></div>
+-<div class="pillar"><i class="fas fa-globe-africa"></i><h3>GDPR &amp; Cross-Border Ready</h3><p>Advising on GDPR alignment and cross-border data transfer arrangements for businesses operating beyond Kenya.</p></div>
+-<div class="pillar"><i class="fas fa-chess-knight"></i><h3>Commercially Focused</h3><p>Advice measured against your Board's objectives and risk appetite, not delivered in the abstract.</p></div>
+-<div class="pillar"><i class="fas fa-layer-group"></i><h3>Sector Knowledge</h3><p>Specialist counsel for fintechs, startups, Boards and data-driven enterprises.</p></div>
+-<div class="pillar"><i class="fas fa-user-tie"></i><h3>Partner-Led Service</h3><p>Every engagement is directed personally by a partner from first call to Board briefing.</p></div>
+-</div>
+-</div>
+-</section>
+-<!-- LEADERSHIP SPOTLIGHT -->
+-<section class="section">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Leadership</div>
+-<h2>Every matter, led personally.</h2>
+-<p>A founder-led practice means one point of accountability from first call to resolution GÇö not a rotating cast of associates.</p>
+-</div>
+-<div class="leader-spotlight reveal">
+-<div class="leader-photo"><img alt="Patrick Muchangi, Advocate of the High Court of Kenya" src="images/founder.jpg"/></div>
+-<div class="leader-body">
+-<div class="role">Founding Partner</div>
+-<h3>Patrick Muchangi</h3>
+-<p>Advocate of the High Court of Kenya and founder of Muchangi Patrick &amp; Associates Advocates, advising technology companies, financial institutions, healthcare providers and public bodies on data protection, AI governance and regulatory compliance.</p>
+-<div class="tags"><span>Data Protection</span><span>AI Governance</span><span>Technology Law</span><span>Fintech</span></div>
+-<a class="more" href="people.html">Read Patrick's full bio GåÆ</a>
+-</div>
+-</div>
+-</div>
+-</section>
+-<!-- EXPERTISE -->
+-<section class="section section--paper2">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Featured Expertise</div>
+-<h2>Where we advise.</h2>
+-<p>Five focused practice areas built around data protection, privacy and the regulatory questions technology businesses actually face.</p>
+-</div>
+-<div class="grid-3 reveal">
+-<div class="card"><div class="card-img"><img alt="Global data protection illustration" src="images/global-data-protection.jpg"/></div><span class="num">01</span><h3>Data Protection &amp; Privacy</h3><p>ODPC registration, data protection impact assessments, policy drafting and compliance programmes.</p><a class="more" href="expertise.html">Learn more GåÆ</a></div>
+-<div class="card"><div class="card-img"><img alt="Cross-border data search illustration" src="images/cross-border-search.jpg"/></div><span class="num">02</span><h3>GDPR &amp; Cross-Border Compliance</h3><p>GDPR alignment and cross-border data transfer arrangements for businesses operating beyond Kenya.</p><a class="more" href="expertise.html">Learn more GåÆ</a></div>
+-<div class="card"><div class="card-img"><img alt="Mobile fintech payment illustration" src="images/fintech-payment.jpg"/></div><span class="num">03</span><h3>Fintech &amp; Startup Advisory</h3><p>Regulatory licensing, contracting and compliance counsel for fintechs and growing startups.</p><a class="more" href="expertise.html">Learn more GåÆ</a></div>
+-<div class="card"><div class="card-img"><img alt="Compliance checklist illustration" src="images/compliance-checklist.jpg"/></div><span class="num">04</span><h3>Board &amp; Governance Advisory</h3><p>Data governance frameworks, DPO structures and board-level compliance advisory.</p><a class="more" href="expertise.html">Learn more GåÆ</a></div>
+-<div class="card"><div class="card-img"><img alt="AI governance illustration" src="images/ai-governance.jpg"/></div><span class="num">05</span><h3>AI Governance &amp; Emerging Tech</h3><p>Governance frameworks and regulatory readiness for AI and emerging technology deployment.</p><a class="more" href="expertise.html">Learn more GåÆ</a></div>
+-</div>
+-</div>
+-</section>
+-<!-- WHO WE SERVE -->
+-<section class="section" id="who-we-serve">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Who We Serve</div>
+-<h2>Built for Boards, founders and institutions alike.</h2>
+-<p>Different organisations carry different digital risks. Our advisory work is shaped around the sector you operate in.</p>
+-</div>
+-<div class="industry-row reveal stagger">
+-<a class="industry-item" href="sector-education.html"><div class="name"><span class="idx">01</span><h3>Education</h3></div><i class="fas fa-arrow-right"></i></a>
+-<a class="industry-item" href="sector-healthcare.html"><div class="name"><span class="idx">02</span><h3>Healthcare</h3></div><i class="fas fa-arrow-right"></i></a>
+-<a class="industry-item" href="sector-financial-services.html"><div class="name"><span class="idx">03</span><h3>Financial Services</h3></div><i class="fas fa-arrow-right"></i></a>
+-<a class="industry-item" href="sector-technology.html"><div class="name"><span class="idx">04</span><h3>Technology</h3></div><i class="fas fa-arrow-right"></i></a>
+-<a class="industry-item" href="sector-corporate.html"><div class="name"><span class="idx">05</span><h3>Corporate</h3></div><i class="fas fa-arrow-right"></i></a>
+-<a class="industry-item" href="sector-public-sector.html"><div class="name"><span class="idx">06</span><h3>Public Sector</h3></div><i class="fas fa-arrow-right"></i></a>
+-</div>
+-</div>
+-</section>
+-<!-- DIGITAL TRUST FRAMEWORK -->
+-<section class="section section--paper2 dtf-section">
+-<div class="container">
+-<div class="section-head reveal">
+-<div class="eyebrow">Our Framework</div>
+-<h2>The Digital Trust Framework.</h2>
+-<p>Four pillars feed a single, independent line of assurance from operational reality to the boardroom.</p>
+-</div>
+-<div class="dtf-diagram reveal" id="dtf-diagram">
+-<svg aria-label="Diagram showing Information, Technology, Artificial Intelligence and Legal Governance feeding into Digital Trust, which feeds into Board Assurance" role="img" viewbox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+-<g class="dtf-lines">
+-<path class="dtf-line" d="M140,80 C 220,140 320,190 400,220"></path>
+-<path class="dtf-line" d="M340,80 C 370,140 390,180 430,215"></path>
+-<path class="dtf-line" d="M560,80 C 530,140 510,180 470,215"></path>
+-<path class="dtf-line" d="M760,80 C 680,140 580,190 500,220"></path>
+-<path class="dtf-line dtf-line--out" d="M450,250 L450,320"></path>
+-</g>
+-<g class="dtf-pillar" style="--d:0"><rect height="60" rx="2" width="160" x="60" y="30"></rect><text x="140" y="55">Information</text><text class="dtf-sub" x="140" y="72">Data &amp; privacy</text></g>
+-<g class="dtf-pillar" style="--d:1"><rect height="60" rx="2" width="160" x="260" y="30"></rect><text x="340" y="55">Technology</text><text class="dtf-sub" x="340" y="72">Systems &amp; security</text></g>
+-<g class="dtf-pillar" style="--d:2"><rect height="60" rx="2" width="160" x="480" y="30"></rect><text x="560" y="55">Artificial</text><text x="560" y="68">Intelligence</text></g>
+-<g class="dtf-pillar" style="--d:3"><rect height="60" rx="2" width="160" x="680" y="30"></rect><text x="760" y="55">Legal</text><text x="760" y="68">Governance</text></g>
+-<g class="dtf-node" style="--d:4"><rect height="55" rx="2" width="160" x="370" y="215"></rect><text x="450" y="248">Digital Trust</text></g>
+-<g class="dtf-node dtf-node--final" style="--d:5"><rect height="60" rx="2" width="200" x="350" y="325"></rect><text x="450" y="360">Board Assurance</text></g>
+-</svg>
++
++<div class="hero-actions hero-fade-3">
++<a class="btn btn-hero-cta" href="#practice-areas">EXPLORE OUR PRACTICE AREAS</a>
+ </div>
+ </div>
+ </section>
+-<!-- DATA PROTECTION SPOTLIGHT -->
+-<section class="section section--paper2">
++<section class="section section--paper2" id="practice-areas">
+ <div class="container">
+ <div class="section-head reveal">
+-<div class="eyebrow">Practice Spotlight</div>
+-<h2>Data protection is our proving ground.</h2>
+-<p>From policy drafting to DPO frameworks and ODPC enforcement defence, our data protection practice is built around the Kenyan Data Protection Act (2019) and the realities of running a regulated business.</p>
+-</div>
+-<div class="panel-frame reveal">
+-<img alt="Overview of Muchangi Patrick &amp; Associates' data protection services: policy drafting, risk assessments, dispute representation, compliance frameworks, DPO framework development, and continuous compliance monitoring" src="images/data-protection-services.jpg"/>
++<div class="eyebrow">Practice Areas</div>
++<h2>Expert Legal Services</h2>
++<p>Choose an area to view the services and support the firm provides.</p>
++</div>
++<div class="practice-grid reveal">
++<details class="practice-area">
++<summary>
++<div class="practice-title-wrap">
++<span class="practice-icon"><i class="fas fa-shield-halved"></i></span>
++<span class="practice-title">Data Privacy &amp; Protection</span>
++</div>
++<span class="practice-expand"><i class="fas fa-chevron-down"></i></span>
++</summary>
++<div class="practice-content">
++<ul>
++<li><a href="odpc-registration.html">ODPC Registration</a></li>
++<li><a href="retainer.html">DPO / Outsourced DPO</a></li>
++<li><a href="expertise.html">Data Protection Compliance</a></li>
++<li><a href="expertise.html">Data Subject Rights</a></li>
++<li><a href="expertise.html">Privacy Governance</a></li>
++<li><a href="expertise.html">Data Breach &amp; Incident Response</a></li>
++</ul>
++</div>
++</details>
++<details class="practice-area">
++<summary>
++<div class="practice-title-wrap">
++<span class="practice-icon"><i class="fas fa-robot"></i></span>
++<span class="practice-title">AI Governance</span>
++</div>
++<span class="practice-expand"><i class="fas fa-chevron-down"></i></span>
++</summary>
++<div class="practice-content">
++<ul>
++<li><a href="expertise.html">AI Governance Review</a></li>
++<li><a href="expertise.html">AI Policy &amp; Oversight</a></li>
++<li><a href="expertise.html">AI Risk Assessment</a></li>
++<li><a href="expertise.html">AI Procurement Support</a></li>
++<li><a href="expertise.html">AI Regulatory Monitoring</a></li>
++</ul>
++</div>
++</details>
++<details class="practice-area">
++<summary>
++<div class="practice-title-wrap">
++<span class="practice-icon"><i class="fas fa-microchip"></i></span>
++<span class="practice-title">Technology &amp; Cyber Law</span>
++</div>
++<span class="practice-expand"><i class="fas fa-chevron-down"></i></span>
++</summary>
++<div class="practice-content">
++<ul>
++<li><a href="expertise.html">Cybersecurity Law</a></li>
++<li><a href="expertise.html">Technology Contracts</a></li>
++<li><a href="expertise.html">Vendor &amp; Processor Agreements</a></li>
++<li><a href="expertise.html">Cloud &amp; Data Transfers</a></li>
++<li><a href="expertise.html">IT Compliance Counsel</a></li>
++</ul>
++</div>
++</details>
++<details class="practice-area">
++<summary>
++<div class="practice-title-wrap">
++<span class="practice-icon"><i class="fas fa-briefcase"></i></span>
++<span class="practice-title">Corporate &amp; Commercial</span>
++</div>
++<span class="practice-expand"><i class="fas fa-chevron-down"></i></span>
++</summary>
++<div class="practice-content">
++<ul>
++<li><a href="expertise.html">Fintech &amp; Startup Advisory</a></li>
++<li><a href="expertise.html">Commercial Agreements</a></li>
++<li><a href="expertise.html">Regulatory Counselling</a></li>
++<li><a href="expertise.html">Privacy Clauses for Transactions</a></li>
++<li><a href="expertise.html">Corporate Data Governance</a></li>
++</ul>
++</div>
++</details>
++<details class="practice-area">
++<summary>
++<div class="practice-title-wrap">
++<span class="practice-icon"><i class="fas fa-gavel"></i></span>
++<span class="practice-title">Litigation &amp; Dispute Resolution</span>
++</div>
++<span class="practice-expand"><i class="fas fa-chevron-down"></i></span>
++</summary>
++<div class="practice-content">
++<ul>
++<li><a href="expertise.html">ODPC Response &amp; Appeals</a></li>
++<li><a href="expertise.html">Enforcement Defence</a></li>
++<li><a href="contact.html">High Court &amp; Appellate Counsel</a></li>
++<li><a href="expertise.html">Regulatory Dispute Support</a></li>
++</ul>
++</div>
++</details>
++<details class="practice-area">
++<summary>
++<div class="practice-title-wrap">
++<span class="practice-icon"><i class="fas fa-file-shield"></i></span>
++<span class="practice-title">Regulatory &amp; Compliance</span>
++</div>
++<span class="practice-expand"><i class="fas fa-chevron-down"></i></span>
++</summary>
++<div class="practice-content">
++<ul>
++<li><a href="odpc-registration.html">ODPC Registration</a></li>
++<li><a href="retainer.html">Compliance Retainer</a></li>
++<li><a href="expertise.html">Regulatory Review</a></li>
++<li><a href="expertise.html">Policy &amp; Procedure Drafting</a></li>
++<li><a href="expertise.html">GDPR &amp; Cross-Border Compliance</a></li>
++</ul>
++</div>
++</details>
+ </div>
+ </div>
+ </section>
+-<!-- TESTIMONIAL / INSIGHTS PREVIEW -->
+-<section class="section section--paper2">
++<section class="section section--paper2 resource-gateway">
+ <div class="container">
+ <div class="section-head reveal">
+-<div class="eyebrow">Kenya Privacy Law Review</div>
+-<h2>Recent thinking.</h2>
+-<p>Analysis on the regulatory and commercial developments shaping our clients' decisions, across Bills Review, Regulatory Analysis and Legal Insights.</p>
+-</div>
+-<div class="insight-row reveal">
+-<div class="insight-line">
+-<span class="date">Jul 2026</span>
+-<div><span class="meta">Regulatory Analysis Series -+ No. 001</span><h3><a href="reg-series-001-digital-trust-governance.html">The Future of Digital Trust Governance in Kenya</a></h3></div>
+-<a class="arrow" href="reg-series-001-digital-trust-governance.html">Read GåÆ</a>
+-</div>
+-<div class="insight-line">
+-<span class="date">Jul 2026</span>
+-<div><span class="meta">Regulatory Analysis</span><h3><a href="insight-kenya-dpo-framework-reform.html">Kenya's Data Protection Officer framework is a decade behind Mauritius and Nigeria</a></h3></div>
+-<a class="arrow" href="insight-kenya-dpo-framework-reform.html">Read GåÆ</a>
++<div class="eyebrow">Knowledge Centre</div>
++<h2>Practical guidance. Open access.</h2>
++<p>Access legal, regulatory and governance resources directly, without a gate, form or consultation requirement.</p>
+ </div>
+-<div class="insight-line">
+-<span class="date">Jul 2026</span>
+-<div><span class="meta">Regulatory Analysis</span><h3><a href="insight-kenya-cybercrimes-petition.html">The website-blocking power nobody voted on is now on trial</a></h3></div>
+-<a class="arrow" href="insight-kenya-cybercrimes-petition.html">Read GåÆ</a>
++<div class="resource-actions reveal">
++<a class="btn btn-brass" href="/resources/practice-notes/">Explore Knowledge Centre</a>
+ </div>
+-<div class="insight-line">
+-<span class="date">Jun 2026</span>
+-<div><span class="meta">Bills Review</span><h3><a href="insight-kenya-ai-bill-2026.html">What Kenya's AI Bill means for the businesses that will have to live with it</a></h3></div>
+-<a class="arrow" href="insight-kenya-ai-bill-2026.html">Read GåÆ</a>
+ </div>
+-</div>
+-</div>
+-</section>
+-<!-- BOARD-LEVEL CTA -->
+-<section class="cta-band">
+-<div class="container reveal">
+-<div class="eyebrow" style="justify-content:center;">Board Assurance</div>
+-<h2>Is your Board receiving independent assurance over its digital environment?</h2>
+-<p>We help leadership teams understand, govern and continuously improve Digital Trust through structured, independent advisory engagements.</p>
+-<div class="cta-actions">
+-<a class="btn btn-white" href="contact.html">Request Executive Briefing</a>
+-<a class="btn btn-line" href="contact.html">Book Consultation</a>
+-</div>
+-</div>
+-</section>
+-<section class="cta-band section--ink" id="subscribe">
+-  <div class="container" style="text-align:center;">
+-    <h2>Stay ahead of Kenya's data protection &amp; AI regulation</h2>
+-    <p>A short monthly briefing from the Kenya Privacy Law Review GÇö new ODPC determinations, guidance notes, and compliance deadlines. No spam, unsubscribe anytime.</p>
+-    <form name="kplr-subscribe" method="POST" action="/api/form-submit" class="subscribe-form consult-form" data-form-type="newsletter" style="max-width:480px;margin:24px auto 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+-      <input type="hidden" name="form_type" value="newsletter" />
+-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+-      <input type="email" name="email" required placeholder="you@company.co.ke" style="flex:1;min-width:220px;padding:12px 16px;border-radius:6px;border:none;font-family:inherit;font-size:.95rem;" />
+-      <button type="submit" class="btn btn-brass">Subscribe</button>
+-      <div style="width:100%;text-align:left;font-size:.78rem;line-height:1.45;opacity:.85;margin-top:2px;">
+-        <label style="display:flex;align-items:flex-start;gap:6px;cursor:pointer;font-weight:normal;">
+-          <input type="checkbox" name="consent" value="true" required style="margin-top:3px;flex-shrink:0;" />
+-          <span>By subscribing you consent to receive newsletters, legal updates, invitations to webinars and related communications from Muchangi Patrick &amp; Associates Advocates. You may unsubscribe at any time.</span>
+-        </label>
+-        <details style="margin-top:6px;">
+-          <summary style="cursor:pointer;">Privacy notice</summary>
+-          <p style="margin:6px 0 0;">We collect your email address to send the Kenya Privacy Law Review newsletter. Lawful basis: your consent. Purpose: legal updates and newsletters. Retention: until you unsubscribe. You may access, correct, or request deletion of your data, or unsubscribe, at any time &mdash; see our <a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a> or email consult@dataprivacyadvocates.co.ke.</p>
+-        </details>
+-      </div>
+-      <input type="hidden" name="rendered_at" value="" class="js-rendered-at" />
+-      <p class="form-status" style="width:100%;margin-top:10px;display:none;"></p>
+-    </form>
+-  </div>
+ </section>
+ 
+ <footer class="site-footer">
+@@ -698,7 +424,6 @@
+ </div>
+ </div>
+ <script src="script.js?v=11"></script>
+-<script src="compliance-checker.js?v=1"></script>
+ <script src="/assets/js/conversion.js"></script>
+ </body>
+ </html>
+diff --git a/styles.css b/styles.css
+index fb1639d..574b8ea 100644
+--- a/styles.css
++++ b/styles.css
+@@ -308,6 +308,11 @@ h1,h2,h3,h4{
+ @media(prefers-reduced-motion:reduce){
+   .hero-flow-lines .fl-line{animation:none;}
+ }
++.hero-identity{display:flex;flex-wrap:wrap;align-items:baseline;max-width:100%;text-align:left;}
++.hero-brand, .hero-positioning, .hero-brand-subtitle{margin:0;display:inline-block;}
++.hero-brand{font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,1.5vw,1.45rem);line-height:1.08;color:var(--white);font-weight:600;letter-spacing:.03em;margin-right:1.6rem;}
++.hero-positioning{font-family:Inter,system-ui,sans-serif;font-size:clamp(.78rem,1vw,.95rem);line-height:1.2;color:rgba(255,255,255,.92);font-weight:500;letter-spacing:.02em;margin-right:1.6rem;max-width:100%;text-transform:none;}
++.hero-brand-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(.65rem,.9vw,.85rem);line-height:1.28;color:rgba(255,255,255,.72);font-weight:400;letter-spacing:.06em;}
+ .hero h1{font-size:clamp(2.6rem,5vw,4.4rem);color:var(--white);margin-bottom:24px;}
+ .hero h1 em{font-style:italic;color:var(--brass-light);}
+ .hero .lede{font-size:1.15rem;color:rgba(255,255,255,.68);max-width:520px;margin-bottom:36px;}
+@@ -332,6 +337,53 @@ h1,h2,h3,h4{
+   .hero{padding:180px 0 70px;}
+   .hero-inner{grid-template-columns:1fr;}
+   .hero-stats{grid-template-columns:repeat(2,auto);}
++  .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
++}
++@media(max-width:640px){
++  .hero{padding:80px 0 16px;}
++  .practice-grid{grid-template-columns:1fr;}
++  .hero-identity{flex-wrap:wrap;}
++  .hero-brand{margin-right:0;margin-bottom:.45rem;}
++  .hero-positioning{margin-right:0;margin-bottom:.45rem;}
++}
++
++body.homepage{
++  scroll-snap-type:y proximity;
++  scroll-padding-top:var(--site-header-h);
++  overflow-x:hidden;
++}
++body.homepage > .hero,
++body.homepage > .section,
++body.homepage > footer{
++  scroll-snap-align:start;
++}
++.hero-inner--home{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;max-width:940px;}
++.hero .hero-subline{max-width:560px;}
++.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:2.5rem;}
++.hero-actions .btn-hero-cta{background:var(--cta);color:var(--white);border:1px solid var(--cta);padding:16px 32px;border-radius:999px;font-weight:700;box-shadow:0 18px 28px rgba(23,16,26,.12);transition:transform .2s var(--ease),box-shadow .2s var(--ease);}
++.hero-actions .btn-hero-cta:hover{transform:translateY(-1px);box-shadow:0 22px 34px rgba(23,16,26,.16);}
++.homepage .nav-cta{padding:8px 18px;font-size:.78rem;letter-spacing:.02em;font-weight:600;}
++.practice-grid{display:grid;gap:20px;}
++.practice-area{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px 32px;transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease);}
++.practice-area:hover{transform:translateY(-2px);box-shadow:0 22px 45px rgba(23,16,26,.08);border-color:rgba(139,105,50,.22);}
++.practice-area summary{display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;font-size:1rem;font-weight:700;color:var(--ink);padding:18px 20px;border-radius:16px;transition:background .2s var(--ease),border-color .2s var(--ease);}
++.practice-area summary::-webkit-details-marker{display:none;}
++.practice-area summary:hover{background:var(--paper-2);border:1px solid rgba(139,105,50,.16);}
++.practice-area[open] summary{background:rgba(139,105,50,.08);border:1px solid rgba(139,105,50,.22);}
++.practice-title-wrap{display:flex;align-items:center;gap:18px;}
++.practice-icon{width:46px;height:46px;border-radius:50%;background:var(--plum);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
++.practice-title{text-transform:uppercase;letter-spacing:.08em;font-size:.94rem;}
++.practice-expand{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--ink);transition:transform .22s var(--ease),border-color .22s var(--ease);}
++.practice-area[open] .practice-expand{transform:rotate(180deg);border-color:var(--cta);color:var(--cta);}
++.practice-content{margin-top:28px;border-top:1px solid var(--line);padding-top:24px;}
++.practice-content ul{display:grid;gap:14px;}
++.practice-content li{list-style:none;}
++.practice-content a{display:block;padding:14px 18px;border-radius:14px;border:1px solid transparent;color:var(--ink);transition:background .22s var(--ease),border-color .22s var(--ease);}
++.practice-content a:hover{background:var(--paper-2);border-color:var(--line);}
++.resource-gateway .section-head{max-width:720px;}
++.resource-gateway .resource-actions{margin-top:32px;}
++@media(max-width:900px){
++  .hero-inner--home{grid-template-columns:1fr;}
+ }
+ 
+ /* ==========================================================================

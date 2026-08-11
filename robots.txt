@@ -1,5 +1,4 @@
 User-agent: *
-Content-Signal: search=yes,ai-train=no,use=reference
 Allow: /
 
 # Explicit allow rules for AI/LLM crawlers — the wildcard rule above already
