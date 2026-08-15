@@ -5,7 +5,7 @@
    1. Delegated click tracking for the events product/marketing actually
       need to see which CTA is producing consultations:
         - whatsapp_click          any wa.me link, anywhere on the page
-        - consultation_cta_click  local consultation-page CTAs
+        - booking_widget_click    the Zoho "Book a ... Gap Analysis" links
         - registration_cta_click  ODPC registration CTAs, tagged with which
                                    package (?package=micro-small|medium|large)
         - retainer_cta_click      any CTA pointing at the retainer offer
@@ -59,8 +59,8 @@
       return;
     }
 
-    if ((href === "contact.html" || href.indexOf("contact.html#") === 0 || href === "/contact.html" || href.indexOf("/contact.html#") === 0) && /consultation|book/i.test((link.textContent || "").trim())) {
-      track("consultation_cta_click", {
+    if (href.indexOf("zohobookings.com") !== -1 || href.indexOf("/book") === 0 || href === "book.html") {
+      track("booking_widget_click", {
         link_text: (link.textContent || "").trim().slice(0, 80),
         page_path: window.location.pathname
       });
