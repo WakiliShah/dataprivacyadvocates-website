@@ -186,6 +186,20 @@
     }
   }
 }</script>
+<style>
+  .digest-cover-wall{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:22px;margin-top:46px}
+  .digest-cover-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .digest-cover{position:relative;display:block;overflow:hidden;background:#f4f0e8;border:1px solid rgba(23,16,26,.12);min-height:100%;box-shadow:0 12px 34px rgba(23,16,26,.08);text-decoration:none;transition:transform .22s ease,box-shadow .22s ease}
+  .digest-cover:hover,.digest-cover:focus-visible{transform:translateY(-4px);box-shadow:0 18px 42px rgba(23,16,26,.14)}
+  .digest-cover img{display:block;width:100%;height:100%;min-height:280px;object-fit:cover;object-position:center top}
+  .digest-cover--volume img{min-height:430px}
+  .digest-cover-caption{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:16px 18px;background:linear-gradient(180deg,transparent 0%,rgba(12,18,24,.86) 34%,rgba(12,18,24,.94) 100%);color:#fff}
+  .digest-cover-caption strong{font-family:Inter,sans-serif;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .digest-cover-caption small{grid-column:1;font-size:12px;line-height:1.45;opacity:.86}
+  .digest-cover-caption i{grid-column:2;grid-row:1 / span 2;align-self:center;font-size:15px}
+  @media (max-width:900px){.digest-cover-wall{grid-template-columns:1fr}.digest-cover--volume img{min-height:360px}}
+  @media (max-width:620px){.digest-cover-pair{grid-template-columns:1fr}.digest-cover img,.digest-cover--volume img{min-height:320px}}
+</style>
 </head>
 <body class="home-executive">
 <header class="site-header executive-header">
@@ -193,13 +207,13 @@
 <a class="brand executive-brand" href="index.html" aria-label="Muchangi Patrick &amp; Associates">Muchangi Patrick &amp; Associates</a>
 <nav class="main-nav executive-nav">
 <a href="expertise.html">Practice Areas</a>
-<a href="insight-kenya-odpc-case-law-vol2.html">Case Digest</a>
+<a href="case-digest.html">Case Digest</a>
 <div class="nav-item executive-knowledge-item">
 <a href="/resources/practice-notes/" aria-label="Open Knowledge Centre resources">Knowledge Centre <i class="fas fa-chevron-down nav-caret" aria-hidden="true"></i></a>
 <div class="dropdown-panel executive-knowledge-mega" aria-label="Knowledge Centre resources">
 <div class="mega-col">
 <span class="mega-label">CASE LAW</span>
-<a href="insight-kenya-odpc-case-law-vol2.html"><span>Case Digest</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<a href="case-digest.html"><span>Case Digest</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 <a href="insights.html#case-notes"><span>Case Notes</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 <a href="comparative-law.html"><span>Comparative Law</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </div>
@@ -277,22 +291,33 @@
 <div class="eyebrow">Kenya Data Protection &amp; Privacy Jurisprudence</div>
 <h2>The Case Digest.</h2>
 <p class="digest-lede">A structured reading of Kenyan decisions and ODPC determinations, built to help practitioners, compliance teams and decision-makers find the law quickly.</p>
-<a class="more" href="insight-kenya-odpc-case-law-vol2.html">Open the Case Digest &rarr;</a>
+<a class="more" href="case-digest.html">Open the Case Digest &rarr;</a>
 </div>
 <div class="digest-volume-card">
-<span class="digest-volume-label">VOLUME II · 2026</span>
-<h3>Privacy rights, consent and digital identity beyond the ODPC</h3>
-<div class="digest-stats"><span><strong>19</strong> decisions reviewed</span><span>High Court jurisprudence</span></div>
+<span class="digest-volume-label">VOLUME I · 2026</span>
+<h3>Landmark constitutional &amp; data protection jurisprudence</h3>
+<div class="digest-stats"><span><strong>2020–2026</strong> jurisprudence</span><span>High Court, tribunal &amp; administrative decisions</span></div>
 <div class="digest-actions">
-<a class="btn btn-brass btn-sm" href="downloads/insight-kenya-odpc-case-law-vol2.pdf" download data-kg-file="downloads/insight-kenya-odpc-case-law-vol2.pdf" data-kg-title="Kenya DP Case Law, Vol. II: Privacy Beyond the ODPC" data-kg-id="insight-odpc-case-law-vol2">Download PDF <i class="fas fa-download" aria-hidden="true"></i></a>
-<a class="btn btn-line btn-sm" href="insight-kenya-odpc-case-law-vol2.html">Read online</a>
+<a class="btn btn-brass btn-sm" href="downloads/kplr-volume-i-comprehensive.pdf" download data-kg-file="downloads/kplr-volume-i-comprehensive.pdf" data-kg-title="KPLR Volume I — Official Case Digest Series" data-kg-id="kplr-volume-i">Download Volume I PDF <i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="btn btn-line btn-sm" href="case-digest.html">View Digest Library</a>
 </div>
 </div>
 </div>
-<div class="digest-case-strip">
-<a href="case-mwaniki-v-safaricom-plc.html"><span>Case note</span><strong>Mwaniki v Safaricom PLC</strong><i class="fas fa-arrow-right"></i></a>
-<a href="case-premier-credit-ltd-v-office-of-the-data-protecti.html"><span>Case note</span><strong>Premier Credit Ltd v ODPC</strong><i class="fas fa-arrow-right"></i></a>
-<a href="case-platinum-credit-limited-v-data-protection-commis.html"><span>Case note</span><strong>Platinum Credit Ltd v ODPC</strong><i class="fas fa-arrow-right"></i></a>
+<div class="digest-cover-wall" aria-label="Case Digest downloads">
+  <a class="digest-cover digest-cover--volume" href="downloads/kplr-volume-i-comprehensive.pdf" download aria-label="Download KPLR Volume I Case Digest PDF">
+    <img src="images/kplr-volume-i-cover.png" alt="Kenya Privacy Law Review — Official Case Digest Series, Volume I" loading="lazy">
+    <span class="digest-cover-caption"><strong>Volume I</strong><small>Official Case Digest Series · Download PDF</small><i class="fas fa-arrow-down" aria-hidden="true"></i></span>
+  </a>
+  <div class="digest-cover-pair">
+    <a class="digest-cover" href="downloads/kplr-001-grain-industries-v-em.pdf" download aria-label="Download KPLR Case Digest No. 001 PDF">
+      <img src="images/kplr-grain-cover.png" alt="KPLR Case Digest No. 001 — Grain Industries Limited v E.M. &amp; ODPC" loading="lazy">
+      <span class="digest-cover-caption"><strong>Digest No. 001</strong><small>Grain Industries Ltd v E.M. &amp; ODPC · PDF</small><i class="fas fa-arrow-down" aria-hidden="true"></i></span>
+    </a>
+    <a class="digest-cover" href="downloads/kplr-volume-i-comprehensive.pdf" download aria-label="Download KPLR Volume I Comprehensive Case Digest PDF">
+      <img src="images/kplr-case-002-cover.png" alt="Kenya Privacy Law Review — Volume I Comprehensive Case Digest" loading="lazy">
+      <span class="digest-cover-caption"><strong>Comprehensive Edition</strong><small>Full Volume I · Download PDF</small><i class="fas fa-arrow-down" aria-hidden="true"></i></span>
+    </a>
+  </div>
 </div>
 </div>
 </section>
