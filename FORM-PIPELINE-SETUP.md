@@ -67,3 +67,19 @@ No build command changes — this is still a static site; only the two new serve
 ## Next build (not yet done)
 
 Per the audit's recommended order: migrate the resource-gate modal and the three Formspree forms (consultation, feedback, in-article newsletter) onto `/api/form-submit`, then componentize the 4 duplicated Executive Brief feedback forms into one shared partial, then add lead capture to the 33 case-law pages that currently have none.
+
+## ODPC Complaint Enquiry + WhatsApp notification
+
+The public `file-a-complaint.html` form posts to `/api/complaint-enquiry`. The function stores the enquiry in the private Netlify Blobs store `complaint-enquiries` and sends an internal email using the existing Zoho SMTP configuration.
+
+Optional WhatsApp Business notification requires these Netlify environment variables:
+
+- `WHATSAPP_ACCESS_TOKEN`
+- `WHATSAPP_PHONE_NUMBER_ID`
+- `WHATSAPP_TO`
+- `WHATSAPP_TEMPLATE_NAME`
+- `WHATSAPP_TEMPLATE_LANGUAGE` (optional; defaults to `en_US`)
+
+The approved WhatsApp template should accept four body variables in this order: reference, issue type, client name, client phone/WhatsApp. Do not put the client's full legal narrative into a WhatsApp template by default; the message should direct the advocate to the secure stored enquiry/email. The full narrative remains in the private enquiry record.
+
+The WhatsApp notification is optional. If the credentials/template are not configured, the form continues to save the enquiry and attempt the internal email notification without exposing an API error to the visitor.
