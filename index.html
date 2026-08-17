@@ -42,10 +42,10 @@
 <link href="images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="site.webmanifest" rel="manifest"/>
 <meta content="#17101a" name="theme-color"/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="styles.css?v=7" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=7" rel="stylesheet">
 <style>
   .path-card:hover{border-color:var(--cta);box-shadow:var(--shadow-soft);}
   @media (max-width:800px){.path-grid{grid-template-columns:1fr !important;}}
@@ -200,134 +200,102 @@
   @media (max-width:900px){.digest-cover-wall{grid-template-columns:1fr}.digest-cover--volume img{min-height:360px}}
   @media (max-width:620px){.digest-cover-pair{grid-template-columns:1fr}.digest-cover img,.digest-cover--volume img{min-height:320px}}
 </style>
-</head>
+</link></head>
 <body class="home-executive">
-<header class="site-header executive-header">
-<div class="container header-row">
-<a class="brand executive-brand" href="index.html" aria-label="Muchangi Patrick &amp; Associates">Muchangi Patrick &amp; Associates</a>
-<nav class="main-nav executive-nav">
-<a href="expertise.html">Practice Areas</a>
-<a href="case-digest.html">Case Digest</a>
-<div class="nav-item executive-knowledge-item">
-<a href="/resources/practice-notes/" aria-label="Open Knowledge Centre resources">Knowledge Centre <i class="fas fa-chevron-down nav-caret" aria-hidden="true"></i></a>
-<div class="dropdown-panel executive-knowledge-mega" aria-label="Knowledge Centre resources">
-<div class="mega-col">
-<span class="mega-label">CASE LAW</span>
-<a href="case-digest.html"><span>Case Digest</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="insights.html#case-notes"><span>Case Notes</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="comparative-law.html"><span>Comparative Law</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<header class="site-header executive-header homepage-header">
+<div class="container homepage-header-inner">
+<a aria-label="Muchangi Patrick &amp; Associates Advocates" class="homepage-brand" href="index.html">
+<span class="brand-line brand-name">Muchangi Patrick &amp;</span>
+<span class="brand-line brand-name">Associates <em>Advocates</em></span>
+<span class="brand-subline">TECHNOLOGY LAW  ·  PRIVACY  ·  CYBERSECURITY  ·  AI GOVERNANCE</span>
+</a>
+<div class="homepage-header-right">
+<div class="homepage-contact-line">
+<span><i class="fas fa-phone"></i> +254 722 878 607</span>
+<b>|</b>
+<span>+254 736 358 938</span>
+<b>|</b>
+<span><i class="fas fa-envelope"></i> patrick@dataprivacyadvocates.co.ke</span>
 </div>
-<div class="mega-col">
-<span class="mega-label">PUBLICATIONS</span>
-<a href="/resources/practice-notes/"><span>Practice Notes</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="bills-review.html"><span>Bills Review</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="regulatory-analysis.html"><span>Regulatory Analysis</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="webinars.html"><span>Webinars &amp; Briefings</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-</div>
-<div class="mega-col">
-<span class="mega-label">COMPLIANCE &amp; TOOLS</span>
-<a href="compliance-toolkit.html"><span>Compliance Toolkit</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="odpc-compliance-checklist.html"><span>Compliance Checklists</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="odpc-registration.html"><span>ODPC Registration</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="academy.html"><span>KPLR Academy</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-</div>
-<div class="mega-col">
-<span class="mega-label">REGULATORY INTELLIGENCE</span>
-<a href="regulatory-review.html"><span>Regulatory Review</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="insight-kenya-odpc-enforcement.html"><span>ODPC Enforcement</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="insight-kenya-dpo-framework-reform.html"><span>DPO Framework Reform</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="insight-kenya-ai-bill-2026.html"><span>AI Bill Review</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-</div>
-<div class="mega-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all resources <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
-</div>
-</div>
-<a href="#compliance-centre">Compliance</a>
+<nav aria-label="Primary navigation" class="main-nav executive-nav homepage-nav">
+<a href="expertise.html">Practice Areas <i aria-hidden="true" class="fas fa-chevron-down nav-caret"></i></a>
+<a class="active" href="case-digest.html">Case Digest</a>
+<a href="insights.html">Publications</a>
+<a href="compliance-toolkit.html">Compliance <i aria-hidden="true" class="fas fa-chevron-down nav-caret"></i></a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 <a class="nav-cta" href="contact.html">Talk to an Expert</a>
 </nav>
-<button aria-expanded="false" aria-label="Open menu" class="nav-toggle"><span></span><span></span><span></span></button>
+</div>
 </div>
 </header>
 <div class="nav-overlay"></div>
-
 <!-- HERO: orientation first, not sales pressure -->
-<section class="hero executive-hero executive-hero-v2">
-<svg aria-hidden="true" class="hero-flow-lines" focusable="false" preserveaspectratio="none" viewbox="0 0 1440 260" xmlns="http://www.w3.org/2000/svg">
-<path class="fl-line fl-1" d="M-100,70 C 120,10 260,130 480,70 C 700,10 840,130 1060,70 C 1220,25 1340,95 1540,60"></path>
-<path class="fl-line fl-2" d="M-100,130 C 140,190 300,80 520,130 C 740,180 880,70 1100,125 C 1250,160 1360,105 1540,140"></path>
-<path class="fl-line fl-3" d="M-100,20 C 160,70 320,-10 540,35 C 760,80 900,5 1120,45 C 1260,70 1380,25 1540,55"></path>
-<path class="fl-line fl-4" d="M-100,190 C 150,140 310,220 530,180 C 750,140 890,225 1110,185 C 1250,160 1370,205 1540,175"></path>
-</svg>
-<div class="container hero-inner hero-inner--solo">
-<div class="executive-hero-copy">
-<div class="eyebrow">Data Protection &amp; Privacy Law · Kenya</div>
+<section aria-label="Site resources" class="executive-resource-map">
+<div class="container executive-resource-grid">
+<a href="expertise.html"><span class="resource-index">01</span><strong>Practice Areas</strong><small>Data, technology, regulatory &amp; disputes</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="#case-digest"><span class="resource-index">02</span><strong>Case Digest</strong><small>Kenyan decisions &amp; ODPC determinations</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="#practice-notes"><span class="resource-index">03</span><strong>Publications</strong><small>Practice Notes &amp; legal analysis</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="#compliance-centre"><span class="resource-index">04</span><strong>Compliance Tools</strong><small>Check, assess and act</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="#compliance-centre"><span class="resource-index">05</span><strong>Compliance Checker</strong><small>A practical readiness assessment</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+</div>
+</section><section class="hero executive-hero homepage-hero">
+<div class="homepage-hero-inner">
+<div class="homepage-hero-copy">
+<div class="eyebrow"><span></span> DATA PROTECTION &amp; PRIVACY LAW · KENYA</div>
 <h1>Data protection.<br/><em>Understood. Applied.</em></h1>
 <p class="lede">Legal counsel, regulatory intelligence and practical compliance for organisations operating with personal data in Kenya.</p>
 <div class="hero-actions">
-<a class="executive-hero-link executive-hero-link--down" href="#case-digest">Explore Case Digests &amp; More <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-<a class="executive-hero-link executive-hero-link--across" href="expertise.html">View Our Practice Areas <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<a class="homepage-primary-cta" href="#case-digest">Explore Case Digests &amp; More <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a class="homepage-secondary-cta" href="expertise.html">View Our Practice Areas <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
 </div>
+</div>
+<div aria-hidden="true" class="homepage-hero-visual">
+<img alt="" src="images/home-kenya-data-hero.jpg"/>
 </div>
 </div>
 </section>
-
 <!-- RESOURCE MAP: the visitor sees the breadth without being forced to choose immediately -->
-<section class="executive-resource-map" aria-label="Site resources">
-<div class="container executive-resource-grid">
-<a href="expertise.html"><span class="resource-index">01</span><strong>Practice Areas</strong><small>Data, technology, regulatory &amp; disputes</small><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="#case-digest"><span class="resource-index">02</span><strong>Case Digest</strong><small>Kenyan decisions &amp; ODPC determinations</small><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="#practice-notes"><span class="resource-index">03</span><strong>Publications</strong><small>Practice Notes &amp; legal analysis</small><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="#compliance-centre"><span class="resource-index">04</span><strong>Compliance Tools</strong><small>Check, assess and act</small><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-<a href="#compliance-centre"><span class="resource-index">05</span><strong>Compliance Checker</strong><small>A practical readiness assessment</small><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-</div>
-</section>
 
 <!-- CASE DIGEST: the reason for the launch, presented as substance rather than an advert -->
-<section class="section executive-digest-section" id="case-digest">
+<section class="section homepage-digest-section" id="case-digest">
 <div class="container">
-<div class="digest-intro">
-<div>
-<div class="eyebrow">Kenya Data Protection &amp; Privacy Jurisprudence</div>
+<div class="homepage-digest-heading">
+<div class="eyebrow"><span></span> KENYA DATA PROTECTION &amp; PRIVACY JURISPRUDENCE <span></span></div>
 <h2>The Case Digest.</h2>
-<p class="digest-lede">A structured reading of Kenyan decisions and ODPC determinations, built to help practitioners, compliance teams and decision-makers find the law quickly.</p>
-<a class="more" href="case-digest.html">Open the Case Digest &rarr;</a>
+<div class="heading-rule"></div>
 </div>
-<div class="digest-volume-card">
-<span class="digest-volume-label">VOLUME I · 2026</span>
-<h3>Consolidated Master Edition — Parts I–IV</h3>
-<div class="digest-stats"><span><strong>2020–2026</strong> jurisprudence</span><span>High Court, tribunal &amp; administrative decisions</span></div>
-<div class="digest-actions">
-<a class="btn btn-brass btn-sm" href="downloads/kplr-volume-i-master-edition.pdf" download data-kg-file="downloads/kplr-volume-i-master-edition.pdf" data-kg-title="KPLR Volume I — Consolidated Master Edition" data-kg-id="kplr-volume-i">Download Volume I PDF <i class="fas fa-download" aria-hidden="true"></i></a>
-<a class="btn btn-line btn-sm" href="case-digest.html">View Digest Library</a>
-</div>
-</div>
-</div>
-<div class="digest-cover-wall" aria-label="Case Digest publications">
-  <a class="digest-cover digest-cover--volume" href="downloads/kplr-volume-i-master-edition.pdf" target="_blank" rel="noopener" aria-label="Open Kenya Privacy Law Review Volume I Master Edition PDF">
-    <img src="images/kplr-volume-i-cover.png" alt="Kenya Privacy Law Review Volume I — Consent, Data Protection &amp; Digital Rights" loading="lazy">
-    <span class="digest-cover-caption"><strong>Volume I</strong><small>Consent, Data Protection &amp; Digital Rights · PDF</small><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-  </a>
-  <a class="digest-cover" href="downloads/kplr-001-grain-industries-v-em.pdf" target="_blank" rel="noopener" aria-label="Open Grain Industries Limited v E.M. &amp; Office of the Data Protection Commissioner case digest PDF">
-    <img src="images/kplr-grain-cover.png" alt="Grain Industries Limited v E.M. &amp; Office of the Data Protection Commissioner case digest" loading="lazy">
-    <span class="digest-cover-caption"><strong>Digest No. 001</strong><small>Grain Industries Ltd v E.M. &amp; ODPC · PDF</small><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-  </a>
-  <a class="digest-cover" href="downloads/kplr-003-mind-quest-limited.pdf" target="_blank" rel="noopener" aria-label="Open Mind Quest Limited v M. &amp; 2 Others case digest PDF">
-    <img src="images/kplr-mind-quest-cover.png" alt="Mind Quest Limited v M. &amp; 2 Others case digest" loading="lazy">
-    <span class="digest-cover-caption"><strong>Digest No. 003</strong><small>Mind Quest Limited v M. &amp; 2 Others · PDF</small><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-  </a>
+<div class="homepage-digest-grid">
+<a class="homepage-digest-card" href="downloads/kplr-volume-i-master-edition.pdf" rel="noopener" target="_blank">
+<div class="digest-cover-wrap"><img alt="KPLR Volume I Master Edition" src="images/generated/kplr-master-cover.png"/></div>
+<div class="digest-card-caption"><strong>VOLUME I – MASTER EDITION</strong><span>Consent, Data Protection &amp; Digital Rights</span><small>40-case master publication</small><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></div>
+</a>
+<a class="homepage-digest-card" href="downloads/kplr-volume-i-master-edition.pdf" rel="noopener" target="_blank">
+<div class="digest-cover-wrap"><img alt="KPLR Volume I Executive Edition" src="images/kplr-volume-i-cover.png"/></div>
+<div class="digest-card-caption"><strong>VOLUME I – EXECUTIVE EDITION</strong><span>Consent, Data Protection &amp; Digital Rights</span><small>40 case digests</small><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></div>
+</a>
+<a class="homepage-digest-card" href="downloads/kplr-002-gold-standard.pdf" rel="noopener" target="_blank">
+<div class="digest-cover-wrap"><img alt="Kenya Data Protection Law Case Digest" src="images/kplr-002-gold-standard-cover.png"/></div>
+<div class="digest-card-caption"><strong>KENYA DATA PROTECTION LAW CASE DIGEST</strong><span>Systematic compilation of Kenyan data protection decisions</span><small>58 decisions</small><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></div>
+</a>
+<a class="homepage-digest-card" href="downloads/kplr-001-grain-industries-v-em.pdf" rel="noopener" target="_blank">
+<div class="digest-cover-wrap"><img alt="Grain Industries Limited v E.M. and ODPC case digest" src="images/kplr-grain-cover.png"/></div>
+<div class="digest-card-caption"><strong>KPLR 001 – GRAIN INDUSTRIES LTD V E.M. &amp; ODPC</strong><span>Civil Appeal E167 of 2024 (Murang'a)</span><small>Kenya data protection jurisprudence</small><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></div>
+</a>
+<a class="homepage-digest-card" href="downloads/kplr-003-mind-quest-limited.pdf" rel="noopener" target="_blank">
+<div class="digest-cover-wrap"><img alt="Mind Quest Limited v M. and 2 Others case digest" src="images/kplr-mind-quest-cover.png"/></div>
+<div class="digest-card-caption"><strong>KPLR 003 – MIND QUEST LIMITED V M. &amp; 2 OTHERS</strong><span>Image rights &amp; modelling consent dispute</span><small>Case Digest Series 001</small><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></div>
+</a>
 </div>
 </div>
 </section>
-
 <!-- PRACTICE AREAS: deliberately broad, horizontal, and later in the journey -->
 <section class="executive-practice-band">
 <div class="container executive-practice-band-inner">
 <div><span class="eyebrow">The legal work behind the research</span><h2>Practice Areas</h2></div>
-<a href="expertise.html">View all practice areas <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<a href="expertise.html">View all practice areas <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
 </div>
 </section>
-
 <!-- PRACTICE NOTES: visual discovery as the visitor scrolls -->
 <section class="section executive-notes-section" id="practice-notes">
 <div class="container">
@@ -338,30 +306,29 @@
 </div>
 <div class="executive-notes-grid">
 <a class="executive-note-feature" href="/resources/practice-notes/architecture-of-lawful-processing/">
-<img src="resources/practice-notes/architecture-of-lawful-processing/cover.jpg" alt="Practice Note: The Architecture of Lawful Processing" loading="lazy"/>
-<div><span>PN 001 · Constitutional Law</span><h3>The Architecture of Lawful Processing</h3><i class="fas fa-arrow-right" aria-hidden="true"></i></div>
-</a>
+<img alt="Practice Note: The Architecture of Lawful Processing" loading="lazy" src="resources/practice-notes/architecture-of-lawful-processing/cover.jpg">
+<div><span>PN 001 · Constitutional Law</span><h3>The Architecture of Lawful Processing</h3><i aria-hidden="true" class="fas fa-arrow-right"></i></div>
+</img></a>
 <a class="executive-note-feature" href="/resources/practice-notes/employee-monitoring/">
-<img src="resources/practice-notes/employee-monitoring/cover.jpg" alt="Practice Note: Employee Monitoring" loading="lazy"/>
-<div><span>PN 002 · Employment</span><h3>Employee Monitoring</h3><i class="fas fa-arrow-right" aria-hidden="true"></i></div>
-</a>
+<img alt="Practice Note: Employee Monitoring" loading="lazy" src="resources/practice-notes/employee-monitoring/cover.jpg">
+<div><span>PN 002 · Employment</span><h3>Employee Monitoring</h3><i aria-hidden="true" class="fas fa-arrow-right"></i></div>
+</img></a>
 <a class="executive-note-card" href="/resources/practice-notes/cross-border-data-transfers/">
-<img src="resources/practice-notes/cross-border-data-transfers/cover-thumb.jpg" alt="Practice Note: Cross-Border Data Transfers" loading="lazy"/>
-<span>PN 003 · Cross-Border</span><strong>Cross-Border Data Transfers</strong><i class="fas fa-arrow-right" aria-hidden="true"></i>
-</a>
+<img alt="Practice Note: Cross-Border Data Transfers" loading="lazy" src="resources/practice-notes/cross-border-data-transfers/cover-thumb.jpg">
+<span>PN 003 · Cross-Border</span><strong>Cross-Border Data Transfers</strong><i aria-hidden="true" class="fas fa-arrow-right"></i>
+</img></a>
 <a class="executive-note-card" href="/resources/practice-notes/ai-procurement/">
-<img src="resources/practice-notes/ai-procurement/cover-thumb.jpg" alt="Practice Note: Artificial Intelligence Procurement" loading="lazy"/>
-<span>PN 004 · Artificial Intelligence</span><strong>Artificial Intelligence Procurement</strong><i class="fas fa-arrow-right" aria-hidden="true"></i>
+<img alt="Practice Note: Artificial Intelligence Procurement" loading="lazy" src="resources/practice-notes/ai-procurement/cover-thumb.jpg"/>
+<span>PN 004 · Artificial Intelligence</span><strong>Artificial Intelligence Procurement</strong><i aria-hidden="true" class="fas fa-arrow-right"></i>
 </a>
 <a class="executive-note-card" href="/resources/practice-notes/privacy-by-design/">
-<img src="resources/practice-notes/privacy-by-design/cover-thumb.jpg" alt="Practice Note: Privacy by Design" loading="lazy"/>
-<span>PN 005 · Systems &amp; Product Design</span><strong>Privacy by Design</strong><i class="fas fa-arrow-right" aria-hidden="true"></i>
+<img alt="Practice Note: Privacy by Design" loading="lazy" src="resources/practice-notes/privacy-by-design/cover-thumb.jpg"/>
+<span>PN 005 · Systems &amp; Product Design</span><strong>Privacy by Design</strong><i aria-hidden="true" class="fas fa-arrow-right"></i>
 </a>
 </div>
-<div class="executive-centre-link"><a class="more" href="/resources/practice-notes/">Explore the Knowledge Centre &rarr;</a></div>
+<div class="executive-centre-link"><a class="more" href="/resources/practice-notes/">Explore the Knowledge Centre →</a></div>
 </div>
 </section>
-
 <!-- COMPLIANCE CHECKER: utility after intellectual substance -->
 <section class="section executive-compliance-section" id="compliance-centre">
 <div class="container">
@@ -370,7 +337,7 @@
 <div class="eyebrow">Practical Compliance</div>
 <h2>Check your position.</h2>
 <p>Answer a focused set of questions against Kenya's data protection requirements and receive a structured readiness assessment.</p>
-<button class="btn btn-brass" id="kc-start-btn" type="button">Start the Compliance Checker <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+<button class="btn btn-brass" id="kc-start-btn" type="button">Start the Compliance Checker <i aria-hidden="true" class="fas fa-arrow-right"></i></button>
 </div>
 <div class="executive-compliance-stats">
 <div><strong>52</strong><span>legal controls</span></div>
@@ -381,7 +348,6 @@
 </div>
 </div>
 </section>
-
 <!-- PUBLICATIONS: a quiet reward for the curious -->
 <section class="section executive-publications-section">
 <div class="container">
@@ -398,17 +364,15 @@
 </div>
 </div>
 </section>
-
 <!-- FINAL CTA: counsel comes last, after the visitor has seen the substance -->
 <section class="executive-final-cta">
 <div class="container">
 <div class="eyebrow">When you need counsel</div>
 <h2>Bring us the legal question.</h2>
 <p>For advice, compliance support, regulatory strategy or representation, speak directly with an advocate.</p>
-<a href="contact.html" class="btn btn-brass">Talk to an Expert <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<a class="btn btn-brass" href="contact.html">Talk to an Expert <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
 </div>
 </section>
-
 <!-- COMPLIANCE CHECKER MODAL -->
 <div aria-hidden="true" aria-labelledby="kc-modal-title" aria-modal="true" class="kc-modal" id="kc-modal" role="dialog">
 <div class="kc-modal-inner" id="kc-modal-inner">
