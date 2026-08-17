@@ -2440,3 +2440,19 @@ body.home-executive .digest-card-caption i{
   body.home-executive .homepage-digest-grid{grid-template-columns:1fr;}
   body.home-executive .executive-resource-grid{grid-template-columns:1fr;}
 }
+
+
+/* ==========================================================================
+   HOMEPAGE RESOURCE RIBBON — HEADER CLEARANCE
+   Keeps the 01–05 resource ribbon visibly below the fixed header rather
+   than allowing it to tuck underneath the header at the top of the page.
+   ========================================================================== */
+body.home-executive .executive-resource-map{
+  margin-top:calc(var(--site-header-h) + 12px);
+}
+
+@media(max-width:640px){
+  body.home-executive .executive-resource-map{
+    margin-top:var(--site-header-h);
+  }
+}
