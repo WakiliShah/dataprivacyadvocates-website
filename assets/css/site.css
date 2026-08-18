@@ -12,21 +12,21 @@
      brass/gold highlight, plum as the series' own accent colour so
      Practice Notes still reads as a distinct publication within the firm's
      site — never as a separate, independently-branded product. */
-  --kplr-black: #3F2B3D;
-  --kplr-charcoal: #54394F;
+  --kplr-black: #46573a;
+  --kplr-charcoal: #7c8b5e;
   --kplr-charcoal-2: #664A60;
   --kplr-line-dark: rgba(201,74,90,0.28);
-  --kplr-cream: #F7F6F2;
-  --kplr-cream-2: #EEECE4;
-  --kplr-ink: #17101a;
-  --kplr-ink-soft: #85727c;
-  --kplr-line-light: #E3E0D6;
+  --kplr-cream: #f2ecdc;
+  --kplr-cream-2: #e7dfc5;
+  --kplr-ink: #1b1a17;
+  --kplr-ink-soft: #8a8577;
+  --kplr-line-light: #c9bf9c;
 
-  --kplr-gold: #BD9148;
+  --kplr-gold: #c69a3e;
   --kplr-gold-bright: #ECC981;
-  --kplr-maroon: #3F2B3D;
-  --kplr-maroon-bright: #54394F;
-  --kplr-maroon-pale: #F2ECF1;
+  --kplr-maroon: #46573a;
+  --kplr-maroon-bright: #7c8b5e;
+  --kplr-maroon-pale: #eaf0e3;
 
   --kplr-success: #1E6B4F;
   --kplr-radius: 3px;
@@ -41,7 +41,7 @@
   --line: var(--kplr-line-light);
   --accent: var(--kplr-maroon);
   --accent-bright: var(--kplr-maroon-bright);
-  --shadow: 0 10px 32px -16px rgba(23,16,26,0.16);
+  --shadow: 0 10px 32px -16px rgba(27,26,23,0.16);
 }
 
 [data-theme="light"] {
@@ -53,7 +53,7 @@
   --line: var(--kplr-line-light);
   --accent: var(--kplr-maroon);
   --accent-bright: var(--kplr-maroon-bright);
-  --shadow: 0 10px 32px -16px rgba(23,16,26,0.16);
+  --shadow: 0 10px 32px -16px rgba(27,26,23,0.16);
 }
 
 * { box-sizing: border-box; }
