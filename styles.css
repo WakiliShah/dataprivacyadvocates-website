@@ -2245,11 +2245,27 @@ body.home-executive .executive-resource-grid i{
 
 body.home-executive .homepage-hero{
   min-height:375px;
-  background:#f2ecdc;
+  background-color:#14190f;
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(198,154,62,.55) 0, rgba(198,154,62,.55) 1.4px, transparent 1.4px),
+    radial-gradient(circle at 78% 15%, rgba(198,154,62,.4) 0, rgba(198,154,62,.4) 1.4px, transparent 1.4px),
+    radial-gradient(circle at 55% 70%, rgba(198,154,62,.35) 0, rgba(198,154,62,.35) 1.1px, transparent 1.1px),
+    radial-gradient(circle at 88% 60%, rgba(198,154,62,.5) 0, rgba(198,154,62,.5) 1.6px, transparent 1.6px),
+    radial-gradient(circle at 32% 85%, rgba(198,154,62,.3) 0, rgba(198,154,62,.3) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(198,154,62,.07) 0, rgba(198,154,62,.07) 1px, transparent 1px, transparent 84px),
+    repeating-linear-gradient(0deg, rgba(198,154,62,.07) 0, rgba(198,154,62,.07) 1px, transparent 1px, transparent 84px),
+    linear-gradient(90deg, #14190f 0%, rgba(20,25,15,.55) 45%, rgba(20,25,15,.15) 75%),
+    radial-gradient(ellipse at 85% 0%, rgba(198,154,62,.16), transparent 55%);
+  background-size:340px 340px,260px 260px,300px 300px,380px 380px,220px 220px,84px 84px,84px 84px,100% 100%,100% 100%;
   display:block;
   overflow:hidden;
   position:relative;
 }
+body.home-executive .homepage-hero .hp-trace{position:absolute;border-color:rgba(198,154,62,.3);pointer-events:none;z-index:1;}
+body.home-executive .homepage-hero .hp-trace-1{top:14%;left:56%;width:120px;height:60px;border-top:1px solid;border-right:1px solid;}
+body.home-executive .homepage-hero .hp-trace-1::after{content:"";position:absolute;top:-2.5px;right:-2.5px;width:5px;height:5px;border-radius:50%;background:rgba(198,154,62,.6);}
+body.home-executive .homepage-hero .hp-trace-2{bottom:18%;left:48%;width:90px;height:44px;border-bottom:1px solid;border-left:1px solid;}
+body.home-executive .homepage-hero .hp-trace-2::after{content:"";position:absolute;bottom:-2.5px;left:-2.5px;width:5px;height:5px;border-radius:50%;background:rgba(198,154,62,.6);}
 body.home-executive .homepage-hero-inner{
   min-height:375px;
   max-width:1536px;
@@ -2271,7 +2287,7 @@ body.home-executive .homepage-hero .eyebrow{
   align-items:center;
   gap:10px;
   margin:0 0 18px;
-  color:#b37c21;
+  color:#e0bb62;
   font-size:.67rem;
   font-weight:700;
   letter-spacing:.12em;
@@ -2286,7 +2302,7 @@ body.home-executive .homepage-hero h1{
   line-height:.92;
   letter-spacing:-.045em;
   font-weight:400;
-  color:var(--home-ink);
+  color:#f2ecdc;
 }
 body.home-executive .homepage-hero h1 em{
   color:var(--home-gold);
@@ -2296,7 +2312,7 @@ body.home-executive .homepage-hero h1 em{
 body.home-executive .homepage-hero .lede{
   max-width:610px;
   margin:0;
-  color:#101c2c;
+  color:rgba(242,236,220,.72);
   font-size:1rem;
   line-height:1.45;
 }
@@ -2319,31 +2335,24 @@ body.home-executive .homepage-secondary-cta{
   white-space:nowrap;
 }
 body.home-executive .homepage-primary-cta{
-  background:var(--home-navy);
-  color:#fff;
+  background:var(--home-gold);
+  color:#14190f;
   padding:13px 22px;
   border-radius:2px;
 }
-body.home-executive .homepage-primary-cta i,
+body.home-executive .homepage-primary-cta i{color:#14190f;}
 body.home-executive .homepage-secondary-cta i{color:var(--home-gold);}
 body.home-executive .homepage-secondary-cta{
-  color:var(--home-ink);
+  color:#f2ecdc;
   border-bottom:1px solid var(--home-gold);
   padding:13px 0 10px;
 }
 body.home-executive .homepage-hero-visual{
   position:relative;
   overflow:hidden;
-  background:#f1eee7;
+  background:transparent;
 }
-body.home-executive .homepage-hero-visual::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,#f2ecdc 0%,rgba(247,245,240,.2) 17%,rgba(247,245,240,0) 35%);
-  z-index:1;
-  pointer-events:none;
-}
+body.home-executive .homepage-hero-visual::before{display:none;}
 body.home-executive .homepage-hero-visual img{
   width:100%;
   height:100%;
@@ -2518,7 +2527,7 @@ body.home-executive .executive-resource-map{
    countable content metrics (case notes, practice areas, publications) —
    deliberately not fabricated performance claims like "97% success rate".
    ========================================================================== */
-.hp-dash{background:var(--ink);border-radius:6px;padding:26px 24px 22px;color:var(--paper,#f2ecdc);box-shadow:0 30px 70px -20px rgba(27,26,23,.45);position:relative;overflow:hidden;}
+.hp-dash{background:#1b2016;border:1px solid rgba(198,154,62,.22);border-radius:6px;padding:26px 24px 22px;color:var(--paper,#f2ecdc);box-shadow:0 40px 90px -20px rgba(0,0,0,.6),0 0 0 1px rgba(198,154,62,.05);position:relative;overflow:hidden;z-index:2;}
 .hp-dash::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(198,154,62,.16),transparent 55%);pointer-events:none;}
 .hp-dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;position:relative;}
 .hp-dash-head span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,236,220,.55);display:flex;align-items:center;gap:7px;}
@@ -2543,6 +2552,12 @@ body.home-executive .executive-resource-map{
    link-instances across two separate grids) with one organised grid.
    Same underlying destinations, consolidated into five clear groups.
    ========================================================================== */
+.faq-item{border-bottom:1px solid var(--line);padding:20px 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-item h4{margin:0 0 8px;font-size:1.02rem;font-family:'Fraunces',serif;font-weight:600;color:var(--ink);}
+.faq-item p{margin:0;font-size:.92rem;color:var(--slate);line-height:1.6;}
+.faq-item p a{color:var(--cta);text-decoration:underline;text-decoration-color:rgba(140,106,46,.35);}
+
 .pa-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
 .pa-card{background:var(--white);border:1px solid var(--line);padding:32px 28px 26px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
 .pa-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft);border-color:var(--brass)}
