@@ -1,0 +1,1265 @@
+# Ask Wakili — Build Note
+
+AI-assisted legal-issue-spotting tool, embedded on `expertise.html` (Data
+Protection & Privacy section) and, in a lighter-touch form, on `contact.html`
+(before the "Talk to Counsel" options). Grounded entirely in the site's own
+Case Digest — it does not know anything about Kenyan law beyond what's
+already published in `case-digest-index.json`.
+
+## What it does
+
+A visitor describes a situation in plain language. The tool returns:
+a one-line issue label, a short plain-English explanation, up to three
+matching case notes from the Case Digest (never more), and a set of related
+topic tags. It never gives a definitive legal conclusion, and it says so —
+in the model's own output and in a static disclaimer on every render.
+
+## Why grounding is the whole design, not a feature of it
+
+The risk with a tool like this isn't tone, it's citation. An LLM asked
+"what case supports this" will produce a plausible-sounding case name if it
+doesn't have one — that's the single biggest way a tool like this damages a
+firm's credibility. Two independent layers guard against it:
+
+1. **Prompt-level**: the system prompt gives the model the full text of every
+   entry in `ask-wakili-casebank.mts` and instructs it to cite only by exact
+   `id`, and to say `"no_match": true` rather than force a weak match.
+2. **Server-level (the layer that actually matters)**: `ask-wakili.mts`
+   discards any `id` in the model's response that isn't a real key in
+   `CASEBANK_BY_ID`, before the response ever reaches the browser. A prompt
+   instruction is a request; this filter is a guarantee. Tested directly by
+   feeding the render path a fabricated id — confirmed dropped, not shown.
+
+The corpus itself is a **snapshot**, not a live read of
+`case-digest-index.json` at request time (`ask-wakili-casebank.mts` is a
+generated, checked-in file — see "Keeping the corpus in sync" below). One
+entry (Balicha v Platinum Credit Limited) was independently checked against
+Kenya Law directly; the other 32 were carried over from the Case Digest as
+published and have not each been individually re-verified in this pass —
+same caveat that applies to the Case Digest pages themselves.
+
+## Files added / changed
+
+```
+netlify/functions/ask-wakili.mts                 NEW — the endpoint itself
+netlify/functions/lib/ask-wakili-casebank.mts     NEW — generated corpus (33 entries)
+netlify/functions/lib/privacy-config.mts          CHANGED — added ask_wakili_query activity
+expertise.html                                    CHANGED — widget inserted after #data-protection
+contact.html                                      CHANGED — lighter variant inserted before #talk-to-counsel
+```
+
+Nothing else was touched. In particular: `styles.css`, `script.js`, and
+every other function file are untouched — Ask Wakili's CSS lives in a scoped
+`<style>` block on each page it appears on, following the same pattern as
+`changelog.html`.
+
+## Required environment variable
+
+| Variable | Where | Notes |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | Netlify → Site configuration → Environment variables | Get a **production** key from console.anthropic.com. Never the same key used in a local `.env` you might commit. The function returns a clean 503 ("Ask Wakili is not fully set up yet") if this is missing, rather than crashing. |
+
+No other new environment variables. Reuses `ALLOWED_ORIGINS` and whatever
+Netlify Blobs configuration the existing functions already rely on via
+`lib/security.mts`.
+
+## Design decisions worth understanding, not just accepting
+
+**The query text is never stored — only metadata is.** Unlike the contact
+and webinar forms, there's no consent checkbox here, and a query can contain
+personal data about the visitor or a third party they mention. The audit
+record written to the `ask-wakili-log` Blobs store contains a *hashed* IP,
+query length, matched-case citations, and whether the query was a "no
+match" — never the query string itself. See the `TODO(Patrick)` in
+`privacy-config.mts` on the lawful-basis call (`legitimate_interests`) —
+that balancing judgment is flagged for you to confirm, the same way exact
+statutory citations are flagged elsewhere in this codebase rather than
+guessed at.
+
+**Rate limit is 8 requests / 10 minutes per IP**, reusing
+`lib/security.mts: checkRateLimit` — same Netlify-Blobs-backed sliding
+window as the other endpoints, with the same caveat already documented in
+`PRIVACY-COMPLIANCE-BUILD.md`: eventually consistent, fine for casual abuse,
+not a WAF.
+
+**The hero panel uses fixed hex colours, not `var(--ink)` / `var(--paper)`.**
+While building this, dark mode was tested and the hero briefly went
+near-invisible — text and background were both flipping to the same value.
+Root cause: `--ink` inverts under `[data-theme="dark"]`, but
+`.section--ink` elsewhere in `styles.css` sets `background:var(--ink)`,
+which means **every dark accent band on the live site currently has this
+same latent contrast bug in dark mode**, not just this new component. Fixed
+locally here with literal hex values (`#1b1a17` / `#f2ecdc`) so Ask Wakili
+stays legible regardless of site theme. `.section--ink` itself was
+deliberately left untouched — that's shared sitewide and outside this
+pass; worth its own fix.
+
+**Visual language borrows from `.hp-dash` and `.cl-preview-card` on purpose**,
+not from scratch: the live-pulse dot, the glass-panel input treatment, and
+the hover-lift + brass-border authority cards all reuse patterns already
+established on the homepage dashboard and Case Digest preview, rather than
+introducing a new visual idiom for one component.
+
+## What's deliberately not done yet
+
+- **The other 32 Case Digest entries haven't been individually re-verified**
+  against Kenya Law by this pass — only Balicha v Platinum Credit Limited
+  was spot-checked. Worth a verification sweep before leaning on this
+  tool's coverage claims in any marketing of it.
+- **No live end-to-end test against the real Anthropic API.** Everything was
+  type-checked (`tsc --strict`), bundle-checked with esbuild (same bundler
+  Netlify uses — confirmed clean), and the grounding filter was tested
+  directly by simulating a model response containing a fabricated case id.
+  What couldn't be tested here: an actual request hitting the real
+  `api.anthropic.com` with a live key. Test that on a deploy preview first.
+- **No server-side content moderation beyond the grounding filter.** The
+  system prompt constrains tone and citations; it does not defend against a
+  visitor deliberately trying to prompt-inject the model into saying
+  something off-brand. Low-stakes for an educational tool with no
+  authenticated actions behind it, but worth knowing before this gets
+  linked from anywhere higher-traffic than the two pages it's on now.
+- **No pre-fill from Ask Wakili into the contact form.** The Contact page
+  variant links to `#talk-to-counsel` but doesn't carry the visitor's typed
+  query into the enquiry textarea. Straightforward to add — deferred to
+  keep this pass reviewable.
+
+## Deploy checklist
+
+1. Merge these five files into the real repo (not this zip's directory
+   structure — check paths match your actual `netlify/functions/` layout).
+2. Set `ANTHROPIC_API_KEY` in Netlify's environment variables for the
+   relevant deploy context (production, and any deploy-preview context you
+   want to test in first).
+3. Push to a deploy preview. Open `expertise.html#data-protection`, submit a
+   real query, confirm: (a) a response comes back, (b) every citation shown
+   links to a real page on the site, (c) the browser network tab shows no
+   Anthropic key or system prompt anywhere in the request/response the
+   *client* sends — only your own `/api/ask-wakili` call.
+4. Check dark mode specifically (toggle via the nav) on both pages.
+5. Check the rate limit fires after 8 rapid submissions and recovers after
+   the window.
+6. Only then merge to production.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Counsel | Muchangi Patrick & Associates Advocates, Nairobi</title>
+<link rel="canonical" href="https://dataprivacyadvocates.co.ke/contact.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Muchangi Patrick & Associates Advocates" />
+<meta property="og:url" content="https://dataprivacyadvocates.co.ke/contact.html" />
+<meta property="og:title" content="Contact | Muchangi Patrick & Associates Advocates, Nairobi Kenya" />
+<meta property="og:description" content="Book a consultation with Muchangi Patrick & Associates Advocates, a data protection and technology law firm in Nairobi, Kenya. Speak directly with Advocate Patrick Muchangi." />
+<meta property="og:image" content="https://dataprivacyadvocates.co.ke/images/trust-handshake.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact | Muchangi Patrick & Associates Advocates, Nairobi Kenya" />
+<meta name="twitter:description" content="Book a consultation with Muchangi Patrick & Associates Advocates, a data protection and technology law firm in Nairobi, Kenya. Speak directly with Advocate Patrick Muchangi." />
+<meta name="twitter:image" content="https://dataprivacyadvocates.co.ke/images/trust-handshake.jpg" />
+
+<meta name="description" content="Speak with Muchangi Patrick & Associates Advocates about data protection, privacy, technology, cybersecurity, AI governance or regulatory issues in Kenya." />
+<meta name="keywords" content="Contact Muchangi Patrick, Muchangi Law Firm, Data Protection Lawyer Kenya, Law Firm Nairobi, Advocates Nairobi, Legal Advisor Kenya, Book a Consultation Kenya, Data Protection Consultant Kenya, Legal Services Kenya, Hire a Data Protection Lawyer, Find a Privacy Lawyer Kenya" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="icon" href="images/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="images/favicon-48x48.png" type="image/png" sizes="48x48" />
+<link rel="icon" href="images/favicon-96x96.png" type="image/png" sizes="96x96" />
+<link rel="icon" href="images/favicon-192x192.png" type="image/png" sizes="192x192" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#1b1a17" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=7" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "@id": "https://dataprivacyadvocates.co.ke/#legalservice",
+  "name": "Muchangi Patrick & Associates Advocates",
+  "alternateName": "Muchangi Patrick & Associates",
+  "url": "https://dataprivacyadvocates.co.ke/",
+  "logo": "https://dataprivacyadvocates.co.ke/images/logo-schema.png",
+  "image": "https://dataprivacyadvocates.co.ke/images/data-protection-banner.jpg",
+  "description": "A technology law firm based in Nairobi, Kenya, specialising in data protection, privacy, GDPR and cross-border compliance, fintech and startup advisory, board governance, and AI governance.",
+  "telephone": [
+    "+254722878607",
+    "+254736358938"
+  ],
+  "email": "consult@dataprivacyadvocates.co.ke",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pinetree Plaza, 8th Floor, Kaburu Drive, off Ngong Road",
+    "addressLocality": "Nairobi",
+    "postalCode": "00100",
+    "addressCountry": "KE"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Kenya"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "17:30"
+  },
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.linkedin.com/company/muchangipatrickadvocates/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://dataprivacyadvocates.co.ke/contact.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://dataprivacyadvocates.co.ke/contact.html#webpage",
+  "url": "https://dataprivacyadvocates.co.ke/contact.html",
+  "name": "Contact",
+  "description": "Book a consultation with Muchangi Patrick & Associates Advocates, a data protection and technology law firm in Nairobi, Kenya.",
+  "isPartOf": {
+    "@id": "https://dataprivacyadvocates.co.ke/#website"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://dataprivacyadvocates.co.ke/images/trust-handshake.jpg"
+  },
+  "breadcrumb": {
+    "@id": "https://dataprivacyadvocates.co.ke/contact.html#breadcrumb"
+  }
+}
+</script>
+<link rel="stylesheet" href="/assets/css/mp-nav.css">
+</head>
+<body>
+
+<div class="mp-util">
+<div class="mp-util-inner">
+<div class="mp-util-left">
+<a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
+<a href="mailto:consult@dataprivacyadvocates.co.ke" class="mp-util-addr"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
+</div>
+<div class="mp-util-right">
+<a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="/contact.html">Pinetree Plaza, Nairobi</a>
+</div>
+</div>
+</div>
+<header class="mp-nav">
+<div class="mp-nav-inner">
+<a href="/index.html" class="mp-nav-brand">
+<span class="mp-nav-seal"><span>MP</span></span>
+<span class="mp-nav-brand-text"><strong>Muchangi Patrick</strong><em>&amp; Associates Advocates</em></span>
+</a>
+<nav class="mp-nav-links" aria-label="Primary">
+<div class="mp-nav-item">
+<button type="button" aria-expanded="false">Practice Areas <i class="fas fa-chevron-down mp-caret"></i></button>
+<div class="mp-mega">
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Practice Area</div>
+<a href="/expertise.html#data-protection"><i class="fas fa-shield-halved"></i><span class="mp-mega-item-text">Data Protection &amp; Privacy<small>Compliance &amp; data-subject rights</small></span></a>
+<a href="/odpc-response-appeals.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">ODPC Disputes &amp; Appeals<small>Regulatory defence</small></span></a>
+<a href="/expertise.html#corporate-commercial"><i class="fas fa-briefcase"></i><span class="mp-mega-item-text">Corporate &amp; Commercial<small>Formation &amp; transactions</small></span></a>
+<a href="/technology-contracts.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology &amp; Fintech<small>Contracts &amp; regulatory advice</small></span></a>
+<a href="/expertise.html#disputes"><i class="fas fa-scale-balanced"></i><span class="mp-mega-item-text">Disputes &amp; Resolution<small>Litigation &amp; ADR</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Sector</div>
+<a href="/sector-corporate.html"><i class="fas fa-building"></i><span class="mp-mega-item-text">Corporate<small>Boards &amp; enterprises</small></span></a>
+<a href="/sector-financial-services.html"><i class="fas fa-landmark"></i><span class="mp-mega-item-text">Financial Services<small>Banks, SACCOs &amp; lenders</small></span></a>
+<a href="/sector-technology.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology<small>Tech &amp; AI companies</small></span></a>
+<a href="/sector-healthcare.html"><i class="fas fa-heart-pulse"></i><span class="mp-mega-item-text">Healthcare<small>Health providers</small></span></a>
+<a href="/sector-education.html"><i class="fas fa-graduation-cap"></i><span class="mp-mega-item-text">Education<small>Schools &amp; colleges</small></span></a>
+<a href="/sector-public-sector.html"><i class="fas fa-flag"></i><span class="mp-mega-item-text">Public Sector<small>Government &amp; public bodies</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">Resources</div>
+<a href="/resources/practice-notes/"><i class="fas fa-file-lines"></i><span class="mp-mega-item-text">Practice Notes<small>Flagship legal analysis</small></span></a>
+<a href="/case-digest.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">Case Digest Library<small>33 searchable case notes</small></span></a>
+<a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><span class="mp-mega-item-text">Compliance Toolkit<small>Templates &amp; checklists</small></span></a>
+<a href="/changelog.html"><i class="fas fa-list-check"></i><span class="mp-mega-item-text">Regulatory Changelog<small>Every circular, bill &amp; ruling</small></span></a>
+<a href="/insights.html"><i class="fas fa-lightbulb"></i><span class="mp-mega-item-text">Insights<small>Short-form commentary</small></span></a>
+</div>
+<div class="mp-mega-foot">
+<span>9 practice areas &middot; 6 sectors &middot; 33 case notes</span>
+<a href="/expertise.html">View all Practice Areas <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html" class="active">Contact</a>
+</nav>
+<div class="mp-nav-actions">
+<button type="button" class="mp-nav-search" aria-label="Search (Ctrl K)"><i class="fas fa-magnifying-glass"></i><span>Search</span><span class="mp-kbd">&#8984;K</span></button>
+<button type="button" class="mp-nav-theme" aria-label="Toggle dark mode" aria-pressed="false"><i class="fas fa-moon"></i></button>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+<button type="button" class="mp-nav-toggle" id="mpNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</div>
+</header>
+<div class="mp-nav-mobile" id="mpNavMobile">
+<a href="/expertise.html">Practice Areas</a>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/resources/practice-notes/">Knowledge Centre</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+</div>
+<div class="mp-palette-overlay" id="mpPaletteOverlay">
+<div class="mp-palette" role="dialog" aria-modal="true" aria-label="Search">
+<div class="mp-palette-input-row">
+<i class="fas fa-magnifying-glass"></i>
+<input type="text" id="mpPaletteInput" placeholder="Search case digests, practice notes, practice areas&hellip;" autocomplete="off">
+<kbd>Esc</kbd>
+</div>
+<div class="mp-palette-results" id="mpPaletteResults"></div>
+<div class="mp-palette-footer"><span><kbd>&#8593;</kbd><kbd>&#8595;</kbd> Navigate</span><span><kbd>&#8629;</kbd> Open</span><span><kbd>Esc</kbd> Close</span></div>
+</div>
+</div>
+<section class="client-hero">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / Contact</div>
+    <div class="client-kicker">Speak with counsel</div>
+    <h1>Tell us what is happening. <em>We will help you work out what comes next.</em></h1>
+    <p class="lead">You do not need to diagnose the legal problem before contacting us. Whether you have received an ODPC notice, discovered a data issue, are building a digital product, or simply need a second view, start with the facts.</p>
+    <div class="hero-actions"><a class="btn btn-brass" href="#talk-to-counsel"><i class="fas fa-comments"></i> Tell Us About Your Matter</a><a class="btn btn-line" href="https://wa.me/254736358938" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Counsel</a></div>
+  </div>
+</section>
+
+<style>
+/* ==========================================================================
+   ASK WAKILI — AI-assisted, Case-Digest-grounded legal issue spotter.
+   Scoped to .aw- classes; reads the same custom properties as the rest of
+   the site (including dark mode via [data-theme="dark"]) so it needs no
+   overrides of its own.
+   ========================================================================== */
+.aw-section{padding:76px 0;}
+.aw-frame{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);}
+/* Fixed (not var(--ink)/var(--paper)) on purpose: this panel is meant to
+   stay a dark, high-contrast band in both light and dark site themes. Using
+   the theme variables here would invert it under [data-theme="dark"] (--ink
+   becomes light, --paper becomes dark), which is a bug we noticed already
+   affects the site's existing .section--ink bands — see ASK-WAKILI-BUILD.md. */
+.aw-hero{background:#1b1a17;color:#f2ecdc;padding:40px 40px 34px;position:relative;overflow:hidden;}
+.aw-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% -10%,rgba(198,154,62,.18),transparent 55%);pointer-events:none;}
+.aw-hero .eyebrow{color:#ecc981;position:relative;display:flex;align-items:center;gap:8px;}
+.aw-live-dot{width:6px;height:6px;border-radius:50%;background:#8fae7a;box-shadow:0 0 0 3px rgba(143,174,122,.25);animation:awPulse 2.2s ease-in-out infinite;flex-shrink:0;}
+@keyframes awPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.aw-hero h2{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.18;margin:0 0 10px;color:#f2ecdc;position:relative;}
+.aw-hero p{max-width:60ch;color:rgba(242,236,220,.72);font-size:15px;line-height:1.6;margin:0 0 16px;position:relative;}
+.aw-corpus-note{position:relative;display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:rgba(242,236,220,.5);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(242,236,220,.1);width:100%;}
+.aw-corpus-note strong{color:var(--brass-light,#ecc981);font-weight:600;}
+.aw-row{display:flex;gap:10px;margin-bottom:14px;position:relative;flex-wrap:wrap;}
+.aw-row input{flex:1;min-width:220px;padding:13px 16px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.14);background:rgba(242,236,220,.05);color:#f2ecdc;font-family:var(--font-body);font-size:14.5px;outline:none;transition:border-color .15s ease,background .15s ease;}
+.aw-row input::placeholder{color:rgba(242,236,220,.42);}
+.aw-row input:focus{border-color:var(--brass-light);background:rgba(242,236,220,.08);box-shadow:0 0 0 3px rgba(198,154,62,.12);}
+.aw-btn{font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:0 22px;border-radius:var(--radius);border:none;cursor:pointer;white-space:nowrap;background:var(--cta);color:var(--white);transition:background .15s ease;}
+.aw-btn:hover{background:var(--cta-hover);}
+.aw-btn:disabled{opacity:.5;cursor:default;}
+.aw-btn-ghost{font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:0 18px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.25);cursor:pointer;background:transparent;color:rgba(242,236,220,.75);}
+.aw-btn-ghost:hover{color:#f2ecdc;border-color:rgba(242,236,220,.5);}
+.aw-chips{display:flex;flex-wrap:wrap;gap:8px;position:relative;}
+.aw-chip{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 11px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.22);background:transparent;color:rgba(242,236,220,.68);cursor:pointer;}
+.aw-chip:hover{border-color:var(--brass-light);color:#f2ecdc;}
+
+.aw-body{padding:0;}
+.aw-loading{display:none;align-items:center;gap:10px;padding:22px 40px;font-size:13.5px;color:var(--slate);border-bottom:1px solid var(--line);}
+.aw-loading.show{display:flex;}
+.aw-spinner{width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--cta);border-radius:50%;animation:awSpin .7s linear infinite;}
+@keyframes awSpin{to{transform:rotate(360deg);}}
+.aw-error{display:none;margin:20px 40px;font-size:13.5px;color:var(--error);background:rgba(126,47,32,.08);padding:14px 18px;border-radius:var(--radius);border:1px solid rgba(126,47,32,.2);}
+.aw-error.show{display:block;}
+
+.aw-results{display:none;}
+.aw-results.show{display:block;animation:awRise .35s ease;}
+@keyframes awRise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.aw-panel{padding:26px 40px;border-bottom:1px solid var(--line);}
+.aw-panel:last-child{border-bottom:none;}
+.aw-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;}
+.aw-panel-head h3{font-family:var(--font-display);font-weight:600;font-size:19px;margin:0;color:var(--ink);}
+.aw-badge{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--cta);background:var(--plum-pale,rgba(198,154,62,.12));padding:4px 10px;border-radius:var(--radius);white-space:nowrap;}
+.aw-panel p{font-size:14.5px;line-height:1.65;color:var(--slate);margin:0 0 10px;}
+.aw-hooks{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+.aw-hook{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cta);background:rgba(198,154,62,.1);padding:4px 9px;border-radius:var(--radius);}
+
+.aw-auth-group{display:flex;flex-direction:column;gap:12px;}
+.aw-auth{padding:18px 20px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);transition:transform .2s var(--ease,ease),box-shadow .2s var(--ease,ease),border-color .2s var(--ease,ease);}
+.aw-auth:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft);border-color:var(--brass);}
+.aw-auth-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px;}
+.aw-auth-name{font-family:var(--font-display);font-size:15.5px;font-weight:600;color:var(--ink);}
+.aw-auth-cite{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cta);font-weight:600;margin-bottom:8px;}
+.aw-auth-why{font-size:13.5px;color:var(--slate);line-height:1.55;margin:0 0 10px;}
+.aw-rel{font-family:'IBM Plex Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.03em;padding:3px 8px;border-radius:var(--radius);white-space:nowrap;}
+.aw-rel-most{background:rgba(198,154,62,.14);color:var(--cta);}
+.aw-rel-related{background:var(--paper-2);color:var(--muted);}
+.aw-auth-link{font-size:13px;color:var(--ink);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding-top:10px;border-top:1px solid var(--line);width:100%;}
+.aw-auth:hover .aw-auth-link{color:var(--cta);}
+.aw-nomatch{font-size:13.5px;color:var(--slate);line-height:1.65;}
+
+.aw-topics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+.aw-topic{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--slate);background:var(--paper-2);border:1px solid var(--line);padding:4px 10px;border-radius:var(--radius);}
+.aw-cta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:14px;border-top:1px dashed var(--line);}
+.aw-cta span{font-size:12.5px;color:var(--muted);}
+.aw-cta a{font-family:var(--font-body);font-weight:600;font-size:13px;color:var(--cta);text-decoration:none;}
+.aw-cta a:hover{text-decoration:underline;}
+
+.aw-foot{padding:16px 40px;font-size:11.5px;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);background:var(--paper-2);}
+
+@media(max-width:640px){
+  .aw-hero,.aw-panel,.aw-loading,.aw-error,.aw-foot{padding-left:22px;padding-right:22px;}
+  .aw-error{margin-left:22px;margin-right:22px;}
+}
+</style>
+
+<section class="section aw-section" id="ask-wakili-contact">
+  <div class="container">
+    <div class="aw-frame">
+
+      <div class="aw-hero">
+        <div class="eyebrow">Before you reach out · Ask Wakili</div>
+        <h2>Start with what happened.</h2>
+        <p>Not sure how to phrase your enquiry, or which practice area it falls under? Describe it here first. Ask Wakili will point you to the relevant area of law and case notes, then you can book, call or write below.</p>
+        <div class="aw-row">
+          <input type="text" id="awQuery" maxlength="320" placeholder="e.g. A lender deducted my salary for a loan I never took">
+          <button class="aw-btn" id="awAsk">Ask Wakili</button>
+          <button class="aw-btn-ghost" id="awClear">Clear</button>
+        </div>
+        <div class="aw-chips" id="awChips"></div>
+        <div class="aw-corpus-note"><span class="aw-live-dot"></span>Grounded in <strong>33 published case notes</strong> from our Case Digest — cites none it can't verify</div>
+      </div>
+
+      <div class="aw-body">
+        <div class="aw-loading" id="awLoading"><span class="aw-spinner"></span> Checking the Case Digest…</div>
+        <div class="aw-error" id="awError"></div>
+        <div class="aw-results" id="awResults">
+          <div class="aw-panel" id="awIssuePanel"></div>
+          <div class="aw-panel" id="awAuthPanel"></div>
+          <div class="aw-panel" id="awTopicsPanel"></div>
+        </div>
+      </div>
+
+      <div class="aw-foot">Ask Wakili gives general information only, grounded strictly in this firm's published Case Digest — it does not give legal advice and nothing you type is stored verbatim. For advice on your specific situation, <a href="#talk-to-counsel" style="color:var(--cta);font-weight:600;">choose how to reach us below</a>.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const EXAMPLES = [
+    "A lender deducted my salary for a loan I never took",
+    "A company won't let me correct my data",
+    "My employer shared my data with a third party",
+    "I want to challenge an ODPC determination",
+    "A business used my photo without consent"
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const queryEl = $('awQuery'), askBtn = $('awAsk'), clearBtn = $('awClear'), chipsEl = $('awChips');
+  const loadingEl = $('awLoading'), errorEl = $('awError'), resultsEl = $('awResults');
+  const issuePanel = $('awIssuePanel'), authPanel = $('awAuthPanel'), topicsPanel = $('awTopicsPanel');
+
+  EXAMPLES.forEach(ex => {
+    const c = document.createElement('button');
+    c.type = 'button'; c.className = 'aw-chip'; c.textContent = ex;
+    c.addEventListener('click', () => { queryEl.value = ex; runQuery(ex); });
+    chipsEl.appendChild(c);
+  });
+
+  function esc(s){ const d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+
+  async function runQuery(query){
+    if (!query || query.trim().length < 4) return;
+    errorEl.classList.remove('show');
+    resultsEl.classList.remove('show');
+    loadingEl.classList.add('show');
+    askBtn.disabled = true;
+
+    try {
+      const res = await fetch('/api/ask-wakili', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: query.trim() })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.message || data.error || 'request_failed');
+      }
+      render(data);
+    } catch (err) {
+      console.error('Ask Wakili error:', err);
+      errorEl.textContent = (err && err.message && err.message !== 'request_failed')
+        ? err.message
+        : "Ask Wakili couldn't process that just now. Please try rephrasing, or contact the firm directly.";
+      errorEl.classList.add('show');
+    } finally {
+      loadingEl.classList.remove('show');
+      askBtn.disabled = false;
+    }
+  }
+
+  function render(data){
+    issuePanel.innerHTML = `
+      <div class="aw-panel-head">
+        <h3>${esc(data.issue_title)}</h3>
+        <span class="aw-badge">Educational information</span>
+      </div>
+      <p>${esc(data.issue_summary)}</p>
+      ${data.statutory_hooks && data.statutory_hooks.length ? `<div class="aw-hooks">${data.statutory_hooks.map(h => `<span class="aw-hook">${esc(h)}</span>`).join('')}</div>` : ''}
+    `;
+
+    if (data.no_match || !data.authorities || !data.authorities.length){
+      authPanel.innerHTML = `
+        <div class="aw-panel-head"><h3>Relevant case notes</h3></div>
+        <p class="aw-nomatch">Nothing in our Case Digest is a close match for this yet. That doesn't mean the law is silent on it — it means this specific scenario isn't in our published notes. Our team can advise directly.</p>
+      `;
+    } else {
+      authPanel.innerHTML = `
+        <div class="aw-panel-head"><h3>Relevant case notes</h3></div>
+        <div class="aw-auth-group">
+        ${data.authorities.map(a => `
+          <div class="aw-auth">
+            <div class="aw-auth-top">
+              <div>
+                <div class="aw-auth-name">${esc(a.name)}</div>
+                <div class="aw-auth-cite">${esc(a.citation)} · ${esc(a.outcome)}</div>
+              </div>
+              <span class="aw-rel ${a.relevance === 'Most relevant' ? 'aw-rel-most' : 'aw-rel-related'}">${esc(a.relevance)}</span>
+            </div>
+            <p class="aw-auth-why">${esc(a.why)}</p>
+            <a class="aw-auth-link" href="${a.url}">Read the full case note →</a>
+          </div>
+        `).join('')}
+        </div>
+      `;
+    }
+
+    topicsPanel.innerHTML = `
+      <div class="aw-panel-head"><h3 style="font-family:var(--font-body);font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);">Related topics</h3></div>
+      <div class="aw-topics">${(data.related_topics || []).map(t => `<span class="aw-topic">${esc(t)}</span>`).join('')}</div>
+      <div class="aw-cta">
+        <span>General information only — not a substitute for advice on your specific facts.</span>
+        <a href="#talk-to-counsel">Choose how to reach us ↓</a>
+      </div>
+    `;
+
+    resultsEl.classList.add('show');
+  }
+
+  askBtn.addEventListener('click', () => runQuery(queryEl.value));
+  queryEl.addEventListener('keypress', (e) => { if (e.key === 'Enter') runQuery(queryEl.value); });
+  clearBtn.addEventListener('click', () => { queryEl.value = ''; resultsEl.classList.remove('show'); errorEl.classList.remove('show'); });
+})();
+</script>
+
+<section class="section" id="talk-to-counsel">
+  <div class="container">
+    <div class="section-head center reveal"><div class="client-kicker">Choose the easiest starting point</div><h2>You can book, call, WhatsApp or write.</h2><p>Choose whichever feels most natural. A first conversation is about understanding the matter and deciding whether we are the right counsel for it.</p></div>
+    <div class="client-grid reveal stagger">
+      <a class="client-card" href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener"><div class="icon"><i class="fas fa-calendar-check"></i></div><h3>Book a consultation</h3><p>Choose a convenient time for a focused conversation about your legal or regulatory issue.</p><span class="text-link">Book a time <i class="fas fa-arrow-right"></i></span></a>
+      <a class="client-card" href="https://wa.me/254736358938" target="_blank" rel="noopener"><div class="icon"><i class="fab fa-whatsapp"></i></div><h3>Ask a quick question</h3><p>If you are unsure where to start, send a short message and tell us what happened.</p><span class="text-link">Open WhatsApp <i class="fas fa-arrow-right"></i></span></a>
+      <a class="client-card" href="mailto:consult@dataprivacyadvocates.co.ke"><div class="icon"><i class="fas fa-envelope"></i></div><h3>Write to counsel</h3><p>Useful for a fuller background, regulatory correspondence or a matter that needs context.</p><span class="text-link">Send an email <i class="fas fa-arrow-right"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2">
+  <div class="container">
+    <div class="contact-shell">
+      <div class="contact-panel reveal">
+        <div class="client-kicker">Start here</div>
+        <h2>Tell us what is going on.</h2>
+        <p class="panel-lead">Give us enough context to understand the issue. You do not need to use legal terminology. If you have documents, mention what they are and we can tell you the best way to share them securely.</p>
+        <form class="consult-form" data-form-type="consultation" action="https://formspree.io/f/xdarywop" method="POST">
+          <div class="form-grid form-grid--simple">
+            <div class="field"><label for="full_name">Your name</label><input type="text" id="full_name" name="full_name" required placeholder="Your name" /></div>
+            <div class="field"><label for="company">Organisation <span style="font-weight:400;color:var(--muted);">(if applicable)</span></label><input type="text" id="company" name="company" placeholder="Company or organisation" /></div>
+            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required placeholder="you@example.com" /></div>
+            <div class="field"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" name="phone" placeholder="+254..." /></div>
+            <div class="field"><label for="inquiry_type">What is this about?</label><select id="inquiry_type" name="inquiry_type"><option value="data-protection">Data protection / privacy</option><option value="odpc">ODPC complaint, notice or enforcement</option><option value="technology">Technology / digital transaction</option><option value="ai">AI governance</option><option value="cybersecurity">Cybersecurity / incident</option><option value="commercial">Commercial / contract</option><option value="general" selected>Not sure yet</option></select></div>
+            <div class="field"><label for="matter">What happened?</label><textarea id="matter" name="matter" required placeholder="Tell us the situation in your own words..."></textarea></div>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin:14px 0 0;">Please do not include passwords, access codes or other highly sensitive credentials in this form.</p>
+          <p class="form-status" style="margin-top:12px;display:none;"></p>
+          <button type="submit" class="btn btn-brass" style="margin-top:20px;">Send to Counsel <i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+      <div class="contact-panel contact-panel--plum reveal">
+        <div class="client-kicker">What happens next</div>
+        <h2>You will not be left wondering what to do next.</h2>
+        <p class="panel-lead">We start by understanding the matter. If it is something we can assist with, we will explain the appropriate next step and how we can help.</p>
+        <div class="client-steps" style="grid-template-columns:1fr;border-top:1px solid rgba(255,255,255,.14);margin-top:24px;">
+          <div class="client-step"><div class="num">01</div><h3>We read</h3><p>We review the facts you have shared and identify the immediate legal question.</p></div>
+          <div class="client-step"><div class="num">02</div><h3>We respond</h3><p>We tell you the most useful next step and, where appropriate, arrange a consultation.</p></div>
+          <div class="client-step"><div class="num">03</div><h3>We advise</h3><p>If instructed, we move from the initial issue to focused legal advice and action.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal"><div class="client-kicker">Direct contact</div><h2>Prefer to speak directly?</h2><p style="color:var(--muted);margin:14px 0 22px;">Consultations are available in person at our Nairobi office or virtually by phone, WhatsApp or Zoom.</p><div class="contact-options">
+        <div class="contact-option"><div class="option-icon"><i class="fas fa-phone"></i></div><div><h3>Call</h3><p><a href="tel:+254722878607">0722 878 607</a> · <a href="tel:+254736358938">0736 358 938</a></p></div></div>
+        <div class="contact-option"><div class="option-icon"><i class="fab fa-whatsapp"></i></div><div><h3>WhatsApp</h3><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 · Start a conversation</a></p></div></div>
+        <div class="contact-option"><div class="option-icon"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p></div></div>
+      </div></div>
+      <div class="visual-block reveal" style="aspect-ratio:16/10;"><iframe src="https://maps.google.com/maps?q=Pinetree%20Plaza%2C%20Kaburu%20Drive%2C%20Off%20Ngong%20Road%2C%20Nairobi%2C%20Kenya&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Pinetree Plaza, Kaburu Drive, Nairobi"></iframe></div>
+    </div>
+    <div style="margin-top:28px;color:var(--muted);font-size:.9rem;"><i class="fas fa-location-dot" style="color:var(--cta);margin-right:8px;"></i>Pinetree Plaza, 8th Floor, Kaburu Drive, off Ngong Road, Nairobi, Kenya · Monday–Friday, 8:00am–5:30pm</div>
+  </div>
+</section>
+
+<section class="cta-band section--ink">
+  <div class="container" style="text-align:center;"><div class="eyebrow" style="justify-content:center;">No legal jargon required</div><h2>Start with what happened.</h2><p>We will help you work out the legal question.</p><a class="btn btn-brass" href="#talk-to-counsel" style="margin-top:20px;">Talk to Counsel <i class="fas fa-arrow-up"></i></a></div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" /></a>
+        <p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+        <div class="footer-social"><a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Company Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn Company Page</span></a></div>
+      </div>
+      <div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+      <div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+      <div><h5>Solutions</h5><a href="expertise.html">Data Protection &amp; Privacy</a><a href="odpc-registration.html">ODPC Registration</a><a href="retainer.html">Compliance Retainer</a><a href="expertise.html">GDPR &amp; Cross-Border</a><a href="expertise.html">Fintech &amp; Startups</a><a href="expertise.html">AI Governance</a></div>
+      <div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
+      <div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="privacy-policy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="sitemap.html">Sitemap</a></div></div>
+  </div>
+</footer>
+
+<div class="cookie-banner">
+  <div class="cookie-banner-inner">
+    <p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+    <div class="cookie-actions-row">
+      <button type="button" class="btn btn-line btn-sm btn-ghost cookie-essential">Essential Only</button>
+      <button type="button" class="btn btn-brass btn-sm cookie-accept">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE STICKY CTA: compact bar pinned to the bottom of the viewport on
+     phones once the visitor scrolls past the main booking card, so "Book"
+     stays one tap away without permanently covering content. JS-controlled
+     visibility lives in script.js (#mobile-booking-bar). -->
+<div class="mobile-booking-bar" id="mobile-booking-bar">
+  <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="btn btn-brass" id="mobile-booking-bar-btn">
+    <i class="fas fa-calendar-check"></i> Book a Complimentary 10-Minute Digital Trust Gap Analysis
+  </a>
+</div>
+
+<script src="script.js?v=11"></script>
+<script src="/assets/js/conversion.js"></script>
+<script src="/assets/js/mp-nav.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- Consent-aware Google tag (GA4) — collection stays off until the visitor
+     accepts analytics cookies via the banner or the preference centre. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var mpConsent = (function(){ try { return localStorage.getItem('mp_cookie_consent'); } catch(e){ return null; } })();
+  gtag('consent', 'default', {
+    'analytics_storage': mpConsent === 'all' ? 'granted' : 'denied',
+    'ad_storage': mpConsent === 'all' ? 'granted' : 'denied', 'ad_user_data': mpConsent === 'all' ? 'granted' : 'denied', 'ad_personalization': mpConsent === 'all' ? 'granted' : 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-ZM2TZKZHJK');
+</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZM2TZKZHJK"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practice Areas | Muchangi Patrick &amp; Associates Advocates</title>
+<link href="https://dataprivacyadvocates.co.ke/expertise.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Muchangi Patrick &amp; Associates Advocates" property="og:site_name"/>
+<meta content="https://dataprivacyadvocates.co.ke/expertise.html" property="og:url"/>
+<meta content="Data Protection, Corporate &amp; Commercial and Dispute Resolution Lawyer | Muchangi Patrick &amp; Associates" property="og:title"/>
+<meta content="Muchangi Patrick &amp; Associates Advocates provides legal advice and representation in data protection, ODPC disputes, cybersecurity, corporate and commercial law, litigation and alternative dispute resolution in Kenya." property="og:description"/>
+<meta content="https://dataprivacyadvocates.co.ke/images/data-protection.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Data Protection, Corporate &amp; Commercial and Dispute Resolution Lawyer | Muchangi Patrick &amp; Associates" name="twitter:title"/>
+<meta content="Muchangi Patrick &amp; Associates Advocates provides legal advice and representation in data protection, ODPC disputes, cybersecurity, corporate and commercial law, litigation and alternative dispute resolution in Kenya." name="twitter:description"/>
+<meta content="https://dataprivacyadvocates.co.ke/images/data-protection.jpg" name="twitter:image"/>
+<meta content="Legal advice and representation in data protection, ODPC disputes, cybersecurity, corporate and commercial law, litigation and alternative dispute resolution in Kenya." name="description"/>
+<meta content="Data Protection Lawyer Kenya, Data Protection Compliance, ODPC Disputes, ODPC Appeals, Judicial Review, Cybersecurity Law, Data Breach Response, Corporate and Commercial Law, Commercial Contracts, Technology Law, Fintech Law, Litigation, Mediation, Arbitration, Employment Law, Intellectual Property, Conveyancing, Family Law, Immigration Law" name="keywords"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="images/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="images/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/>
+<link href="images/favicon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="favicon.ico" rel="icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" type="image/x-icon"/>
+<link href="images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="site.webmanifest" rel="manifest"/>
+<meta content="#1b1a17" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=7" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dataprivacyadvocates.co.ke/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Solutions",
+      "item": "https://dataprivacyadvocates.co.ke/expertise.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://dataprivacyadvocates.co.ke/expertise.html#webpage",
+  "url": "https://dataprivacyadvocates.co.ke/expertise.html",
+  "name": "Solutions",
+  "description": "Muchangi Patrick & Associates provides legal advice and representation in data protection, ODPC disputes, cybersecurity, corporate and commercial law, technology law, litigation and alternative dispute resolution in Kenya.",
+  "isPartOf": {
+    "@id": "https://dataprivacyadvocates.co.ke/#website"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://dataprivacyadvocates.co.ke/images/data-protection.jpg"
+  },
+  "breadcrumb": {
+    "@id": "https://dataprivacyadvocates.co.ke/expertise.html#breadcrumb"
+  }
+}
+</script>
+</link><style id="practice-page-overrides">
+/* PRACTICE AREAS — problem-first presentation using the site's plum / paper / brass system */
+.practice-page{background:var(--paper);color:var(--ink);}
+.practice-page .site-header{z-index:1000;}
+.practice-resource-band{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--white);border-bottom:1px solid var(--line);margin-top:0;}
+.practice-resource-band>a{position:relative;min-height:112px;padding:18px 24px;display:flex;flex-direction:column;justify-content:center;gap:4px;border-right:1px solid var(--line);transition:background .2s ease,color .2s ease;}
+.practice-resource-band>a:first-child{border-left:1px solid var(--line);}
+.practice-resource-band>a:hover{background:var(--paper-2);}
+.practice-resource-band>a.active{background:var(--ink);color:var(--white);}
+.practice-resource-band span{font-size:.67rem;letter-spacing:.16em;font-weight:700;color:var(--cta);}
+.practice-resource-band>a.active span{color:var(--brass-light);}
+.practice-resource-band strong{font-size:.88rem;letter-spacing:.055em;text-transform:uppercase;}
+.practice-resource-band small{font-size:.76rem;line-height:1.4;color:var(--muted);max-width:210px;}
+.practice-resource-band>a.active small{color:rgba(255,255,255,.68);}
+.practice-resource-band i{position:absolute;right:18px;bottom:18px;color:var(--cta);font-size:.72rem;}
+.practice-resource-band>a.active i{color:var(--brass-light);}
+.practice-hero{background:var(--paper-2);border-bottom:1px solid var(--line);padding:78px 0 84px;position:relative;overflow:hidden;}
+.practice-hero:after{content:"";position:absolute;right:-90px;top:-140px;width:520px;height:520px;border:1px solid rgba(198,154,62,.22);border-radius:50%;box-shadow:0 0 0 40px rgba(198,154,62,.04),0 0 0 90px rgba(198,154,62,.025);}
+.practice-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);gap:72px;align-items:center;position:relative;z-index:1;}
+.practice-hero-copy h1{font-size:clamp(3.1rem,5.2vw,5.4rem);font-weight:500;line-height:1.02;max-width:760px;margin:10px 0 22px;}
+.practice-lead{font-size:1.12rem;line-height:1.8;color:var(--slate);max-width:700px;}
+.practice-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+.practice-actions .btn{border-radius:2px;}
+.practice-hero-panel{background:var(--ink);color:var(--white);padding:30px;box-shadow:var(--shadow-hard);}
+.practice-panel-kicker{color:var(--brass-light);font-size:.67rem;text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:12px;}
+.practice-panel-list>a{display:grid;grid-template-columns:32px 1fr 18px;gap:12px;align-items:center;padding:17px 0;border-top:1px solid rgba(255,255,255,.12);}
+.practice-panel-list>a:last-child{border-bottom:1px solid rgba(255,255,255,.12);}
+.practice-panel-list>a>span{font-family:var(--font-display);color:var(--brass-light);font-size:.8rem;}
+.practice-panel-list strong{display:block;font-size:.86rem;line-height:1.35;}
+.practice-panel-list small{display:block;color:rgba(255,255,255,.55);font-size:.73rem;margin-top:4px;line-height:1.4;}
+.practice-panel-list i{color:var(--brass-light);font-size:.72rem;}
+.practice-orientation{padding:100px 0;background:var(--paper);}
+.practice-problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.practice-problem-grid>a{background:var(--white);padding:28px 28px 25px;min-height:205px;display:flex;flex-direction:column;transition:transform .2s ease,background .2s ease,box-shadow .2s ease;}
+.practice-problem-grid>a:hover{transform:translateY(-3px);background:#f7f2ea;box-shadow:var(--shadow-soft);position:relative;z-index:1;}
+.problem-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--brass);color:var(--cta);margin-bottom:20px;}
+.practice-problem-grid strong{font-size:1.02rem;line-height:1.35;}
+.practice-problem-grid small{font-size:.82rem;color:var(--muted);line-height:1.6;margin-top:8px;}
+.practice-problem-grid em{font-style:normal;text-transform:uppercase;letter-spacing:.11em;font-weight:700;color:var(--cta);font-size:.65rem;margin-top:auto;padding-top:18px;}
+.practice-services{scroll-margin-top:80px;}
+.practice-section-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.65fr);gap:50px;align-items:end;margin-bottom:46px;}
+.practice-section-intro h2{font-size:clamp(2.4rem,4vw,4rem);font-weight:500;}
+.practice-section-intro>p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:480px;}
+.practice-service-layout{display:grid;grid-template-columns:minmax(360px,.9fr) minmax(0,1.1fr);gap:0;background:var(--white);border:1px solid var(--line);}
+.practice-service-layout.reverse{grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);}
+.practice-service-layout.reverse .practice-service-image{order:2;}
+.practice-service-image{min-height:420px;overflow:hidden;}
+.practice-service-image img{width:100%;height:100%;object-fit:cover;}
+.practice-service-body{padding:48px;display:flex;flex-direction:column;justify-content:center;}
+.service-outcome{border-left:2px solid var(--brass);padding-left:18px;margin-bottom:24px;}
+.service-outcome span{display:block;color:var(--cta);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:7px;}
+.service-outcome strong{font-family:var(--font-display);font-size:1.45rem;font-weight:500;line-height:1.3;}
+.service-list{margin:0;}
+.service-list li{padding:10px 0;border-top:1px solid var(--line);color:var(--slate);font-size:.86rem;display:flex;gap:10px;}
+.service-list li:before{content:'✓';color:var(--cta);font-weight:700;}
+.service-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:26px;}
+.service-actions .btn{border-radius:2px;}
+.text-link{font-size:.76rem;font-weight:700;letter-spacing:.05em;color:var(--cta);}
+.practice-response{background:var(--ink);color:rgba(255,255,255,.82);padding:105px 0;}
+.practice-response-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.8fr);gap:70px;align-items:center;}
+.practice-response h2{color:var(--white);font-size:clamp(2.5rem,4vw,4rem);font-weight:500;margin-bottom:18px;}
+.practice-response p{max-width:650px;color:rgba(255,255,255,.62);font-size:1rem;line-height:1.8;}
+.practice-response .btn-line{border-color:rgba(255,255,255,.28);color:var(--white);}
+.practice-response .btn-line:hover{background:var(--brass);border-color:var(--brass);color:var(--ink);}
+.practice-response-image{height:390px;overflow:hidden;border:1px solid rgba(255,255,255,.12);}
+.practice-response-image img{width:100%;height:100%;object-fit:cover;opacity:.84;}
+.practice-method{background:var(--paper-2);}
+.practice-method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.practice-method-grid>div{background:var(--white);padding:30px;min-height:180px;border-top:2px solid var(--brass);}
+.practice-method-grid span{color:var(--cta);font-size:.68rem;letter-spacing:.14em;font-weight:700;}
+.practice-method-grid h3{font-family:var(--font-body);font-size:1rem;margin:16px 0 8px;}
+.practice-method-grid p{font-size:.82rem;line-height:1.65;color:var(--muted);}
+.practice-final-cta{background:linear-gradient(160deg,var(--ink),var(--plum-2));}
+.practice-final-cta .eyebrow{display:flex;justify-content:center;}
+.practice-final-cta .btn-line{border-color:rgba(255,255,255,.25);color:var(--white);}
+.practice-final-cta .btn-line:hover{background:var(--brass);border-color:var(--brass);color:var(--ink);}
+@media(max-width:1050px){.practice-resource-band{grid-template-columns:repeat(2,1fr)}.practice-resource-band>a:nth-child(2n){border-right:0}.practice-resource-band>a:nth-child(n+3){border-top:1px solid var(--line)}.practice-hero-grid{grid-template-columns:1fr;gap:40px}.practice-hero-panel{max-width:720px}.practice-problem-grid{grid-template-columns:repeat(2,1fr)}.practice-service-layout,.practice-service-layout.reverse{grid-template-columns:1fr}.practice-service-layout.reverse .practice-service-image{order:0}.practice-section-intro{grid-template-columns:1fr;gap:16px}.practice-response-grid{grid-template-columns:1fr}.practice-method-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.practice-resource-band{grid-template-columns:1fr}.practice-resource-band>a{min-height:82px;border-right:0!important;border-left:0!important;border-top:0!important;border-bottom:1px solid var(--line);padding:16px 20px}.practice-resource-band>a:last-child{border-bottom:0}.practice-hero{padding:54px 0 60px}.practice-hero-copy h1{font-size:2.75rem}.practice-lead{font-size:.96rem}.practice-hero-panel{padding:22px}.practice-orientation{padding:68px 0}.practice-problem-grid{grid-template-columns:1fr}.practice-services{padding:72px 0}.practice-service-image{min-height:260px}.practice-service-body{padding:28px 22px}.service-outcome strong{font-size:1.25rem}.practice-response{padding:72px 0}.practice-response-image{height:260px}.practice-method{padding:72px 0}.practice-method-grid{grid-template-columns:1fr}.practice-final-cta{padding:72px 0}.practice-final-cta h2{font-size:2.1rem}.practice-final-cta .cta-actions{flex-direction:column;align-items:stretch}.practice-final-cta .cta-actions .btn{justify-content:center;white-space:normal}}
+</style><link rel="stylesheet" href="/assets/css/mp-nav.css">
+</head>
+<body class="practice-page">
+<div class="mp-util">
+<div class="mp-util-inner">
+<div class="mp-util-left">
+<a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
+<a href="mailto:consult@dataprivacyadvocates.co.ke" class="mp-util-addr"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
+</div>
+<div class="mp-util-right">
+<a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="/contact.html">Pinetree Plaza, Nairobi</a>
+</div>
+</div>
+</div>
+<header class="mp-nav">
+<div class="mp-nav-inner">
+<a href="/index.html" class="mp-nav-brand">
+<span class="mp-nav-seal"><span>MP</span></span>
+<span class="mp-nav-brand-text"><strong>Muchangi Patrick</strong><em>&amp; Associates Advocates</em></span>
+</a>
+<nav class="mp-nav-links" aria-label="Primary">
+<div class="mp-nav-item">
+<button type="button" aria-expanded="false">Practice Areas <i class="fas fa-chevron-down mp-caret"></i></button>
+<div class="mp-mega">
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Practice Area</div>
+<a href="/expertise.html#data-protection"><i class="fas fa-shield-halved"></i><span class="mp-mega-item-text">Data Protection &amp; Privacy<small>Compliance &amp; data-subject rights</small></span></a>
+<a href="/odpc-response-appeals.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">ODPC Disputes &amp; Appeals<small>Regulatory defence</small></span></a>
+<a href="/expertise.html#corporate-commercial"><i class="fas fa-briefcase"></i><span class="mp-mega-item-text">Corporate &amp; Commercial<small>Formation &amp; transactions</small></span></a>
+<a href="/technology-contracts.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology &amp; Fintech<small>Contracts &amp; regulatory advice</small></span></a>
+<a href="/expertise.html#disputes"><i class="fas fa-scale-balanced"></i><span class="mp-mega-item-text">Disputes &amp; Resolution<small>Litigation &amp; ADR</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Sector</div>
+<a href="/sector-corporate.html"><i class="fas fa-building"></i><span class="mp-mega-item-text">Corporate<small>Boards &amp; enterprises</small></span></a>
+<a href="/sector-financial-services.html"><i class="fas fa-landmark"></i><span class="mp-mega-item-text">Financial Services<small>Banks, SACCOs &amp; lenders</small></span></a>
+<a href="/sector-technology.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology<small>Tech &amp; AI companies</small></span></a>
+<a href="/sector-healthcare.html"><i class="fas fa-heart-pulse"></i><span class="mp-mega-item-text">Healthcare<small>Health providers</small></span></a>
+<a href="/sector-education.html"><i class="fas fa-graduation-cap"></i><span class="mp-mega-item-text">Education<small>Schools &amp; colleges</small></span></a>
+<a href="/sector-public-sector.html"><i class="fas fa-flag"></i><span class="mp-mega-item-text">Public Sector<small>Government &amp; public bodies</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">Resources</div>
+<a href="/resources/practice-notes/"><i class="fas fa-file-lines"></i><span class="mp-mega-item-text">Practice Notes<small>Flagship legal analysis</small></span></a>
+<a href="/case-digest.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">Case Digest Library<small>33 searchable case notes</small></span></a>
+<a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><span class="mp-mega-item-text">Compliance Toolkit<small>Templates &amp; checklists</small></span></a>
+<a href="/changelog.html"><i class="fas fa-list-check"></i><span class="mp-mega-item-text">Regulatory Changelog<small>Every circular, bill &amp; ruling</small></span></a>
+<a href="/insights.html"><i class="fas fa-lightbulb"></i><span class="mp-mega-item-text">Insights<small>Short-form commentary</small></span></a>
+</div>
+<div class="mp-mega-foot">
+<span>9 practice areas &middot; 6 sectors &middot; 33 case notes</span>
+<a href="/expertise.html">View all Practice Areas <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+</nav>
+<div class="mp-nav-actions">
+<button type="button" class="mp-nav-search" aria-label="Search (Ctrl K)"><i class="fas fa-magnifying-glass"></i><span>Search</span><span class="mp-kbd">&#8984;K</span></button>
+<button type="button" class="mp-nav-theme" aria-label="Toggle dark mode" aria-pressed="false"><i class="fas fa-moon"></i></button>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+<button type="button" class="mp-nav-toggle" id="mpNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</div>
+</header>
+<div class="mp-nav-mobile" id="mpNavMobile">
+<a href="/expertise.html">Practice Areas</a>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/resources/practice-notes/">Knowledge Centre</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+</div>
+<div class="mp-palette-overlay" id="mpPaletteOverlay">
+<div class="mp-palette" role="dialog" aria-modal="true" aria-label="Search">
+<div class="mp-palette-input-row">
+<i class="fas fa-magnifying-glass"></i>
+<input type="text" id="mpPaletteInput" placeholder="Search case digests, practice notes, practice areas&hellip;" autocomplete="off">
+<kbd>Esc</kbd>
+</div>
+<div class="mp-palette-results" id="mpPaletteResults"></div>
+<div class="mp-palette-footer"><span><kbd>&#8593;</kbd><kbd>&#8595;</kbd> Navigate</span><span><kbd>&#8629;</kbd> Open</span><span><kbd>Esc</kbd> Close</span></div>
+</div>
+</div>
+<section aria-label="Site resources" class="practice-resource-band">
+<a class="active" href="expertise.html"><span>01</span><strong>Practice Areas</strong><small>Data, technology, regulatory &amp; disputes</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="case-digest.html"><span>02</span><strong>Case Digests &amp; Publications</strong><small>Kenyan decisions, legal analysis &amp; practice notes</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="file-a-complaint.html"><span>03</span><strong>File a Complaint to ODPC</strong><small>Think your data rights have been violated?</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="index.html#compliance-centre"><span>04</span><strong>Compliance Tools</strong><small>Check, assess and act</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+<a href="index.html#compliance-centre"><span>05</span><strong>Compliance Checker</strong><small>A practical readiness assessment</small><i aria-hidden="true" class="fas fa-arrow-right"></i></a>
+</section>
+<section class="practice-hero">
+<div class="container practice-hero-grid">
+<div class="practice-hero-copy">
+<div class="eyebrow">DATA · TECHNOLOGY · BUSINESS · DISPUTES · KENYA</div>
+<h1>Legal problems rarely arrive neatly labelled.</h1>
+<p class="practice-lead">Start with what is happening. We identify the legal issue, advise on the available options and represent you where the matter requires action.</p>
+<div class="practice-actions"><a class="btn btn-brass" href="#practice-options">Find the right service <i class="fas fa-arrow-down"></i></a><a class="btn btn-line" href="contact.html">Talk to an Advocate <i class="fas fa-arrow-right"></i></a></div>
+</div>
+<div class="practice-hero-panel"><div class="practice-panel-kicker">Where should you start?</div><div class="practice-panel-list">
+<a href="#data-protection"><span>01</span><div><strong>Personal data, privacy or data-subject issue?</strong><small>Data Protection &amp; Privacy</small></div><i class="fas fa-arrow-right"></i></a>
+<a href="#odpc-disputes"><span>02</span><div><strong>Facing an ODPC complaint or decision?</strong><small>ODPC Disputes · Appeals · Judicial Review</small></div><i class="fas fa-arrow-right"></i></a>
+<a href="#corporate-commercial"><span>03</span><div><strong>Need business, company or contract advice?</strong><small>Corporate &amp; Commercial · Contracts · Technology</small></div><i class="fas fa-arrow-right"></i></a>
+<a href="#cybersecurity"><span>04</span><div><strong>Experienced a cyber incident or data breach?</strong><small>Cybersecurity · Breach Response</small></div><i class="fas fa-arrow-right"></i></a>
+<a href="#disputes"><span>05</span><div><strong>Have a dispute or are facing litigation?</strong><small>Litigation · Dispute Resolution</small></div><i class="fas fa-arrow-right"></i></a>
+<a href="#adr"><span>06</span><div><strong>Want to resolve a dispute without a full trial?</strong><small>Mediation · Arbitration · Negotiation</small></div><i class="fas fa-arrow-right"></i></a>
+</div></div></div></section>
+<section class="practice-orientation" id="practice-options"><div class="container"><div class="section-head"><div class="eyebrow">Legal services</div><h2>What do you need help with?</h2><p>You do not need to know the legal terminology. Start with the problem and we will direct you to the appropriate legal service.</p></div><div class="practice-problem-grid">
+<a href="#data-protection"><span class="problem-icon"><i class="fas fa-user-shield"></i></span><strong>Data protection &amp; privacy</strong><small>Privacy advice, data-subject rights, compliance, DPIAs, registration and regulatory representation.</small><em>View service →</em></a>
+<a href="#odpc-disputes"><span class="problem-icon"><i class="fas fa-scale-balanced"></i></span><strong>ODPC disputes, appeals &amp; judicial review</strong><small>Complaints, investigations, determinations, enforcement response, appeals and court challenges.</small><em>View service →</em></a>
+<a href="#corporate-commercial"><span class="problem-icon"><i class="fas fa-building"></i></span><strong>Corporate &amp; commercial law</strong><small>Companies, transactions, contracts, restructuring and commercial advice.</small><em>View service →</em></a>
+<a href="#technology"><span class="problem-icon"><i class="fas fa-file-signature"></i></span><strong>Technology law &amp; contracts</strong><small>Technology transactions, SaaS agreements, software licensing, terms and digital business contracts.</small><em>View service →</em></a>
+<a href="#cybersecurity"><span class="problem-icon"><i class="fas fa-shield-halved"></i></span><strong>Cybersecurity &amp; data breach response</strong><small>Legal response to cyber incidents, data breaches, notification and regulatory exposure.</small><em>View service →</em></a>
+<a href="#disputes"><span class="problem-icon"><i class="fas fa-gavel"></i></span><strong>Litigation &amp; dispute resolution</strong><small>Commercial, contractual, technology, regulatory and civil disputes.</small><em>View service →</em></a>
+<a href="#adr"><span class="problem-icon"><i class="fas fa-handshake"></i></span><strong>Mediation, arbitration &amp; negotiation</strong><small>Alternative dispute resolution where parties need a practical route to settlement.</small><em>View service →</em></a>
+<a href="#other-services"><span class="problem-icon"><i class="fas fa-briefcase"></i></span><strong>Other legal services</strong><small>Employment, intellectual property, property, family and immigration matters.</small><em>View service →</em></a>
+</div></div></section>
+<section class="practice-services section" id="data-protection"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">01 · Legal service</div><h2>Data Protection &amp; Privacy</h2></div><p>Legal advice and representation under Kenya's Data Protection Act and related regulations.</p></div><div class="practice-service-layout"><div class="practice-service-image"><img alt="Data protection and privacy" src="images/panel-data-protection.jpg"/></div><div class="practice-service-body"><div class="service-outcome"><span>We advise on</span><strong>protecting personal data, exercising data rights and meeting statutory obligations.</strong></div><ul class="service-list"><li>Privacy notices, data processing agreements and terms</li><li>Data-subject rights and complaints</li><li>Data Protection Impact Assessments</li><li>ODPC registration and regulatory compliance</li><li>Data breach response and notification</li><li>Representation before the ODPC and courts</li></ul><div class="service-actions"><a class="btn btn-brass" href="odpc-registration.html">ODPC Registration</a><a class="text-link" href="file-a-complaint.html">File an ODPC complaint →</a></div></div></div></div></section>
+<style>
+/* ==========================================================================
+   ASK WAKILI — AI-assisted, Case-Digest-grounded legal issue spotter.
+   Scoped to .aw- classes; reads the same custom properties as the rest of
+   the site (including dark mode via [data-theme="dark"]) so it needs no
+   overrides of its own.
+   ========================================================================== */
+.aw-section{padding:76px 0;}
+.aw-frame{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);}
+/* Fixed (not var(--ink)/var(--paper)) on purpose: this panel is meant to
+   stay a dark, high-contrast band in both light and dark site themes. Using
+   the theme variables here would invert it under [data-theme="dark"] (--ink
+   becomes light, --paper becomes dark), which is a bug we noticed already
+   affects the site's existing .section--ink bands — see ASK-WAKILI-BUILD.md. */
+.aw-hero{background:#1b1a17;color:#f2ecdc;padding:40px 40px 34px;position:relative;overflow:hidden;}
+.aw-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% -10%,rgba(198,154,62,.18),transparent 55%);pointer-events:none;}
+.aw-hero .eyebrow{color:#ecc981;position:relative;display:flex;align-items:center;gap:8px;}
+.aw-live-dot{width:6px;height:6px;border-radius:50%;background:#8fae7a;box-shadow:0 0 0 3px rgba(143,174,122,.25);animation:awPulse 2.2s ease-in-out infinite;flex-shrink:0;}
+@keyframes awPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.aw-hero h2{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.18;margin:0 0 10px;color:#f2ecdc;position:relative;}
+.aw-hero p{max-width:60ch;color:rgba(242,236,220,.72);font-size:15px;line-height:1.6;margin:0 0 16px;position:relative;}
+.aw-corpus-note{position:relative;display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:rgba(242,236,220,.5);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(242,236,220,.1);width:100%;}
+.aw-corpus-note strong{color:var(--brass-light,#ecc981);font-weight:600;}
+.aw-row{display:flex;gap:10px;margin-bottom:14px;position:relative;flex-wrap:wrap;}
+.aw-row input{flex:1;min-width:220px;padding:13px 16px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.14);background:rgba(242,236,220,.05);color:#f2ecdc;font-family:var(--font-body);font-size:14.5px;outline:none;transition:border-color .15s ease,background .15s ease;}
+.aw-row input::placeholder{color:rgba(242,236,220,.42);}
+.aw-row input:focus{border-color:var(--brass-light);background:rgba(242,236,220,.08);box-shadow:0 0 0 3px rgba(198,154,62,.12);}
+.aw-btn{font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:0 22px;border-radius:var(--radius);border:none;cursor:pointer;white-space:nowrap;background:var(--cta);color:var(--white);transition:background .15s ease;}
+.aw-btn:hover{background:var(--cta-hover);}
+.aw-btn:disabled{opacity:.5;cursor:default;}
+.aw-btn-ghost{font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:0 18px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.25);cursor:pointer;background:transparent;color:rgba(242,236,220,.75);}
+.aw-btn-ghost:hover{color:#f2ecdc;border-color:rgba(242,236,220,.5);}
+.aw-chips{display:flex;flex-wrap:wrap;gap:8px;position:relative;}
+.aw-chip{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 11px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.22);background:transparent;color:rgba(242,236,220,.68);cursor:pointer;}
+.aw-chip:hover{border-color:var(--brass-light);color:#f2ecdc;}
+
+.aw-body{padding:0;}
+.aw-loading{display:none;align-items:center;gap:10px;padding:22px 40px;font-size:13.5px;color:var(--slate);border-bottom:1px solid var(--line);}
+.aw-loading.show{display:flex;}
+.aw-spinner{width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--cta);border-radius:50%;animation:awSpin .7s linear infinite;}
+@keyframes awSpin{to{transform:rotate(360deg);}}
+.aw-error{display:none;margin:20px 40px;font-size:13.5px;color:var(--error);background:rgba(126,47,32,.08);padding:14px 18px;border-radius:var(--radius);border:1px solid rgba(126,47,32,.2);}
+.aw-error.show{display:block;}
+
+.aw-results{display:none;}
+.aw-results.show{display:block;animation:awRise .35s ease;}
+@keyframes awRise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.aw-panel{padding:26px 40px;border-bottom:1px solid var(--line);}
+.aw-panel:last-child{border-bottom:none;}
+.aw-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;}
+.aw-panel-head h3{font-family:var(--font-display);font-weight:600;font-size:19px;margin:0;color:var(--ink);}
+.aw-badge{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--cta);background:var(--plum-pale,rgba(198,154,62,.12));padding:4px 10px;border-radius:var(--radius);white-space:nowrap;}
+.aw-panel p{font-size:14.5px;line-height:1.65;color:var(--slate);margin:0 0 10px;}
+.aw-hooks{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+.aw-hook{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cta);background:rgba(198,154,62,.1);padding:4px 9px;border-radius:var(--radius);}
+
+.aw-auth-group{display:flex;flex-direction:column;gap:12px;}
+.aw-auth{padding:18px 20px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);transition:transform .2s var(--ease,ease),box-shadow .2s var(--ease,ease),border-color .2s var(--ease,ease);}
+.aw-auth:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft);border-color:var(--brass);}
+.aw-auth-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px;}
+.aw-auth-name{font-family:var(--font-display);font-size:15.5px;font-weight:600;color:var(--ink);}
+.aw-auth-cite{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cta);font-weight:600;margin-bottom:8px;}
+.aw-auth-why{font-size:13.5px;color:var(--slate);line-height:1.55;margin:0 0 10px;}
+.aw-rel{font-family:'IBM Plex Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.03em;padding:3px 8px;border-radius:var(--radius);white-space:nowrap;}
+.aw-rel-most{background:rgba(198,154,62,.14);color:var(--cta);}
+.aw-rel-related{background:var(--paper-2);color:var(--muted);}
+.aw-auth-link{font-size:13px;color:var(--ink);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding-top:10px;border-top:1px solid var(--line);width:100%;}
+.aw-auth:hover .aw-auth-link{color:var(--cta);}
+.aw-nomatch{font-size:13.5px;color:var(--slate);line-height:1.65;}
+
+.aw-topics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+.aw-topic{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--slate);background:var(--paper-2);border:1px solid var(--line);padding:4px 10px;border-radius:var(--radius);}
+.aw-cta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:14px;border-top:1px dashed var(--line);}
+.aw-cta span{font-size:12.5px;color:var(--muted);}
+.aw-cta a{font-family:var(--font-body);font-weight:600;font-size:13px;color:var(--cta);text-decoration:none;}
+.aw-cta a:hover{text-decoration:underline;}
+
+.aw-foot{padding:16px 40px;font-size:11.5px;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);background:var(--paper-2);}
+
+@media(max-width:640px){
+  .aw-hero,.aw-panel,.aw-loading,.aw-error,.aw-foot{padding-left:22px;padding-right:22px;}
+  .aw-error{margin-left:22px;margin-right:22px;}
+}
+</style>
+
+<section class="section aw-section" id="ask-wakili">
+  <div class="container">
+    <div class="aw-frame">
+
+      <div class="aw-hero">
+        <div class="eyebrow">Ask Wakili · AI-assisted, Case Digest-grounded</div>
+        <h2>Not sure which part of the law your situation touches?</h2>
+        <p>Describe what happened in your own words. Ask Wakili will suggest the general area of Kenyan data protection law it may relate to, and point to relevant case notes from our Case Digest — nothing more.</p>
+        <div class="aw-row">
+          <input type="text" id="awQuery" maxlength="320" placeholder="e.g. A lender deducted my salary for a loan I never took">
+          <button class="aw-btn" id="awAsk">Ask Wakili</button>
+          <button class="aw-btn-ghost" id="awClear">Clear</button>
+        </div>
+        <div class="aw-chips" id="awChips"></div>
+        <div class="aw-corpus-note"><span class="aw-live-dot"></span>Grounded in <strong>33 published case notes</strong> from our Case Digest — cites none it can't verify</div>
+      </div>
+
+      <div class="aw-body">
+        <div class="aw-loading" id="awLoading"><span class="aw-spinner"></span> Checking the Case Digest…</div>
+        <div class="aw-error" id="awError"></div>
+        <div class="aw-results" id="awResults">
+          <div class="aw-panel" id="awIssuePanel"></div>
+          <div class="aw-panel" id="awAuthPanel"></div>
+          <div class="aw-panel" id="awTopicsPanel"></div>
+        </div>
+      </div>
+
+      <div class="aw-foot">Ask Wakili gives general information only, grounded strictly in this firm's published Case Digest — it does not give legal advice and nothing you type is stored verbatim. For advice on your specific situation, <a href="contact.html" style="color:var(--cta);font-weight:600;">talk to an advocate</a>.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const EXAMPLES = [
+    "A lender deducted my salary for a loan I never took",
+    "A company won't let me correct my data",
+    "My employer shared my data with a third party",
+    "I want to challenge an ODPC determination",
+    "A business used my photo without consent"
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const queryEl = $('awQuery'), askBtn = $('awAsk'), clearBtn = $('awClear'), chipsEl = $('awChips');
+  const loadingEl = $('awLoading'), errorEl = $('awError'), resultsEl = $('awResults');
+  const issuePanel = $('awIssuePanel'), authPanel = $('awAuthPanel'), topicsPanel = $('awTopicsPanel');
+
+  EXAMPLES.forEach(ex => {
+    const c = document.createElement('button');
+    c.type = 'button'; c.className = 'aw-chip'; c.textContent = ex;
+    c.addEventListener('click', () => { queryEl.value = ex; runQuery(ex); });
+    chipsEl.appendChild(c);
+  });
+
+  function esc(s){ const d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+
+  async function runQuery(query){
+    if (!query || query.trim().length < 4) return;
+    errorEl.classList.remove('show');
+    resultsEl.classList.remove('show');
+    loadingEl.classList.add('show');
+    askBtn.disabled = true;
+
+    try {
+      const res = await fetch('/api/ask-wakili', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: query.trim() })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.message || data.error || 'request_failed');
+      }
+      render(data);
+    } catch (err) {
+      console.error('Ask Wakili error:', err);
+      errorEl.textContent = (err && err.message && err.message !== 'request_failed')
+        ? err.message
+        : "Ask Wakili couldn't process that just now. Please try rephrasing, or contact the firm directly.";
+      errorEl.classList.add('show');
+    } finally {
+      loadingEl.classList.remove('show');
+      askBtn.disabled = false;
+    }
+  }
+
+  function render(data){
+    issuePanel.innerHTML = `
+      <div class="aw-panel-head">
+        <h3>${esc(data.issue_title)}</h3>
+        <span class="aw-badge">Educational information</span>
+      </div>
+      <p>${esc(data.issue_summary)}</p>
+      ${data.statutory_hooks && data.statutory_hooks.length ? `<div class="aw-hooks">${data.statutory_hooks.map(h => `<span class="aw-hook">${esc(h)}</span>`).join('')}</div>` : ''}
+    `;
+
+    if (data.no_match || !data.authorities || !data.authorities.length){
+      authPanel.innerHTML = `
+        <div class="aw-panel-head"><h3>Relevant case notes</h3></div>
+        <p class="aw-nomatch">Nothing in our Case Digest is a close match for this yet. That doesn't mean the law is silent on it — it means this specific scenario isn't in our published notes. Our team can advise directly.</p>
+      `;
+    } else {
+      authPanel.innerHTML = `
+        <div class="aw-panel-head"><h3>Relevant case notes</h3></div>
+        <div class="aw-auth-group">
+        ${data.authorities.map(a => `
+          <div class="aw-auth">
+            <div class="aw-auth-top">
+              <div>
+                <div class="aw-auth-name">${esc(a.name)}</div>
+                <div class="aw-auth-cite">${esc(a.citation)} · ${esc(a.outcome)}</div>
+              </div>
+              <span class="aw-rel ${a.relevance === 'Most relevant' ? 'aw-rel-most' : 'aw-rel-related'}">${esc(a.relevance)}</span>
+            </div>
+            <p class="aw-auth-why">${esc(a.why)}</p>
+            <a class="aw-auth-link" href="${a.url}">Read the full case note →</a>
+          </div>
+        `).join('')}
+        </div>
+      `;
+    }
+
+    topicsPanel.innerHTML = `
+      <div class="aw-panel-head"><h3 style="font-family:var(--font-body);font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);">Related topics</h3></div>
+      <div class="aw-topics">${(data.related_topics || []).map(t => `<span class="aw-topic">${esc(t)}</span>`).join('')}</div>
+      <div class="aw-cta">
+        <span>General information only — not a substitute for advice on your specific facts.</span>
+        <a href="contact.html">Talk to an advocate →</a>
+      </div>
+    `;
+
+    resultsEl.classList.add('show');
+  }
+
+  askBtn.addEventListener('click', () => runQuery(queryEl.value));
+  queryEl.addEventListener('keypress', (e) => { if (e.key === 'Enter') runQuery(queryEl.value); });
+  clearBtn.addEventListener('click', () => { queryEl.value = ''; resultsEl.classList.remove('show'); errorEl.classList.remove('show'); });
+})();
+</script>
+
+
+<section class="practice-services section section--paper2" id="odpc-disputes"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">02 · Regulatory disputes</div><h2>ODPC Disputes, Appeals &amp; Judicial Review</h2></div><p>Legal representation when a data protection matter becomes a regulatory dispute.</p></div><div class="practice-service-body"><div class="service-outcome"><span>We handle</span><strong>complaints, investigations, determinations, enforcement action and challenges to regulatory decisions.</strong></div><ul class="service-list"><li>ODPC complaints and investigations</li><li>Responses to enforcement action and regulatory submissions</li><li>Representation before the ODPC</li><li>Appeals against ODPC determinations</li><li>Judicial review and administrative-law remedies</li></ul><div class="service-actions"><a class="btn btn-brass" href="odpc-response-appeals.html">ODPC Response &amp; Appeals</a></div></div></div></section>
+<section class="practice-services section" id="corporate-commercial"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">03 · Business law</div><h2>Corporate &amp; Commercial Law</h2></div><p>Legal support for companies, founders and businesses across their commercial life.</p></div><div class="practice-service-body"><div class="service-outcome"><span>We advise on</span><strong>company formation, transactions, commercial arrangements and business restructuring.</strong></div><ul class="service-list"><li>Company incorporation and corporate documentation</li><li>Shareholder and investment agreements</li><li>Corporate restructuring and transactions</li><li>Commercial agreements and negotiations</li><li>Business and regulatory risk</li></ul><div class="service-actions"><a class="btn btn-brass" href="contact.html">Discuss a Commercial Matter</a></div></div></div></section>
+<section class="practice-services section section--paper2" id="technology"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">04 · Technology law</div><h2>Technology Law &amp; Contracts</h2></div><p>Legal advice for technology businesses and organisations buying, selling or deploying technology.</p></div><div class="practice-service-body"><div class="service-outcome"><span>We advise on</span><strong>contracts and legal arrangements that support technology products, services and transactions.</strong></div><ul class="service-list"><li>SaaS and technology services agreements</li><li>Software licensing and terms of use</li><li>Technology procurement and vendor contracts</li><li>Digital platforms and electronic transactions</li><li>Technology-related disputes</li></ul><div class="service-actions"><a class="btn btn-brass" href="technology-contracts.html">Technology Contracts</a></div></div></div></section>
+<section class="practice-services section" id="cybersecurity"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">05 · Cybersecurity</div><h2>Cybersecurity &amp; Data Breach Response</h2></div><p>Legal advice when security incidents, cybercrime or personal-data breaches create immediate legal exposure.</p></div><div class="practice-service-layout"><div class="practice-service-image"><img alt="Data breach response" src="images/panel-cybersecurity.jpg"/></div><div class="practice-service-body"><div class="service-outcome"><span>When something goes wrong</span><strong>we help you assess obligations, respond lawfully and manage regulatory and legal risk.</strong></div><ul class="service-list"><li>Cyber incident legal response</li><li>Personal-data breach assessment and notification</li><li>ODPC breach response</li><li>Cybersecurity contracts and risk allocation</li><li>Cybercrime and technology-related legal advice</li></ul><div class="service-actions"><a class="btn btn-brass" href="cybersecurity-law.html">Cybersecurity Law</a></div></div></div></div></section>
+<section class="practice-services section section--paper2" id="fintech"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">06 · Financial &amp; technology businesses</div><h2>Fintech &amp; Technology Business Law</h2></div><p>Legal support for founders and technology businesses building products, raising capital and entering regulated markets.</p></div><div class="practice-service-body"><div class="service-outcome"><span>We advise on</span><strong>the legal foundations around investment, products, contracts and applicable regulation.</strong></div><ul class="service-list"><li>Company formation and investment documentation</li><li>Commercial and technology contracts</li><li>Digital lending and fintech legal matters</li><li>Platform terms and customer-facing documentation</li><li>Regulatory engagement and legal risk</li></ul><div class="service-actions"><a class="btn btn-brass" href="fintech-startup-advisory.html">Fintech &amp; Startup Advisory</a></div></div></div></section>
+<section class="practice-services section" id="disputes"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">07 · Dispute resolution</div><h2>Litigation &amp; Dispute Resolution</h2></div><p>Representation and strategy for clients facing legal disputes before courts and appropriate tribunals.</p></div><div class="practice-service-body"><div class="service-outcome"><span>We handle</span><strong>commercial, contractual, technology, regulatory and civil disputes.</strong></div><ul class="service-list"><li>Commercial and contractual disputes</li><li>Technology and data-related disputes</li><li>Regulatory and administrative disputes</li><li>Court representation and litigation strategy</li><li>Pre-action advice and settlement</li></ul></div></div></section>
+<section class="practice-services section section--paper2" id="adr"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">08 · Alternative dispute resolution</div><h2>Mediation · Arbitration · Negotiation</h2></div><p>Practical alternatives where a negotiated or arbitral resolution is preferable to full litigation.</p></div><div class="practice-service-body"><div class="service-outcome"><span>We assist with</span><strong>resolving disputes efficiently while protecting the client's legal and commercial position.</strong></div><ul class="service-list"><li>Mediation and settlement negotiations</li><li>Arbitration strategy and representation</li><li>Commercial negotiation</li><li>Settlement documentation</li><li>Technology and commercial ADR</li></ul></div></div></section>
+<section class="practice-services section" id="other-services"><div class="container"><div class="practice-section-intro"><div><div class="eyebrow">09 · Other legal services</div><h2>Additional Legal Services</h2></div><p>Broader legal representation where the matter falls outside the firm's specialist data and technology work.</p></div><div class="practice-service-body"><ul class="service-list"><li>Employment &amp; Labour Law</li><li>Intellectual Property</li><li>Property &amp; Conveyancing</li><li>Family Law</li><li>Immigration Law</li><li>General Civil &amp; Commercial Advisory</li></ul></div></div></section>
+<section class="practice-method section"><div class="container"><div class="section-head center"><div class="eyebrow">How we work</div><h2>Clear advice. Decisive action.</h2><p>We identify the legal issue, explain the available options and help you take the appropriate next step.</p></div><div class="practice-method-grid"><div><span>01</span><h3>Understand</h3><p>Clarify the facts, legal issue and objective.</p></div><div><span>02</span><h3>Advise</h3><p>Explain the law, options, risks and available remedies.</p></div><div><span>03</span><h3>Act</h3><p>Draft, negotiate, represent or take the required legal action.</p></div><div><span>04</span><h3>Resolve</h3><p>Work toward the appropriate legal and commercial outcome.</p></div></div></div></section>
+<section class="cta-band practice-final-cta"><div class="container"><div class="eyebrow">Need legal advice?</div><h2>Tell us what is happening.</h2><p>You do not need to identify the legal category first. We will help identify the appropriate legal route.</p><div class="cta-actions"><a class="btn btn-white" href="contact.html">Book a Consultation</a><a class="btn btn-line" href="file-a-complaint.html">File an ODPC Complaint</a></div></div></section>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<a class="brand" href="index.html"><img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="images/logo.webp"/></a>
+<p>A technology law firm specialising in data protection, privacy and regulatory compliance, from Nairobi.</p>
+<div class="footer-social"><a aria-label="LinkedIn Company Page" href="https://www.linkedin.com/company/muchangipatrickadvocates/" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="fab fa-linkedin-in"></i><span class="sr-only">LinkedIn Company Page</span></a></div>
+</div>
+<div><h5>Firm</h5><a href="about.html">About Us</a><a href="insights.html">Insights</a><a href="contact.html">Careers</a></div>
+<div><h5>Knowledge Centre</h5><a href="/resources/practice-notes/">Practice Notes</a><a href="bills-review.html">Bills Review</a><a href="regulatory-analysis.html">Regulatory Analysis</a><a href="compliance-toolkit.html">Compliance Toolkit</a><a href="webinars.html">Webinars</a></div>
+<div><h5>Legal Services</h5><a href="expertise.html#data-protection">Data Protection &amp; Privacy</a><a href="expertise.html#odpc-disputes">ODPC Disputes &amp; Appeals</a><a href="expertise.html#cybersecurity">Cybersecurity &amp; Breach Response</a><a href="expertise.html#corporate-commercial">Corporate &amp; Commercial</a><a href="expertise.html#technology">Technology Law &amp; Contracts</a><a href="expertise.html#disputes">Litigation &amp; Dispute Resolution</a><a href="expertise.html#adr">Mediation &amp; Arbitration</a></div><div><h5>Contact</h5><p><i class="fas fa-location-dot"></i> Nairobi, Kenya</p><p><i class="fas fa-phone"></i> <a href="tel:+254722878607">0722 878 607</a></p><p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/254736358938" rel="noopener" target="_blank">0736 358 938 (WhatsApp)</a></p><p><i class="fas fa-envelope"></i> consult@dataprivacyadvocates.co.ke</p></div>
+<div><h5>Legal</h5><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="cookie-notice.html">Cookie Notice</a></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Muchangi Patrick &amp; Associates Advocates. All rights reserved.</span><div class="links"><a href="privacy-policy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="sitemap.html">Sitemap</a></div></div>
+</div>
+</footer>
+<div class="cookie-banner">
+<div class="cookie-banner-inner">
+<p class="cookie-text">For essential site functionality and to remember your preferences, we use a small number of cookies. With your consent, we also use cookies to understand how visitors use this site. For more information, see our <a href="cookie-notice.html">Cookie Notice</a>.</p>
+<div class="cookie-actions-row">
+<button class="btn btn-line btn-sm btn-ghost cookie-essential" type="button">Essential Only</button>
+<button class="btn btn-brass btn-sm cookie-accept" type="button">Accept All</button>
+</div>
+</div>
+</div>
+<script src="script.js?v=11"></script>
+<script src="/assets/js/conversion.js"></script>
+<script src="/assets/js/mp-nav.js"></script>
+</body>
+</html>
