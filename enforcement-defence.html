@@ -95,56 +95,95 @@
 @media(max-width:850px){.sp-hero-inner,.sp-intro-grid,.sp-section-grid,.sp-framework-grid{grid-template-columns:1fr;gap:38px;}.sp-hero{padding:145px 0 58px;}.sp-related-grid{grid-template-columns:1fr;}.sp-hero-panel{max-width:520px;}}
 @media(max-width:640px){.sp-hero{padding:112px 0 52px;}.sp-hero h1{font-size:2.65rem;}.sp-intro,.sp-related-wrap,.sp-faq-wrap{padding:60px 0;}.sp-section-grid{gap:28px;}.sp-framework{padding:58px 0;}.sp-actions .btn{width:100%;justify-content:center;}}
 </style>
+<link rel="stylesheet" href="/assets/css/mp-nav.css">
 </head>
 <body class="service-page">
-<header class="site-header">
-<div class="header-utility">
-<div class="container">
-<div class="header-utility-contact">
+<div class="mp-util">
+<div class="mp-util-inner">
+<div class="mp-util-left">
 <a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
-<a href="mailto:consult@dataprivacyadvocates.co.ke"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
-<a class="hide-sm" href="contact.html"><i class="fas fa-location-dot"></i>Pinetree Plaza, Nairobi</a>
+<a href="mailto:consult@dataprivacyadvocates.co.ke" class="mp-util-addr"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
 </div>
-<div class="header-utility-social">
-<a aria-label="LinkedIn" href="https://www.linkedin.com/in/patrick-muchangi-507498216" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+<div class="mp-util-right">
+<a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="/contact.html">Pinetree Plaza, Nairobi</a>
 </div>
 </div>
 </div>
-<div class="container header-row">
-<a class="brand" href="index.html">
-<img alt="Muchangi Patrick &amp; Associates Advocates logo" class="brand-logo" src="images/logo.webp"/>
+<header class="mp-nav">
+<div class="mp-nav-inner">
+<a href="/index.html" class="mp-nav-brand">
+<span class="mp-nav-seal"><span>MP</span></span>
+<span class="mp-nav-brand-text"><strong>Muchangi Patrick</strong><em>&amp; Associates Advocates</em></span>
 </a>
-<nav class="main-nav">
-<a class="active" href="index.html">Home</a>
-<a href="about.html">The Firm</a>
-<a href="expertise.html">Solutions</a>
-<a href="people.html">Our Team</a>
-
-<div class="nav-item">
-<a href="/resources/practice-notes/">Knowledge Centre <i class="fas fa-chevron-down nav-caret"></i></a>
-<div class="dropdown-panel">
-<a href="/resources/practice-notes/"><i class="fas fa-file-pdf"></i><div><span>Practice Notes</span><small>Flagship legal analysis &amp; publications</small></div></a>
-<a href="bills-review.html"><i class="fas fa-landmark"></i><div><span>Bills Review</span><small>Legislative analysis &amp; compliance impact</small></div></a>
-<a href="regulatory-analysis.html"><i class="fas fa-file-shield"></i><div><span>Regulatory Analysis</span><small>What regulatory change means in practice</small></div></a>
-<a href="insights.html"><i class="fas fa-lightbulb"></i><div><span>Legal Insights</span><small>Short-form commentary &amp; case notes</small></div></a>
-<a href="compliance-toolkit.html"><i class="fas fa-toolbox"></i><div><span>Compliance Toolkit</span><small>Templates, checklists &amp; guides</small></div></a>
-          <a href="academy.html"><i class="fas fa-graduation-cap"></i><div><span>KPLR Academy</span><small>Training manuals &amp; certificate courses</small></div></a>
-<a href="webinars.html"><i class="fas fa-video"></i><div><span>Webinars</span><small>Live briefings for boards &amp; management teams</small></div></a>
-<a href="comparative-law.html"><i class="fas fa-globe-africa"></i><div><span>Comparative Law</span><small>Kenya measured against GDPR, the EU AI Act &amp; more</small></div></a>
-<div class="dp-footer"><span>Knowledge Centre</span><a href="/resources/practice-notes/">View all →</a></div>
+<nav class="mp-nav-links" aria-label="Primary">
+<div class="mp-nav-item">
+<button type="button" aria-expanded="false">Practice Areas <i class="fas fa-chevron-down mp-caret"></i></button>
+<div class="mp-mega">
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Practice Area</div>
+<a href="/expertise.html#data-protection"><i class="fas fa-shield-halved"></i><span class="mp-mega-item-text">Data Protection &amp; Privacy<small>Compliance &amp; data-subject rights</small></span></a>
+<a href="/odpc-response-appeals.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">ODPC Disputes &amp; Appeals<small>Regulatory defence</small></span></a>
+<a href="/expertise.html#corporate-commercial"><i class="fas fa-briefcase"></i><span class="mp-mega-item-text">Corporate &amp; Commercial<small>Formation &amp; transactions</small></span></a>
+<a href="/technology-contracts.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology &amp; Fintech<small>Contracts &amp; regulatory advice</small></span></a>
+<a href="/expertise.html#disputes"><i class="fas fa-scale-balanced"></i><span class="mp-mega-item-text">Disputes &amp; Resolution<small>Litigation &amp; ADR</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Sector</div>
+<a href="/sector-corporate.html"><i class="fas fa-building"></i><span class="mp-mega-item-text">Corporate<small>Boards &amp; enterprises</small></span></a>
+<a href="/sector-financial-services.html"><i class="fas fa-landmark"></i><span class="mp-mega-item-text">Financial Services<small>Banks, SACCOs &amp; lenders</small></span></a>
+<a href="/sector-technology.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology<small>Tech &amp; AI companies</small></span></a>
+<a href="/sector-healthcare.html"><i class="fas fa-heart-pulse"></i><span class="mp-mega-item-text">Healthcare<small>Health providers</small></span></a>
+<a href="/sector-education.html"><i class="fas fa-graduation-cap"></i><span class="mp-mega-item-text">Education<small>Schools &amp; colleges</small></span></a>
+<a href="/sector-public-sector.html"><i class="fas fa-flag"></i><span class="mp-mega-item-text">Public Sector<small>Government &amp; public bodies</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">Resources</div>
+<a href="/resources/practice-notes/"><i class="fas fa-file-lines"></i><span class="mp-mega-item-text">Practice Notes<small>Flagship legal analysis</small></span></a>
+<a href="/case-digest.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">Case Digest Library<small>33 searchable case notes</small></span></a>
+<a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><span class="mp-mega-item-text">Compliance Toolkit<small>Templates &amp; checklists</small></span></a>
+<a href="/changelog.html"><i class="fas fa-list-check"></i><span class="mp-mega-item-text">Regulatory Changelog<small>Every circular, bill &amp; ruling</small></span></a>
+<a href="/insights.html"><i class="fas fa-lightbulb"></i><span class="mp-mega-item-text">Insights<small>Short-form commentary</small></span></a>
+</div>
+<div class="mp-mega-foot">
+<span>9 practice areas &middot; 6 sectors &middot; 33 case notes</span>
+<a href="/expertise.html">View all Practice Areas <i class="fas fa-arrow-right"></i></a>
 </div>
 </div>
-<a href="insights.html">Insights</a>
-<a href="odpc-registration.html">ODPC Registration</a>
-<a href="retainer.html">Retainer</a>
-<a href="contact.html">Contact</a>
-<a class="nav-cta" href="contact.html">Book a Consultation</a>
+</div>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
 </nav>
-<button aria-expanded="false" aria-label="Open menu" class="nav-toggle"><span></span><span></span><span></span></button>
+<div class="mp-nav-actions">
+<button type="button" class="mp-nav-search" aria-label="Search (Ctrl K)"><i class="fas fa-magnifying-glass"></i><span>Search</span><span class="mp-kbd">&#8984;K</span></button>
+<button type="button" class="mp-nav-theme" aria-label="Toggle dark mode" aria-pressed="false"><i class="fas fa-moon"></i></button>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+<button type="button" class="mp-nav-toggle" id="mpNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
 </div>
 </header>
-<div class="nav-overlay"></div>
-
+<div class="mp-nav-mobile" id="mpNavMobile">
+<a href="/expertise.html">Practice Areas</a>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/resources/practice-notes/">Knowledge Centre</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+</div>
+<div class="mp-palette-overlay" id="mpPaletteOverlay">
+<div class="mp-palette" role="dialog" aria-modal="true" aria-label="Search">
+<div class="mp-palette-input-row">
+<i class="fas fa-magnifying-glass"></i>
+<input type="text" id="mpPaletteInput" placeholder="Search case digests, practice notes, practice areas&hellip;" autocomplete="off">
+<kbd>Esc</kbd>
+</div>
+<div class="mp-palette-results" id="mpPaletteResults"></div>
+<div class="mp-palette-footer"><span><kbd>&#8593;</kbd><kbd>&#8595;</kbd> Navigate</span><span><kbd>&#8629;</kbd> Open</span><span><kbd>Esc</kbd> Close</span></div>
+</div>
+</div>
 <main>
 <section class="sp-hero"><div class="container sp-hero-inner"><div><div class="sp-breadcrumb"><a href="index.html">Home</a> / <a href="expertise.html">Solutions</a> / Enforcement Defence</div><div class="sp-kicker">Litigation &amp; Dispute Resolution</div><h1>Enforcement Defence.</h1><p class="lede">Strategic legal defence for organisations facing regulatory enforcement, alleged non-compliance, enforcement notices, penalty exposure or contested findings.</p><div class="sp-actions"><a href="contact.html?interest=enforcement-defence" class="btn btn-brass">Book a Consultation <i class="fas fa-arrow-right" aria-hidden="true"></i></a><a href="tel:+254722878607" class="btn btn-line"><i class="fas fa-phone" aria-hidden="true"></i> 0722 878 607</a></div></div><aside class="sp-hero-panel"><div class="sp-panel-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div><strong>Litigation &amp; Dispute Resolution</strong><p>Strategic legal defence for organisations facing regulatory enforcement, alleged non-compliance, enforcement notices, penalty exposure or contested findings.</p></aside></div></section><section class="sp-intro"><div class="container sp-intro-grid"><div><span class="eyebrow">The service</span><h2>Resolve the dispute with a clear legal strategy.</h2></div><div class="sp-intro-copy"><p>Disputes involving regulators, public bodies, technology, data and commercial obligations require careful attention to jurisdiction, statutory remedies, evidence, procedure and timing. We help clients assess the dispute, protect their position and pursue the appropriate legal route.</p><div class="sp-note"><strong>Strategy first.</strong> The appropriate forum, remedy and sequence depend on the facts, the statutory framework and any available internal review or appeal mechanism.</div></div></div></section><section class="section  "><div class="container"><div class="sp-section-grid"><div class="sp-section-title"><span class="eyebrow">01</span><h2>When we assist</h2></div><div class="sp-list"><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Responding to enforcement notices and regulatory allegations before deadlines expire.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Assessing the factual, statutory and procedural basis of an enforcement action.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Preparing representations, objections, review applications and supporting evidence.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Advising management on exposure, remediation, settlement and escalation options.</p></div></div></div></div></section><section class="section section--paper2"><div class="container"><div class="sp-section-grid"><div class="sp-section-title"><span class="eyebrow">02</span><h2>Defence work</h2></div><div class="sp-list"><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Legal analysis of the alleged contravention and the regulator’s statutory powers.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Review of notices, correspondence, investigation records, policies, contracts and technical evidence.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Preparation of written responses and representations supported by a coherent evidential record.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Advice on proportionality, procedural fairness, jurisdiction, statutory timelines and available remedies.</p></div></div></div></div></section><section class="section  "><div class="container"><div class="sp-section-grid"><div class="sp-section-title"><span class="eyebrow">03</span><h2>Where enforcement escalates</h2></div><div class="sp-list"><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Review of enforcement and penalty notices and available internal review mechanisms.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Preparation for an appeal to the High Court where the statutory route is available.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Coordination of litigation strategy, evidence preservation and external technical or expert input where required.</p></div><div class="sp-list-item"><i class="fas fa-check" aria-hidden="true"></i><p>Post-enforcement remediation designed to reduce recurrence and strengthen the client’s regulatory position.</p></div></div></div></div></section><section class="sp-framework"><div class="container sp-framework-grid"><div><span class="eyebrow">Legal framework</span><h2>Enforcement has statutory steps and deadlines.</h2></div><div><p>The Data Protection Act permits enforcement notices and penalty notices, while the Complaints Handling and Enforcement Regulations provide for review of an enforcement notice and an appeal to the High Court. Advice is therefore scoped to the particular notice, statutory route, facts and available remedies.</p><div class="sp-sources"><a href="https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2022-12-31/source" target="_blank" rel="noopener">Kenya Data Protection Act</a><a href="https://new.kenyalaw.org/akn/ke/act/ln/2021/264/eng@2022-12-31/source" target="_blank" rel="noopener">Complaints Handling &amp; Enforcement Regulations</a><a href="https://new.kenyalaw.org/akn/ke/act/2015/4/eng@2022-12-31/source" target="_blank" rel="noopener">Fair Administrative Action Act</a></div></div></div></section><section class="sp-related-wrap"><div class="container"><span class="eyebrow">Related services &amp; resources</span><h2>Continue from here.</h2><div class="sp-related-grid"><a class="sp-related" href="odpc-response-appeals.html"><span><strong>ODPC Response &amp; Appeals</strong><small>Complaints, investigations, regulatory correspondence and representation before the ODPC.</small></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a><a class="sp-related" href="regulatory-review.html"><span><strong>Regulatory Review</strong><small>Identify compliance gaps before they become enforcement exposure.</small></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a><a class="sp-related" href="gdpr-cross-border-compliance.html"><span><strong>GDPR &amp; Cross-Border Compliance</strong><small>Advice on international data flows and applicable transfer requirements.</small></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></div></section><section class="sp-faq-wrap section--paper2"><div class="container"><span class="eyebrow">Questions</span><h2>Common questions.</h2><div class="sp-faq-list"><details class="sp-faq"><summary>Can an enforcement notice be reviewed? <i class="fas fa-plus" aria-hidden="true"></i></summary><p>Yes. The Data Protection (Complaints Handling Procedure and Enforcement) Regulations provide a review mechanism for an enforcement notice on specified grounds, subject to the statutory procedure and timing.</p></details><details class="sp-faq"><summary>Can an ODPC enforcement decision be challenged in court? <i class="fas fa-plus" aria-hidden="true"></i></summary><p>The Data Protection Act provides a right of appeal to the High Court against administrative action by the Data Commissioner, including enforcement and penalty notices. The precise route depends on the decision and applicable statutory provisions.</p></details><details class="sp-faq"><summary>Should we respond before seeking legal advice? <i class="fas fa-plus" aria-hidden="true"></i></summary><p>Where a notice carries a deadline, prompt legal review is important. The response should be based on the notice, the underlying evidence and the applicable statutory procedure.</p></details></div></div></section><section class="sp-final"><div class="container"><h2>Facing regulatory enforcement?</h2><p>Send us the notice, correspondence or decision and we can assess the legal position, immediate deadlines and available response or challenge options.</p><div class="sp-actions" style="justify-content:center;"><a href="contact.html" class="btn btn-white">Book a Consultation <i class="fas fa-arrow-right" aria-hidden="true"></i></a><a href="mailto:consult@dataprivacyadvocates.co.ke" class="btn btn-line">Email Us</a></div></div></section></main>
 <footer class="site-footer">
@@ -180,5 +219,6 @@
 </body>
 </html>
 
+<script src="/assets/js/mp-nav.js"></script>
 </body>
 </html>

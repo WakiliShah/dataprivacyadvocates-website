@@ -330,42 +330,95 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/css/mp-nav.css">
 </head>
-<body>
-<nav class="mp-gnav" id="mpGlobalNav">
-  <div class="mp-gnav-inner">
-    <a href="index.html" class="mp-gnav-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick &amp; Associates Advocates logo" /><span>Muchangi Patrick &amp; Associates</span></a>
-    <div class="mp-gnav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">The Firm</a>
-      <a href="expertise.html">Solutions</a>
-      <a href="people.html">Our Team</a>
-      <a href="insights.html#case-notes">Track Record</a>
-      <a href="/resources/practice-notes/">Knowledge Centre</a>
-      <a href="insights.html">Insights</a>
-      <a href="webinars.html">Webinars</a>
-      <a href="odpc-registration.html">ODPC Registration</a>
-      <a href="retainer.html">Retainer</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="mp-gnav-cta">Book a Consultation</a>
-    </div>
-    <button class="mp-gnav-toggle" id="mpGlobalNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </div>
+<body class="mp-invert">
+<div class="mp-util">
+<div class="mp-util-inner">
+<div class="mp-util-left">
+<a href="tel:+254722878607"><i class="fas fa-phone"></i>0722 878 607</a>
+<a href="mailto:consult@dataprivacyadvocates.co.ke" class="mp-util-addr"><i class="fas fa-envelope"></i>consult@dataprivacyadvocates.co.ke</a>
+</div>
+<div class="mp-util-right">
+<a href="https://www.linkedin.com/company/muchangipatrickadvocates/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="/contact.html">Pinetree Plaza, Nairobi</a>
+</div>
+</div>
+</div>
+<header class="mp-nav">
+<div class="mp-nav-inner">
+<a href="/index.html" class="mp-nav-brand">
+<span class="mp-nav-seal"><span>MP</span></span>
+<span class="mp-nav-brand-text"><strong>Muchangi Patrick</strong><em>&amp; Associates Advocates</em></span>
+</a>
+<nav class="mp-nav-links" aria-label="Primary">
+<div class="mp-nav-item">
+<button type="button" aria-expanded="false">Practice Areas <i class="fas fa-chevron-down mp-caret"></i></button>
+<div class="mp-mega">
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Practice Area</div>
+<a href="/expertise.html#data-protection"><i class="fas fa-shield-halved"></i><span class="mp-mega-item-text">Data Protection &amp; Privacy<small>Compliance &amp; data-subject rights</small></span></a>
+<a href="/odpc-response-appeals.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">ODPC Disputes &amp; Appeals<small>Regulatory defence</small></span></a>
+<a href="/expertise.html#corporate-commercial"><i class="fas fa-briefcase"></i><span class="mp-mega-item-text">Corporate &amp; Commercial<small>Formation &amp; transactions</small></span></a>
+<a href="/technology-contracts.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology &amp; Fintech<small>Contracts &amp; regulatory advice</small></span></a>
+<a href="/expertise.html#disputes"><i class="fas fa-scale-balanced"></i><span class="mp-mega-item-text">Disputes &amp; Resolution<small>Litigation &amp; ADR</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">By Sector</div>
+<a href="/sector-corporate.html"><i class="fas fa-building"></i><span class="mp-mega-item-text">Corporate<small>Boards &amp; enterprises</small></span></a>
+<a href="/sector-financial-services.html"><i class="fas fa-landmark"></i><span class="mp-mega-item-text">Financial Services<small>Banks, SACCOs &amp; lenders</small></span></a>
+<a href="/sector-technology.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology<small>Tech &amp; AI companies</small></span></a>
+<a href="/sector-healthcare.html"><i class="fas fa-heart-pulse"></i><span class="mp-mega-item-text">Healthcare<small>Health providers</small></span></a>
+<a href="/sector-education.html"><i class="fas fa-graduation-cap"></i><span class="mp-mega-item-text">Education<small>Schools &amp; colleges</small></span></a>
+<a href="/sector-public-sector.html"><i class="fas fa-flag"></i><span class="mp-mega-item-text">Public Sector<small>Government &amp; public bodies</small></span></a>
+</div>
+<div class="mp-mega-col">
+<div class="mp-mega-label">Resources</div>
+<a href="/resources/practice-notes/"><i class="fas fa-file-lines"></i><span class="mp-mega-item-text">Practice Notes<small>Flagship legal analysis</small></span></a>
+<a href="/case-digest.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">Case Digest Library<small>33 searchable case notes</small></span></a>
+<a href="/compliance-toolkit.html"><i class="fas fa-toolbox"></i><span class="mp-mega-item-text">Compliance Toolkit<small>Templates &amp; checklists</small></span></a>
+<a href="/changelog.html"><i class="fas fa-list-check"></i><span class="mp-mega-item-text">Regulatory Changelog<small>Every circular, bill &amp; ruling</small></span></a>
+<a href="/insights.html"><i class="fas fa-lightbulb"></i><span class="mp-mega-item-text">Insights<small>Short-form commentary</small></span></a>
+</div>
+<div class="mp-mega-foot">
+<span>9 practice areas &middot; 6 sectors &middot; 33 case notes</span>
+<a href="/expertise.html">View all Practice Areas <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/insights.html" class="active">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
 </nav>
-<script>
-(function(){
-  var toggle = document.getElementById('mpGlobalNavToggle');
-  var nav = document.getElementById('mpGlobalNav');
-  if(toggle && nav){
-    toggle.addEventListener('click', function(){
-      var open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-})();
-</script>
-
-
+<div class="mp-nav-actions">
+<button type="button" class="mp-nav-search" aria-label="Search (Ctrl K)"><i class="fas fa-magnifying-glass"></i><span>Search</span><span class="mp-kbd">&#8984;K</span></button>
+<button type="button" class="mp-nav-theme" aria-label="Toggle dark mode" aria-pressed="false"><i class="fas fa-moon"></i></button>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+<button type="button" class="mp-nav-toggle" id="mpNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</div>
+</header>
+<div class="mp-nav-mobile" id="mpNavMobile">
+<a href="/expertise.html">Practice Areas</a>
+<a href="/case-digest.html">Case Digest</a>
+<a href="/resources/practice-notes/">Knowledge Centre</a>
+<a href="/insights.html">Insights</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a class="mp-nav-cta" href="/contact.html">Talk to an Expert</a>
+</div>
+<div class="mp-palette-overlay" id="mpPaletteOverlay">
+<div class="mp-palette" role="dialog" aria-modal="true" aria-label="Search">
+<div class="mp-palette-input-row">
+<i class="fas fa-magnifying-glass"></i>
+<input type="text" id="mpPaletteInput" placeholder="Search case digests, practice notes, practice areas&hellip;" autocomplete="off">
+<kbd>Esc</kbd>
+</div>
+<div class="mp-palette-results" id="mpPaletteResults"></div>
+<div class="mp-palette-footer"><span><kbd>&#8593;</kbd><kbd>&#8595;</kbd> Navigate</span><span><kbd>&#8629;</kbd> Open</span><span><kbd>Esc</kbd> Close</span></div>
+</div>
+</div>
 <div class="mp-returnbar">
   <div class="wrap mp-returnbar-inner">
     <a href="index.html" class="mp-returnbar-brand"><img src="images/logo-icon.webp" alt="Muchangi Patrick & Associates Advocates logo" /> Muchangi Patrick &amp; Associates <b>Advocates</b></a>
@@ -706,5 +759,6 @@
 </div>
 
 <script src="/assets/js/conversion.js"></script>
+<script src="/assets/js/mp-nav.js"></script>
 </body>
 </html>

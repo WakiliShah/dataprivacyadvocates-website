@@ -43,6 +43,40 @@
   --shadow-hard:0 30px 70px rgba(27,26,23,.16);
   --ease:cubic-bezier(.4,0,.2,1);
 
+/* ==========================================================================
+   DARK MODE — token overrides, toggled via [data-theme="dark"] on <html> by
+   assets/js/mp-nav.js. Every shared component already reads these custom
+   properties, so this one block re-themes headers, cards, buttons and text
+   across the whole site without touching per-page markup.
+   ========================================================================== */
+}
+[data-theme="dark"]{
+  --ink:#f2ecdc;
+  --ink-2:#e7dfc5;
+  --navy:#8fae7a;
+  --slate:#c9bf9c;
+  --muted:#a39c86;
+  --paper:#14190f;
+  --paper-2:#1c2416;
+  --white:#1b2116;
+  --brass:#dcb75c;
+  --brass-light:#f0d48a;
+  --line:#39432e;
+  --cta:#e0bb62;
+  --cta-hover:#f0d48a;
+  --success:#4f9c78;
+  --warning:#dcb75c;
+  --error:#c4614a;
+  --plum:#8fae7a;
+  --plum-2:#a9c78f;
+  --plum-pale:#1c2416;
+  --shadow-soft:0 18px 50px rgba(0,0,0,.35);
+  --shadow-hard:0 30px 70px rgba(0,0,0,.5);
+}
+[data-theme="dark"] body{background:var(--paper);}
+[data-theme="dark"] img:not(.mp-nav-seal img){opacity:.92;}
+:root{
+
   --font-display:'Fraunces', serif;
   --font-body:'Inter', sans-serif;
 
@@ -2479,7 +2513,32 @@ body.home-executive .executive-resource-map{
 @media(max-width:800px){.homepage-wizard-grid,.homepage-service-columns{grid-template-columns:1fr}.homepage-service-bridge-inner{flex-direction:column;align-items:flex-start}}
 
 /* ==========================================================================
-   HOMEPAGE — PRACTICE AREAS SHOWCASE — v13
+   HOMEPAGE — LIVE DASHBOARD WIDGET — v13
+   Replaces the static stock hero image with a widget showing real,
+   countable content metrics (case notes, practice areas, publications) —
+   deliberately not fabricated performance claims like "97% success rate".
+   ========================================================================== */
+.hp-dash{background:var(--ink);border-radius:6px;padding:26px 24px 22px;color:var(--paper,#f2ecdc);box-shadow:0 30px 70px -20px rgba(27,26,23,.45);position:relative;overflow:hidden;}
+.hp-dash::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(198,154,62,.16),transparent 55%);pointer-events:none;}
+.hp-dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;position:relative;}
+.hp-dash-head span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,236,220,.55);display:flex;align-items:center;gap:7px;}
+.hp-dash-dot{width:6px;height:6px;border-radius:50%;background:#8fae7a;box-shadow:0 0 0 3px rgba(143,174,122,.25);animation:hpPulse 2.2s ease-in-out infinite;}
+@keyframes hpPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hp-dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;position:relative;}
+.hp-dash-stat{background:rgba(242,236,220,.05);border:1px solid rgba(242,236,220,.1);border-radius:5px;padding:14px 14px 12px;}
+.hp-dash-stat .n{font-family:'Fraunces',serif;font-size:26px;font-weight:600;line-height:1;color:var(--paper,#f2ecdc);}
+.hp-dash-stat .l{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:rgba(242,236,220,.5);margin-top:6px;display:block;}
+.hp-dash-spark{display:flex;align-items:flex-end;gap:3px;height:18px;margin-top:10px;}
+.hp-dash-spark i{flex:1;background:var(--brass,#c69a3e);border-radius:1px;opacity:.85;display:block;}
+.hp-dash-feed{border-top:1px solid rgba(242,236,220,.1);padding-top:16px;position:relative;}
+.hp-dash-feed-label{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,236,220,.45);margin-bottom:12px;}
+.hp-dash-item{display:flex;align-items:baseline;gap:10px;padding:7px 0;font-size:12.5px;border-bottom:1px solid rgba(242,236,220,.06);}
+.hp-dash-item:last-child{border-bottom:none;}
+.hp-dash-item .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--brass,#c69a3e);flex-shrink:0;width:60px;}
+.hp-dash-item .t{color:rgba(242,236,220,.85);line-height:1.4;}
+.hp-dash-foot{margin-top:16px;position:relative;}
+.hp-dash-foot a{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass-light,#ecc981);text-decoration:none;display:flex;align-items:center;gap:6px;}
+@media(max-width:560px){.hp-dash-stats{grid-template-columns:1fr 1fr;}.hp-dash-stat:last-child{grid-column:1/-1;}}
    Replaces the old wizard-grid + services-catalogue double-listing (25
    link-instances across two separate grids) with one organised grid.
    Same underlying destinations, consolidated into five clear groups.

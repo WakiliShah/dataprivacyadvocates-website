@@ -1,0 +1,227 @@
+/* =========================================================================
+   MP-NAV — unified global navigation, command palette & theme toggle.
+   Loaded on every page in the site (root pages, resources/**, case notes,
+   insight articles) so the chrome is identical everywhere, regardless of
+   which legacy template a given page's content still uses underneath.
+   ========================================================================= */
+
+:root{
+  --mpnav-ink:#1b1a17;
+  --mpnav-bar:#14190f;
+  --mpnav-bar-2:#1e2617;
+  --mpnav-paper:#f2ecdc;
+  --mpnav-gold:#c69a3e;
+  --mpnav-gold-bright:#ecc981;
+  --mpnav-line:rgba(242,236,220,.14);
+  --mpnav-h:66px;
+}
+
+/* ---------------- Utility strip ---------------- */
+.mp-util{
+  position:fixed;top:0;left:0;right:0;z-index:2001;height:30px;
+  background:var(--mpnav-ink);border-bottom:1px solid var(--mpnav-line);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;
+}
+.mp-util-inner{max-width:1320px;margin:0 auto;height:100%;padding:0 28px;display:flex;align-items:center;justify-content:space-between;color:rgba(242,236,220,.55);}
+.mp-util-left{display:flex;gap:20px;}
+.mp-util-left a{color:inherit;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.mp-util-left a:hover{color:var(--mpnav-gold-bright);}
+.mp-util-right{display:flex;gap:14px;align-items:center;}
+.mp-util-right a{color:inherit;text-decoration:none;}
+.mp-util-right a:hover{color:var(--mpnav-gold-bright);}
+@media(max-width:760px){.mp-util-left a.mp-util-addr{display:none;}}
+@media(max-width:560px){.mp-util{display:none;}}
+
+/* ---------------- Bar ---------------- */
+.mp-nav{
+  position:fixed;top:30px;left:0;right:0;z-index:2000;
+  height:var(--mpnav-h);
+  background:linear-gradient(180deg,var(--mpnav-bar) 0%,var(--mpnav-bar-2) 100%);
+  border-bottom:1px solid var(--mpnav-line);
+  font-family:'Inter',sans-serif;
+}
+@media(max-width:560px){.mp-nav{top:0;}}
+.mp-nav-inner{
+  max-width:1320px;margin:0 auto;height:100%;padding:0 28px;
+  display:flex;align-items:center;gap:28px;
+}
+
+/* Brand: CSS-drawn seal, no external image dependency */
+.mp-nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+.mp-nav-seal{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  border:1.3px solid var(--mpnav-gold);position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.mp-nav-seal::before{
+  content:"";position:absolute;inset:3px;border-radius:50%;
+  border:1px solid rgba(198,154,62,.4);
+}
+.mp-nav-seal span{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+  letter-spacing:.02em;color:var(--mpnav-gold-bright);
+}
+.mp-nav-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.mp-nav-brand-text strong{font-family:'Fraunces',serif;font-size:14.5px;font-weight:600;color:var(--mpnav-paper);white-space:nowrap;}
+.mp-nav-brand-text em{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mpnav-gold);}
+
+/* Primary links */
+.mp-nav-links{display:flex;align-items:center;gap:2px;flex:1;}
+.mp-nav-links > a,.mp-nav-item > button{
+  color:rgba(242,236,220,.78);text-decoration:none;font-size:13.5px;font-weight:500;
+  padding:9px 13px;border-radius:100px;transition:color .15s ease,background .15s ease;
+  white-space:nowrap;background:none;border:none;cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;gap:6px;
+}
+.mp-nav-links > a:hover,.mp-nav-item > button:hover{color:var(--mpnav-paper);background:rgba(242,236,220,.06);}
+.mp-nav-links > a.active{color:var(--mpnav-gold-bright);background:rgba(198,154,62,.12);}
+.mp-nav-item > button i.mp-caret{font-size:9px;transition:transform .18s ease;color:rgba(242,236,220,.5);}
+.mp-nav-item:hover > button i.mp-caret,.mp-nav-item.open > button i.mp-caret{transform:rotate(180deg);}
+
+/* Mega-menu */
+.mp-nav-item{position:relative;}
+.mp-mega{
+  position:fixed;top:calc(30px + var(--mpnav-h));left:50%;transform:translateX(-50%) translateY(6px);
+  width:min(880px,92vw);background:var(--mpnav-bar-2);border:1px solid var(--mpnav-line);
+  border-top:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  padding:28px 8px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 8px;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s ease,transform .16s ease,visibility .16s;
+  z-index:1998;
+}
+.mp-nav-item:hover .mp-mega,.mp-nav-item.open .mp-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.mp-mega-col{padding:0 20px;border-left:1px solid var(--mpnav-line);}
+.mp-mega-col:first-child{border-left:none;}
+.mp-mega-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mpnav-gold);margin:0 0 14px;padding-left:10px;}
+.mp-mega-col a{
+  display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:8px;text-decoration:none;
+  color:rgba(242,236,220,.88);font-size:13.5px;transition:background .12s ease;
+}
+.mp-mega-col a:hover{background:rgba(242,236,220,.07);}
+.mp-mega-col a i{width:16px;text-align:center;color:var(--mpnav-gold);font-size:12.5px;flex-shrink:0;}
+.mp-mega-col a small{display:block;color:rgba(242,236,220,.45);font-size:11px;font-weight:400;margin-top:1px;}
+.mp-mega-col a .mp-mega-item-text{display:flex;flex-direction:column;line-height:1.3;}
+.mp-mega-foot{grid-column:1/-1;margin-top:18px;padding:16px 20px 0;border-top:1px solid var(--mpnav-line);display:flex;justify-content:space-between;align-items:center;}
+.mp-mega-foot span{font-size:12px;color:rgba(242,236,220,.5);}
+.mp-mega-foot a{font-size:12.5px;color:var(--mpnav-gold-bright);text-decoration:none;font-weight:600;}
+
+@media(max-width:980px){.mp-mega{display:none;}}
+
+/* Actions */
+.mp-nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.mp-nav-search{
+  display:flex;align-items:center;gap:8px;background:rgba(242,236,220,.06);
+  border:1px solid var(--mpnav-line);border-radius:100px;padding:8px 12px;
+  color:rgba(242,236,220,.6);cursor:pointer;font-size:12.5px;transition:border-color .15s ease,color .15s ease;
+}
+.mp-nav-search:hover{border-color:var(--mpnav-gold);color:var(--mpnav-paper);}
+.mp-nav-search .mp-kbd{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid rgba(242,236,220,.25);
+  border-radius:4px;padding:1px 5px;color:rgba(242,236,220,.55);
+}
+.mp-nav-theme{
+  width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(242,236,220,.06);border:1px solid var(--mpnav-line);color:rgba(242,236,220,.75);
+  cursor:pointer;font-size:13px;transition:border-color .15s ease,color .15s ease;
+}
+.mp-nav-theme:hover{border-color:var(--mpnav-gold);color:var(--mpnav-gold-bright);}
+.mp-nav-cta{
+  background:var(--mpnav-gold);color:var(--mpnav-ink);text-decoration:none;font-weight:600;
+  font-size:13px;padding:10px 18px;border-radius:100px;white-space:nowrap;transition:background .15s ease;
+}
+.mp-nav-cta:hover{background:var(--mpnav-gold-bright);}
+.mp-nav-toggle{
+  display:none;width:34px;height:34px;border-radius:8px;border:1px solid var(--mpnav-line);
+  background:rgba(242,236,220,.06);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
+.mp-nav-toggle span{width:16px;height:1.5px;background:var(--mpnav-paper);border-radius:2px;}
+
+/* Mobile panel */
+.mp-nav-mobile{
+  display:none;position:fixed;top:var(--mpnav-h);left:0;right:0;bottom:0;z-index:1999;
+  background:var(--mpnav-bar);overflow-y:auto;padding:18px 24px 40px;
+}
+@media(min-width:561px){.mp-nav-mobile{top:calc(30px + var(--mpnav-h));}}
+.mp-nav-mobile.open{display:block;}
+.mp-nav-mobile a{
+  display:block;color:var(--mpnav-paper);text-decoration:none;font-family:'Fraunces',serif;
+  font-size:22px;padding:14px 4px;border-bottom:1px solid var(--mpnav-line);
+}
+.mp-nav-mobile .mp-nav-cta{display:inline-block;margin-top:20px;}
+
+@media(max-width:980px){
+  .mp-nav-links{display:none;}
+  .mp-nav-toggle{display:flex;}
+  .mp-nav-search span.mp-kbd{display:none;}
+  .mp-nav-cta{display:none;}
+}
+@media(max-width:560px){
+  .mp-nav-brand-text{display:none;}
+  .mp-nav-search{padding:8px;}
+}
+
+/* ---------------- Body offset ---------------- */
+.mp-nav-offset{padding-top:calc(30px + var(--mpnav-h));}
+@media(max-width:560px){.mp-nav-offset{padding-top:var(--mpnav-h);}}
+
+/* =========================================================================
+   COMMAND PALETTE
+   ========================================================================= */
+.mp-palette-overlay{
+  position:fixed;inset:0;z-index:3000;background:rgba(20,25,15,.6);backdrop-filter:blur(4px);
+  display:flex;align-items:flex-start;justify-content:center;padding:14vh 20px 20px;
+  opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s;
+}
+.mp-palette-overlay.open{opacity:1;visibility:visible;}
+.mp-palette{
+  width:100%;max-width:640px;background:var(--mpnav-paper);border-radius:12px;
+  box-shadow:0 40px 90px -20px rgba(0,0,0,.55);overflow:hidden;
+  transform:translateY(-10px);transition:transform .18s ease;
+}
+.mp-palette-overlay.open .mp-palette{transform:translateY(0);}
+.mp-palette-input-row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(27,26,23,.12);color:#8a8577;}
+.mp-palette-input-row input{
+  flex:1;border:none;outline:none;background:none;font-size:16px;color:#1b1a17;font-family:'Inter',sans-serif;
+}
+.mp-palette-input-row kbd{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(27,26,23,.2);border-radius:4px;padding:2px 6px;color:#5b5a52;}
+.mp-palette-results{max-height:58vh;overflow-y:auto;padding:8px;}
+.mp-palette-group-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8a8577;padding:12px 12px 6px;}
+.mp-palette-item{
+  display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;text-decoration:none;
+  color:#1b1a17;cursor:pointer;
+}
+.mp-palette-item .mpi-icon{width:28px;height:28px;border-radius:7px;background:#e7dfc5;display:flex;align-items:center;justify-content:center;color:#8c6a2e;font-size:12px;flex-shrink:0;}
+.mp-palette-item .mpi-text strong{display:block;font-size:14px;font-weight:600;line-height:1.3;}
+.mp-palette-item .mpi-text span{display:block;font-size:12px;color:#8a8577;margin-top:1px;}
+.mp-palette-item:hover,.mp-palette-item.active{background:#e7dfc5;}
+.mp-palette-empty{padding:40px 20px;text-align:center;color:#8a8577;font-size:14px;}
+.mp-palette-footer{display:flex;gap:16px;padding:10px 20px;border-top:1px solid rgba(27,26,23,.1);font-size:11px;color:#8a8577;font-family:'IBM Plex Mono',monospace;}
+.mp-palette-footer span{display:flex;align-items:center;gap:5px;}
+.mp-palette-footer kbd{border:1px solid rgba(27,26,23,.2);border-radius:3px;padding:1px 5px;}
+
+/* =========================================================================
+   CITATION PANEL — "cite this case note" (case pages) using the same
+   pattern already proven on Practice Notes, generalised for case notes.
+   ========================================================================= */
+.mp-cite-panel{background:var(--white,#fff);border:1px solid var(--line,#c9bf9c);padding:18px 20px 20px;margin-top:10px;}
+.mp-cite-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.mp-cite-tab{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;padding:6px 11px;border:1px solid var(--line,#c9bf9c);background:none;color:var(--slate,#5b5a52);cursor:pointer;border-radius:100px;}
+.mp-cite-tab.active{background:var(--ink,#1b1a17);border-color:var(--ink,#1b1a17);color:#fff;}
+.mp-cite-text{font-size:13px;line-height:1.6;color:var(--ink,#1b1a17);background:var(--paper,#f2ecdc);padding:12px 14px;margin-bottom:12px;min-height:52px;font-family:'IBM Plex Mono',monospace;}
+.mp-cite-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.mp-cite-btn{font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:9px 14px;border:1px solid var(--line,#c9bf9c);background:none;color:var(--ink,#1b1a17);cursor:pointer;border-radius:4px;}
+.mp-cite-btn.primary{background:var(--gold,#c69a3e);border-color:var(--gold,#c69a3e);color:#1b1a17;}
+.mp-cite-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:#1b1a17;color:#f2ecdc;padding:11px 20px;border-radius:100px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:4000;}
+.mp-cite-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* =========================================================================
+   DARK MODE — filter-based fallback for standalone document templates
+   (case notes / insight articles) whose inline styles predate the shared
+   theme system. Proper token-based dark overrides live in styles.css and
+   assets/css/site.css for pages that load those stylesheets.
+   ========================================================================= */
+html.mp-inverted body.mp-invert{filter:invert(1) hue-rotate(180deg);}
+html.mp-inverted body.mp-invert img,
+html.mp-inverted body.mp-invert video,
+html.mp-inverted body.mp-invert .mp-nav,
+html.mp-inverted body.mp-invert .mp-nav-mobile,
+html.mp-inverted body.mp-invert .mp-palette-overlay{filter:invert(1) hue-rotate(180deg);}
