@@ -17,24 +17,37 @@ const ALLOWED_ORIGINS = [
   "https://www.dataprivacyadvocates.co.ke",
 ];
 
+// Netlify Deploy Previews and branch deploys get URLs like
+// https://deploy-preview-12--muchangipatrickadvocate.netlify.app or
+// https://some-branch--muchangipatrickadvocate.netlify.app. The prefix
+// changes on every PR/branch, so a static list can't cover them — but this
+// site's own Netlify subdomain never changes, so match on that instead.
+// (DEPLOY_PRIME_URL/DEPLOY_URL would give the exact preview URL, but those
+// are only available to Netlify at build time, not to Functions at
+// runtime — only URL, SITE_NAME, and SITE_ID are — so an env-var lookup
+// isn't an option here.) Only someone who can already push to this repo
+// can ever cause a page to be served from this subdomain, so this is no
+// looser than trusting the production domain itself.
+const NETLIFY_PREVIEW_ORIGIN_RE = /^https:\/\/[a-z0-9-]+--muchangipatrickadvocate\.netlify\.app$/;
+
+function isAllowedOrigin(origin: string): boolean {
+  return ALLOWED_ORIGINS.includes(origin) || NETLIFY_PREVIEW_ORIGIN_RE.test(origin);
+}
+
 /** Verifies the request's Origin (falling back to Referer) is this site. */
 export function verifyOrigin(req: Request): boolean {
   const origin = req.headers.get("origin");
-  if (origin) return ALLOWED_ORIGINS.includes(origin);
+  if (origin) return isAllowedOrigin(origin);
 
   const referer = req.headers.get("referer");
   if (referer) {
     try {
-      const refOrigin = new URL(referer).origin;
-      return ALLOWED_ORIGINS.includes(refOrigin);
+      return isAllowedOrigin(new URL(referer).origin);
     } catch {
       return false;
     }
   }
 
-  // Netlify's own Deploy Previews won't match ALLOWED_ORIGINS and would be
-  // rejected here too — add the preview pattern to ALLOWED_ORIGINS while
-  // testing on a deploy preview if needed.
   return false;
 }
 
