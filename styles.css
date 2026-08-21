@@ -2552,6 +2552,34 @@ body.home-executive .executive-resource-map{
    link-instances across two separate grids) with one organised grid.
    Same underlying destinations, consolidated into five clear groups.
    ========================================================================== */
+/* ==========================================================================
+   CONTACT PAGE — embedded booking calendar (CertPro-inspired: the calendar
+   sits directly on the page instead of only linking out). The working
+   Zoho link is kept visible as a fallback in the card header.
+   ========================================================================== */
+.office-people{display:flex;align-items:center;gap:14px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line);}
+.office-people img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.office-people strong{display:block;font-family:var(--font-display);font-size:.98rem;color:var(--ink);}
+.office-people span{display:block;font-size:.82rem;color:var(--muted);margin-top:2px;}
+.office-card{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);overflow:hidden;}
+.office-card-map{height:220px;}
+.office-card-map iframe{width:100%;height:100%;display:block;}
+.office-card-body{padding:26px 28px 28px;}
+.office-card-body h3{font-family:var(--font-display);font-size:1.15rem;margin:4px 0 14px;}
+.office-card-body p{font-size:.88rem;color:var(--slate);line-height:1.6;margin:0 0 10px;}
+.office-card-body p i{width:16px;color:var(--cta);margin-right:8px;}
+
+.booking-shell{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;margin-top:36px;align-items:stretch;}
+.booking-embed-card{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;overflow:hidden;}
+.booking-embed-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:26px 28px 20px;border-bottom:1px solid var(--line);}
+.booking-embed-head h3{font-family:var(--font-display);font-size:1.3rem;margin:2px 0 0;}
+.booking-embed-head .text-link{white-space:nowrap;font-size:.82rem;}
+.booking-embed-frame{flex:1;min-height:560px;background:var(--paper-2);}
+.booking-embed-frame iframe{width:100%;height:100%;min-height:560px;border:0;display:block;}
+.booking-side{display:flex;flex-direction:column;gap:18px;}
+.client-card--compact{padding:26px;flex:1;display:flex;flex-direction:column;justify-content:center;}
+@media(max-width:900px){.booking-shell{grid-template-columns:1fr;}.booking-embed-frame,.booking-embed-frame iframe{min-height:640px;}}
+
 .faq-item{border-bottom:1px solid var(--line);padding:20px 0;}
 .faq-item:last-child{border-bottom:none;}
 .faq-item h4{margin:0 0 8px;font-size:1.02rem;font-family:'Fraunces',serif;font-weight:600;color:var(--ink);}

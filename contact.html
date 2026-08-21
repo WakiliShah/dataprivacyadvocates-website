@@ -233,238 +233,23 @@
   </div>
 </section>
 
-<style>
-/* ==========================================================================
-   ASK WAKILI — AI-assisted, Case-Digest-grounded legal issue spotter.
-   Scoped to .aw- classes; reads the same custom properties as the rest of
-   the site (including dark mode via [data-theme="dark"]) so it needs no
-   overrides of its own.
-   ========================================================================== */
-.aw-section{padding:76px 0;}
-.aw-frame{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);}
-/* Fixed (not var(--ink)/var(--paper)) on purpose: this panel is meant to
-   stay a dark, high-contrast band in both light and dark site themes. Using
-   the theme variables here would invert it under [data-theme="dark"] (--ink
-   becomes light, --paper becomes dark), which is a bug we noticed already
-   affects the site's existing .section--ink bands — see ASK-WAKILI-BUILD.md. */
-.aw-hero{background:#1b1a17;color:#f2ecdc;padding:40px 40px 34px;position:relative;overflow:hidden;}
-.aw-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% -10%,rgba(198,154,62,.18),transparent 55%);pointer-events:none;}
-.aw-hero .eyebrow{color:#ecc981;position:relative;display:flex;align-items:center;gap:8px;}
-.aw-live-dot{width:6px;height:6px;border-radius:50%;background:#8fae7a;box-shadow:0 0 0 3px rgba(143,174,122,.25);animation:awPulse 2.2s ease-in-out infinite;flex-shrink:0;}
-@keyframes awPulse{0%,100%{opacity:1}50%{opacity:.4}}
-.aw-hero h2{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.18;margin:0 0 10px;color:#f2ecdc;position:relative;}
-.aw-hero p{max-width:60ch;color:rgba(242,236,220,.72);font-size:15px;line-height:1.6;margin:0 0 16px;position:relative;}
-.aw-corpus-note{position:relative;display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:rgba(242,236,220,.5);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(242,236,220,.1);width:100%;}
-.aw-corpus-note strong{color:var(--brass-light,#ecc981);font-weight:600;}
-.aw-row{display:flex;gap:10px;margin-bottom:14px;position:relative;flex-wrap:wrap;}
-.aw-row input{flex:1;min-width:220px;padding:13px 16px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.14);background:rgba(242,236,220,.05);color:#f2ecdc;font-family:var(--font-body);font-size:14.5px;outline:none;transition:border-color .15s ease,background .15s ease;}
-.aw-row input::placeholder{color:rgba(242,236,220,.42);}
-.aw-row input:focus{border-color:var(--brass-light);background:rgba(242,236,220,.08);box-shadow:0 0 0 3px rgba(198,154,62,.12);}
-.aw-btn{font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:0 22px;border-radius:var(--radius);border:none;cursor:pointer;white-space:nowrap;background:var(--cta);color:var(--white);transition:background .15s ease;}
-.aw-btn:hover{background:var(--cta-hover);}
-.aw-btn:disabled{opacity:.5;cursor:default;}
-.aw-btn-ghost{font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:0 18px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.25);cursor:pointer;background:transparent;color:rgba(242,236,220,.75);}
-.aw-btn-ghost:hover{color:#f2ecdc;border-color:rgba(242,236,220,.5);}
-.aw-chips{display:flex;flex-wrap:wrap;gap:8px;position:relative;}
-.aw-chip{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 11px;border-radius:var(--radius);border:1px solid rgba(242,236,220,.22);background:transparent;color:rgba(242,236,220,.68);cursor:pointer;}
-.aw-chip:hover{border-color:var(--brass-light);color:#f2ecdc;}
-
-.aw-body{padding:0;}
-.aw-loading{display:none;align-items:center;gap:10px;padding:22px 40px;font-size:13.5px;color:var(--slate);border-bottom:1px solid var(--line);}
-.aw-loading.show{display:flex;}
-.aw-spinner{width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--cta);border-radius:50%;animation:awSpin .7s linear infinite;}
-@keyframes awSpin{to{transform:rotate(360deg);}}
-.aw-error{display:none;margin:20px 40px;font-size:13.5px;color:var(--error);background:rgba(126,47,32,.08);padding:14px 18px;border-radius:var(--radius);border:1px solid rgba(126,47,32,.2);}
-.aw-error.show{display:block;}
-
-.aw-results{display:none;}
-.aw-results.show{display:block;animation:awRise .35s ease;}
-@keyframes awRise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
-.aw-panel{padding:26px 40px;border-bottom:1px solid var(--line);}
-.aw-panel:last-child{border-bottom:none;}
-.aw-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;}
-.aw-panel-head h3{font-family:var(--font-display);font-weight:600;font-size:19px;margin:0;color:var(--ink);}
-.aw-badge{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--cta);background:var(--plum-pale,rgba(198,154,62,.12));padding:4px 10px;border-radius:var(--radius);white-space:nowrap;}
-.aw-panel p{font-size:14.5px;line-height:1.65;color:var(--slate);margin:0 0 10px;}
-.aw-hooks{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
-.aw-hook{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cta);background:rgba(198,154,62,.1);padding:4px 9px;border-radius:var(--radius);}
-
-.aw-auth-group{display:flex;flex-direction:column;gap:12px;}
-.aw-auth{padding:18px 20px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);transition:transform .2s var(--ease,ease),box-shadow .2s var(--ease,ease),border-color .2s var(--ease,ease);}
-.aw-auth:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft);border-color:var(--brass);}
-.aw-auth-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px;}
-.aw-auth-name{font-family:var(--font-display);font-size:15.5px;font-weight:600;color:var(--ink);}
-.aw-auth-cite{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cta);font-weight:600;margin-bottom:8px;}
-.aw-auth-why{font-size:13.5px;color:var(--slate);line-height:1.55;margin:0 0 10px;}
-.aw-rel{font-family:'IBM Plex Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.03em;padding:3px 8px;border-radius:var(--radius);white-space:nowrap;}
-.aw-rel-most{background:rgba(198,154,62,.14);color:var(--cta);}
-.aw-rel-related{background:var(--paper-2);color:var(--muted);}
-.aw-auth-link{font-size:13px;color:var(--ink);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding-top:10px;border-top:1px solid var(--line);width:100%;}
-.aw-auth:hover .aw-auth-link{color:var(--cta);}
-.aw-nomatch{font-size:13.5px;color:var(--slate);line-height:1.65;}
-
-.aw-topics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
-.aw-topic{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--slate);background:var(--paper-2);border:1px solid var(--line);padding:4px 10px;border-radius:var(--radius);}
-.aw-cta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:14px;border-top:1px dashed var(--line);}
-.aw-cta span{font-size:12.5px;color:var(--muted);}
-.aw-cta a{font-family:var(--font-body);font-weight:600;font-size:13px;color:var(--cta);text-decoration:none;}
-.aw-cta a:hover{text-decoration:underline;}
-
-.aw-foot{padding:16px 40px;font-size:11.5px;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);background:var(--paper-2);}
-
-@media(max-width:640px){
-  .aw-hero,.aw-panel,.aw-loading,.aw-error,.aw-foot{padding-left:22px;padding-right:22px;}
-  .aw-error{margin-left:22px;margin-right:22px;}
-}
-</style>
-
-<section class="section aw-section" id="ask-wakili-contact">
-  <div class="container">
-    <div class="aw-frame">
-
-      <div class="aw-hero">
-        <div class="eyebrow">Before you reach out · Ask Wakili</div>
-        <h2>Start with what happened.</h2>
-        <p>Not sure how to phrase your enquiry, or which practice area it falls under? Describe it here first. Ask Wakili will point you to the relevant area of law and case notes, then you can book, call or write below.</p>
-        <div class="aw-row">
-          <input type="text" id="awQuery" maxlength="320" placeholder="e.g. A lender deducted my salary for a loan I never took">
-          <button class="aw-btn" id="awAsk">Ask Wakili</button>
-          <button class="aw-btn-ghost" id="awClear">Clear</button>
-        </div>
-        <div class="aw-chips" id="awChips"></div>
-        <div class="aw-corpus-note"><span class="aw-live-dot"></span>Grounded in <strong>33 published case notes</strong> from our Case Digest — cites none it can't verify</div>
-      </div>
-
-      <div class="aw-body">
-        <div class="aw-loading" id="awLoading"><span class="aw-spinner"></span> Checking the Case Digest…</div>
-        <div class="aw-error" id="awError"></div>
-        <div class="aw-results" id="awResults">
-          <div class="aw-panel" id="awIssuePanel"></div>
-          <div class="aw-panel" id="awAuthPanel"></div>
-          <div class="aw-panel" id="awTopicsPanel"></div>
-        </div>
-      </div>
-
-      <div class="aw-foot">Ask Wakili gives general information only, grounded strictly in this firm's published Case Digest — it does not give legal advice and nothing you type is stored verbatim. For advice on your specific situation, <a href="#talk-to-counsel" style="color:var(--cta);font-weight:600;">choose how to reach us below</a>.</div>
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  const EXAMPLES = [
-    "A lender deducted my salary for a loan I never took",
-    "A company won't let me correct my data",
-    "My employer shared my data with a third party",
-    "I want to challenge an ODPC determination",
-    "A business used my photo without consent"
-  ];
-
-  const $ = (id) => document.getElementById(id);
-  const queryEl = $('awQuery'), askBtn = $('awAsk'), clearBtn = $('awClear'), chipsEl = $('awChips');
-  const loadingEl = $('awLoading'), errorEl = $('awError'), resultsEl = $('awResults');
-  const issuePanel = $('awIssuePanel'), authPanel = $('awAuthPanel'), topicsPanel = $('awTopicsPanel');
-
-  EXAMPLES.forEach(ex => {
-    const c = document.createElement('button');
-    c.type = 'button'; c.className = 'aw-chip'; c.textContent = ex;
-    c.addEventListener('click', () => { queryEl.value = ex; runQuery(ex); });
-    chipsEl.appendChild(c);
-  });
-
-  function esc(s){ const d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
-
-  async function runQuery(query){
-    if (!query || query.trim().length < 4) return;
-    errorEl.classList.remove('show');
-    resultsEl.classList.remove('show');
-    loadingEl.classList.add('show');
-    askBtn.disabled = true;
-
-    try {
-      const res = await fetch('/api/ask-wakili', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: query.trim() })
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        throw new Error(data.message || data.error || 'request_failed');
-      }
-      render(data);
-    } catch (err) {
-      console.error('Ask Wakili error:', err);
-      errorEl.textContent = (err && err.message && err.message !== 'request_failed')
-        ? err.message
-        : "Ask Wakili couldn't process that just now. Please try rephrasing, or contact the firm directly.";
-      errorEl.classList.add('show');
-    } finally {
-      loadingEl.classList.remove('show');
-      askBtn.disabled = false;
-    }
-  }
-
-  function render(data){
-    issuePanel.innerHTML = `
-      <div class="aw-panel-head">
-        <h3>${esc(data.issue_title)}</h3>
-        <span class="aw-badge">Educational information</span>
-      </div>
-      <p>${esc(data.issue_summary)}</p>
-      ${data.statutory_hooks && data.statutory_hooks.length ? `<div class="aw-hooks">${data.statutory_hooks.map(h => `<span class="aw-hook">${esc(h)}</span>`).join('')}</div>` : ''}
-    `;
-
-    if (data.no_match || !data.authorities || !data.authorities.length){
-      authPanel.innerHTML = `
-        <div class="aw-panel-head"><h3>Relevant case notes</h3></div>
-        <p class="aw-nomatch">Nothing in our Case Digest is a close match for this yet. That doesn't mean the law is silent on it — it means this specific scenario isn't in our published notes. Our team can advise directly.</p>
-      `;
-    } else {
-      authPanel.innerHTML = `
-        <div class="aw-panel-head"><h3>Relevant case notes</h3></div>
-        <div class="aw-auth-group">
-        ${data.authorities.map(a => `
-          <div class="aw-auth">
-            <div class="aw-auth-top">
-              <div>
-                <div class="aw-auth-name">${esc(a.name)}</div>
-                <div class="aw-auth-cite">${esc(a.citation)} · ${esc(a.outcome)}</div>
-              </div>
-              <span class="aw-rel ${a.relevance === 'Most relevant' ? 'aw-rel-most' : 'aw-rel-related'}">${esc(a.relevance)}</span>
-            </div>
-            <p class="aw-auth-why">${esc(a.why)}</p>
-            <a class="aw-auth-link" href="${a.url}">Read the full case note →</a>
-          </div>
-        `).join('')}
-        </div>
-      `;
-    }
-
-    topicsPanel.innerHTML = `
-      <div class="aw-panel-head"><h3 style="font-family:var(--font-body);font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);">Related topics</h3></div>
-      <div class="aw-topics">${(data.related_topics || []).map(t => `<span class="aw-topic">${esc(t)}</span>`).join('')}</div>
-      <div class="aw-cta">
-        <span>General information only — not a substitute for advice on your specific facts.</span>
-        <a href="#talk-to-counsel">Choose how to reach us ↓</a>
-      </div>
-    `;
-
-    resultsEl.classList.add('show');
-  }
-
-  askBtn.addEventListener('click', () => runQuery(queryEl.value));
-  queryEl.addEventListener('keypress', (e) => { if (e.key === 'Enter') runQuery(queryEl.value); });
-  clearBtn.addEventListener('click', () => { queryEl.value = ''; resultsEl.classList.remove('show'); errorEl.classList.remove('show'); });
-})();
-</script>
-
 <section class="section" id="talk-to-counsel">
   <div class="container">
     <div class="section-head center reveal"><div class="client-kicker">Choose the easiest starting point</div><h2>You can book, call, WhatsApp or write.</h2><p>Choose whichever feels most natural. A first conversation is about understanding the matter and deciding whether we are the right counsel for it.</p></div>
-    <div class="client-grid reveal stagger">
-      <a class="client-card" href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener"><div class="icon"><i class="fas fa-calendar-check"></i></div><h3>Book a consultation</h3><p>Choose a convenient time for a focused conversation about your legal or regulatory issue.</p><span class="text-link">Book a time <i class="fas fa-arrow-right"></i></span></a>
-      <a class="client-card" href="https://wa.me/254736358938" target="_blank" rel="noopener"><div class="icon"><i class="fab fa-whatsapp"></i></div><h3>Ask a quick question</h3><p>If you are unsure where to start, send a short message and tell us what happened.</p><span class="text-link">Open WhatsApp <i class="fas fa-arrow-right"></i></span></a>
-      <a class="client-card" href="mailto:consult@dataprivacyadvocates.co.ke"><div class="icon"><i class="fas fa-envelope"></i></div><h3>Write to counsel</h3><p>Useful for a fuller background, regulatory correspondence or a matter that needs context.</p><span class="text-link">Send an email <i class="fas fa-arrow-right"></i></span></a>
+    <div class="booking-shell reveal">
+      <div class="booking-embed-card">
+        <div class="booking-embed-head">
+          <div><span class="client-kicker" style="margin-bottom:4px;">Book a consultation</span><h3>Pick a time that works for you.</h3></div>
+          <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="text-link">Open full calendar <i class="fas fa-up-right-from-square"></i></a>
+        </div>
+        <div class="booking-embed-frame">
+          <iframe src="https://muchangipatrickassociatesadvocates.zohobookings.com/portal-embed#/muchangipatrickassociatesadvocates" title="Book a consultation with Muchangi Patrick &amp; Associates Advocates" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="booking-side">
+        <a class="client-card client-card--compact" href="https://wa.me/254736358938" target="_blank" rel="noopener"><div class="icon"><i class="fab fa-whatsapp"></i></div><h3>Ask a quick question</h3><p>Not sure where to start? Send a short message and tell us what happened.</p><span class="text-link">Open WhatsApp <i class="fas fa-arrow-right"></i></span></a>
+        <a class="client-card client-card--compact" href="mailto:consult@dataprivacyadvocates.co.ke"><div class="icon"><i class="fas fa-envelope"></i></div><h3>Write to counsel</h3><p>Useful for a fuller background, regulatory correspondence, or a matter that needs context.</p><span class="text-link">Send an email <i class="fas fa-arrow-right"></i></span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -511,10 +296,19 @@
         <div class="contact-option"><div class="option-icon"><i class="fas fa-phone"></i></div><div><h3>Call</h3><p><a href="tel:+254722878607">0722 878 607</a> · <a href="tel:+254736358938">0736 358 938</a></p></div></div>
         <div class="contact-option"><div class="option-icon"><i class="fab fa-whatsapp"></i></div><div><h3>WhatsApp</h3><p><a href="https://wa.me/254736358938" target="_blank" rel="noopener">0736 358 938 · Start a conversation</a></p></div></div>
         <div class="contact-option"><div class="option-icon"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p><a href="mailto:consult@dataprivacyadvocates.co.ke">consult@dataprivacyadvocates.co.ke</a></p></div></div>
-      </div></div>
-      <div class="visual-block reveal" style="aspect-ratio:16/10;"><iframe src="https://maps.google.com/maps?q=Pinetree%20Plaza%2C%20Kaburu%20Drive%2C%20Off%20Ngong%20Road%2C%20Nairobi%2C%20Kenya&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Pinetree Plaza, Kaburu Drive, Nairobi"></iframe></div>
+      </div>
+      <div class="office-people"><img src="images/founder.jpg" alt="Patrick Muchangi, Advocate" /><div><strong>Patrick Muchangi</strong><span>You'll be speaking with counsel directly — not a call centre.</span></div></div>
+      </div>
+      <div class="office-card reveal">
+        <div class="office-card-map"><iframe src="https://maps.google.com/maps?q=Pinetree%20Plaza%2C%20Kaburu%20Drive%2C%20Off%20Ngong%20Road%2C%20Nairobi%2C%20Kenya&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Pinetree Plaza, Kaburu Drive, Nairobi"></iframe></div>
+        <div class="office-card-body">
+          <div class="client-kicker">Nairobi</div>
+          <h3>Muchangi Patrick &amp; Associates</h3>
+          <p><i class="fas fa-location-dot"></i> Pinetree Plaza, 8th Floor<br/>Kaburu Drive, off Ngong Road<br/>Nairobi, Kenya</p>
+          <p><i class="fas fa-clock"></i> Monday–Friday, 8:00am–5:30pm</p>
+        </div>
+      </div>
     </div>
-    <div style="margin-top:28px;color:var(--muted);font-size:.9rem;"><i class="fas fa-location-dot" style="color:var(--cta);margin-right:8px;"></i>Pinetree Plaza, 8th Floor, Kaburu Drive, off Ngong Road, Nairobi, Kenya · Monday–Friday, 8:00am–5:30pm</div>
   </div>
 </section>
 
@@ -562,6 +356,6 @@
 
 <script src="script.js?v=11"></script>
 <script src="/assets/js/conversion.js"></script>
-<script src="/assets/js/mp-nav.js"></script>
+<script src="/assets/js/mp-nav.js" defer></script>
 </body>
 </html>
