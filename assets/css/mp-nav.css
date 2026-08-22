@@ -199,6 +199,46 @@
 .mp-palette-footer kbd{border:1px solid rgba(27,26,23,.2);border-radius:3px;padding:1px 5px;}
 
 /* =========================================================================
+   WELCOME WIDGET — floating launcher (W&B-style), injected via JS on every
+   page so it doesn't require touching each page's markup. Sits above the
+   existing WhatsApp button rather than replacing it.
+   ========================================================================= */
+.mp-welcome-fab{
+  position:fixed;right:24px;bottom:96px;z-index:1500;
+  width:52px;height:52px;border-radius:50%;background:var(--mpnav-gold,#c69a3e);
+  border:none;box-shadow:0 10px 24px rgba(20,25,15,.35);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:#1b1a17;font-size:19px;
+  transition:transform .18s ease;
+}
+.mp-welcome-fab:hover{transform:scale(1.06);}
+.mp-welcome-panel{
+  position:fixed;right:24px;bottom:158px;z-index:1500;width:290px;
+  background:var(--mpnav-paper,#f2ecdc);border-radius:14px;overflow:hidden;
+  box-shadow:0 30px 60px -12px rgba(20,25,15,.4);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .18s ease,transform .18s ease,visibility .18s;
+}
+.mp-welcome-panel.open{opacity:1;visibility:visible;transform:translateY(0);}
+.mp-welcome-head{background:var(--mpnav-bar,#14190f);padding:20px 20px 18px;position:relative;}
+.mp-welcome-head .mp-welcome-close{position:absolute;top:14px;right:14px;background:none;border:none;color:rgba(242,236,220,.5);font-size:14px;cursor:pointer;}
+.mp-welcome-head .mp-welcome-close:hover{color:#fff;}
+.mp-welcome-seal{width:30px;height:30px;border-radius:50%;border:1.2px solid var(--mpnav-gold,#c69a3e);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.mp-welcome-seal span{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;color:var(--mpnav-gold-bright,#ecc981);}
+.mp-welcome-head h3{color:#fff;font-family:'Fraunces',serif;font-size:1.1rem;margin:0 0 2px;}
+.mp-welcome-head p{color:rgba(242,236,220,.55);font-size:.78rem;margin:0;}
+.mp-welcome-body{padding:14px;display:flex;flex-direction:column;gap:8px;}
+.mp-welcome-btn{
+  display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(27,26,23,.1);
+  border-radius:9px;padding:13px 14px;text-decoration:none;color:#1b1a17;font-size:.86rem;font-weight:600;
+  transition:.15s ease;text-align:left;
+}
+.mp-welcome-btn i{color:var(--mpnav-gold,#c69a3e);width:16px;flex-shrink:0;}
+.mp-welcome-btn:hover{border-color:var(--mpnav-gold,#c69a3e);background:#fbf8f0;}
+.mp-welcome-foot{padding:0 18px 16px;font-size:.68rem;color:#8a8577;line-height:1.5;}
+.mp-welcome-foot a{color:#8c6a2e;}
+@media(max-width:480px){.mp-welcome-panel{right:16px;left:16px;width:auto;}.mp-welcome-fab{right:16px;}}
+
+/* =========================================================================
    CITATION PANEL — "cite this case note" (case pages) using the same
    pattern already proven on Practice Notes, generalised for case notes.
    ========================================================================= */

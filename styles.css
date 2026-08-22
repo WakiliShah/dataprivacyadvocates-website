@@ -622,8 +622,11 @@ h1,h2,h3,h4{
   background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.4);color:var(--ink);
   white-space:normal;text-align:center;
 }
+.fab.fa-whatsapp{filter:drop-shadow(0 0 5px rgba(37,211,102,.55));}
+
+.btn-whatsapp{position:relative;box-shadow:0 3px 20px rgba(37,211,102,.25);transition:box-shadow .25s ease,transform .25s ease,background .25s ease;}
 .btn-whatsapp i{color:#25D366;}
-.btn-whatsapp:hover{background:#25D366;border-color:#25D366;color:var(--white);transform:translateY(-2px);}
+.btn-whatsapp:hover{background:#25D366;border-color:#25D366;color:var(--white);transform:translateY(-2px);box-shadow:0 6px 32px rgba(37,211,102,.45);}
 .btn-whatsapp:hover i{color:var(--white);}
 .booking-meta{font-size:.85rem;color:var(--muted);}
 .booking-meta a{color:var(--cta);font-weight:600;}
@@ -896,6 +899,7 @@ h1,h2,h3,h4{
 
 /* Utility */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
 .reveal.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
@@ -2335,10 +2339,29 @@ body.home-executive .homepage-secondary-cta{
   white-space:nowrap;
 }
 body.home-executive .homepage-primary-cta{
-  background:var(--home-gold);
+  background:#E0932E;
   color:#14190f;
   padding:13px 22px;
-  border-radius:2px;
+  border-radius:6px;
+  box-shadow:0 4px 32px rgba(224,147,46,.4),0 0 0 1px rgba(224,147,46,.15);
+  transition:box-shadow .25s ease,transform .25s ease,background .25s ease;
+}
+body.home-executive .homepage-primary-cta:hover{
+  background:#EDA544;
+  box-shadow:0 6px 40px rgba(224,147,46,.55),0 0 0 1px rgba(224,147,46,.25);
+  transform:translateY(-1px);
+}
+body.home-executive .btn-brass{
+  background:#E0932E;
+  color:#14190f;
+  box-shadow:0 4px 28px rgba(224,147,46,.35);
+  transition:box-shadow .25s ease,transform .25s ease,background .25s ease;
+}
+body.home-executive .btn-brass:hover{
+  background:#EDA544;
+  color:#14190f;
+  box-shadow:0 6px 36px rgba(224,147,46,.5);
+  transform:translateY(-2px);
 }
 body.home-executive .homepage-primary-cta i{color:#14190f;}
 body.home-executive .homepage-secondary-cta i{color:var(--home-gold);}
@@ -2527,6 +2550,56 @@ body.home-executive .executive-resource-map{
    countable content metrics (case notes, practice areas, publications) —
    deliberately not fabricated performance claims like "97% success rate".
    ========================================================================== */
+/* ==========================================================================
+   HOMEPAGE HERO — LIVE PRACTICE DIAGRAM — v14
+   Structure adapted from a reference "governed AI engine" diagram: a central
+   hub, four connected process nodes, floating fact cards, credibility
+   badges. Recoloured into our gold/ink palette; content is our own real
+   practice facts, not invented business metrics.
+   ========================================================================== */
+.lgx-wrap{position:relative;width:100%;aspect-ratio:1/0.92;max-width:520px;margin:0 auto;}
+.lgx-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
+.lgx-svg path{fill:none;stroke:rgba(198,154,62,.35);stroke-width:1.4;stroke-dasharray:4 5;}
+
+.lgx-core{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);z-index:10;}
+.lgx-cc{width:118px;height:118px;border-radius:50%;background:rgba(198,154,62,.08);border:1.5px solid rgba(198,154,62,.4);display:flex;align-items:center;justify-content:center;position:relative;}
+.lgx-cc::before{content:"";position:absolute;inset:-18px;border-radius:50%;border:1px solid rgba(198,154,62,.14);}
+.lgx-cc span,.lgx-cc i{font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--brass-light,#ecc981);}
+.lgx-cl{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--brass,#c69a3e);letter-spacing:.08em;white-space:nowrap;}
+
+.lgx-gate{position:absolute;z-index:8;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;}
+.lgx-gc{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;background:rgba(242,236,220,.05);border:1.5px solid rgba(242,236,220,.16);}
+.lgx-gc.on{border-color:rgba(198,154,62,.4);background:rgba(198,154,62,.07);}
+.lgx-gc i{font-size:16px;color:var(--brass-light,#ecc981);}
+.lgx-gc .lgx-b{position:absolute;bottom:-3px;right:-3px;width:15px;height:15px;border-radius:50%;background:#14190f;display:flex;align-items:center;justify-content:center;font-size:8px;color:#8fae7a;border:1px solid rgba(143,174,122,.5);}
+.lgx-gn{font-size:11px;font-weight:600;color:rgba(242,236,220,.85);white-space:nowrap;}
+.lgx-gs{font-size:9px;color:rgba(242,236,220,.4);white-space:nowrap;}
+
+.lgx-g-top{top:2%;left:50%;transform:translateX(-50%);animation:lgxfx 5s ease-in-out infinite;}
+.lgx-g-left{bottom:16%;left:2%;animation:lgxf 5s ease-in-out infinite 1s;}
+.lgx-g-right{bottom:16%;right:0%;animation:lgxf 5s ease-in-out infinite 2s;}
+.lgx-g-bottom{bottom:2%;left:50%;transform:translateX(-50%);animation:lgxfx 5s ease-in-out infinite 3s;}
+@keyframes lgxf{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes lgxfx{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+
+.lgx-card{position:absolute;z-index:9;background:rgba(20,25,15,.9);border:1px solid rgba(198,154,62,.18);border-radius:9px;padding:9px 13px;backdrop-filter:blur(6px);}
+.lgx-card-1{top:20%;right:-8%;animation:lgxc 6s ease-in-out infinite .5s;}
+.lgx-card-2{top:20%;left:-10%;animation:lgxc 6s ease-in-out infinite 2.5s;}
+@keyframes lgxc{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.lgx-dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:6px;background:#8fae7a;box-shadow:0 0 8px rgba(143,174,122,.5);animation:lgxdp 2s ease-in-out infinite;}
+@keyframes lgxdp{0%,100%{opacity:1}50%{opacity:.35}}
+.lgx-ct{font-size:8.5px;color:rgba(242,236,220,.4);}
+.lgx-cv{font-size:11.5px;font-weight:700;color:var(--brass-light,#ecc981);margin-top:3px;}
+.lgx-cvd{font-size:8px;color:rgba(242,236,220,.28);margin-top:1px;font-family:'IBM Plex Mono',monospace;}
+
+.lgx-pill{position:absolute;z-index:9;display:flex;align-items:center;gap:6px;background:rgba(20,25,15,.9);border:1px solid rgba(143,174,122,.16);border-radius:8px;padding:5px 11px;font-size:9px;font-weight:600;color:rgba(143,174,122,.75);white-space:nowrap;backdrop-filter:blur(6px);}
+.lgx-pill-1{bottom:14%;right:-2%;animation:lgxc 6s ease-in-out infinite 4s;}
+.lgx-pill-2{bottom:14%;left:-4%;animation:lgxc 6s ease-in-out infinite 3s;}
+.lgx-pill span{color:#8fae7a;}
+
+@media(max-width:1100px){.lgx-card,.lgx-pill{display:none;}}
+@media(max-width:560px){.lgx-wrap{max-width:340px;}}
+
 .hp-dash{background:#1b2016;border:1px solid rgba(198,154,62,.22);border-radius:6px;padding:26px 24px 22px;color:var(--paper,#f2ecdc);box-shadow:0 40px 90px -20px rgba(0,0,0,.6),0 0 0 1px rgba(198,154,62,.05);position:relative;overflow:hidden;z-index:2;}
 .hp-dash::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(198,154,62,.16),transparent 55%);pointer-events:none;}
 .hp-dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;position:relative;}
@@ -2569,6 +2642,10 @@ body.home-executive .executive-resource-map{
 .office-card-body p{font-size:.88rem;color:var(--slate);line-height:1.6;margin:0 0 10px;}
 .office-card-body p i{width:16px;color:var(--cta);margin-right:8px;}
 
+.booking-embed-fallback{display:flex;align-items:center;justify-content:center;background:var(--paper-2);}
+.booking-fallback-inner{text-align:center;padding:40px 30px;max-width:340px;}
+.booking-fallback-inner i{font-size:32px;color:var(--cta);margin-bottom:16px;display:block;}
+.booking-fallback-inner p{color:var(--muted);font-size:.9rem;margin:0 0 20px;line-height:1.6;}
 .booking-shell{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;margin-top:36px;align-items:stretch;}
 .booking-embed-card{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;overflow:hidden;}
 .booking-embed-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:26px 28px 20px;border-bottom:1px solid var(--line);}

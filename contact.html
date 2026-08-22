@@ -242,8 +242,18 @@
           <div><span class="client-kicker" style="margin-bottom:4px;">Book a consultation</span><h3>Pick a time that works for you.</h3></div>
           <a href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener" class="text-link">Open full calendar <i class="fas fa-up-right-from-square"></i></a>
         </div>
-        <div class="booking-embed-frame">
-          <iframe src="https://muchangipatrickassociatesadvocates.zohobookings.com/portal-embed#/muchangipatrickassociatesadvocates" title="Book a consultation with Muchangi Patrick &amp; Associates Advocates" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Zoho Bookings' embed code is account-specific (My Profile > Embed as
+             widget > Copy Code inside the Zoho dashboard) — there's no public URL
+             pattern to construct from outside the account. Rather than guess again,
+             this is a working fallback. To get the real embedded calendar: log into
+             Zoho Bookings > My Profile > Embed as Widget > Copy Code, then replace
+             this .booking-embed-frame div with that exact <iframe> snippet. -->
+        <div class="booking-embed-frame booking-embed-fallback">
+          <div class="booking-fallback-inner">
+            <i class="fas fa-calendar-days" aria-hidden="true"></i>
+            <p>The live calendar opens in a new tab — pick a date and time in a few seconds.</p>
+            <a class="btn btn-brass" href="https://muchangipatrickassociatesadvocates.zohobookings.com/muchangipatrickassociatesadvocates/#/muchangipatrickassociatesadvocates" target="_blank" rel="noopener">Open the Calendar <i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
         </div>
       </div>
       <div class="booking-side">
