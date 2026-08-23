@@ -918,7 +918,7 @@ h1,h2,h3,h4{
 
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
 @media(max-width:900px){.two-col{grid-template-columns:1fr;}}
-.visual-block{aspect-ratio:4/3;background:linear-gradient(160deg,var(--navy),var(--ink));position:relative;overflow:hidden;}
+.visual-block{aspect-ratio:4/3;background:linear-gradient(160deg,var(--navy),var(--ink));position:relative;overflow:hidden;border:1px solid rgba(198,154,62,.28);border-radius:4px;box-shadow:0 30px 60px -18px rgba(0,0,0,.5);}
 .visual-block::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;}
 .visual-block img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:relative;z-index:1;}
 
@@ -2662,6 +2662,60 @@ body.home-executive .executive-resource-map{
 .faq-item h4{margin:0 0 8px;font-size:1.02rem;font-family:'Fraunces',serif;font-weight:600;color:var(--ink);}
 .faq-item p{margin:0;font-size:.92rem;color:var(--slate);line-height:1.6;}
 .faq-item p a{color:var(--cta);text-decoration:underline;text-decoration-color:rgba(140,106,46,.35);}
+
+/* =========================================================================
+   TICKER WIDGET — floating auto-scrolling "active list" card, adapted from
+   a reference "Active Industries" pattern. Same mechanism: content
+   duplicated exactly twice, animated translateY(0)→translateY(-50%) for a
+   seamless loop, gradient masks top/bottom, respects reduced-motion.
+   ========================================================================= */
+/* =========================================================================
+   STAY INFORMED — two-column newsletter band (KORIX Learning Center
+   pattern): eyebrow + serif/italic headline + form on the left, a real
+   content stat on the right. Wraps the site's existing, working
+   /api/form-submit newsletter form — styling only, no functional changes.
+   ========================================================================= */
+.stay-informed{background:#14190f;position:relative;overflow:hidden;padding:90px 0;}
+.stay-informed::before{content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(198,154,62,.5) 0, rgba(198,154,62,.5) 1.4px, transparent 1.4px),
+    radial-gradient(circle at 80% 70%, rgba(198,154,62,.35) 0, rgba(198,154,62,.35) 1.2px, transparent 1.2px),
+    radial-gradient(circle at 55% 15%, rgba(198,154,62,.3) 0, rgba(198,154,62,.3) 1px, transparent 1px);
+  background-size:340px 340px,260px 260px,300px 300px;opacity:.7;pointer-events:none;
+}
+.stay-informed .container{position:relative;z-index:1;}
+.si-grid{display:grid;grid-template-columns:1.3fr auto;gap:60px;align-items:center;}
+.si-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass,#c69a3e);margin-bottom:16px;}
+.si-h{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.08;color:#fff;margin:0 0 18px;font-weight:500;}
+.si-h em{font-style:italic;color:var(--brass-light,#ecc981);font-weight:400;}
+.si-sub{color:rgba(242,236,220,.6);font-size:.98rem;max-width:480px;margin:0 0 26px;line-height:1.65;}
+.si-stat{text-align:center;border-left:1px solid rgba(198,154,62,.2);padding-left:52px;}
+.si-stat strong{display:block;font-family:'Fraunces',serif;font-size:4rem;color:var(--brass-light,#ecc981);line-height:1;}
+.si-stat span{display:block;font-size:.82rem;color:rgba(242,236,220,.45);margin-top:10px;line-height:1.5;}
+@media(max-width:900px){.si-grid{grid-template-columns:1fr;}.si-stat{border-left:none;border-top:1px solid rgba(198,154,62,.2);padding-left:0;padding-top:26px;text-align:left;}}
+
+.tkr-card{border:1px solid rgba(198,154,62,.18);border-radius:16px;overflow:hidden;background:#171c11;max-width:420px;margin:0 auto;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);}.tkr-head{padding:11px 16px;border-bottom:1px solid rgba(198,154,62,.14);display:flex;align-items:center;gap:7px;}
+.tkr-dot{width:7px;height:7px;border-radius:50%;background:rgba(242,236,220,.18);}
+.tkr-dot.on{background:#8fae7a;box-shadow:0 0 6px rgba(143,174,122,.6);animation:tkrpulse 2s ease-in-out infinite;}
+@keyframes tkrpulse{0%,100%{opacity:1}50%{opacity:.4}}
+.tkr-head span{font-size:10px;font-weight:700;color:rgba(242,236,220,.35);text-transform:uppercase;letter-spacing:.1em;margin-left:auto;font-family:'IBM Plex Mono',monospace;}
+.tkr-view{height:380px;overflow:hidden;position:relative;}
+.tkr-fade-top,.tkr-fade-bottom{position:absolute;left:0;right:0;height:44px;z-index:2;pointer-events:none;}
+.tkr-fade-top{top:0;background:linear-gradient(#171c11,transparent);}
+.tkr-fade-bottom{bottom:0;background:linear-gradient(transparent,#171c11);}
+.tkr-list{animation:tkr-scroll 32s linear infinite;}
+@keyframes tkr-scroll{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@media(prefers-reduced-motion:reduce){.tkr-list{animation:none;}}
+.tkr-item{display:flex;align-items:center;gap:13px;padding:13px 18px;border-bottom:1px solid rgba(242,236,220,.06);text-decoration:none;transition:background .18s ease;}
+.tkr-item:hover{background:rgba(242,236,220,.03);}
+.tkr-ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid;}
+.tkr-ic.g{background:rgba(198,154,62,.09);border-color:rgba(198,154,62,.22);color:#e0bb62;}
+.tkr-ic.s{background:rgba(143,174,122,.09);border-color:rgba(143,174,122,.22);color:#9fc088;}
+.tkr-ic.c{background:rgba(168,64,44,.09);border-color:rgba(168,64,44,.24);color:#c97a5f;}
+.tkr-ic i{font-size:15px;}
+.tkr-tx strong{display:block;font-size:12.5px;font-weight:600;color:rgba(242,236,220,.9);}
+.tkr-tx span{display:block;font-size:10.5px;color:rgba(242,236,220,.38);margin-top:1px;}
+@media(max-width:1100px){.tkr-card{display:none;}}
 
 .pa-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
 .pa-card{background:var(--white);border:1px solid var(--line);padding:32px 28px 26px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
