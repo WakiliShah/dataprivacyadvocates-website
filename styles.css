@@ -2557,6 +2557,20 @@ body.home-executive .executive-resource-map{
    badges. Recoloured into our gold/ink palette; content is our own real
    practice facts, not invented business metrics.
    ========================================================================== */
+/* 6-point radial layout variant (reuses .lgx-core/.lgx-gate/.lgx-card system) */
+.lgx-svg-solid path{stroke:rgba(198,154,62,.4);stroke-dasharray:none;}
+.lgx-svg-solid circle{fill:var(--brass,#c69a3e);}
+.lgx-g-n1{top:2%;left:50%;transform:translateX(-50%);animation:lgxfx 5s ease-in-out infinite;}
+.lgx-g-n2{top:19%;right:1%;animation:lgxf 5s ease-in-out infinite .8s;}
+.lgx-g-n3{bottom:19%;right:1%;animation:lgxf 5s ease-in-out infinite 1.6s;}
+.lgx-g-n4{bottom:2%;left:50%;transform:translateX(-50%);animation:lgxfx 5s ease-in-out infinite 2.4s;}
+.lgx-g-n5{bottom:19%;left:1%;animation:lgxf 5s ease-in-out infinite 3.2s;}
+.lgx-g-n6{top:19%;left:1%;animation:lgxf 5s ease-in-out infinite 4s;}
+
+/* Two-column hero layout (text + diagram/widget), shared across pages */
+.hero-split{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center;}
+@media(max-width:1100px){.hero-split{grid-template-columns:1fr;}}
+
 .lgx-wrap{position:relative;width:100%;aspect-ratio:1/0.92;max-width:520px;margin:0 auto;}
 .lgx-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
 .lgx-svg path{fill:none;stroke:rgba(198,154,62,.35);stroke-width:1.4;stroke-dasharray:4 5;}
@@ -2598,7 +2612,7 @@ body.home-executive .executive-resource-map{
 .lgx-pill span{color:#8fae7a;}
 
 @media(max-width:1100px){.lgx-card,.lgx-pill{display:none;}}
-@media(max-width:560px){.lgx-wrap{max-width:340px;}}
+@media(max-width:560px){.lgx-wrap{max-width:340px;}.lgx-gn,.lgx-gs{display:none;}}
 
 .hp-dash{background:#1b2016;border:1px solid rgba(198,154,62,.22);border-radius:6px;padding:26px 24px 22px;color:var(--paper,#f2ecdc);box-shadow:0 40px 90px -20px rgba(0,0,0,.6),0 0 0 1px rgba(198,154,62,.05);position:relative;overflow:hidden;z-index:2;}
 .hp-dash::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(198,154,62,.16),transparent 55%);pointer-events:none;}
