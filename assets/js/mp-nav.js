@@ -39,16 +39,41 @@
     var toggle = document.getElementById("mpNavToggle");
     var panel = document.getElementById("mpNavMobile");
     if(!toggle || !panel) return;
+
+    // iOS Safari doesn't reliably honour body{overflow:hidden} — the page
+    // behind the fixed nav can still scroll/rubber-band, which is what
+    // makes a menu item near the top edge feel like it's "under the
+    // header" (the header is stationary but the layout underneath is
+    // still moving). Locking via position:fixed on the body is the
+    // robust cross-browser fix.
+    var lockedScrollY = 0;
+    function lockScroll(){
+      lockedScrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.style.position = "fixed";
+      document.body.style.top = (-lockedScrollY) + "px";
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    }
+    function unlockScroll(){
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, lockedScrollY);
+    }
+
     toggle.addEventListener("click", function(){
       var open = panel.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      document.body.style.overflow = open ? "hidden" : "";
+      if(open){ lockScroll(); } else { unlockScroll(); }
     });
     panel.querySelectorAll("a").forEach(function(a){
       a.addEventListener("click", function(){
         panel.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+        unlockScroll();
       });
     });
   }
