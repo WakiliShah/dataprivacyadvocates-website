@@ -90,8 +90,8 @@
   --site-header-h:98px;
   --site-header-h-scrolled:60px;
 }
-@media(max-width:640px){
-  :root{ --site-header-h:68px; }
+@media(max-width:560px){
+  :root{ --site-header-h:66px; }
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -2512,15 +2512,13 @@ body.home-executive .digest-card-caption i{
    HOMEPAGE RESOURCE RIBBON — HEADER CLEARANCE
    Keeps the 01–05 resource ribbon visibly below the fixed header rather
    than allowing it to tuck underneath the header at the top of the page.
+   The +12px buffer must survive on mobile too — a previous mobile override
+   here dropped it entirely, leaving only ~2px of clearance between the
+   fixed header and the first resource item (a real overlap risk on actual
+   devices, not just a headless-testing artifact).
    ========================================================================== */
 body.home-executive .executive-resource-map{
   margin-top:calc(var(--site-header-h) + 12px);
-}
-
-@media(max-width:640px){
-  body.home-executive .executive-resource-map{
-    margin-top:var(--site-header-h);
-  }
 }
 
 /* Legal services conversion layer */
@@ -2613,6 +2611,16 @@ body.home-executive .executive-resource-map{
 
 @media(max-width:1100px){.lgx-card,.lgx-pill{display:none;}}
 @media(max-width:560px){.lgx-wrap{max-width:340px;}.lgx-gn,.lgx-gs{display:none;}}
+
+/* Clickable dial arms — used wherever the 6-point radial variant links out */
+.lgx-glink{text-decoration:none;color:inherit;cursor:pointer;}
+.lgx-gate{transition:transform .2s ease;}
+.lgx-gate:hover,.lgx-gate:focus-within{transform:scale(1.06);}
+.lgx-gate:hover .lgx-gc,.lgx-gate:focus-within .lgx-gc{border-color:rgba(198,154,62,.6);background:rgba(198,154,62,.14);}
+.lgx-gate:focus-within .lgx-gc{outline:2px solid var(--brass,#c69a3e);outline-offset:2px;}
+.lgx-gate:hover .lgx-gn,.lgx-gate:focus-within .lgx-gn{color:var(--brass-light,#ecc981);}
+.lgx-cc span{letter-spacing:.03em;}
+.grid-3 .card{scroll-margin-top:110px;}
 
 .hp-dash{background:#1b2016;border:1px solid rgba(198,154,62,.22);border-radius:6px;padding:26px 24px 22px;color:var(--paper,#f2ecdc);box-shadow:0 40px 90px -20px rgba(0,0,0,.6),0 0 0 1px rgba(198,154,62,.05);position:relative;overflow:hidden;z-index:2;}
 .hp-dash::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(198,154,62,.16),transparent 55%);pointer-events:none;}

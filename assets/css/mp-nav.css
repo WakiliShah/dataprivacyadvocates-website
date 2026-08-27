@@ -161,7 +161,7 @@
 
 /* ---------------- Body offset ---------------- */
 .mp-nav-offset{padding-top:calc(30px + var(--mpnav-h));}
-@media(max-width:560px){.mp-nav-offset{padding-top:var(--mpnav-h);}}
+@media(max-width:560px){.mp-nav-offset{padding-top:calc(var(--mpnav-h) + 14px);}}
 
 /* =========================================================================
    COMMAND PALETTE
