@@ -1889,6 +1889,7 @@ body.home-fixed-view .hh-contact-strip{flex-shrink:0;}
   display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
   background:var(--white);border-bottom:1px solid var(--line);
   max-width:100%;
+  margin-top:calc(var(--site-header-h) + 12px);
 }
 .odpc-complaint-page .complaint-band>a{
   position:relative;min-height:116px;padding:20px 28px;
