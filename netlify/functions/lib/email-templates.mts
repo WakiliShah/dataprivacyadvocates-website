@@ -12,9 +12,8 @@
  *   - 07/08  Newsletter Welcome / Confirmation  -> form_type: "newsletter"
  *   - 04     Webinar Registration Confirmation  -> form_type: "webinar"
  *
- * Not yet wired to a live form (still on Formspree — migrate in a later
- * pass): 03 Consultation Confirmation, 09 General Enquiry, 18 Feedback
- * Request, 02 Resource Download.
+ * ODPC intake is handled as a transactional pre-engagement enquiry and uses
+ * the generic internal notification plus a dedicated acknowledgement template.
  */
 
 import { PRIVACY_CONFIG } from "./privacy-config.mts";
@@ -183,6 +182,10 @@ export const FORM_TYPE_CONFIG: Record<
     requiredFields: ["name", "email", "organisation"],
     analyticsEvent: "webinar_register_submit",
   },
+  odpc_intake: {
+    requiredFields: ["name", "email", "phone", "organisation", "business", "service"],
+    analyticsEvent: "odpc_intake_submit",
+  },
 };
 
 type Fields = Record<string, string>;
@@ -258,6 +261,26 @@ function buildWebinarConfirmationEmail(fields: Fields, siteUrl: string) {
   };
 }
 
+function buildOdpcIntakeAcknowledgement(fields: Fields, siteUrl: string) {
+  const firstName = escapeHtml((fields.name || "").split(" ")[0] || "there");
+  const bodyHtml = `
+    <p style="margin:0 0 16px;">Hi ${firstName},</p>
+    <p style="margin:0 0 16px;">Thank you for submitting your ODPC registration / renewal enquiry to Muchangi Patrick &amp; Associates Advocates.</p>
+    <p style="margin:0 0 16px;">We will review the information you provided and contact you about the appropriate registration route, any further information needed, and the professional fee before work begins.</p>
+    <p style="margin:0;">If you have not already done so, you can review our <a href="${siteUrl}/privacy-policy.html" style="color:${COLORS.cta};">Privacy Policy</a>.</p>`;
+  return {
+    subject: "ODPC registration / renewal enquiry received",
+    bodyHtml: renderShell({
+      siteUrl,
+      preheader: "Your ODPC registration / renewal enquiry has been received.",
+      eyebrow: "ODPC Registration & Renewal",
+      heading: "Enquiry received.",
+      bodyHtml,
+      reasonForReceiving: "you submitted an ODPC registration / renewal enquiry through the firm's website.",
+    }),
+  };
+}
+
 /** Dispatches to the right acknowledgement template for a given form_type. */
 export function renderAcknowledgementEmail(
   formType: string,
@@ -270,6 +293,8 @@ export function renderAcknowledgementEmail(
       return buildNewsletterConfirmationEmail(fields, siteUrl, unsubscribeToken || "");
     case "webinar":
       return buildWebinarConfirmationEmail(fields, siteUrl);
+    case "odpc_intake":
+      return buildOdpcIntakeAcknowledgement(fields, siteUrl);
     default:
       return null;
   }

@@ -82,6 +82,11 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/ai-integration-governance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/ai-procurement/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -103,6 +108,46 @@
   </url>
   <url>
     <loc>https://dataprivacyadvocates.co.ke/resources/practice-notes/architecture-of-lawful-processing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/health-providers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/technology/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/property-real-estate/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/hospitality/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/education/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/private-security/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dataprivacyadvocates.co.ke/resources/registration-guides/religious-institutions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

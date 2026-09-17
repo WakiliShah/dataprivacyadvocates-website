@@ -139,19 +139,20 @@
   function formatCitation(meta, style) {
     var year = "2026";
     var pn = meta.pubNumber;
+    var docLabel = meta.docType || "Practice Note";
     var title = meta.title, sub = meta.subtitle, journal = meta.journal, url = meta.url, author = meta.author;
     var last = "Patrick", first = "Muchangi";
     switch (style) {
       case "apa":
-        return first + " " + last + " (" + year + "). " + title + ": " + sub + ". " + journal + ", Practice Note No. " + pn + ". " + url;
+        return first + " " + last + " (" + year + "). " + title + ": " + sub + ". " + journal + ", " + docLabel + " No. " + pn + ". " + url;
       case "oscola":
-        return "Muchangi Patrick, '" + title + ": " + sub + "' (" + year + ") " + journal + " Practice Note No. " + pn + ".";
+        return "Muchangi Patrick, '" + title + ": " + sub + "' (" + year + ") " + journal + " " + docLabel + " No. " + pn + ".";
       case "bluebook":
-        return "Muchangi Patrick, " + title + ": " + sub + ", " + journal + ", Practice Note No. " + pn + " (" + year + ").";
+        return "Muchangi Patrick, " + title + ": " + sub + ", " + journal + ", " + docLabel + " No. " + pn + " (" + year + ").";
       case "chicago":
-        return last + ", " + first + ". \"" + title + ": " + sub + ".\" " + journal + ", Practice Note No. " + pn + " (" + meta.dateDisplay + ").";
+        return last + ", " + first + ". \"" + title + ": " + sub + ".\" " + journal + ", " + docLabel + " No. " + pn + " (" + meta.dateDisplay + ").";
       case "harvard":
-        return last + ", " + first[0] + ". (" + year + ") '" + title + ": " + sub + "', " + journal + ", Practice Note No. " + pn + ". Available at: " + url;
+        return last + ", " + first[0] + ". (" + year + ") '" + title + ": " + sub + "', " + journal + ", " + docLabel + " No. " + pn + ". Available at: " + url;
       default:
         return meta.citationText;
     }

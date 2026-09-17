@@ -154,8 +154,8 @@ export default async (req: Request, _context: Context): Promise<Response> => {
       : undefined;
 
   // ---- PART 5/10: retention + audit trail ------------------------------
-  const activity = formType === "newsletter" ? "newsletter" : "webinar_registration";
-  const retentionDays = formType === "newsletter" ? null : PRIVACY_CONFIG.retention.webinar.days;
+  const activity = formType === "newsletter" ? "newsletter" : formType === "webinar" ? "webinar_registration" : "odpc_intake";
+  const retentionDays = formType === "newsletter" ? null : formType === "webinar" ? PRIVACY_CONFIG.retention.webinar.days : PRIVACY_CONFIG.retention.odpc_intake.days;
   const audit = buildAuditRecord({
     activity,
     consentGiven: formType === "newsletter" ? true : null,

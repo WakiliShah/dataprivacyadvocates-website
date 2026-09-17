@@ -58,6 +58,7 @@ export const PRIVACY_CONFIG = {
     newsletter: { policyId: "retain_until_unsubscribe", days: null as number | null },
     webinar: { policyId: "retain_12_months", days: 365 },
     dsr_request: { policyId: "retain_24_months", days: 730 },
+    odpc_intake: { policyId: "retain_90_days", days: 90 },
     failed_submission: { policyId: "retain_30_days", days: 30 },
     log: { policyId: "retain_90_days", days: 90 },
   },
@@ -68,6 +69,7 @@ export const PRIVACY_CONFIG = {
     webinar_registration: "contract", // necessary to perform the registration the data subject requested
     webinar_marketing: "consent",
     dsr_request: "legal_obligation", // responding to a data subject rights request
+    odpc_intake: "contract", // pre-engagement steps requested by the prospective client
   },
 
   purposes: {
@@ -78,12 +80,14 @@ export const PRIVACY_CONFIG = {
     webinar_marketing:
       "To send future legal updates and newsletters to webinar registrants who separately opted in.",
     dsr_request: "To receive, verify, and action a data subject rights request.",
+    odpc_intake: "To assess a requested ODPC registration or renewal service, scope the engagement, and communicate with the prospective client.",
   },
 
   dataCategories: {
     newsletter: ["email address", "name (optional)"],
     webinar: ["name", "email address", "organisation", "position/role"],
     dsr_request: ["email address", "request type", "request details"],
+    odpc_intake: ["name", "contact details", "organisation details", "business description", "data-processing information", "ODPC status"],
   },
 
   recipients: {
@@ -98,12 +102,14 @@ export const PRIVACY_CONFIG = {
       "Netlify (hosting/storage processor)",
     ],
     dsr_request: ["Muchangi Patrick & Associates Advocates (data controller)"],
+    odpc_intake: ["Muchangi Patrick & Associates Advocates (data controller)", "Netlify (hosting/storage processor)", "Zoho Mail (email processor)"],
   },
 
   dataSubjects: {
     newsletter: "Website visitors who opt in to receive legal updates.",
     webinar: "Individuals registering for a firm-hosted webinar or executive briefing.",
     dsr_request: "Any individual exercising a data subject right in respect of data the firm holds about them.",
+    odpc_intake: "Prospective clients requesting ODPC registration, renewal, or related privacy compliance assistance."
   },
 
   securityMeasures: [

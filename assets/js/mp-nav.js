@@ -108,6 +108,7 @@
     switch(type){
       case "case": return "fa-gavel";
       case "note": return "fa-file-lines";
+      case "guide": return "fa-stamp";
       case "practice": return "fa-briefcase";
       case "sector": return "fa-industry";
       case "page": return "fa-arrow-right";
@@ -118,6 +119,7 @@
     switch(type){
       case "case": return "Case Digest";
       case "note": return "Knowledge Centre";
+      case "guide": return "Registration Guides";
       case "practice": return "Practice Areas";
       case "sector": return "Sectors";
       case "page": return "Pages";
