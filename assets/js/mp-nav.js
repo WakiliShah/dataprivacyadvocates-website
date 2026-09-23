@@ -35,45 +35,68 @@
   }
 
   /* ---------------- Mobile menu ---------------- */
+  function initMobilePracticeMenu(panel){
+    var group = panel.querySelector(".mp-mobile-group");
+    if(!group){
+      var entry = panel.querySelector('a[href$="expertise.html"]');
+      if(!entry) return;
+      group = document.createElement("div");
+      group.className = "mp-mobile-group";
+      group.innerHTML =
+      '<button type="button" class="mp-mobile-group-toggle" aria-expanded="false">' +
+        '<span>Practice Areas</span><i class="fas fa-chevron-down" aria-hidden="true"></i>' +
+      '</button>' +
+      '<div class="mp-mobile-submenu" hidden>' +
+        '<div class="mp-mobile-submenu-label">By Practice Area</div>' +
+        '<a href="/expertise.html#data-protection">Data Protection &amp; Privacy</a>' +
+        '<a href="/odpc-response-appeals.html">ODPC Disputes &amp; Appeals</a>' +
+        '<a href="/expertise.html#corporate-commercial">Corporate &amp; Commercial</a>' +
+        '<a href="/technology-contracts.html">Technology &amp; Fintech</a>' +
+        '<a href="/expertise.html#disputes">Disputes &amp; Resolution</a>' +
+        '<div class="mp-mobile-submenu-label">By Sector</div>' +
+        '<a href="/sector-corporate.html">Corporate</a>' +
+        '<a href="/sector-financial-services.html">Financial Services</a>' +
+        '<a href="/sector-technology.html">Technology</a>' +
+        '<a href="/sector-healthcare.html">Healthcare</a>' +
+        '<a href="/sector-education.html">Education</a>' +
+        '<a href="/sector-public-sector.html">Public Sector</a>' +
+        '<div class="mp-mobile-submenu-label">Resources</div>' +
+        '<a href="/resources/practice-notes/">Practice Notes</a>' +
+        '<a href="/case-digest.html">Case Digest Library</a>' +
+        '<a href="/compliance-toolkit.html">Compliance Toolkit</a>' +
+        '<a href="/changelog.html">Regulatory Changelog</a>' +
+        '<a href="/insights.html">Insights</a>' +
+        '<a class="mp-mobile-submenu-all" href="/expertise.html">View all Practice Areas <i class="fas fa-arrow-right" aria-hidden="true"></i></a>' +
+        '</div>';
+      entry.replaceWith(group);
+    }
+    var toggle = group.querySelector(".mp-mobile-group-toggle");
+    var submenu = group.querySelector(".mp-mobile-submenu");
+    if(!toggle || !submenu || toggle.dataset.bound === "true") return;
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", function(){
+      var expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+      submenu.hidden = expanded;
+      group.classList.toggle("open", !expanded);
+    });
+  }
+
   function initMobileMenu(){
     var toggle = document.getElementById("mpNavToggle");
     var panel = document.getElementById("mpNavMobile");
     if(!toggle || !panel) return;
-
-    // iOS Safari doesn't reliably honour body{overflow:hidden} — the page
-    // behind the fixed nav can still scroll/rubber-band, which is what
-    // makes a menu item near the top edge feel like it's "under the
-    // header" (the header is stationary but the layout underneath is
-    // still moving). Locking via position:fixed on the body is the
-    // robust cross-browser fix.
-    var lockedScrollY = 0;
-    function lockScroll(){
-      lockedScrollY = window.scrollY || window.pageYOffset || 0;
-      document.body.style.position = "fixed";
-      document.body.style.top = (-lockedScrollY) + "px";
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-    }
-    function unlockScroll(){
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      window.scrollTo(0, lockedScrollY);
-    }
-
+    initMobilePracticeMenu(panel);
     toggle.addEventListener("click", function(){
       var open = panel.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      if(open){ lockScroll(); } else { unlockScroll(); }
+      document.body.style.overflow = open ? "hidden" : "";
     });
     panel.querySelectorAll("a").forEach(function(a){
       a.addEventListener("click", function(){
         panel.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        unlockScroll();
+        document.body.style.overflow = "";
       });
     });
   }
@@ -108,7 +131,6 @@
     switch(type){
       case "case": return "fa-gavel";
       case "note": return "fa-file-lines";
-      case "guide": return "fa-stamp";
       case "practice": return "fa-briefcase";
       case "sector": return "fa-industry";
       case "page": return "fa-arrow-right";
@@ -119,7 +141,6 @@
     switch(type){
       case "case": return "Case Digest";
       case "note": return "Knowledge Centre";
-      case "guide": return "Registration Guides";
       case "practice": return "Practice Areas";
       case "sector": return "Sectors";
       case "page": return "Pages";
