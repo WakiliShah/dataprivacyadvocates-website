@@ -35,10 +35,58 @@
   }
 
   /* ---------------- Mobile menu ---------------- */
+  function initMobilePracticeMenu(panel){
+    var group = panel.querySelector(".mp-mobile-group");
+    if(!group){
+      var entry = panel.querySelector('a[href$="expertise.html"]');
+      if(!entry) return;
+      group = document.createElement("div");
+      group.className = "mp-mobile-group";
+      group.innerHTML =
+      '<button type="button" class="mp-mobile-group-toggle" aria-expanded="false">' +
+        '<span>Practice Areas</span><i class="fas fa-chevron-down" aria-hidden="true"></i>' +
+      '</button>' +
+      '<div class="mp-mobile-submenu" hidden>' +
+        '<div class="mp-mobile-submenu-label">By Practice Area</div>' +
+        '<a href="/expertise.html#data-protection">Data Protection &amp; Privacy</a>' +
+        '<a href="/odpc-response-appeals.html">ODPC Disputes &amp; Appeals</a>' +
+        '<a href="/expertise.html#corporate-commercial">Corporate &amp; Commercial</a>' +
+        '<a href="/technology-contracts.html">Technology &amp; Fintech</a>' +
+        '<a href="/expertise.html#disputes">Disputes &amp; Resolution</a>' +
+        '<div class="mp-mobile-submenu-label">By Sector</div>' +
+        '<a href="/sector-corporate.html">Corporate</a>' +
+        '<a href="/sector-financial-services.html">Financial Services</a>' +
+        '<a href="/sector-technology.html">Technology</a>' +
+        '<a href="/sector-healthcare.html">Healthcare</a>' +
+        '<a href="/sector-education.html">Education</a>' +
+        '<a href="/sector-public-sector.html">Public Sector</a>' +
+        '<div class="mp-mobile-submenu-label">Resources</div>' +
+        '<a href="/resources/practice-notes/">Practice Notes</a>' +
+        '<a href="/case-digest.html">Case Digest Library</a>' +
+        '<a href="/compliance-toolkit.html">Compliance Toolkit</a>' +
+        '<a href="/changelog.html">Regulatory Changelog</a>' +
+        '<a href="/insights.html">Insights</a>' +
+        '<a class="mp-mobile-submenu-all" href="/expertise.html">View all Practice Areas <i class="fas fa-arrow-right" aria-hidden="true"></i></a>' +
+        '</div>';
+      entry.replaceWith(group);
+    }
+    var toggle = group.querySelector(".mp-mobile-group-toggle");
+    var submenu = group.querySelector(".mp-mobile-submenu");
+    if(!toggle || !submenu || toggle.dataset.bound === "true") return;
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", function(){
+      var expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+      submenu.hidden = expanded;
+      group.classList.toggle("open", !expanded);
+    });
+  }
+
   function initMobileMenu(){
     var toggle = document.getElementById("mpNavToggle");
     var panel = document.getElementById("mpNavMobile");
     if(!toggle || !panel) return;
+    initMobilePracticeMenu(panel);
     toggle.addEventListener("click", function(){
       var open = panel.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");

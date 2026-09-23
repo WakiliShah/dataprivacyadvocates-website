@@ -89,6 +89,22 @@
   .credentials-strip .cred-more{margin-left:auto;font-size:.85rem;font-weight:600;color:var(--cta);white-space:nowrap;}
   @media (max-width:700px){.credentials-strip .cred-more{margin-left:0;}}
 
+  .legal-map-section{background:var(--paper);padding:88px 0 96px;border-bottom:1px solid var(--line);}
+  .legal-map-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.7fr);gap:48px;align-items:end;margin-bottom:38px;}
+  .legal-map-intro h2{font-size:clamp(2rem,4vw,3.3rem);max-width:680px;}
+  .legal-map-intro p{color:var(--muted);line-height:1.75;max-width:430px;}
+  .legal-map{background:var(--ink);border:1px solid rgba(255,255,255,.12);padding:30px 28px 26px;overflow:hidden;}
+  .legal-map svg{display:block;width:100%;height:auto;min-width:680px;}
+  .legal-map .map-line{stroke:rgba(236,201,129,.62);stroke-width:2;stroke-dasharray:5 5;}
+  .legal-map .map-node{fill:#262218;stroke:#c69a3e;stroke-width:1.5;}
+  .legal-map .map-node-final{fill:#c69a3e;stroke:#ecc981;stroke-width:1.5;}
+  .legal-map .map-title{fill:#f2ecdc;font:600 14px Inter,sans-serif;}
+  .legal-map .map-detail{fill:rgba(242,236,220,.62);font:12px Inter,sans-serif;}
+  .legal-map .map-number{fill:#ecc981;font:600 11px "IBM Plex Mono",monospace;letter-spacing:.08em;}
+  .legal-map-note{display:flex;gap:10px;align-items:flex-start;margin-top:18px;color:rgba(255,255,255,.62);font-size:.82rem;line-height:1.6;}
+  .legal-map-note i{color:var(--brass-light);margin-top:4px;}
+  @media(max-width:760px){.legal-map-intro{grid-template-columns:1fr;gap:14px}.legal-map{overflow-x:auto;padding:22px 18px}.legal-map svg{min-width:720px}}
+
   .compare-table{width:100%;border-collapse:collapse;margin-top:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;}
   .compare-table th,.compare-table td{padding:16px 20px;font-size:.9rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
   .compare-table thead th{background:var(--ink);color:var(--white);font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;}
@@ -209,11 +225,11 @@
 <div class="mp-mega">
 <div class="mp-mega-col">
 <div class="mp-mega-label">By Practice Area</div>
-<a href="/expertise.html#data-protection"><i class="fas fa-shield-halved"></i><span class="mp-mega-item-text">Data Protection &amp; Privacy<small>Compliance &amp; data-subject rights</small></span></a>
+<a href="/odpc-registration.html"><i class="fas fa-shield-halved"></i><span class="mp-mega-item-text">Data Protection &amp; Privacy<small>Compliance &amp; data-subject rights</small></span></a>
 <a href="/odpc-response-appeals.html"><i class="fas fa-gavel"></i><span class="mp-mega-item-text">ODPC Disputes &amp; Appeals<small>Regulatory defence</small></span></a>
-<a href="/expertise.html#corporate-commercial"><i class="fas fa-briefcase"></i><span class="mp-mega-item-text">Corporate &amp; Commercial<small>Formation &amp; transactions</small></span></a>
+<a href="/corporate-data-governance.html"><i class="fas fa-briefcase"></i><span class="mp-mega-item-text">Corporate &amp; Commercial<small>Formation &amp; transactions</small></span></a>
 <a href="/technology-contracts.html"><i class="fas fa-microchip"></i><span class="mp-mega-item-text">Technology &amp; Fintech<small>Contracts &amp; regulatory advice</small></span></a>
-<a href="/expertise.html#disputes"><i class="fas fa-scale-balanced"></i><span class="mp-mega-item-text">Disputes &amp; Resolution<small>Litigation &amp; ADR</small></span></a>
+<a href="/regulatory-dispute-support.html"><i class="fas fa-scale-balanced"></i><span class="mp-mega-item-text">Disputes &amp; Resolution<small>Litigation &amp; ADR</small></span></a>
 </div>
 <div class="mp-mega-col">
 <div class="mp-mega-label">By Sector</div>
@@ -298,6 +314,29 @@
     <div class="sacco-note">
       <i class="fas fa-building-columns"></i>
       <p><strong>Registering a SACCO?</strong> You're dual-regulated by SASRA and the ODPC. <a href="insight-sacco-sasra-odpc-overlap.html">See where the two regimes overlap &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="legal-map-section" aria-labelledby="registration-map-title">
+  <div class="container">
+    <div class="legal-map-intro">
+      <div><span class="eyebrow">A legal workflow, made visible</span><h2 id="registration-map-title">From data activity to a defensible registration record.</h2></div>
+      <p>The right filing starts with classification and a clear record of what the organisation does with personal data—not with a form filled in isolation.</p>
+    </div>
+    <div class="legal-map">
+      <svg viewBox="0 0 980 190" role="img" aria-labelledby="registration-map-title registration-map-desc">
+        <desc id="registration-map-desc">Four connected stages: classify the data role, map processing, prepare and file the application, then receive and maintain the registration record.</desc>
+        <defs><marker id="registration-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ecc981"/></marker></defs>
+        <line class="map-line" x1="222" y1="95" x2="260" y2="95" marker-end="url(#registration-arrow)"/>
+        <line class="map-line" x1="472" y1="95" x2="510" y2="95" marker-end="url(#registration-arrow)"/>
+        <line class="map-line" x1="722" y1="95" x2="760" y2="95" marker-end="url(#registration-arrow)"/>
+        <g transform="translate(10 28)"><rect class="map-node" width="212" height="134" rx="2"/><text class="map-number" x="18" y="25">01 · CLASSIFY</text><text class="map-title" x="18" y="58">Controller or processor?</text><text class="map-detail" x="18" y="83">Purpose, means and</text><text class="map-detail" x="18" y="101">instructions determine the role.</text></g>
+        <g transform="translate(260 28)"><rect class="map-node" width="212" height="134" rx="2"/><text class="map-number" x="18" y="25">02 · MAP</text><text class="map-title" x="18" y="58">Processing record</text><text class="map-detail" x="18" y="83">People, purposes, systems,</text><text class="map-detail" x="18" y="101">retention and sharing.</text></g>
+        <g transform="translate(510 28)"><rect class="map-node" width="212" height="134" rx="2"/><text class="map-number" x="18" y="25">03 · FILE</text><text class="map-title" x="18" y="58">DPR1 application</text><text class="map-detail" x="18" y="83">Prepare the record, submit</text><text class="map-detail" x="18" y="101">and answer queries.</text></g>
+        <g transform="translate(760 28)"><rect class="map-node-final" width="212" height="134" rx="2"/><text class="map-number" x="18" y="25" fill="#1b1a17">04 · MAINTAIN</text><text class="map-title" x="18" y="58" fill="#1b1a17">Registration record</text><text class="map-detail" x="18" y="83" fill="#262218">Certificate, renewal</text><text class="map-detail" x="18" y="101" fill="#262218">and ongoing accountability.</text></g>
+      </svg>
+      <p class="legal-map-note"><i class="fas fa-scale-balanced" aria-hidden="true"></i><span>This is an explanatory workflow, not a determination of whether a particular entity must register. The applicable requirements depend on the organisation's activities and the current Kenyan framework.</span></p>
     </div>
   </div>
 </section>
