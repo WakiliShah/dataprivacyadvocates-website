@@ -323,6 +323,8 @@ body.kplr {
 .kplr-card:active { transform: translateY(-2px) scale(1.0); }
 .kplr-card-cover { aspect-ratio: 480/679; overflow: hidden; background: var(--kplr-black); }
 .kplr-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.kplr-card-cover.is-missing { display: grid; place-items: center; padding: 24px; background: var(--kplr-charcoal); }
+.kplr-card-cover.is-missing::after { content: "Kenya Privacy Law Review"; color: var(--kplr-cream); font: 600 0.78rem/1.4 "Cinzel", serif; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; }
 .kplr-card:hover .kplr-card-cover img { transform: scale(1.045); }
 .kplr-card-body { padding: 16px 18px 18px; }
 .kplr-card-toprow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 11.5px; letter-spacing: .06em; }
