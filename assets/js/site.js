@@ -275,13 +275,19 @@
       a.className = "kplr-card";
       a.href = item.url;
       a.innerHTML =
-        '<div class="kplr-card-cover"><img src="' + item.coverThumb + '" alt="' + escapeHtml(item.title) + ' cover" loading="lazy"></div>' +
+        '<div class="kplr-card-cover"><img src="' + item.coverThumb + '" alt="' + escapeHtml(item.title) + ' cover" loading="eager" decoding="async"></div>' +
         '<div class="kplr-card-body">' +
           '<div class="kplr-card-toprow"><span class="kplr-card-num">' + item.ref + '</span><span class="kplr-card-cat">' + escapeHtml(item.category) + '</span></div>' +
           '<h3 class="kplr-card-title">' + escapeHtml(item.title) + '</h3>' +
           '<div class="kplr-card-area">' + escapeHtml(item.practiceArea) + '</div>' +
-          '<div class="kplr-card-footer"><span class="read">Read Online →</span><span>' + item.readingTime + ' min · PDF</span></div>' +
+          '<div class="kplr-card-footer"><span class="read">Read Online →</span><span>' + (item.readingTime ? item.readingTime + ' min · PDF' : 'PDF available') + '</span></div>' +
         '</div>';
+      var cover = a.querySelector(".kplr-card-cover");
+      var image = cover.querySelector("img");
+      image.addEventListener("error", function () {
+        cover.classList.add("is-missing");
+        image.remove();
+      });
       return a;
     }
     function escapeHtml(s) { return (s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
