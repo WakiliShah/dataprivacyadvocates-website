@@ -1,0 +1,209 @@
+[
+    {
+        "slug": "health-providers",
+        "ref": "KPLR/RG/001/2026",
+        "title": "ODPC Registration for Health Service Providers",
+        "subtitle": "A Sector Guide for Hospitals, Clinics, Laboratories and Allied Health Providers in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Healthcare",
+        "topics": [
+            "Healthcare",
+            "ODPC Registration",
+            "Sensitive Personal Data"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "health service providers",
+            "hospitals",
+            "clinics",
+            "sensitive personal data",
+            "patient records",
+            "data localisation",
+            "Section 50 DPA"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-11",
+        "readingTime": 14,
+        "featured": true,
+        "editorsPick": true,
+        "url": "/resources/registration-guides/health-providers/",
+        "coverThumb": "/resources/registration-guides/health-providers/cover-thumb.jpg"
+    },
+    {
+        "slug": "technology",
+        "ref": "KPLR/RG/003/2026",
+        "title": "ODPC Registration for Technology Businesses",
+        "subtitle": "A Sector Guide for Websites, E-Commerce, SaaS and Digital Marketing Businesses in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Technology",
+        "topics": [
+            "Technology",
+            "ODPC Registration",
+            "SaaS & E-Commerce",
+            "Data Controller"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "technology",
+            "SaaS",
+            "e-commerce",
+            "small-business exemption",
+            "data controller",
+            "data processor"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-13",
+        "readingTime": 12,
+        "featured": true,
+        "editorsPick": false,
+        "url": "/resources/registration-guides/technology/",
+        "coverThumb": "/resources/registration-guides/technology/cover-thumb.jpg"
+    },
+    {
+        "slug": "property-real-estate",
+        "ref": "KPLR/RG/004/2026",
+        "title": "ODPC Registration for Property and Real Estate Businesses",
+        "subtitle": "A Sector Guide for Estate Agents, Property Managers, Developers and Land Transactions in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Property & Real Estate",
+        "topics": [
+            "Property & Real Estate",
+            "ODPC Registration",
+            "Biometric Access",
+            "CCTV"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "property management",
+            "real estate",
+            "biometric data",
+            "CCTV",
+            "land transactions"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-13",
+        "readingTime": 12,
+        "featured": false,
+        "editorsPick": false,
+        "url": "/resources/registration-guides/property-real-estate/",
+        "coverThumb": "/resources/registration-guides/property-real-estate/cover-thumb.jpg"
+    },
+    {
+        "slug": "hospitality",
+        "ref": "KPLR/RG/005/2026",
+        "title": "ODPC Registration for Hospitality Businesses",
+        "subtitle": "A Sector Guide for Hotels, Lodges, Short-Let Hosts and Tour Operators in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Hospitality & Tourism",
+        "topics": [
+            "Hospitality & Tourism",
+            "ODPC Registration",
+            "Guest ID Directive",
+            "Statutory Appeal"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "hospitality",
+            "hotels",
+            "Airbnb",
+            "guest identification",
+            "Hotel Waterbuck",
+            "PSRA directive"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-13",
+        "readingTime": 13,
+        "featured": true,
+        "editorsPick": true,
+        "url": "/resources/registration-guides/hospitality/",
+        "coverThumb": "/resources/registration-guides/hospitality/cover-thumb.jpg"
+    },
+    {
+        "slug": "education",
+        "ref": "KPLR/RG/006/2026",
+        "title": "ODPC Registration for Education Providers",
+        "subtitle": "A Sector Guide for Schools, Colleges and Universities in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Education",
+        "topics": [
+            "Education",
+            "ODPC Registration",
+            "Children's Data",
+            "Section 33 Consent"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "education",
+            "schools",
+            "children's data",
+            "section 33",
+            "Nairobi Academy",
+            "parental consent"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-13",
+        "readingTime": 13,
+        "featured": true,
+        "editorsPick": false,
+        "url": "/resources/registration-guides/education/",
+        "coverThumb": "/resources/registration-guides/education/cover-thumb.jpg"
+    },
+    {
+        "slug": "private-security",
+        "ref": "KPLR/RG/007/2026",
+        "title": "ODPC Registration for Private Security Firms",
+        "subtitle": "A Sector Guide for Guarding, CCTV, Access Control and Investigation Services in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Private Security",
+        "topics": [
+            "Private Security",
+            "ODPC Registration",
+            "CCTV Proportionality",
+            "PSRA Licensing"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "private security",
+            "PSRA",
+            "CCTV",
+            "proportionality",
+            "section 48"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-13",
+        "readingTime": 12,
+        "featured": false,
+        "editorsPick": false,
+        "url": "/resources/registration-guides/private-security/",
+        "coverThumb": "/resources/registration-guides/private-security/cover-thumb.jpg"
+    },
+    {
+        "slug": "religious-institutions",
+        "ref": "KPLR/RG/008/2026",
+        "title": "ODPC Registration for Religious Institutions",
+        "subtitle": "A Sector Guide for Churches, Mosques, Temples and Faith-Based Organisations in Kenya",
+        "category": "Registration Guide",
+        "practiceArea": "Religious & Faith-Based Institutions",
+        "topics": [
+            "Religious & Faith-Based",
+            "ODPC Registration",
+            "Section 45(a) Basis",
+            "Societies Act"
+        ],
+        "keywords": [
+            "ODPC registration",
+            "religious institutions",
+            "churches",
+            "section 45",
+            "Societies Act",
+            "pastoral confidentiality"
+        ],
+        "author": "Patrick Muchangi",
+        "publicationDate": "2026-09-13",
+        "readingTime": 13,
+        "featured": false,
+        "editorsPick": false,
+        "url": "/resources/registration-guides/religious-institutions/",
+        "coverThumb": "/resources/registration-guides/religious-institutions/cover-thumb.jpg"
+    }
+]
