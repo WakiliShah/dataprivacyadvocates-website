@@ -288,3 +288,19 @@ html.mp-inverted body.mp-invert video,
 html.mp-inverted body.mp-invert .mp-nav,
 html.mp-inverted body.mp-invert .mp-nav-mobile,
 html.mp-inverted body.mp-invert .mp-palette-overlay{filter:invert(1) hue-rotate(180deg);}
+
+/* Navigation colour refresh: ink, navy and teal */
+:root {
+  --mpnav-ink: #171C24;
+  --mpnav-bar: #153653;
+  --mpnav-bar-2: #21445D;
+  --mpnav-paper: #F8FAFC;
+  --mpnav-gold: #0F766E;
+  --mpnav-gold-bright: #5EEAD4;
+  --mpnav-line: rgba(248,250,252,.14);
+}
+
+.mp-nav-links > a.active {
+  color: #5EEAD4;
+  background: rgba(15,118,110,.14);
+}
