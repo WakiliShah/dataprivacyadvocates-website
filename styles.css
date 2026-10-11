@@ -2934,3 +2934,79 @@ body.home-executive .homepage-digest-section {
 [data-theme="dark"] body.home-executive .executive-nav > a {
   color: #F8FAFC;
 }
+
+/* ACCESSIBILITY FIX — HIGH-CONTRAST PRACTICE AREA CARDS */
+
+/* Light mode: dark text on white cards */
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder {
+  background: #F8FAFC !important;
+  color: #171C24 !important;
+}
+
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder .pa-card {
+  background: #FFFFFF !important;
+  border: 1px solid #D7E0E8 !important;
+  color: #171C24 !important;
+}
+
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder h2,
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder .pa-card h3,
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder .pa-card-links a {
+  color: #153653 !important;
+}
+
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder p {
+  color: #334155 !important;
+}
+
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder .pa-card-links a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+html:not([data-theme="dark"]) body.home-executive .homepage-services-finder .pa-card-icon {
+  background: #EDF3F7 !important;
+  color: #0F766E !important;
+}
+
+/* Dark mode: light text on deep navy cards */
+html[data-theme="dark"] body.home-executive .homepage-services-finder {
+  background: #0B1724 !important;
+  color: #F8FAFC !important;
+}
+
+html[data-theme="dark"] body.home-executive .homepage-services-finder .pa-card {
+  background: #142538 !important;
+  border: 1px solid #334B5E !important;
+  color: #F8FAFC !important;
+}
+
+html[data-theme="dark"] body.home-executive .homepage-services-finder h2,
+html[data-theme="dark"] body.home-executive .homepage-services-finder .pa-card h3,
+html[data-theme="dark"] body.home-executive .homepage-services-finder .pa-card-links a {
+  color: #F8FAFC !important;
+}
+
+html[data-theme="dark"] body.home-executive .homepage-services-finder p {
+  color: #D7E0E8 !important;
+}
+
+html[data-theme="dark"] body.home-executive .homepage-services-finder .pa-card-links a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+html[data-theme="dark"] body.home-executive .homepage-services-finder .pa-card-icon {
+  background: #10283C !important;
+  color: #5EEAD4 !important;
+}
+
+/* Visible keyboard focus */
+body.home-executive .homepage-services-finder a:focus-visible {
+  outline: 3px solid #0F766E;
+  outline-offset: 4px;
+}
+
+html[data-theme="dark"] body.home-executive .homepage-services-finder a:focus-visible {
+  outline-color: #5EEAD4;
+}
