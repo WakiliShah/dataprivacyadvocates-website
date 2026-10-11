@@ -403,3 +403,52 @@ body.kplr {
   .kplr-layout { grid-template-columns: 1fr !important; }
   body.kplr { background: #fff; color: #000; }
 }
+
+/* RESOURCE PAGES — ALIGN WITH THE SITE-WIDE NAVY AND TEAL IDENTITY */
+
+:root {
+  --kplr-black: #153653;
+  --kplr-charcoal: #252E3A;
+  --kplr-charcoal-2: #171C24;
+  --kplr-line-dark: rgba(21,54,83,.22);
+
+  --kplr-cream: #F8FAFC;
+  --kplr-cream-2: #EDF3F7;
+  --kplr-ink: #171C24;
+  --kplr-ink-soft: #475569;
+  --kplr-line-light: #D7E0E8;
+
+  --kplr-gold: #0F766E;
+  --kplr-gold-bright: #5EEAD4;
+  --kplr-maroon: #153653;
+  --kplr-maroon-bright: #0F766E;
+  --kplr-maroon-pale: #E6FFFA;
+  --kplr-success: #166534;
+
+  --bg: #F8FAFC;
+  --bg-panel: #FFFFFF;
+  --bg-panel-2: #EDF3F7;
+  --text: #171C24;
+  --text-soft: #475569;
+  --line: #D7E0E8;
+  --accent: #153653;
+  --accent-bright: #0F766E;
+  --shadow: 0 10px 32px -16px rgba(23,28,36,.16);
+}
+
+/* Accessible resource-page buttons */
+.kplr-btn-gold {
+  background: #0F766E;
+  color: #FFFFFF;
+}
+
+.kplr-btn-gold:hover {
+  background: #115E59;
+  color: #FFFFFF;
+}
+
+.kplr-badge-gold {
+  background: #E6FFFA;
+  border-color: #0F766E;
+  color: #0B5F59;
+}
