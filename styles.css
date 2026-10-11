@@ -2771,3 +2771,166 @@ body.home-executive .executive-resource-map{
 .cl-preview-all{display:flex;justify-content:center;margin-top:6px}
 @media(max-width:980px){.cl-preview-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.cl-preview-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   SITE-WIDE DESIGN REFRESH — INK, NAVY, TEAL AND WARM WHITE
+   ========================================================= */
+
+:root {
+  --ink: #171C24;
+  --ink-2: #252E3A;
+  --navy: #153653;
+  --slate: #475569;
+  --muted: #64748B;
+  --paper: #F8FAFC;
+  --paper-2: #EDF3F7;
+  --white: #FFFFFF;
+  --brass: #0F766E;
+  --brass-light: #5EEAD4;
+  --line: #D7E0E8;
+  --cta: #0F766E;
+  --cta-hover: #115E59;
+  --success: #166534;
+  --warning: #92400E;
+  --error: #B91C1C;
+  --plum: #153653;
+  --plum-2: #0B5F59;
+  --plum-pale: #E6FFFA;
+  --coral: var(--brass);
+  --coral-deep: var(--cta);
+  --shadow-soft: 0 18px 50px rgba(23,28,36,.08);
+  --shadow-hard: 0 30px 70px rgba(23,28,36,.16);
+}
+
+/* Accessible dark-theme colours */
+[data-theme="dark"] {
+  --ink: #F8FAFC;
+  --ink-2: #E2E8F0;
+  --navy: #5EEAD4;
+  --slate: #D7E0E8;
+  --muted: #A3B1C2;
+  --paper: #0B1724;
+  --paper-2: #10283C;
+  --white: #142538;
+  --brass: #5EEAD4;
+  --brass-light: #99F6E4;
+  --line: #334B5E;
+  --cta: #14B8A6;
+  --cta-hover: #2DD4BF;
+  --success: #4FCCA0;
+  --warning: #FBBF24;
+  --error: #FDA4AF;
+  --plum: #5EEAD4;
+  --plum-2: #99F6E4;
+  --plum-pale: #1B3850;
+}
+
+/* Homepage brand colours */
+body.home-executive {
+  --home-gold: #0F766E;
+  --home-plum: #171C24;
+  --home-plum-2: #153653;
+  --home-paper: #F8FAFC;
+}
+
+.home-executive .executive-header {
+  background: rgba(248,250,252,.97);
+  border-bottom: 1px solid rgba(21,54,83,.14);
+  box-shadow: 0 4px 24px rgba(23,28,36,.04);
+}
+
+.home-executive .executive-header .executive-brand,
+.home-executive .executive-nav > a {
+  color: #171C24;
+}
+
+.home-executive .executive-nav > a:hover {
+  color: #0F766E;
+}
+
+.home-executive .executive-nav .nav-cta {
+  background: #153653;
+  color: #FFFFFF;
+  border-color: #153653;
+}
+
+/* Deep ink and navy hero, with a restrained teal accent */
+body.home-executive .homepage-hero {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(15,118,110,.16), transparent 55%),
+    linear-gradient(120deg, #171C24 0%, #252E3A 55%, #153653 100%);
+}
+
+/* Replace the old orange CTA with teal */
+body.home-executive .homepage-primary-cta,
+body.home-executive .btn-brass {
+  background: #0F766E;
+  color: #FFFFFF;
+  box-shadow: 0 4px 24px rgba(15,118,110,.22);
+}
+
+body.home-executive .homepage-primary-cta:hover,
+body.home-executive .btn-brass:hover {
+  background: #115E59;
+  color: #FFFFFF;
+  box-shadow: 0 6px 30px rgba(15,118,110,.28);
+}
+
+body.home-executive .homepage-primary-cta i,
+body.home-executive .btn-brass i {
+  color: #FFFFFF;
+}
+
+body.home-executive .homepage-secondary-cta {
+  color: #F8FAFC;
+  border-bottom: 1px solid #5EEAD4;
+}
+
+body.home-executive .homepage-secondary-cta i {
+  color: #5EEAD4;
+}
+
+/* Keep the services and practice-area sections light and readable */
+body.home-executive .homepage-services-finder {
+  background: #F8FAFC;
+}
+
+body.home-executive .homepage-wizard-grid {
+  background: rgba(21,54,83,.14);
+  border-color: rgba(21,54,83,.14);
+}
+
+body.home-executive .homepage-wizard-grid > a {
+  background: #FFFFFF;
+}
+
+body.home-executive .homepage-wizard-grid > a:hover {
+  background: #EDF3F7;
+}
+
+body.home-executive .pa-card {
+  background: #FFFFFF;
+  border-color: #D7E0E8;
+}
+
+body.home-executive .homepage-digest-section {
+  background: #FFFFFF;
+}
+
+/* Preserve a coherent header when dark mode is selected */
+[data-theme="dark"] body.home-executive {
+  --home-gold: #5EEAD4;
+  --home-plum: #F8FAFC;
+  --home-plum-2: #E2E8F0;
+  --home-paper: #0B1724;
+}
+
+[data-theme="dark"] body.home-executive .executive-header {
+  background: rgba(11,23,36,.97);
+  border-bottom-color: #334B5E;
+}
+
+[data-theme="dark"] body.home-executive .executive-header .executive-brand,
+[data-theme="dark"] body.home-executive .executive-nav > a {
+  color: #F8FAFC;
+}
