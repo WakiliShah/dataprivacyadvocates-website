@@ -304,3 +304,75 @@ html.mp-inverted body.mp-invert .mp-palette-overlay{filter:invert(1) hue-rotate(
   color: #5EEAD4;
   background: rgba(15,118,110,.14);
 }
+
+/* CONTACT PAGE — FIX LOW-CONTRAST HERO TEXT */
+body .client-hero {
+  background: linear-gradient(
+    120deg,
+    #171C24 0%,
+    #252E3A 55%,
+    #153653 100%
+  ) !important;
+  color: #F8FAFC !important;
+  border-bottom: 1px solid #334B5E !important;
+}
+
+body .client-hero::after {
+  border-color: rgba(94,234,212,.18) !important;
+  box-shadow:
+    0 0 0 44px rgba(94,234,212,.035),
+    0 0 0 88px rgba(94,234,212,.025) !important;
+}
+
+body .client-hero h1 {
+  color: #F8FAFC !important;
+}
+
+body .client-hero h1 em {
+  color: #5EEAD4 !important;
+}
+
+body .client-hero .lead {
+  color: #D7E0E8 !important;
+}
+
+body .client-hero .crumb,
+body .client-hero .crumb a {
+  color: #F8FAFC !important;
+}
+
+body .client-hero .crumb a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+body .client-hero .client-kicker,
+body .client-hero .client-kicker::before {
+  color: #5EEAD4 !important;
+  border-color: #5EEAD4;
+}
+
+body .client-hero .client-kicker::before {
+  background: #5EEAD4 !important;
+}
+
+body .client-hero .btn-line {
+  color: #F8FAFC !important;
+  border-color: rgba(248,250,252,.5) !important;
+}
+
+body .client-hero .btn-line:hover {
+  background: #0F766E !important;
+  border-color: #0F766E !important;
+  color: #FFFFFF !important;
+}
+
+body .client-hero .btn-brass {
+  background: #0F766E !important;
+  color: #FFFFFF !important;
+}
+
+body .client-hero a:focus-visible {
+  outline: 3px solid #5EEAD4;
+  outline-offset: 4px;
+}
